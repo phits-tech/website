@@ -1,0 +1,28 @@
+# Configs
+.runtimeconfig.json
+.npmrc
+.env*.local
+
+# Dependencies
+node_modules/
+bower_components
+build/Release
+
+# Build
+dist
+lib
+*.tsbuildinfo
+.npm
+
+# Tests & Coverage
+coverage
+firestore-coverage.html
+
+# Logs
+logs
+*.log
+.log*
+
+# OS & IDEs
+.DS_Store
+.idea

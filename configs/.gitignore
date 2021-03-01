@@ -1,0 +1,7 @@
+# Everything
+*
+*/
+
+# ...except this & examples
+!.gitignore
+!functions.example.json

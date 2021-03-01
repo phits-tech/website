@@ -1,0 +1,8 @@
+# Exclude all except src & tests
+.
+!src
+!tests
+
+# Project excludes
+*.js
+src/assets

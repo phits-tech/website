@@ -1,0 +1,32 @@
+{
+  "name": "@phits-tech/common",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "description": "Shared library for common code",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf ./dist ./tsconfig.tsbuildinfo",
+    "fix": "prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
+    "lint": "prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
+    "rebuild": "yarn clean && yarn build",
+    "test": "jest --testPathIgnorePatterns=emu",
+    "test:ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=../result.json --testLocationInResults",
+    "test:emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@firebase/app-types": "^0.6.1",
+    "@firebase/rules-unit-testing": "^1.2.0",
+    "@google-cloud/firestore": "^4.9.4",
+    "firebase": "^8.2.7",
+    "firebase-admin": "^9.5.0",
+    "jest": "^26.6.3",
+    "ts-essentials": "^7.0.1",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.5"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@phits-tech/docs",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Documentation",
+  "scripts": {
+    "fix": "prettier --loglevel warn --write \"**/*.md\" \"{**/,.}*.{js,json}\"",
+    "lint": "prettier --check \"**/*.md\" \"{**/,.}*.{js,json}\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
