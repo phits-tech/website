@@ -70,14 +70,14 @@ jobs:
       - name: 'Setup: Google Cloud SDK'
         uses: google-github-actions/setup-gcloud@master
         with:
-          service_account_key: ${{ GCP_SERVICE_ACCOUNT_KEY }}
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
           export_default_credentials: true
 
       - name: 'Setup: Service account config'
         run: 'echo "$SERVICE_ACCOUNT_KEY" > configs/service-account.${{ env.BUILD_ALIAS }}.json'
         shell: bash
         env:
-          SERVICE_ACCOUNT_KEY: ${{ GCP_SERVICE_ACCOUNT_KEY }}
+          SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
       - name: 'Setup: Copy cached deps'
         uses: actions/cache@v2
