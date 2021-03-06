@@ -45,7 +45,6 @@ jobs:
                 "SECRET_NAME_FIREBASE_PROJECT_ID": "PROD_FIREBASE_PROJECT_ID",
                 "SECRET_NAME_FIREBASE_STORAGE_BUCKET": "PROD_FIREBASE_STORAGE_BUCKET",
                 "SECRET_NAME_FUNCTIONS_REGION": "PROD_FUNCTIONS_REGION",
-                "SECRET_NAME_GCP_SERVICE_ACCOUNT_KEY": "PROD_GCP_SERVICE_ACCOUNT_KEY",
                 "VUE_APP_MODE": "PROD"
               },
               "develop": {
@@ -59,7 +58,6 @@ jobs:
                 "SECRET_NAME_FIREBASE_PROJECT_ID": "DEV_FIREBASE_PROJECT_ID",
                 "SECRET_NAME_FIREBASE_STORAGE_BUCKET": "DEV_FIREBASE_STORAGE_BUCKET",
                 "SECRET_NAME_FUNCTIONS_REGION": "DEV_FUNCTIONS_REGION",
-                "SECRET_NAME_GCP_SERVICE_ACCOUNT_KEY": "DEV_GCP_SERVICE_ACCOUNT_KEY",
                 "VUE_APP_MODE": "DEV"
               },
               ".*": {
@@ -68,18 +66,6 @@ jobs:
                 "VUE_APP_EMU_PORT_FUNCTIONS": ""
               }
             }
-
-      - name: 'Setup: Google Cloud SDK'
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          service_account_key: ${{ secrets[env.SECRET_NAME_GCP_SERVICE_ACCOUNT_KEY] }}
-          export_default_credentials: true
-
-      - name: 'Setup: Service account config'
-        run: 'echo "$SERVICE_ACCOUNT_KEY" > configs/service-account.${{ env.BUILD_ALIAS }}.json'
-        shell: bash
-        env:
-          SERVICE_ACCOUNT_KEY: ${{ secrets[env.SECRET_NAME_GCP_SERVICE_ACCOUNT_KEY] }}
 
       - name: 'Setup: Copy cached deps'
         uses: actions/cache@v2
@@ -126,10 +112,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           action-name: 'Tests'
-
-      - name: 'Deploy: Backup Firestore'
-        if: steps.extract_branch.outputs.branch == 'master'
-        run: cd admin && yarn backup "Pre-deploy ${{ env.BUILD_VERSION }}" ${{ env.BUILD_ALIAS }}
 
       - name: 'Deploy: Wait at turnstile'
         uses: softprops/turnstyle@v1
