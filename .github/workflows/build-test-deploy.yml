@@ -34,7 +34,7 @@ jobs:
           key: '${{ steps.extract_branch.outputs.branch }}'
           map: |
             {
-              "master": {
+              "main": {
                 "BUILD_ALIAS": "prod",
                 "BUILD_VERSION": "${{ steps.package-version.outputs.current-version }}",
                 "SECRET_NAME_FIREBASE_API_KEY": "PROD_FIREBASE_API_KEY",
