@@ -123,7 +123,7 @@ jobs:
       - name: 'Deploy: Functions, Hosting, Rules & Indexes'
         uses: w9jds/firebase-action@master
         with:
-          args: deploy -m "${{ env.BUILD_VERSION }}"
+          args: deploy --only hosting -m "${{ env.BUILD_VERSION }}"
         env:
           FIREBASE_TOKEN: '${{ secrets.FIREBASE_CI_TOKEN }}'
           PROJECT_ID: '${{ secrets[env.SECRET_NAME_FIREBASE_PROJECT_ID] }}'
