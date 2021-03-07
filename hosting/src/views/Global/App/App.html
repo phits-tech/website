@@ -1,25 +1,11 @@
 <div id="app">
-  <b-navbar type="is-primary" wrapper-class="container">
-    <template slot="brand">
-      <router-link
-        :to="{ name: 'Home' }"
-        class="navbar-item brand"
-        active-class=""
-        exact-active-class=""
-        >Phits.Tech <sup>BETA</sup></router-link
-      >
-    </template>
-
-    <template slot="start"></template>
-
-    <template slot="end"></template>
-  </b-navbar>
+  <NavBar></NavBar>
 
   <router-view />
 
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>Made with ❤ in <strong>Phitsanulok</strong></p>
-    </div>
+  <footer class="mt-24 pt-8 pb-16 bg-gray-900">
+    <p class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-gray-100 text-center">
+      Made with ❤ in <strong>Phitsanulok</strong>
+    </p>
   </footer>
 </div>

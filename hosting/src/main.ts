@@ -1,4 +1,3 @@
-// import Buefy from 'buefy'
 import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
 
@@ -11,13 +10,12 @@ import { auth } from '~/firebase-initialized'
 import { globals } from '~/vue/globals'
 import { mixins } from '~/vue/mixins'
 
-import '@mdi/font/css/materialdesignicons.css'
-import '@/scss/main.scss'
+// import '@mdi/font/css/materialdesignicons.css'
+import './index.css'
 
 // Setup Vue
 const create = async (): Promise<VueApp<Element>> => {
   const app = createApp(App)
-    // .use(Buefy)
     .use(router)
     .use(store)
     // .use(VueFire)
