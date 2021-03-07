@@ -3,6 +3,7 @@
     <!-- Banner -->
     <div v-if="banners.length > 0" class="relative h-96 overflow-hidden">
       <div
+        ref="firstSlide"
         class="absolute bg-cover bg-center inset-0 w-full h-full transition-all ease-in-out duration-1000 transform translate-x-0 slide"
         :style="{ backgroundImage: 'url('+banners[0].src+')' }"
       ></div>
@@ -29,22 +30,24 @@
 
   <!-- Calendar lookahead -->
   <div class="my-16 bg-gray-200">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <h2 class="">What's happening this week</h2>
-      <div class="grid grid-cols-7 gap-2">
-        <div class="bg-gray-100">1</div>
-        <div class="bg-gray-100">2</div>
-        <div class="bg-gray-100">3</div>
-        <div class="bg-gray-100">4</div>
-        <div class="bg-gray-100">5</div>
-        <div class="bg-gray-100">6</div>
-        <div class="bg-gray-100">7</div>
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4">
+      <h2 class="mb-2">What's happening this week</h2>
+      <div class="grid grid-cols-2 md:grid-cols-7 gap-2">
+        <div
+          v-for="(dayAndEvent, i) in sevenDaysAhead"
+          :key="i"
+          class="bg-gray-100"
+        >
+          <div>{{ dayAndEvent.date }}</div>
+          <div v-if="dayAndEvent.event">{{ dayAndEvent.event.name }}</div>
+          <div v-else>Nothing planned</div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Call to action -->
-  <div class="relative overflow-hidden">
+  <div class="relative overflow-hidden mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div
       class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
     >
@@ -57,7 +60,7 @@
       >
         <polygon points="50,0 100,0 50,100 0,100" />
       </svg>
-      <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <main class="">
         <div class="sm:text-center lg:text-left pt-48">
           <h1
             class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl"
