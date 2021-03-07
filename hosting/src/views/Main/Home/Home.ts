@@ -3,7 +3,7 @@ import { Vue } from 'vue-class-component'
 
 interface Banner { src: string }
 interface Event { name: string, time: string, location: string }
-interface DayAndEvent { date: Date, event: Event | undefined }
+interface DayAndEvent { day: string, event: Event | undefined }
 
 export default class Home extends Vue {
   get banners(): Banner[] {
@@ -17,13 +17,13 @@ export default class Home extends Vue {
 
   get sevenDaysAhead(): DayAndEvent[] {
     return [
-      { date: dayjs().toDate(), event: undefined },
-      { date: dayjs().add(1, 'day').toDate(), event: { name: 'Mobile Mondays', time: '19:00-21:00', location: 'The Sandbox' } },
-      { date: dayjs().add(2, 'day').toDate(), event: undefined },
-      { date: dayjs().add(3, 'day').toDate(), event: { name: 'Web Wednesdays', time: '18:00-19:00', location: 'The Sandbox' } },
-      { date: dayjs().add(4, 'day').toDate(), event: undefined },
-      { date: dayjs().add(5, 'day').toDate(), event: undefined },
-      { date: dayjs().add(6, 'day').toDate(), event: undefined }
+      { day: dayjs().format('ddd D'), event: undefined },
+      { day: dayjs().add(1, 'day').format('ddd D'), event: { name: 'Mobile Mondays', time: '19:00-21:00', location: 'The Sandbox' } },
+      { day: dayjs().add(2, 'day').format('ddd D'), event: undefined },
+      { day: dayjs().add(3, 'day').format('ddd D'), event: { name: 'Web Wednesdays', time: '18:00-19:00', location: 'The Sandbox' } },
+      { day: dayjs().add(4, 'day').format('ddd D'), event: undefined },
+      { day: dayjs().add(5, 'day').format('ddd D'), event: undefined },
+      { day: dayjs().add(6, 'day').format('ddd D'), event: undefined }
     ]
   }
 
