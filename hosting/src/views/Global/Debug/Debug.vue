@@ -86,7 +86,7 @@ export default class Debug extends Vue {
 
 .placeholder tr td:first-child {
   width: 160px;
-  color: #999999;
+  color: #999;
 }
 
 .placeholder tr td:last-child {

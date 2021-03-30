@@ -1,7 +1,7 @@
 import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
 
-// import { firestorePlugin as VueFire } from 'vuefire'
+// import { firestorePlugin as VueFire } from 'vuefire' // TODO: VueFire for Vue 3
 import router from '@/router'
 import store from '@/store'
 import { ACTIONS } from '@/store/vuex-api'
@@ -10,15 +10,14 @@ import { auth } from '~/firebase-initialized'
 import { globals } from '~/vue/globals'
 import { mixins } from '~/vue/mixins'
 
-// import '@mdi/font/css/materialdesignicons.css'
-import './index.css'
+import '@/styles/index.css'
 
 // Setup Vue
 const create = async (): Promise<VueApp<Element>> => {
   const app = createApp(App)
     .use(router)
     .use(store)
-    // .use(VueFire)
+    // .use(VueFire) // TODO: VueFire for Vue 3
 
   Object.entries(globals).forEach(([key, value]) => app.provide(key, value))
   mixins.forEach(mixin => app.mixin(mixin))

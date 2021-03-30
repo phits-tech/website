@@ -14,6 +14,12 @@ module.exports = {
       'lower',
       { ignoreFunctions: [/^[a-z][a-zA-Z0-9]+$/] }
     ],
+    'scss/at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind']
+      }
+    ],
     'selector-pseudo-class-no-unknown': [
       true,
       {
