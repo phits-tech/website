@@ -1,36 +1,38 @@
 <!-- Banner -->
-<div
-  v-if="banners.length > 0"
-  class="relative max-w-7xl m-auto overflow-hidden relative"
->
-  <div class="aspect-w-5 aspect-h-2 w-full overflow-hidden">
+<div class="bg-gray-400 w-full">
+  <div
+    v-if="banners.length > 0"
+    class="relative max-w-7xl m-auto overflow-hidden relative"
+  >
+    <div class="aspect-w-5 aspect-h-2 w-full overflow-hidden">
+      <div
+        v-for="(banner, i) in banners"
+        :key="'slide' + i"
+        @click="bannerClick(banner)"
+        class="absolute bg-cover bg-top inset-0 w-full h-full transition-all ease-in-out duration-1000 transform slide object-contain"
+        :class="{ ['translate-x-0']: i === 0, ['translate-x-full']: i > 0 }"
+        :style="{ backgroundImage: 'url('+banner.src+')' }"
+      ></div>
+    </div>
     <div
-      v-for="(banner, i) in banners"
-      :key="'slide' + i"
-      @click="bannerClick(banner)"
-      class="absolute bg-cover bg-top inset-0 w-full h-full transition-all ease-in-out duration-1000 transform slide object-contain"
-      :class="{ ['translate-x-0']: i === 0, ['translate-x-full']: i > 0 }"
-      :style="{ backgroundImage: 'url('+banner.src+')' }"
-    ></div>
-  </div>
-  <div
-    class="absolute bottom-0 right-0 bg-white bg-opacity-50 w-16 h-16 flex items-center justify-center text-black cursor-pointer"
-    @click="nextSlide"
-  >
-    &#x276F;
-  </div>
-  <div
-    class="absolute bottom-0 left-0 bg-white bg-opacity-50 w-16 h-16 flex items-center justify-center text-black cursor-pointer"
-    @click="previousSlide"
-  >
-    &#x276E;
+      class="absolute bottom-0 right-0 bg-white bg-opacity-50 w-16 h-16 flex items-center justify-center text-black cursor-pointer"
+      @click="nextSlide"
+    >
+      &#x276F;
+    </div>
+    <div
+      class="absolute bottom-0 left-0 bg-white bg-opacity-50 w-16 h-16 flex items-center justify-center text-black cursor-pointer"
+      @click="previousSlide"
+    >
+      &#x276E;
+    </div>
   </div>
 </div>
 
 <!-- Calendar lookahead -->
 <div class="bg-gray-200">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4">
-    <div class="grid grid-cols-2 md:grid-cols-7 gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-2">
       <div v-for="(dayAndEvent, i) in sevenDaysAhead" :key="'calendar' + i">
         <div class="px-1 text-sm text-gray-500 font-semibold tracking-wide">
           {{ dayAndEvent.day }}
@@ -38,17 +40,29 @@
         <div
           v-for="(event, idx) in dayAndEvent.events"
           :key="event.id"
-          class="bg-gray-100 my-2 p-2"
+          class="my-2 bg-gray-100 text-blue-600 hover:text-blue-800 cursor-pointer"
         >
-          <div v-if="idx < 2">
-            <div class="line-clamp-2 md:text-sm lg:text-base">
+          <div
+            v-if="idx < 2"
+            @click="$router.push({ name: 'Event', params: { eventId: event.id } })"
+            class="p-2"
+          >
+            <div
+              class="line-clamp-2 break-words md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5"
+            >
               {{ event.name }}
             </div>
-            <div class="text-sm md:text-xs lg:text-sm text-gray-500">
+            <div class="text-gray-600 text-sm md:text-xs lg:text-sm pt-0.5">
               {{ event.time }}
             </div>
           </div>
-          <div v-if="idx === 2" class="text-gray-400 font-light">...</div>
+          <div
+            v-if="idx === 2"
+            @click="$router.push({ name: 'Events' })"
+            class="text-gray-400 font-light p-2"
+          >
+            ...
+          </div>
         </div>
         <div
           v-if="dayAndEvent.events.length === 0"
