@@ -40,6 +40,7 @@ export const functions = firebase.app().functions(region) // HTTPS callable
 export const storage = firebase.storage()
 
 // Set emulator URLs
-if (VUE_APP_EMU_PORT_AUTH) auth.useEmulator(`http://localhost:${VUE_APP_EMU_PORT_AUTH}/`)
+// @ts-expect-error https://github.com/firebase/firebase-js-sdk/issues/4223
+if (VUE_APP_EMU_PORT_AUTH) auth.useEmulator(`http://localhost:${VUE_APP_EMU_PORT_AUTH}/`, { disableWarnings: true })
 if (VUE_APP_EMU_PORT_FIRESTORE) db.useEmulator('localhost', parseInt(VUE_APP_EMU_PORT_FIRESTORE))
 if (VUE_APP_EMU_PORT_FUNCTIONS) functions.useEmulator('localhost', parseInt(VUE_APP_EMU_PORT_FUNCTIONS))
