@@ -3,7 +3,7 @@ import { Vue } from 'vue-class-component'
 
 interface Banner { src: string, url?: string, eventId?: string, route?: string }
 interface Event { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
-interface DayAndEvent { day: string, events: Event[] }
+interface DayAndEvents { day: string, events: Event[] }
 
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
@@ -62,7 +62,7 @@ export default class Home extends Vue {
     if (banner.url) window.location.href = banner.url
   }
 
-  get sevenDaysAhead(): DayAndEvent[] {
+  get sevenDaysAhead(): DayAndEvents[] {
     const startOfDayLocal = dayjs().startOf('day')
 
     return Array.from({ length: 7 }, (x, i) => {
