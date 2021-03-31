@@ -1,11 +1,46 @@
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
 interface Banner { src: string }
-interface Event { name: string, time: string, location: string }
-interface DayAndEvent { day: string, event: Event | undefined }
+interface Event { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
+interface DayAndEvent { day: string, events: Event[] }
 
 export default class Home extends Vue {
+  events: Event[] = [
+    {
+      id: '456',
+      name: 'Web Wednesdays',
+      dateStart: dayjs('2021-03-31T18:00:00+07:00'),
+      dateEnd: dayjs('2021-03-31T19:00:00+07:00'),
+      time: '18:00-19:00',
+      location: 'The Sandbox'
+    },
+    {
+      id: '789',
+      name: 'TypeScript is Awesome Wednesdays',
+      dateStart: dayjs('2021-03-31T19:00:00+07:00'),
+      dateEnd: dayjs('2021-03-31T20:00:00+07:00'),
+      time: '19:00-20:00',
+      location: 'The Sandbox'
+    },
+    {
+      id: '654',
+      name: 'Another event',
+      dateStart: dayjs('2021-03-31T21:00:00+07:00'),
+      dateEnd: dayjs('2021-03-31T22:00:00+07:00'),
+      time: '21:00-22:00',
+      location: 'The Sandbox'
+    },
+    {
+      id: '123',
+      name: 'Mobile Mondays',
+      dateStart: dayjs('2021-04-05T19:00:00+07:00'),
+      dateEnd: dayjs('2021-04-05T21:00:00+07:00'),
+      time: '19:00-21:00',
+      location: 'The Sandbox'
+    }
+  ]
+
   get banners(): Banner[] {
     return [
       { src: 'https://images.unsplash.com/photo-1508921340878-ba53e1f016ec' },
@@ -16,15 +51,15 @@ export default class Home extends Vue {
   }
 
   get sevenDaysAhead(): DayAndEvent[] {
-    return [
-      { day: dayjs().format('ddd D'), event: undefined },
-      { day: dayjs().add(1, 'day').format('ddd D'), event: { name: 'Mobile Mondays', time: '19:00-21:00', location: 'The Sandbox' } },
-      { day: dayjs().add(2, 'day').format('ddd D'), event: undefined },
-      { day: dayjs().add(3, 'day').format('ddd D'), event: { name: 'Web Wednesdays', time: '18:00-19:00', location: 'The Sandbox' } },
-      { day: dayjs().add(4, 'day').format('ddd D'), event: undefined },
-      { day: dayjs().add(5, 'day').format('ddd D'), event: undefined },
-      { day: dayjs().add(6, 'day').format('ddd D'), event: undefined }
-    ]
+    const startOfDayLocal = dayjs().startOf('day')
+
+    return Array.from({ length: 7 }, (x, i) => {
+      const day = startOfDayLocal.add(i, 'day')
+      return {
+        day: (i === 0) ? 'Today' : (i === 1) ? 'Tomorrow' : day.format('ddd'),
+        events: this.events.filter(e => day.isBefore(e.dateStart) && day.add(1, 'day').isAfter(e.dateStart))
+      }
+    })
   }
 
   mounted(): void {
@@ -36,7 +71,6 @@ export default class Home extends Vue {
     if (activeSlide === null) return
     let nextSlide = activeSlide.nextElementSibling
     if (nextSlide === null || !nextSlide.classList.contains('slide')) {
-      console.log('here')
       nextSlide = activeSlide.parentElement?.querySelector('.slide') ?? null
       if (nextSlide === null) return
       activeSlide.classList.remove('translate-x-0')
