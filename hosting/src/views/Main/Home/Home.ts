@@ -1,11 +1,13 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
-interface Banner { src: string }
+interface Banner { src: string, url?: string, eventId?: string, route?: string }
 interface Event { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
 interface DayAndEvent { day: string, events: Event[] }
 
 export default class Home extends Vue {
+  nextSlideInterval: NodeJS.Timeout | null = null
+
   events: Event[] = [
     {
       id: '456',
@@ -43,11 +45,21 @@ export default class Home extends Vue {
 
   get banners(): Banner[] {
     return [
-      { src: 'https://images.unsplash.com/photo-1508921340878-ba53e1f016ec' },
-      { src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998' },
-      { src: 'https://images.unsplash.com/photo-1507361617237-221d9f2c84f7' },
-      { src: 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06' }
+      {
+        src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
+        eventId: '1'
+      },
+      {
+        src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
+        url: 'https://otap.phits.tech'
+      }
     ]
+  }
+
+  async bannerClick(banner: Banner): Promise<unknown> {
+    if (banner.eventId) return await this.$router.push({ name: 'Event', params: { eventId: banner.eventId } })
+    if (banner.route) return await this.$router.push({ name: banner.route })
+    if (banner.url) window.location.href = banner.url
   }
 
   get sevenDaysAhead(): DayAndEvent[] {
@@ -63,7 +75,11 @@ export default class Home extends Vue {
   }
 
   mounted(): void {
-    setInterval(this.nextSlide, 3000)
+    this.nextSlideInterval = setInterval(this.nextSlide, 5000)
+  }
+
+  beforeUnmount(): void {
+    if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
   }
 
   nextSlide(): void {
