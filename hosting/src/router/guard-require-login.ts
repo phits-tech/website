@@ -1,12 +1,11 @@
-import { NavigationGuard } from 'vue-router'
+// import { NavigationGuard } from 'vue-router'
 
-import store from '@/store'
+// import store from '@/store'
+// import * as Views from '@/views'
 
-import Routes from './routes'
+// const requireLogin: NavigationGuard<Vue> = async (_to, from, next) => {
+//   if (!store.state.currentUser) next({ name: Views.Login.name, params: { redirect: from.fullPath } })
+//   return next()
+// }
 
-const requireLogin: NavigationGuard<Vue> = async (_to, from, next) => {
-  if (!store.state.currentUser) next({ name: Routes.UserLogin, params: { redirect: from.fullPath } })
-  return next()
-}
-
-export default requireLogin
+// export default requireLogin
