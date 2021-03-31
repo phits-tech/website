@@ -1,3 +1,4 @@
+/* Note: Names in this file don't affect routing */
 export { default as EventsCreate } from './Events/Create/Create.vue'
 export { default as Event } from './Events/Event.vue'
 export { default as Events } from './Events/Events.vue'
