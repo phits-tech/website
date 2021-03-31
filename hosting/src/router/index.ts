@@ -21,6 +21,11 @@ const routes: RouteRecordRaw[] = [
     component: Pages.EventsCreate
   },
   {
+    path: '/events/:eventId',
+    name: Routes.Event,
+    component: Pages.Event
+  },
+  {
     path: '/:catchAllSegments(.*)',
     name: Routes.NotFound,
     component: Pages.NotFound
