@@ -1,10 +1,13 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
+import { Route } from '@/router/route-decorator'
+
 interface Banner { src: string, url?: string, eventId?: string, route?: string }
 interface Event { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
 interface DayAndEvents { day: string, events: Event[] }
 
+@Route({ path: '/' })
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
 
