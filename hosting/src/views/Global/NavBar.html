@@ -1,11 +1,11 @@
-<nav class="bg-gray-900">
+<nav class="bg-brand-black">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
         <button
           type="button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-brand-black-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
@@ -77,22 +77,22 @@
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- 
-              Current: "bg-gray-900 text-white"
-              Default: "text-gray-300 hover:bg-gray-700 hover:text-white" 
+              Current: "bg-brand-black text-white"
+              Default: "text-gray-300 hover:bg-brand-black-400 hover:text-white" 
             -->
             <router-link
               :to="{ name: 'Events' }"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Events</router-link
             >
             <router-link
               :to="{ name: 'Events' }"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Heroes</router-link
             >
             <a
               href="https://otap.phits.tech"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Accelerator</a
             >
           </div>
@@ -103,7 +103,7 @@
       >
         <router-link
           :to="{ name: 'EventsCreate' }"
-          class="flex items-start bg-gray-900 text-gray-300 px-3 py-2 rounded-md ring-2 ring-blue-300 hover:text-white hover:ring-blue-100 hover:bg-gray-800"
+          class="flex items-start px-3 py-2 rounded-md ring-2 ring-brand-blue bg-brand-black-900 hover:bg-brand-black text-gray-300 hover:text-white"
         >
           <svg
             class="h-6 w-6 mr-1"
@@ -120,7 +120,7 @@
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <span>Add an event</span>
+          <span class="pl-1 pr-0.5">Add an event</span>
         </router-link>
 
         <!-- Profile dropdown -->
@@ -160,19 +160,19 @@
           >
             <a
               href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
               role="menuitem"
               >Your Profile</a
             >
             <a
               href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
               role="menuitem"
               >Settings</a
             >
             <a
               href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
               role="menuitem"
               >Sign out</a
             >
@@ -187,21 +187,21 @@
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- 
         Current: "bg-gray-800 text-white"
-        Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
+        Default: "text-gray-300 hover:bg-brand-black-400 hover:text-white"
       -->
       <router-link
         :to="{ name: 'Events' }"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Events</router-link
       >
       <router-link
         :to="{ name: 'Events' }"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Heroes</router-link
       >
       <a
         href="https://otap.phits.tech"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Accelerator</a
       >
     </div>
