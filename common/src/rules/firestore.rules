@@ -1,33 +1,36 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    function anyUser() {
-      return request.auth != null;
-    }
+  // function anyUser() {
+    //   return request.auth != null;
+    // }
 
-    function userWithId(id) {
-      return request.auth != null && request.auth.uid == id;
-    }
+  // function userWithId(id) {
+    //   return request.auth != null && request.auth.uid == id;
+    // }
 
-    function onlyChangesField(allowedField) {
-      return onlyChangesFields([allowedField])
-    }
+  // function onlyChangesField(allowedField) {
+    //   return onlyChangesFields([allowedField])
+    // }
 
-    function onlyChangesFields(allowedFields) {
-      let affectedKeys = request.resource.data.diff(resource.data).affectedKeys();
-      return affectedKeys.hasOnly(allowedFields);
-    }
+  // function onlyChangesFields(allowedFields) {
+    //   let affectedKeys = request.resource.data.diff(resource.data).affectedKeys();
+    //   return affectedKeys.hasOnly(allowedFields);
+    // }
 
-    function onlyUnionsObjectToField(field, object) {
-      let added = request.resource.data[field].toSet().difference(resource.data[field].toSet());
-      return added.size() == 0 || added.hasOnly([object]);
-    }
+  // function onlyUnionsObjectToField(field, object) {
+    //   let added = request.resource.data[field].toSet().difference(resource.data[field].toSet());
+    //   return added.size() == 0 || added.hasOnly([object]);
+    // }
 
-    function onlyRemovesObjectFromField(field, object) {
-      let removed = resource.data[field].toSet().difference(request.resource.data[field].toSet());
-      return removed.size() == 0 || removed.hasOnly([object]);
-    }
+  // function onlyRemovesObjectFromField(field, object) {
+    //   let removed = resource.data[field].toSet().difference(request.resource.data[field].toSet());
+    //   return removed.size() == 0 || removed.hasOnly([object]);
+    // }
 
     // TODO: Write rules
+    match /{document=**} {
+      allow read, write: if true;
+    }
   }
 }
