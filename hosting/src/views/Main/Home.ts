@@ -4,47 +4,12 @@ import { Vue } from 'vue-class-component'
 import { Route } from '@/router/route-decorator'
 
 interface Banner { src: string, url?: string, eventId?: string, route?: string }
-interface Event { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
-interface DayAndEvents { day: string, events: Event[] }
+interface EventSummary { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
+interface DayAndEvents { day: string, events: EventSummary[] }
 
 @Route({ path: '/' })
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
-
-  events: Event[] = [
-    {
-      id: '456',
-      name: 'Web Wednesdays',
-      dateStart: dayjs('2021-03-31T18:00:00+07:00'),
-      dateEnd: dayjs('2021-03-31T19:00:00+07:00'),
-      time: '18:00-19:00',
-      location: 'The Sandbox'
-    },
-    {
-      id: '789',
-      name: 'TypeScript is Awesome Wednesdays',
-      dateStart: dayjs('2021-03-31T19:00:00+07:00'),
-      dateEnd: dayjs('2021-03-31T20:00:00+07:00'),
-      time: '19:00-20:00',
-      location: 'The Sandbox'
-    },
-    {
-      id: '654',
-      name: 'Another event',
-      dateStart: dayjs('2021-03-31T21:00:00+07:00'),
-      dateEnd: dayjs('2021-03-31T22:00:00+07:00'),
-      time: '21:00-22:00',
-      location: 'The Sandbox'
-    },
-    {
-      id: '123',
-      name: 'Mobile Mondays',
-      dateStart: dayjs('2021-04-05T19:00:00+07:00'),
-      dateEnd: dayjs('2021-04-05T21:00:00+07:00'),
-      time: '19:00-21:00',
-      location: 'The Sandbox'
-    }
-  ]
 
   get banners(): Banner[] {
     return [
@@ -66,13 +31,27 @@ export default class Home extends Vue {
   }
 
   get sevenDaysAhead(): DayAndEvents[] {
+    const events = this.$store.state.events.map(({ id, name, dateStart, dateEnd, location }) => {
+      const dsDayjs = dayjs.unix(dateStart.seconds)
+      const deDayJs = dayjs.unix(dateEnd.seconds)
+
+      return {
+        id,
+        name,
+        dateStart: dsDayjs,
+        dateEnd: deDayJs,
+        time: `${dsDayjs.format('HH:mm')}-${deDayJs.format('HH:mm')}`,
+        location
+      }
+    })
+
     const startOfDayLocal = dayjs().startOf('day')
 
-    return Array.from({ length: 7 }, (x, i) => {
+    return Array.from({ length: 7 }, (_, i) => {
       const day = startOfDayLocal.add(i, 'day')
       return {
         day: (i === 0) ? 'Today' : (i === 1) ? 'Tomorrow' : day.format('ddd'),
-        events: this.events.filter(e => day.isBefore(e.dateStart) && day.add(1, 'day').isAfter(e.dateStart))
+        events: events.filter(e => day.isBefore(e.dateStart) && day.add(1, 'day').isAfter(e.dateStart))
       }
     })
   }
