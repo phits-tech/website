@@ -22,6 +22,7 @@ const create = async (): Promise<VueApp<Element>> => {
   Object.entries(globals).forEach(([key, value]) => app.provide(key, value))
   mixins.forEach(mixin => app.mixin(mixin))
 
+  await store.dispatch(ACTIONS.init)
   await router.isReady()
   app.mount('#app')
   return app

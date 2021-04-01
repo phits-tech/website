@@ -1,6 +1,6 @@
-// import type firebase from 'firebase/app'
+import type firebase from 'firebase/app'
 
-// type Timestamp = firebase.firestore.Timestamp
+type Timestamp = firebase.firestore.Timestamp
 
 /**
  * Types of property
@@ -25,4 +25,12 @@ export interface UserPrivate {
   // TODO: Write real type
   email?: string
   nuConnectToken?: unknown
+}
+
+export interface Event {
+  id: string
+  name: string
+  dateStart: Timestamp
+  dateEnd: Timestamp
+  location: string
 }

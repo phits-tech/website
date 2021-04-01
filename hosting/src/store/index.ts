@@ -2,28 +2,27 @@ import type { User as FirebaseUser } from '@firebase/auth-types'
 import { createStore } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import { USERS } from '@phits-tech/common/dist/dao-firestore/schema'
+import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
 
-import type { PTVuexState } from '@/store/vuex-api'
+import { PTVuexState, STATE } from '@/store/vuex-api'
 import { db } from '~/firebase-initialized'
-
-// Private (use mutations to update state)
-const STATE = {
-  currentUser: 'currentUser'
-}
 
 // Private (prefer actions not mutations)
 // const MUTATIONS = {} // currently none...
 
-export default createStore<PTVuexState>({
+const store = createStore<PTVuexState>({
   state: {
-    currentUser: null
+    currentUser: null,
+    events: []
   },
   getters: {},
   mutations: {
     ...vuexfireMutations
   },
   actions: {
+    init: firestoreAction(async ({ bindFirestoreRef }) => {
+      return await bindFirestoreRef(STATE.events, db.collection(EVENTS))
+    }),
     userChanged: firestoreAction(({ state, bindFirestoreRef, unbindFirestoreRef }, user: FirebaseUser | { uid: string } | undefined) => {
       const uid = user?.uid
       if (uid === state.currentUser?.id) return
@@ -40,3 +39,5 @@ export default createStore<PTVuexState>({
   },
   modules: {}
 })
+
+export default store
