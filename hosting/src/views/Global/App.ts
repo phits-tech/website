@@ -1,6 +1,6 @@
 import { Options, Vue } from 'vue-class-component'
 
-import NavBar from '../NavBar/NavBar.vue'
+import NavBar from '@/views/Global/NavBar.vue'
 
 @Options({
   metaInfo: {

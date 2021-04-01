@@ -4,9 +4,8 @@ import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
 import { USERS } from '@phits-tech/common/dist/dao-firestore/schema'
 
+import type { PTVuexState } from '@/store/vuex-api'
 import { db } from '~/firebase-initialized'
-
-import type { PTVuexState } from './vuex-api'
 
 // Private (use mutations to update state)
 const STATE = {
