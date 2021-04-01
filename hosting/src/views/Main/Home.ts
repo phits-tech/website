@@ -24,12 +24,6 @@ export default class Home extends Vue {
     ]
   }
 
-  async bannerClick(banner: Banner): Promise<unknown> {
-    if (banner.eventId) return await this.$router.push({ name: 'Event', params: { eventId: banner.eventId } })
-    if (banner.route) return await this.$router.push({ name: banner.route })
-    if (banner.url) window.location.href = banner.url
-  }
-
   get sevenDaysAhead(): DayAndEvents[] {
     const events = this.$store.state.events.map(({ id, name, dateStart, dateEnd, location }) => {
       const dsDayjs = dayjs.unix(dateStart.seconds)
@@ -57,11 +51,20 @@ export default class Home extends Vue {
   }
 
   mounted(): void {
-    this.nextSlideInterval = setInterval(this.nextSlide, 5000)
+    this.resetSlideTimer()
   }
 
   beforeUnmount(): void {
+    this.clearSlideTimer()
+  }
+
+  clearSlideTimer(): void {
     if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
+  }
+
+  resetSlideTimer(): void {
+    this.clearSlideTimer()
+    this.nextSlideInterval = setInterval(this.nextSlide, 5000)
   }
 
   nextSlide(): void {
@@ -86,6 +89,8 @@ export default class Home extends Vue {
       nextSlide.classList.remove('translate-x-full')
       nextSlide.classList.add('translate-x-0')
     }
+
+    this.resetSlideTimer()
   }
 
   previousSlide(): void {
@@ -96,5 +101,13 @@ export default class Home extends Vue {
     activeSlide.classList.add('translate-x-full')
     previousSlide.classList.remove('-translate-x-full')
     previousSlide.classList.add('translate-x-0')
+
+    this.resetSlideTimer()
+  }
+
+  async bannerClick(banner: Banner): Promise<unknown> {
+    if (banner.eventId) return await this.$router.push({ name: 'Event', params: { eventId: banner.eventId } })
+    if (banner.route) return await this.$router.push({ name: banner.route })
+    if (banner.url) window.location.href = banner.url
   }
 }
