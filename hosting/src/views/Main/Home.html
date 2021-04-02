@@ -32,11 +32,17 @@
 <!-- Calendar lookahead -->
 <div class="bg-gray-200">
   <div class="max-w-7xl mx-auto px-3 pt-4 pb-2">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-2 px-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-4 px-2">
       <div v-for="(dayAndEvent, i) in sevenDaysAhead" :key="'calendar' + i">
         <div class="text-sm text-gray-500 font-semibold tracking-wide">
           {{ dayAndEvent.day }}
         </div>
+        <router-link
+          v-if="dayAndEvent.events.length === 0"
+          :to="{ name: 'EventsCreate' }"
+          class="block py-2 text-xs text-gray-400 hover:text-blue-400"
+          >Add event</router-link
+        >
         <div
           v-for="(event, idx) in dayAndEvent.events"
           :key="event.id"
@@ -63,12 +69,6 @@
           >
             ...
           </div>
-        </div>
-        <div
-          v-if="dayAndEvent.events.length === 0"
-          class="md:invisible px-2 py-1 text-gray-400 font-light"
-        >
-          -
         </div>
       </div>
     </div>
