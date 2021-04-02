@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
+    "dayjs": "^1.10.4",
     "dedent-js": "^1.0.1",
     "firebase-admin": "^9.5.0",
     "lodash": "^4.17.20",
