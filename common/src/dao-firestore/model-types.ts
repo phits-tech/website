@@ -30,7 +30,16 @@ export interface UserPrivate {
 export interface Event {
   id: string
   name: string
+  description: string
+  bannerUrl?: string
   dateStart: Timestamp
   dateEnd: Timestamp
   location: string
+  series?: string
+  seriesType?: string
+  badges?: string[]
+  hostId?: string
+  hostName?: string
+  registrationRequired?: boolean
+  registrationUrl?: string // custom registration
 }

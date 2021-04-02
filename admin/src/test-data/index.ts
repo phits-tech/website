@@ -31,17 +31,31 @@ const main = async (): Promise<void> => {
   const mobileMondays: Event = {
     id: '123',
     name: 'Mobile Mondays',
-    location: 'Warehouse Cafe',
+    description: 'Hang-out with fellow mobile developers. Trade knowledge. Learn the latest tech. Be your best dev!',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fmobile-mondays.jpg?alt=media&token=40e01fc2-9aa2-42c1-bd89-9e1ad76d067d',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextMonday.add(18, 'hour').unix() * 1000),
-    dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.add(19, 'hour').unix() * 1000)
+    dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.add(19, 'hour').unix() * 1000),
+    location: 'Warehouse Cafe',
+    series: 'Mobile Mondays',
+    seriesType: 'monthly',
+    badges: ['android', 'ios', 'flutter'],
+    hostId: 'boat-123',
+    hostName: 'Boat-o'
   }
 
   const webWednesdays: Event = {
     id: '456',
     name: 'Web Wednesdays',
-    location: 'In Towne',
+    description: 'TYPESCRIPT IS AMAZING!!!',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fweb-wednesdays.jpg?alt=media&token=2f63c5da-5230-4976-830b-ecfde34a46d9',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(19, 'hour').unix() * 1000),
-    dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(20, 'hour').unix() * 1000)
+    dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(20, 'hour').unix() * 1000),
+    location: 'In Towne',
+    series: 'Web Wednesdays',
+    seriesType: 'monthly',
+    badges: ['react', 'vue', 'express', 'firebase'],
+    hostId: 'nutto-456',
+    hostName: 'Nutto'
   }
 
   await Promise.all([
