@@ -65,7 +65,8 @@
 </template>
 
 <script lang="ts">
-import { Vue } from 'vue-class-component'
+import { setup, Vue } from 'vue-class-component'
+import { useMeta } from 'vue-meta'
 
 import { User } from '@phits-tech/common/dist/dao-firestore/model-types'
 import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
@@ -73,6 +74,11 @@ import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
 import store from '@/store'
 
 export default class Debug extends Vue {
+  meta = setup(() => {
+    useMeta({ title: 'Debug' })
+    return {}
+  })
+
   get user(): DeepRequiredWithId<User> | null {
     return store.state.currentUser
   }

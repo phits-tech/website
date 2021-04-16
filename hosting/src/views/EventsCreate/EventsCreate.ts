@@ -1,8 +1,12 @@
-import { Options, Vue } from 'vue-class-component'
+import { setup, Vue } from 'vue-class-component'
+import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
 @Route({ path: '/events/create' })
-@Options({ metaInfo(this: EventsCreate) { return {} } })
 export default class EventsCreate extends Vue {
+  meta = setup(() => {
+    useMeta({ title: 'Create Event' })
+    return { }
+  })
 }
