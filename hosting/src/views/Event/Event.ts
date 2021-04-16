@@ -1,7 +1,14 @@
-import { Options, Vue } from 'vue-class-component'
+import { computed } from '@vue/runtime-core'
+import { Vue } from 'vue-class-component'
+import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
 @Route({ path: '/events/:eventId' })
-@Options({ metaInfo(this: Event) { return {} } })
-export default class Event extends Vue {}
+export default class Event extends Vue {
+  mounted(): void {
+    useMeta(computed(() => ({
+      title: `Event ${this.$route.params.eventId as string}`
+    })))
+  }
+}
