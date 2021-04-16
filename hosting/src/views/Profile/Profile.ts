@@ -4,11 +4,11 @@ import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
-@Route({ path: '/events/:eventId' })
-export default class Event extends Vue {
+@Route({ path: '/profile/:slug' })
+export default class Profile extends Vue {
   mounted(): void {
     useMeta(computed(() => ({
-      title: `Event ${this.$route.params.eventId as string}`
+      title: `Profile ${this.$route.params.slug as string}`
     })))
   }
 }

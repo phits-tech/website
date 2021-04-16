@@ -1,5 +1,6 @@
 import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
+import { createMetaManager } from 'vue-meta'
 
 // import { firestorePlugin as VueFire } from 'vuefire' // TODO: VueFire for Vue 3
 import router from '@/router'
@@ -17,6 +18,7 @@ const create = async (): Promise<VueApp<Element>> => {
   const app = createApp(App)
     .use(router)
     .use(store)
+    .use(createMetaManager())
     // .use(VueFire) // TODO: VueFire for Vue 3
 
   Object.entries(globals).forEach(([key, value]) => app.provide(key, value))

@@ -1,5 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs'
-import { Options, Vue } from 'vue-class-component'
+import { setup, Vue } from 'vue-class-component'
+import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
@@ -21,8 +22,12 @@ interface EventUi { // TODO: Extract to UI `models`
 }
 
 @Route({ path: '/events' })
-@Options({ metaInfo(this: Events) { return {} } })
 export default class Events extends Vue {
+  meta = setup(() => {
+    useMeta({ title: 'Events' })
+    return { }
+  })
+
   get events(): EventUi[] { // TODO: Factor out as Vuex getter
     return this.$store.state.events.map(event => {
       const dsDayjs = dayjs.unix(event.dateStart.seconds)

@@ -1,7 +1,12 @@
-import { Options, Vue } from 'vue-class-component'
+import { setup, Vue } from 'vue-class-component'
+import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
 @Route({ path: '/heroes' })
-@Options({ metaInfo(this: Heroes) { return {} } })
-export default class Heroes extends Vue {}
+export default class Heroes extends Vue {
+  meta = setup(() => {
+    useMeta({ title: 'Heroes' })
+    return { }
+  })
+}
