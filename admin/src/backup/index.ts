@@ -23,7 +23,7 @@ if (!selectedProject) {
 
 // To backup other environments, create a new bucket in Firebase Console and add below
 const buckets: { [projectAlias: string]: string } = {
-  prod: 'phits-tech-backups',
+  prod: 'phits-tech.appspot.com/backups',
   dev: 'phits-tech-dev.appspot.com/backups'
 }
 

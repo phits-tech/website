@@ -14,7 +14,7 @@ jobs:
       - name: 'Setup: Node'
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12.x'
 
       - name: 'Setup: Git checkout'
         uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
 
       - name: 'Setup: Install new deps'
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile &> /dev/null
+        run: yarn --frozen-lockfile
 
       - name: 'Build: common'
         run: cd common && yarn build
