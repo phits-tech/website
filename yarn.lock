@@ -16119,7 +16119,7 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-meta@^3.0.0-alpha.2:
+vue-meta@^3.0.0-alpha.4:
   version "3.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-3.0.0-alpha.4.tgz#b70b7e60c49fb914cd24b8e80719d7e8e5b8a7e2"
   integrity sha512-ZgosLFjLAkgGnZeD2X4x2DI6i5gOu7aHnPr4If0+qFkMKhi8Iy0pSAenY9/rRm9gXWLa89Q7XkrGiQ9XFgSPYQ==
