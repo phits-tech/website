@@ -1,5 +1,5 @@
 <nav class="bg-brand-black">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-2 sm:px-4 xl:px-2">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
@@ -74,30 +74,26 @@
             alt="Phits Tech"
           />
         </router-link>
-        <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
-            <!-- 
-              Current: "bg-brand-black text-white"
-              Default: "text-gray-300 hover:bg-brand-black-400 hover:text-white" 
-            -->
+        <div class="hidden sm:block sm:ml-4 md:ml-6">
+          <div class="flex space-x-0 md:space-x-2">
             <router-link
               :to="{ name: 'Events' }"
-              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
               >Events</router-link
             >
             <router-link
               :to="{ name: 'Spaces' }"
-              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
               >Spaces</router-link
             >
             <router-link
               :to="{ name: 'Heroes' }"
-              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
               >Heroes</router-link
             >
             <a
               href="https://otap.phits.tech"
-              class="text-gray-300 hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
               >Accelerator
               <svg
                 class="inline w-4 h-4 mb-0.5"
@@ -117,11 +113,11 @@
         </div>
       </div>
       <div
-        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+        class="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto pr-2 sm:pr-0"
       >
         <router-link
           :to="{ name: 'EventsCreate' }"
-          class="flex items-start px-3 py-2 rounded-md ring-2 ring-brand-blue bg-brand-black-900 hover:bg-brand-black text-gray-300 hover:text-white"
+          class="flex items-center px-3 py-2 rounded-md ring-2 ring-brand-blue bg-brand-black-900 hover:bg-brand-black text-gray-300 hover:text-white"
         >
           <svg
             class="h-6 w-6 mr-1"
@@ -138,7 +134,7 @@
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <span class="pl-1 pr-0.5">Add an event</span>
+          <span class="pl-1 pr-0.5 text-sm md:text-base">Add an event</span>
         </router-link>
 
         <!-- Profile dropdown -->

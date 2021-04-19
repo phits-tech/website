@@ -8,6 +8,7 @@ module.exports = {
     // Disable (unwanted or conflicts)
     'no-empty-source': null,
     'order/properties-alphabetical-order': null,
+    'declaration-block-trailing-semicolon': null,
 
     // Supplementary
     'function-name-case': [
