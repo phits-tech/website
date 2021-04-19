@@ -1,15 +1,13 @@
-import dayjs from 'dayjs'
-import weekday from 'dayjs/plugin/weekday'
 import firebase from 'firebase-admin'
 
 import { Dao, Event } from '@phits-tech/common/dist/dao-firestore'
+import { nextDay } from '@phits-tech/common/dist/utils/datetime'
 import { EVENTS } from '@phits-tech/common/src/dao-firestore/schema'
 
 import { context } from '~/context'
 import { MODE, productionWarning } from '~/modes'
 import migrate from '../migrations/migrate'
 
-dayjs.extend(weekday)
 const db = context.db
 
 const main = async (): Promise<void> => {
@@ -24,17 +22,16 @@ const main = async (): Promise<void> => {
   await migrate()
 
   // ***** Add test data here *****
-  const today = dayjs().startOf('day')
-  const nextMonday = today.weekday(8)
-  const nextWednesday = today.weekday(10)
+  const nextMonday = nextDay(1).startOf('day')
+  const nextWednesday = nextDay(3).startOf('day')
 
   const mobileMondays: Event = {
     id: '123',
     name: 'Mobile Mondays',
     description: 'Hang-out with fellow mobile developers. Trade knowledge. Learn the latest tech. Be your best dev!',
     bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fmobile-mondays.jpg?alt=media&token=40e01fc2-9aa2-42c1-bd89-9e1ad76d067d',
-    dateStart: firebase.firestore.Timestamp.fromMillis(nextMonday.add(18, 'hour').unix() * 1000),
-    dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.add(19, 'hour').unix() * 1000),
+    dateStart: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(18).unix() * 1000),
+    dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(19).unix() * 1000),
     location: 'Warehouse Cafe',
     series: 'Mobile Mondays',
     seriesType: 'monthly',
@@ -48,8 +45,8 @@ const main = async (): Promise<void> => {
     name: 'Web Wednesdays',
     description: 'TYPESCRIPT IS AMAZING!!!',
     bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fweb-wednesdays.jpg?alt=media&token=2f63c5da-5230-4976-830b-ecfde34a46d9',
-    dateStart: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(19, 'hour').unix() * 1000),
-    dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(20, 'hour').unix() * 1000),
+    dateStart: firebase.firestore.Timestamp.fromMillis(nextWednesday.hour(19).unix() * 1000),
+    dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.hour(20).unix() * 1000),
     location: 'In Towne',
     series: 'Web Wednesdays',
     seriesType: 'monthly',
