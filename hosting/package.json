@@ -5,13 +5,13 @@
   "license": "UNLICENSED",
   "description": "Client-side web app",
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --watch",
     "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only hosting",
     "fix": "vue-cli-service lint --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\" && stylelint --fix \"**/*.{css,scss}\"",
     "lint": "vue-cli-service lint && prettier --check \"{**/,.}*.{html,css,scss,js,json}\" && stylelint \"**/*.{css,scss}\"",
     "rebuild": "yarn clean && yarn build",
-    "serve": "vue-cli-service serve"
+    "serve": "vue-cli-service serve --open"
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
