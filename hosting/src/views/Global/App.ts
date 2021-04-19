@@ -1,17 +1,17 @@
-import { Options, setup, Vue } from 'vue-class-component'
-import { useMeta } from 'vue-meta'
+import { Options, /* setup, */ Vue } from 'vue-class-component'
 
+// import { useMeta } from 'vue-meta'
 import NavBar from '@/views/Global/NavBar.vue'
 
 @Options({ components: { NavBar } })
 export default class App extends Vue {
-  meta = setup(() => {
-    useMeta({
-      title: '', // default is just `Phits.Tech`
-      htmlAttrs: {
-        lang: 'en',
-        amp: true
-      }
-    })
-  })
+  // meta = setup(() => {
+  //   useMeta({
+  //     title: '', // default is just `Phits.Tech`
+  //     htmlAttrs: {
+  //       lang: 'en',
+  //       amp: true
+  //     }
+  //   })
+  // })
 }
