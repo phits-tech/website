@@ -1,16 +1,15 @@
-import { Component } from 'vue'
 import { Vue } from 'vue-class-component'
-import { RouteRecordRaw } from 'vue-router'
 
-export function Route<T extends Vue>(...routes: Array<Omit<RouteRecordRaw, 'component'> & { priority?: number }>): (constructor: new () => T) => void {
-  return (constructor) => {
-    const component = constructor as Component
-    constructor.prototype.$routeMappings = routes.map(route => Object.assign({ component, priority: 0 }, route))
-  }
+interface Priority { priority: number }
+type RouteBinding = { name: string, path: string } & Partial<Priority>
+export type RouteBindingOrdered = RouteBinding & Required<Priority>
+
+export function Route<T extends Vue>(...routes: RouteBinding[]): (constructor: new () => T) => void {
+  return (ctor) => { ctor.prototype.$routeBindings = routes.map(route => Object.assign({ priority: 0 }, route)) }
 }
 
-declare module '@vue/runtime-core' {
-  export interface ComponentCustomProperties {
-    $routeMappings?: RouteRecordRaw & { priority: number }
-  }
-}
+// declare module '@vue/runtime-core' {
+//   interface ComponentCustomProperties {
+//     $routeBindings?: RouteBindingOrdered[]
+//   }
+// }
