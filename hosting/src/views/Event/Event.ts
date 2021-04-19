@@ -7,8 +7,6 @@ import { Route } from '@/router/route-decorator'
 @Route({ name: 'Event', path: '/events/:eventId' })
 export default class Event extends Vue {
   mounted(): void {
-    useMeta(computed(() => ({
-      title: `Event ${this.$route.params.eventId as string}`
-    })))
+    useMeta(computed(() => ({ title: `Event ${this.$route.params.eventId as string}` })))
   }
 }

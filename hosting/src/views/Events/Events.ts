@@ -23,10 +23,7 @@ interface EventUi { // TODO: Extract to UI `models`
 
 @Route({ name: 'Events', path: '/events' })
 export default class Events extends Vue {
-  meta = setup(() => {
-    useMeta({ title: 'Events' })
-    return { }
-  })
+  meta = setup(() => { useMeta({ title: 'Events' }) })
 
   get events(): EventUi[] { // TODO: Factor out as Vuex getter
     return this.$store.state.events.map(event => {

@@ -1,5 +1,5 @@
 import { Options, setup, Vue } from 'vue-class-component'
-import { useActiveMeta, useMeta } from 'vue-meta'
+import { useMeta } from 'vue-meta'
 
 import NavBar from '@/views/Global/NavBar.vue'
 
@@ -13,6 +13,5 @@ export default class App extends Vue {
         amp: true
       }
     })
-    return { metadata: useActiveMeta() }
   })
 }

@@ -5,8 +5,5 @@ import { Route } from '@/router/route-decorator'
 
 @Route({ name: 'Heroes', path: '/heroes' })
 export default class Heroes extends Vue {
-  meta = setup(() => {
-    useMeta({ title: 'Heroes' })
-    return { }
-  })
+  meta = setup(() => { useMeta({ title: 'Heroes' }) })
 }

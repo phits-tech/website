@@ -7,8 +7,6 @@ import { Route } from '@/router/route-decorator'
 @Route({ name: 'Profile', path: '/profile/:slug' })
 export default class Profile extends Vue {
   mounted(): void {
-    useMeta(computed(() => ({
-      title: `Profile ${this.$route.params.slug as string}`
-    })))
+    useMeta(computed(() => ({ title: `Profile ${this.$route.params.slug as string}` })))
   }
 }

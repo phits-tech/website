@@ -5,8 +5,5 @@ import { Route } from '@/router/route-decorator'
 
 @Route({ name: 'Spaces', path: '/spaces' })
 export default class Spaces extends Vue {
-  meta = setup(() => {
-    useMeta({ title: 'Spaces' })
-    return { }
-  })
+  meta = setup(() => { useMeta({ title: 'Spaces' }) })
 }

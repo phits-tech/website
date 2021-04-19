@@ -9,9 +9,7 @@ import { Route } from '@/router/route-decorator'
 export default class NotFound extends Vue.with(class {
   item!: string
 }) {
-  get itemCapitalized(): string {
-    return capitalize(this.item)
-  }
+  get itemCapitalized(): string { return capitalize(this.item) }
 }
 </script>
 

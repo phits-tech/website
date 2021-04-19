@@ -74,10 +74,7 @@ import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
 import store from '@/store'
 
 export default class Debug extends Vue {
-  meta = setup(() => {
-    useMeta({ title: 'Debug' })
-    return {}
-  })
+  meta = setup(() => { useMeta({ title: 'Debug' }) })
 
   get user(): DeepRequiredWithId<User> | null {
     return store.state.currentUser
