@@ -4,7 +4,7 @@ import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
-@Route({ path: '/profile/:slug' })
+@Route({ name: 'Profile', path: '/profile/:slug' })
 export default class Profile extends Vue {
   mounted(): void {
     useMeta(computed(() => ({

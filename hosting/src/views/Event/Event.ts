@@ -4,7 +4,7 @@ import { useMeta } from 'vue-meta'
 
 import { Route } from '@/router/route-decorator'
 
-@Route({ path: '/events/:eventId' })
+@Route({ name: 'Event', path: '/events/:eventId' })
 export default class Event extends Vue {
   mounted(): void {
     useMeta(computed(() => ({

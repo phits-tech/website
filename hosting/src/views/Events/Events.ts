@@ -21,7 +21,7 @@ interface EventUi { // TODO: Extract to UI `models`
   registrationUrl?: string
 }
 
-@Route({ path: '/events' })
+@Route({ name: 'Events', path: '/events' })
 export default class Events extends Vue {
   meta = setup(() => {
     useMeta({ title: 'Events' })
