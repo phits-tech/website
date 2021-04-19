@@ -5,7 +5,8 @@
   "license": "UNLICENSED",
   "description": "Client-side web app",
   "scripts": {
-    "build": "vue-cli-service build --watch",
+    "build": "vue-cli-service build",
+    "buildw": "vue-cli-service build --watch",
     "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only hosting",
     "fix": "vue-cli-service lint --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\" && stylelint --fix \"**/*.{css,scss}\"",
