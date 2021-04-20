@@ -3,8 +3,8 @@ import { Vue } from 'vue-class-component'
 
 import { Route } from '@/router/route-decorator'
 
-interface Banner { src: string, url?: string, eventId?: string, route?: string }
-interface EventSummary { id: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
+interface Banner { src: string, url?: string, eventSlug?: string, route?: string }
+interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
 interface DayAndEvents { day: string, events: EventSummary[] }
 
 @Route({ name: 'Home', path: '/' })
@@ -15,7 +15,7 @@ export default class Home extends Vue {
     return [
       {
         src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
-        eventId: '1'
+        eventSlug: 'tech-clinic'
       },
       {
         src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
@@ -25,12 +25,12 @@ export default class Home extends Vue {
   }
 
   get sevenDaysAhead(): DayAndEvents[] {
-    const events = this.$store.state.events.map(({ id, name, dateStart, dateEnd, location }) => {
+    const events = this.$store.state.events.map(({ slug, name, dateStart, dateEnd, location }) => {
       const dsDayjs = dayjs.unix(dateStart.seconds)
       const deDayJs = dayjs.unix(dateEnd.seconds)
 
       return {
-        id,
+        slug,
         name,
         dateStart: dsDayjs,
         dateEnd: deDayJs,
@@ -106,7 +106,7 @@ export default class Home extends Vue {
   }
 
   async bannerClick(banner: Banner): Promise<unknown> {
-    if (banner.eventId) return await this.$router.push({ name: 'Event', params: { eventId: banner.eventId } })
+    if (banner.eventSlug) return await this.$router.push({ name: 'Event', params: { slug: banner.eventSlug } })
     if (banner.route) return await this.$router.push({ name: banner.route })
     if (banner.url) window.location.href = banner.url
   }

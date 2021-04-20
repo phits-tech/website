@@ -3,7 +3,7 @@
 
   <div
     v-for="event in events"
-    :key="'event' + event.id"
+    :key="'event' + event.slug"
     class="py-4 px-4 ring-2 ring-gray-100 rounded-xl mb-6 bg-gray-50"
   >
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-5 gap-y-4">
@@ -19,7 +19,7 @@
         <p class="mt-3 text-center">
           <router-link
             v-if="true"
-            :to="{ name: 'Event', params: { eventId: event.id } }"
+            :to="{ name: 'Event', params: { slug: event.slug } }"
             class="text-brand-blue-900 hover:text-brand-blue-500"
             >&gt; &gt; Register Now &lt; &lt;</router-link
           >
@@ -27,7 +27,7 @@
       </div>
       <div class="col-span-1 sm:col-span-2">
         <router-link
-          :to="{ name: 'Event', params: { eventId: event.id } }"
+          :to="{ name: 'Event', params: { slug: event.slug } }"
           class="text-xl text-brand-blue-900 hover:text-brand-blue-500"
           >{{ event.name }}
           <div
