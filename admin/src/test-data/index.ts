@@ -26,7 +26,7 @@ const main = async (): Promise<void> => {
   const nextWednesday = nextDay(3).startOf('day')
 
   const mobileMondays: Event = {
-    id: '123',
+    slug: 'mobile-mondays',
     name: 'Mobile Mondays',
     description: 'Hang-out with fellow mobile developers. Trade knowledge. Learn the latest tech. Be your best dev!',
     bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fmobile-mondays.jpg?alt=media&token=40e01fc2-9aa2-42c1-bd89-9e1ad76d067d',
@@ -41,7 +41,7 @@ const main = async (): Promise<void> => {
   }
 
   const webWednesdays: Event = {
-    id: '456',
+    slug: 'web-wednesdays',
     name: 'Web Wednesdays',
     description: 'TYPESCRIPT IS AMAZING!!!',
     bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fweb-wednesdays.jpg?alt=media&token=2f63c5da-5230-4976-830b-ecfde34a46d9',
@@ -56,8 +56,8 @@ const main = async (): Promise<void> => {
   }
 
   await Promise.all([
-    db.collection(EVENTS).doc(mobileMondays.id).set(mobileMondays, { merge: true }),
-    db.collection(EVENTS).doc(webWednesdays.id).set(webWednesdays, { merge: true })
+    db.collection(EVENTS).doc(mobileMondays.slug).set(mobileMondays, { merge: true }),
+    db.collection(EVENTS).doc(webWednesdays.slug).set(webWednesdays, { merge: true })
   ]).catch(error => console.error(error))
 }
 

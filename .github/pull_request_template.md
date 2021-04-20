@@ -1,18 +1,18 @@
 ## ✅ DoD
 
-- [x] Resolves #xyz
-- [ ] Migrations written
-- [ ] Migrations tested against a prod clone
-- [ ] Documentation updated
-- [ ] Release notes updated
+- [ ] All work is complete
+- [ ] Migrations: TESTED NA
+- [ ] Documentation: UPDATED NA
+- [ ] Release notes: UPDATED NA
+- [ ] Issues linked: resolves #xyz
 
 ## 🛑 Problems
 
-- [ ] Write any discovered & unresolved problems
+- Write any discovered & unresolved problems
 
 ## 📝 Summary
 
-- [x] Write a list of changes _(use italic to highlight additional/unplanned work)_
+- Write a list of changes
 
 ## 💡 More ideas
 

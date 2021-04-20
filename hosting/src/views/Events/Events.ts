@@ -5,7 +5,7 @@ import { useMeta } from 'vue-meta'
 import { Route } from '@/router/route-decorator'
 
 interface EventUi { // TODO: Extract to UI `models`
-  id: string
+  slug: string
   name: string
   description: string
   dateStart: Dayjs

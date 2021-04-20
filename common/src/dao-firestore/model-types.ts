@@ -28,7 +28,7 @@ export interface UserPrivate {
 }
 
 export interface Event {
-  id: string
+  slug: string
   name: string
   description: string
   bannerUrl?: string
