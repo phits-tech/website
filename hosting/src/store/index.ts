@@ -4,6 +4,7 @@ import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
 import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
 
+import { eventToEventUi } from '@/models/event'
 import { PTVuexState, STATE } from '@/store/vuex-api'
 import { db } from '~/firebase-initialized'
 
@@ -15,7 +16,13 @@ const store = createStore<PTVuexState>({
     currentUser: null,
     events: []
   },
-  getters: {},
+  getters: {
+    events: (state) => state.events.map(eventToEventUi),
+    eventBySlug: (state) => (slug: string) => {
+      const event = state.events.find(event => event.slug === slug)
+      return event ? eventToEventUi(event) : undefined
+    }
+  },
   mutations: {
     ...vuexfireMutations
   },
