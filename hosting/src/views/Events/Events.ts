@@ -9,6 +9,6 @@ export default class Events extends Vue {
   meta = setup(() => useMeta({ title: 'Events' }))
 
   get events(): EventUi[] {
-    return this.$store.getters.events()
+    return this.$store.getters.events
   }
 }
