@@ -1,9 +1,12 @@
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
-  <h1 class="text-3xl font-medium text-brand-black mt-8">Active Heroes</h1>
+  <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 sm:gap-y-6 mt-4"
   >
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -12,35 +15,49 @@
               : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
         />
       </div>
-      <div class="px-5 pt-4 pb-4">
-        <div class="text-xl font-bold">Charles Allen</div>
+      <div class="px-5 pt-4 pb-4 relative">
+        <div class="text-xl font-bold">Charleslonglong Veryverylongname</div>
         <p class="text-base text-gray-700 mt-1 leading-tight">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet,
+          beatae!
         </p>
         <p class="text-xs pt-3">Last event:</p>
-        <p class="text-sm text-bold leading-tight pt-0.5">
-          Kotlin Thailand Meetup
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup with a longer name
+          </router-link>
         </p>
-        <p class="pt-3.5">
-          <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
           >
-            #firebase
+            CCU:160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #android
+            android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #devops
+            devops
           </span>
         </p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -55,27 +72,42 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <p class="text-xs pt-3">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-        <p class="pt-3.5">
-          <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
           >
-            #firebase
+            CCU:160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #android
+            android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #devops
+            devops
           </span>
         </p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -90,27 +122,42 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <p class="text-xs pt-3">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-        <p class="pt-3.5">
-          <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
           >
-            #firebase
+            CCU:160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #android
+            android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #devops
+            devops
           </span>
         </p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -125,27 +172,42 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <p class="text-xs pt-3">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-        <p class="pt-3.5">
-          <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
           >
-            #firebase
+            CCU:160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #android
+            android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #devops
+            devops
           </span>
         </p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -160,22 +222,34 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <p class="text-xs pt-3">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-        <p class="pt-3.5">
-          <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
           >
-            #firebase
+            CCU:160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #android
+            android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-full ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-1.5 mb-1.5"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
           >
-            #devops
+            devops
           </span>
         </p>
       </div>
@@ -185,7 +259,10 @@
   <div
     class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-5 mt-4"
   >
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -200,7 +277,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -215,7 +295,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -230,7 +313,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -245,7 +331,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -260,7 +349,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -275,7 +367,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
@@ -290,7 +385,10 @@
         <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
       </div>
     </div>
-    <div class="rounded overflow-hidden shadow-lg">
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
       <div class="w-full aspect-w-1 aspect-h-1">
         <div
           class="w-full h-full bg-cover bg-top"
