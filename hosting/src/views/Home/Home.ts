@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
-import { Route } from '@/router/route-decorator'
+import { Route } from '~/router/route-decorator'
 
 interface Banner { src: string, url?: string, eventSlug?: string, route?: string }
 interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }

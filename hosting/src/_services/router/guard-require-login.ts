@@ -1,6 +1,6 @@
 // import { NavigationGuard } from 'vue-router'
 
-// import store from '@/store'
+// import store from '~/store'
 // import * as Views from '@/views'
 
 // const requireLogin: NavigationGuard<Vue> = async (_to, from, next) => {

@@ -1,7 +1,7 @@
 /* Note: Names in this file don't affect routing */
-export { default as Event } from '@/views/Event/Event.vue'
-export { default as Events } from '@/views/Events/Events.vue'
-export { default as EventsCreate } from '@/views/EventsCreate/EventsCreate.vue'
+export { default as Event } from '@/events/Event/Event.vue'
+export { default as Events } from '@/events/Events/Events.vue'
+export { default as EventsCreate } from '@/events/EventsCreate/EventsCreate.vue'
 export { default as App } from '@/views/Global/App.vue'
 export { default as Debug } from '@/views/Global/Debug.vue'
 export { default as NotFound } from '@/views/Global/NotFound.vue'

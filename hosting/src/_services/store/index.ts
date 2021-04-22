@@ -4,9 +4,9 @@ import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
 import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
 
-import { eventToEventUi } from '@/models/event'
-import { PTVuexState, STATE } from '@/store/vuex-api'
+import { eventToEventUi } from '@/events/event'
 import { db } from '~/firebase-initialized'
+import { PTVuexState, STATE } from '~/store/vuex-api'
 
 // Private (prefer actions not mutations)
 // const MUTATIONS = {} // currently none...
