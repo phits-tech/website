@@ -1,5 +1,5 @@
 import { computed } from '@vue/runtime-core'
-import { Vue } from 'vue-class-component'
+import { setup, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
@@ -14,7 +14,7 @@ export default class Event extends Vue.with(class {
 }) {
   route = useRoute()
   store = useStore(storeKey)
-  meta = useMeta(computed(() => ({ title: this.event ? this.event.name : 'Event not found' })))
+  meta = setup(() => useMeta(computed(() => ({ title: this.event?.name ?? 'Event not found' }))))
 
   get event(): EventUi | undefined {
     return this.store.getters.eventBySlug(this.slug)
