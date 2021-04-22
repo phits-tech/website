@@ -4,7 +4,7 @@ import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
 import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
 
-import { eventToEventUi } from '@/events/event'
+import { eventToEventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
 import { PTVuexState, STATE } from '~/store/vuex-api'
 

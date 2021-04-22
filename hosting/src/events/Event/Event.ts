@@ -3,8 +3,8 @@ import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 import { useRoute } from 'vue-router'
 
-import { EventUi } from '@/events/event'
 import { Route } from '~/router/route-decorator'
+import { EventUi } from '../models'
 
 @Route({ name: 'Event', path: '/events/:slug' })
 export default class Event extends Vue {
