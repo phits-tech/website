@@ -46,26 +46,31 @@
         <div
           v-for="(event, idx) in dayAndEvent.events"
           :key="event.id"
-          class="my-2 bg-gray-100 ring-2 ring-gray-300 rounded-sm text-blue-600 hover:text-blue-400 cursor-pointer"
+          class="my-2 bg-gray-100 hover:bg-white ring-2 ring-gray-300 rounded-sm text-blue-600 cursor-pointer"
         >
           <div
             v-if="idx < 2"
             @click="$router.push({ name: 'Event', params: { slug: event.slug } })"
-            class="p-2"
+            class="px-2 lg:px-2.5 py-1.5 lg:py-2"
           >
             <div
               class="line-clamp-2 break-words md:text-sm lg:text-base leading-5 md:leading-4 lg:leading-5"
             >
               {{ event.name }}
             </div>
-            <div class="text-gray-600 text-sm md:text-xs lg:text-sm pt-0.5">
-              {{ $filters.eventTime(event) }}
+            <div
+              class="line-clamp-1 break-all text-gray-600 text-xs lg:text-sm mt-0.5"
+            >
+              {{ $filters.eventTime(event) }}<sup
+                v-if="event.dateStart.day() !== event.dateEnd.day()"
+                >+1</sup
+              >
             </div>
           </div>
           <div
             v-if="idx === 2"
             @click="$router.push({ name: 'Events' })"
-            class="text-gray-400 font-light p-2"
+            class="text-gray-400 font-light px-2 lg:px-2.5 py-1.5 lg:py-2"
           >
             ...
           </div>
