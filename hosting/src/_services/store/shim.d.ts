@@ -1,9 +1,9 @@
 import { Store } from 'vuex'
 
-import { PTVuexState } from '~/store/vuex-api'
+import { PTStoreState } from '~/store'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
-    $store: Store<PTVuexState>
+    $store: Store<PTStoreState>
   }
 }

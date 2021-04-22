@@ -8,7 +8,7 @@ import { auth } from '~/firebase-initialized'
 import { globals } from '~/globals'
 import { mixins } from '~/mixins'
 import router from '~/router'
-import store, { STORE } from '~/store'
+import { STORE, store, storeKey } from '~/store'
 
 import '@/main.css'
 
@@ -16,7 +16,7 @@ import '@/main.css'
 const create = async (): Promise<VueApp<Element>> => {
   const app = createApp(App)
     .use(router)
-    .use(store)
+    .use(store, storeKey)
     .use(createMetaManager())
 
   // TODO: I think I'm doing this wrong... https://learnvue.co/2020/03/designing-vue3-plugins-using-provide-and-inject/

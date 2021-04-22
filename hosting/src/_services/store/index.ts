@@ -1,5 +1,6 @@
 import type { User as FirebaseUser } from '@firebase/auth-types'
-import { createStore } from 'vuex'
+import { InjectionKey } from '@vue/runtime-core'
+import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
 import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
@@ -30,7 +31,9 @@ export const STORE = {
   }
 }
 
-const store = createStore<PTStoreState>({
+export const storeKey: InjectionKey<Store<PTStoreState>> = Symbol('PTStore')
+
+export const store = createStore<PTStoreState>({
   state: {
     currentUser: null,
     eventsRaw: []
