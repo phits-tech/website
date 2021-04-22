@@ -3,6 +3,7 @@ import { Vue } from 'vue-class-component'
 export interface RouteBinding {
   name: string
   path: string
+  props?: boolean
   priority?: number
 }
 
