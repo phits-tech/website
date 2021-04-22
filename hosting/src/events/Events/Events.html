@@ -1,0 +1,56 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
+  <h1 class="text-3xl font-medium text-brand-black pb-8">Upcoming Events</h1>
+
+  <div
+    v-for="event in events"
+    :key="'event' + event.slug"
+    class="py-4 px-4 ring-2 ring-gray-100 rounded-xl mb-6 bg-gray-50"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-5 gap-y-4">
+      <div class="col-span-1">
+        <div class="aspect-w-16 aspect-h-9 w-full">
+          <div
+            class="w-full h-full bg-cover bg-top rounded-lg shadow-lg"
+            :style="event.bannerUrl 
+              ? { backgroundImage: 'url(' + event.bannerUrl + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+          ></div>
+        </div>
+        <p class="mt-3 text-center">
+          <router-link
+            v-if="true"
+            :to="{ name: 'Event', params: { slug: event.slug } }"
+            class="text-brand-blue-900 hover:text-brand-blue-500"
+            >&gt; &gt; Register Now &lt; &lt;</router-link
+          >
+        </p>
+      </div>
+      <div class="col-span-1 sm:col-span-2">
+        <router-link
+          :to="{ name: 'Event', params: { slug: event.slug } }"
+          class="text-xl text-brand-blue-900 hover:text-brand-blue-500"
+          >{{ event.name }}
+          <div
+            v-if="event.series && event.seriesType"
+            class="inline-block align-middle bg-brand-black text-brand-blue-500 rounded-sm text-xs px-1 py-0.5 mb-1 ml-0.5"
+          >
+            {{ event.seriesType }}
+          </div>
+        </router-link>
+        <p class="text-xs text-gray-400">
+          {{ $filters.eventDate(event) }} @ {{ event.location }}
+        </p>
+        <div v-if="event.description" class="my-4">{{ event.description }}</div>
+        <div
+          v-for="badge in event.badges"
+          class="inline-block bg-brand-black-50 rounded-sm text-xs py-0.5 px-1.5 mr-1.5"
+        >
+          {{ badge }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="text-3xl font-medium text-brand-black pb-8">Past Events</h1>
+  <p>TBD</p>
+</div>
