@@ -16,6 +16,6 @@ export const eventToEventUi = (event: Event): EventUi => {
     ...event,
     dateStart,
     dateEnd,
-    time: dsDayjs.format('ddd DD MMM, HH:mm') + '-' + deDayJs.format('HH:mm')
+    time: `${dateStart.format('ddd DD MMM, HH:mm')}-${dateEnd.format('HH:mm')}${(dateStart.day() !== dateEnd.day()) ? `(+${dateEnd.day() - dateStart.day()})` : ''}`
   }
 }
