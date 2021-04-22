@@ -8,8 +8,7 @@ import { auth } from '~/firebase-initialized'
 import { globals } from '~/globals'
 import { mixins } from '~/mixins'
 import router from '~/router'
-import store from '~/store'
-import { ACTIONS } from '~/store/vuex-api'
+import store, { STORE } from '~/store'
 
 import '@/main.css'
 
@@ -26,7 +25,7 @@ const create = async (): Promise<VueApp<Element>> => {
   mixins.forEach(mixin => app.mixin(mixin))
   app.config.globalProperties.$filters = filters
 
-  await store.dispatch(ACTIONS.init)
+  await store.dispatch(STORE.ACTIONS.init)
   await router.isReady()
   app.mount('#app')
   return app
@@ -35,7 +34,7 @@ const create = async (): Promise<VueApp<Element>> => {
 // Load auth state => start Vue
 let shouldInitialize = true
 auth.onAuthStateChanged(async (user) => {
-  await store.dispatch(ACTIONS.userChanged, user)
+  await store.dispatch(STORE.ACTIONS.userChanged, user)
   if (shouldInitialize) {
     shouldInitialize = false
     await create()

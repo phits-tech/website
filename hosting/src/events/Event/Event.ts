@@ -11,7 +11,7 @@ export default class Event extends Vue {
   route = useRoute()
   meta = useMeta(computed(() => ({ title: `Event ${this.route.params.slug as string}` })))
 
-  get event(): EventUi {
+  get event(): EventUi | undefined {
     return this.$store.getters.eventBySlug(this.route.params.slug)
   }
 }
