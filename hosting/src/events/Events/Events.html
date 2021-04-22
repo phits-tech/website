@@ -38,7 +38,7 @@
           </div>
         </router-link>
         <p class="text-xs text-gray-400">
-          {{ event.time }} @ {{ event.location }}
+          {{ $filters.eventDate(event) }} @ {{ event.location }}
         </p>
         <div v-if="event.description" class="my-4">{{ event.description }}</div>
         <div

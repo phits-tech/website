@@ -59,7 +59,7 @@
               {{ event.name }}
             </div>
             <div class="text-gray-600 text-sm md:text-xs lg:text-sm pt-0.5">
-              {{ event.time }}
+              {{ $filters.eventTime(event) }}
             </div>
           </div>
           <div

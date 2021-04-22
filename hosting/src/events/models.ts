@@ -5,7 +5,6 @@ import { Event } from '@phits-tech/common/dist/dao-firestore/model-types'
 export type EventUi = Omit<Event, 'dateStart' | 'dateEnd'> & {
   dateStart: Dayjs
   dateEnd: Dayjs
-  time: string
 }
 
 export const eventToEventUi = (event: Event): EventUi => {
@@ -15,7 +14,6 @@ export const eventToEventUi = (event: Event): EventUi => {
   return {
     ...event,
     dateStart,
-    dateEnd,
-    time: `${dateStart.format('ddd DD MMM, HH:mm')}-${dateEnd.format('HH:mm')}${(dateStart.day() !== dateEnd.day()) ? `(+${dateEnd.day() - dateStart.day()})` : ''}`
+    dateEnd
   }
 }

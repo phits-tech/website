@@ -4,7 +4,7 @@ import { Vue } from 'vue-class-component'
 import { Route } from '~/router/route-decorator'
 
 interface Banner { src: string, url?: string, eventSlug?: string, route?: string }
-interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
+interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, location: string }
 interface DayAndEvents { day: string, events: EventSummary[] }
 
 @Route({ name: 'Home', path: '/' })
@@ -34,7 +34,6 @@ export default class Home extends Vue {
         name,
         dateStart: dsDayjs,
         dateEnd: deDayJs,
-        time: `${dsDayjs.format('HH:mm')}-${deDayJs.format('HH:mm')}`,
         location
       }
     })

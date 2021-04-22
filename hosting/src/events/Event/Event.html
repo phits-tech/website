@@ -21,7 +21,9 @@
     </div>
   </h3>
 
-  <p class="text-gray-400">{{ event.time }} @ {{ event.location }}</p>
+  <p class="text-gray-400">
+    {{ $filters.eventDate(event) }} @ {{ event.location }}
+  </p>
   <div v-if="event.description" class="my-4">{{ event.description }}</div>
   <div
     v-for="badge in event.badges"
