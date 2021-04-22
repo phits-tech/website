@@ -1,6 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
+import { EventUi } from '@/events/models'
 import { Route } from '~/router/route-decorator'
 
 interface Banner { src: string, url?: string, eventSlug?: string, route?: string }
@@ -25,19 +26,7 @@ export default class Home extends Vue {
   }
 
   get sevenDaysAhead(): DayAndEvents[] {
-    const events = this.$store.state.events.map(({ slug, name, dateStart, dateEnd, location }) => {
-      const dsDayjs = dayjs.unix(dateStart.seconds)
-      const deDayJs = dayjs.unix(dateEnd.seconds)
-
-      return {
-        slug,
-        name,
-        dateStart: dsDayjs,
-        dateEnd: deDayJs,
-        location
-      }
-    })
-
+    const events: EventUi[] = this.$store.getters.events
     const startOfDayLocal = dayjs().startOf('day')
 
     return Array.from({ length: 7 }, (_, i) => {
