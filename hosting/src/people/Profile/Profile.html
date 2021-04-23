@@ -1,16 +1,11 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
   <div class="sm:flex p-4">
     <div class="flex-none pr-10">
-      <div class="relative rounded-2xl shadow-lg">
+      <div class="rounded-2xl shadow-lg">
         <img
           class="w-56 bg-brand-black rounded-xl ring-1 ring-brand-blue-50"
           src="https://avatars.githubusercontent.com/u/31621095?v=4"
         />
-        <div
-          class="absolute bottom-0 left-0 right-0 bg-brand-black bg-opacity-80 rounded-bl-xl rounded-br-xl text-white text-xl text-center py-1"
-        >
-          100 <span alt="Community Contribution Units">CCUs</span>
-        </div>
       </div>
       <h1 class="text-3xl font-medium text-brand-black pt-5">Charles Allen</h1>
       <h2 class="text-lg italic text-gray-400 font-light leading-tight">
@@ -145,45 +140,105 @@
         Bio Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Repudiandae laudantium saepe aliquid eum sapiente reiciendis, delectus
         quis nihil ea suscipit. Dolorem corporis deleniti delectus doloremque
-        natus ad necessitatibus molestiae reprehenderit.
+        natus ad necessitatibus reprehenderit.
       </p>
-      <div class="mt-4">
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+      <p class="mt-4">
+        <span
+          class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+        >
+          160
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           android
-        </div>
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           firebase
-        </div>
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           vue
-        </div>
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           typescript
-        </div>
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           kotlin
-        </div>
-        <div
-          class="inline-block bg-brand-blue-50 text-brand-blue-900 ring-1 ring-brand-blue-100 rounded-md text-sm py-0.5 px-2 mr-2.5"
+        </span>
+        <span
+          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
           java
+        </span>
+      </p>
+      <div class="flex items-center mt-6">
+        <h3 class="flex-grow text-xl">Community Contribution</h3>
+        <p class="flex-none text-right text-sm font-light text-brand-black-900">
+          0
+          <span class="has-tooltip border-b-2 border-gray-300 border-dotted"
+            ><span
+              class="tooltip text-center w-36 rounded shadow-lg py-2 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-4"
+              >Community Contribution Units</span
+            >CCU</span
+          >
+          · 43
+          <span class="has-tooltip border-b-2 border-gray-200 border-dotted"
+            ><span
+              class="tooltip text-center w-20 rounded shadow-lg py-1 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-5"
+              >Lifetime CCUs</span
+            >LCCU</span
+          >
+        </p>
+      </div>
+
+      <div class="flex items-center bg-gray-100 space-x-4 mt-3">
+        <div class="flex-none">
+          <div class="w-28 aspect-w-16 aspect-h-9">
+            <div
+              class="w-full h-full bg-cover bg-top"
+              :style="false 
+            ? { backgroundImage: 'url(' + 'potato' + ')' } 
+            : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+            />
+          </div>
+        </div>
+        <div class="flex-grow">
+          <p class="text-lg font-light">Agile: Learn to Plan; Plan to Learn</p>
+        </div>
+        <div class="flex-none pr-4">
+          <p class="text-xl font-extralight">20</p>
         </div>
       </div>
-      <p class="mt-4 text-xl">
-        <span class="mr-4">Events: 15</span>
-        <span class="mr-4">CCUs: 100</span>
-        <span class="mr-4">LCC: 500</span>
-      </p>
+
+      <div class="flex items-center bg-gray-100 space-x-4 mt-3">
+        <div class="flex-none">
+          <div class="w-28 aspect-w-16 aspect-h-9">
+            <div
+              class="w-full h-full bg-cover bg-top"
+              :style="false 
+            ? { backgroundImage: 'url(' + 'potato' + ')' } 
+            : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+            />
+          </div>
+        </div>
+        <div class="flex-grow">
+          <p class="text-lg font-light">Attendee x 15 (23 hours)</p>
+        </div>
+        <div class="flex-none pr-4">
+          <p class="text-xl font-extralight">23</p>
+        </div>
+      </div>
+
+      <h3 class="flex-grow text-xl mt-6">Events Attended</h3>
+      GRID OF EVENTS GOES HERE
     </div>
   </div>
 </div>
