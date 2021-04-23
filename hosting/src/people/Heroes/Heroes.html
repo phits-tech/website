@@ -1,4 +1,37 @@
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-2">
+    <h1 class="text-3xl font-medium text-brand-black mt-8">Become a Hero</h1>
+    <div class="block sm:hidden text-right mt-8">
+      <p class="text-gray-400 text-xs font-light italic">Your contribution</p>
+      <p class="text-brand-blue-800 text-xs">CCU: 160 · LCCU: 220</p>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    The
+    <span class="text-brand-blue-800 font-bold">Community Hero</span> award is
+    Phits.Tech's way to recognize and thank individuals for their contributions
+    to our community. Every hour engaged in community events earns
+    <span class="font-bold">CCU</span> (<span class="font-bold">C</span>ommunity
+    <span class="font-bold">C</span>ontribution
+    <span class="font-bold">U</span>nits). The easiest way to become a Community
+    Hero is to volunteer to run an event.
+    <span class="italic">Be a hero:</span>
+  </div>
+
+  <div class="text-center mt-5">
+    <router-link
+      :to="{ name: 'EventsCreate' }"
+      class="block sm:inline-block text-white text-lg sm:text-xl px-16 sm:px-24 py-3.5 sm:py-4 text-center font-medium bg-brand-blue-600 hover:bg-brand-blue-800 border-brand-blue-900 border-b-2 rounded-md shadow-md"
+    >
+      Host an event
+    </router-link>
+    <p class="hidden sm:block text-sm mt-3 text-gray-400 font-light">
+      Your contribution:
+      <span class="text-brand-blue-800 font-normal">CCU: 160 / LCCU: 220</span>
+    </p>
+  </div>
+
   <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 sm:gap-y-6 mt-4"
@@ -32,22 +65,22 @@
         <p class="pt-4">
           <router-link
             :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
-            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
           >
             CCU:160
           </router-link>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             devops
           </span>
@@ -82,22 +115,22 @@
         <p class="pt-4">
           <router-link
             :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
-            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
           >
             CCU:160
           </router-link>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             devops
           </span>
@@ -132,22 +165,22 @@
         <p class="pt-4">
           <router-link
             :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
-            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
           >
             CCU:160
           </router-link>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             devops
           </span>
@@ -182,22 +215,22 @@
         <p class="pt-4">
           <router-link
             :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
-            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
           >
             CCU:160
           </router-link>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             devops
           </span>
@@ -232,22 +265,22 @@
         <p class="pt-4">
           <router-link
             :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
-            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1 py-1 text-xs font-normal mr-2 mb-2"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
           >
             CCU:160
           </router-link>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             firebase
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             android
           </span>
           <span
-            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1 py-1 text-xs font-light mr-2 mb-2"
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
           >
             devops
           </span>
