@@ -3,20 +3,32 @@
     <h1 class="text-3xl font-medium text-brand-black mt-8">Become a Hero</h1>
     <div class="block sm:hidden text-right mt-8">
       <p class="text-gray-400 text-xs font-light italic">Your contribution</p>
-      <p class="text-brand-blue-800 text-xs">CCU: 160 · LCCU: 220</p>
+      <router-link
+        :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+        class="text-brand-blue-800 text-xs"
+        >CCU: 160 · LCCU: 220</router-link
+      >
     </div>
   </div>
 
   <div class="mt-4">
     The
-    <span class="text-brand-blue-800 font-bold">Community Hero</span> award is
-    Phits.Tech's way to recognize and thank individuals for their contributions
-    to our community. Every hour engaged in community events earns
+    <router-link
+      :to="{ name: 'HeroesWhy' }"
+      class="inline text-brand-blue-800 hover:text-brand-blue-600 font-bold"
+      >Community Hero</router-link
+    >
+    award is Phits.Tech's way to recognize and thank individuals for their
+    contributions to our community. Every hour engaged in community events earns
     <span class="font-bold">CCU</span> (<span class="font-bold">C</span>ommunity
     <span class="font-bold">C</span>ontribution
     <span class="font-bold">U</span>nits). The easiest way to become a Community
-    Hero is to volunteer to run an event.
-    <span class="italic">Be a hero:</span>
+    Hero is to volunteer to run an event. Learn more about the
+    <router-link
+      :to="{ name: 'HeroesWhy' }"
+      class="inline text-brand-blue-800 hover:text-brand-blue-600"
+      >benefits of becoming a hero</router-link
+    >, or get started now:
   </div>
 
   <div class="text-center mt-5">
@@ -26,10 +38,13 @@
     >
       Host an event
     </router-link>
-    <p class="hidden sm:block text-sm mt-3 text-gray-400 font-light">
+    <router-link
+      :to="{ name: 'Profile', params: { slug: 'charles-allen' }}"
+      class="hidden sm:block text-sm mt-3 text-gray-400 font-light"
+    >
       Your contribution:
       <span class="text-brand-blue-800 font-normal">CCU: 160 / LCCU: 220</span>
-    </p>
+    </router-link>
   </div>
 
   <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
