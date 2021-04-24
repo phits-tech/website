@@ -17,6 +17,6 @@ const getBindings = (component: Component): RouteBinding[] =>
   component.prototype.$routeBindings ?? []
 
 const createRoute = (binding: RouteBinding, name: string, component: Component): RouteRecordRaw & { priority: number } =>
-  (binding.redirect !== undefined || binding.components !== undefined)
+  ('redirect' in binding || 'components' in binding)
     ? Object.assign({ name, priority: 0 }, binding) // Redirect or MultipleViews
     : Object.assign({ name, priority: 0, component }, binding) // SingleView
