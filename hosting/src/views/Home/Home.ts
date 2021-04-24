@@ -7,7 +7,7 @@ interface Banner { src: string, url?: string, eventSlug?: string, route?: string
 interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, time: string, location: string }
 interface DayAndEvents { day: string, events: EventSummary[] }
 
-@Route({ name: 'Home', path: '/' })
+@Route({ path: '/' })
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
 
