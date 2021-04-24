@@ -1,11 +1,13 @@
 import { values } from 'lodash'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-import * as Views from '@/views'
+import views from '@/views'
 
 import { RouteBinding } from './route-decorator'
 
-const routes: RouteRecordRaw[] = values(Views)
+// TODO: Extract logic to "RouteBuilder"
+// TODO: Use Component name as default if only 1 route
+const routes: RouteRecordRaw[] = values(views)
   .flatMap(component => (component.prototype.$routeBindings as RouteBinding[] ?? [])
     .map(route => Object.assign({ component, priority: 0 }, route)))
   .sort((r1, r2) => r2.priority - r1.priority)
