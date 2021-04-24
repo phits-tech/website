@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import components from '@/views'
 
-import { getRoutes } from './route-decorator/route-builder'
+import { getRoutes } from './route-decorator'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
