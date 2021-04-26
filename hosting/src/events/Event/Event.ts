@@ -7,7 +7,7 @@ import { Route } from '~/router/route-decorator'
 import { storeKey } from '~/store'
 import { EventUi } from '../models'
 
-@Route({ name: 'Event', path: '/events/:slug', props: true })
+@Route({ path: '/events/:slug', props: true })
 export default class Event extends Vue.with(class {
   slug!: string
 }) {

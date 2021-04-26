@@ -6,7 +6,7 @@ export const dateRange = (dateStart: Dayjs, dateEnd: Dayjs): string =>
   `${dateStart.format('ddd DD MMM, HH:mm')}-${dateEnd.format('HH:mm')}${(dateStart.day() !== dateEnd.day()) ? `(+${dateEnd.day() - dateStart.day()})` : ''}`
 
 export const timeRange = (dateStart: Dayjs, dateEnd: Dayjs): string =>
-  `${dateStart.format('HH:mm')}-${dateEnd.format('HH:mm')}${(dateStart.day() !== dateEnd.day()) ? `(+${dateEnd.day() - dateStart.day()})` : ''}`
+  `${dateStart.format('HH:mm')}-${dateEnd.format('HH:mm')}`
 
 export const eventDate = ({ dateStart, dateEnd }: EventUi): string => dateRange(dateStart, dateEnd)
 
