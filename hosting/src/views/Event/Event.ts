@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 
 import { Route } from '@/router/route-decorator'
 
-@Route({ name: 'Event', path: '/events/:slug' })
+@Route({ path: '/events/:slug' })
 export default class Event extends Vue {
   route = useRoute()
   meta = useMeta(computed(() => ({ title: `Event ${this.route.params.slug as string}` })))
