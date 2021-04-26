@@ -1,8 +1,27 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
-  <h1 class="text-3xl font-medium text-brand-black pb-8">Spaces</h1>
-  <ul>
-    <li>PT Discord</li>
-    <li>Maker Club</li>
-    <li>???</li>
-  </ul>
+<!-- banner -->
+<div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-2 gap-5 mt-8">
+    <div v-for="space in spaces" :key="space.name">
+      <div class="relative w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="{ backgroundImage: 'url(' + space.banner + ')' }"
+        ></div>
+      </div>
+
+      <h1
+        class="text-lg tracking-tight font-extrabold text-brand-black sm:text-4xl md:text-5xl md:py-4"
+      >
+        {{space.name}}<span
+          class="inline-block text-sm lowercase ring-1 ring-brand-blue rounded-full"
+          >{{ space.spaceType }}</span
+        >
+        <p>{{space.locationText}}</p>
+      </h1>
+      <p class="text-2xl text-gray-500">
+        Reprehenderit laborum veniam deserunt adipisicing est consectetur dolore
+        irure nostrud aliqua in.
+      </p>
+    </div>
+  </div>
 </div>
