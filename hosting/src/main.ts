@@ -6,7 +6,7 @@ import { createMetaManager } from 'vue-meta'
 import router from '@/router'
 import store from '@/store'
 import { ACTIONS } from '@/store/vuex-api'
-import components from '@/views'
+import App from '@/views/Global/App.vue'
 import { auth } from '~/firebase-initialized'
 import { globals } from '~/vue/globals'
 import { mixins } from '~/vue/mixins'
@@ -15,7 +15,7 @@ import '@/styles/index.css'
 
 // Setup Vue
 const create = async (): Promise<VueApp<Element>> => {
-  const app = createApp(components.App)
+  const app = createApp(App)
     .use(router)
     .use(store)
     .use(createMetaManager())

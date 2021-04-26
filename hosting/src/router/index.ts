@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import components from '@/views'
-
 import { getRoutes } from './route-decorator'
+
+const context = require.context('@/', true, /\.vue$/i)
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes: getRoutes(components),
+  routes: getRoutes(context),
   linkActiveClass: 'is-active'
 })
 
