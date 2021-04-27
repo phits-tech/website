@@ -1,27 +1,40 @@
-<!-- banner -->
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
-  <div class="grid grid-cols-2 gap-5 mt-8">
-    <div v-for="space in spaces" :key="space.name">
-      <div class="relative w-full aspect-w-1 aspect-h-1">
+  <!-- Grid -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-6 mt-8"
+  >
+    <div v-for="space in spaces" :key="space.name" class="shadow-lg">
+      <!-- Space: Banner -->
+      <div class="relative w-full aspect-w-16 aspect-h-9">
         <div
           class="w-full h-full bg-cover bg-top"
           :style="{ backgroundImage: 'url(' + space.banner + ')' }"
-        ></div>
+        >
+        </div>
       </div>
 
-      <h1
-        class="text-lg tracking-tight font-extrabold text-brand-black sm:text-4xl md:text-5xl md:py-4"
-      >
-        {{space.name}}<span
-          class="inline-block text-sm lowercase ring-1 ring-brand-blue rounded-full"
-          >{{ space.spaceType }}</span
-        >
+      <!-- Space: Text -->
+      <div class="px-5 py-5">
+        <div class="flex items-center">
+          <h1 class="flex-none text-brand-black text-3xl leading-none">
+            {{space.name}}
+          </h1>
+          <div class="flex-grow">
+            <div
+              class="inline-block text-xs lowercase text-brand-black ring-1 ring-brand-blue-900 bg-brand-blue-50 rounded-full ml-2 px-1.5 py-0.5 mb-1"
+            >
+              {{ space.spaceType }}
+            </div>
+          </div>
+        </div>
+
         <p>{{space.locationText}}</p>
-      </h1>
-      <p class="text-2xl text-gray-500">
-        Reprehenderit laborum veniam deserunt adipisicing est consectetur dolore
-        irure nostrud aliqua in.
-      </p>
+
+        <p class="text-gray-500 mt-3">
+          Reprehenderit laborum veniam deserunt adipisicing est consectetur
+          dolore irure nostrud aliqua in.
+        </p>
+      </div>
     </div>
   </div>
 </div>
