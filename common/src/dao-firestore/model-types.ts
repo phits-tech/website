@@ -43,3 +43,12 @@ export interface Event {
   registrationRequired?: boolean
   registrationUrl?: string // custom registration
 }
+
+export interface Space {
+  slug: string
+  name: string
+  logo: string
+  banner: string
+  spaceType: string
+  locationText: string
+}

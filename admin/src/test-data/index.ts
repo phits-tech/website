@@ -1,8 +1,8 @@
 import firebase from 'firebase-admin'
 
-import { Dao, Event } from '@phits-tech/common/dist/dao-firestore'
+import { Dao, Event, Space } from '@phits-tech/common/dist/dao-firestore'
 import { nextDay } from '@phits-tech/common/dist/utils/datetime'
-import { EVENTS } from '@phits-tech/common/src/dao-firestore/schema'
+import { EVENTS, SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
 import { context } from '~/context'
 import { MODE, productionWarning } from '~/modes'
@@ -59,6 +59,54 @@ const main = async (): Promise<void> => {
     db.collection(EVENTS).doc(mobileMondays.slug).set(mobileMondays, { merge: true }),
     db.collection(EVENTS).doc(webWednesdays.slug).set(webWednesdays, { merge: true })
   ]).catch(error => console.error(error))
+
+  const spaces: Space[] = [
+    {
+      slug: 'maker-club-nu',
+      name: 'Maker Club, NU',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      spaceType: 'community',
+      locationText: '4th floor SC2, Naresuan University'
+    },
+    {
+      slug: 'usit-nu',
+      name: 'Maker Club, NU',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      spaceType: 'community',
+      locationText: '4th floor SC2, Naresuan University'
+    },
+    {
+      slug: 'pt-discord',
+      name: 'Maker Club, NU',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      spaceType: 'community',
+      locationText: '4th floor SC2, Naresuan University'
+    },
+    {
+      slug: 'pt-youtube',
+      name: 'Maker Club, NU',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      spaceType: 'community',
+      locationText: '4th floor SC2, Naresuan University'
+    },
+    {
+      slug: 'setic-nu',
+      name: 'Maker Club, NU',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      spaceType: 'community',
+      locationText: '4th floor SC2, Naresuan University'
+    }
+  ]
+
+  await Promise.all(
+    spaces.map(async space =>
+      await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
+  )
 }
 
 main()
