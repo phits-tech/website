@@ -44,11 +44,11 @@ yarn config set ignore-engines true
 
 Authenticate & set the current project:
 
-// TODO Antony: Why do we set GCP to 'phits-tech' (prod)?!
+// TODO: Why do we need application-default?
 
 ```
 gcloud auth login
-gcloud config set project phits-tech
+gcloud config set project phits-tech-emu
 gcloud auth application-default login
 firebase login
 firebase use default
@@ -66,20 +66,13 @@ Open 3 terminals:
    yarn emu
    ```
 
-2. From the `admin` directory, run migrations:
+2. Seed example data:
 
    ```
-   yarn migrate
+   yarn seed
    ```
 
-3. From the `admin` directory, seed some test data:  
-   _(it will save to the emulator by default)_
-
-   ```
-   yarn seed-course-oop
-   ```
-
-4. From the `hosting` directory, run the web app:  
+3. Run the web app:  
    _(it will connect to the emulator by default)_
 
    ```
