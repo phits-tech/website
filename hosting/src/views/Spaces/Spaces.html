@@ -3,7 +3,7 @@
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-6 mt-8"
   >
-    <div v-for="space in spaces" :key="space.name" class="shadow-lg">
+    <div v-for="space in spaces" :key="space.slug" class="shadow-lg">
       <!-- Space: Banner -->
       <div class="relative w-full aspect-w-16 aspect-h-9">
         <div
@@ -21,23 +21,20 @@
       <div class="px-5 py-5">
         <div class="flex items-center">
           <h1 class="flex-none text-brand-black text-3xl leading-none">
-            {{space.name}}
+            {{ space.name }}
           </h1>
           <div class="flex-grow">
             <div
-              class="inline-block text-xs lowercase text-brand-black ring-1 ring-brand-blue-900 bg-brand-blue-50 rounded-full ml-2 px-1.5 py-0.5 mb-1"
+              class="inline-block text-xs lowercase text-brand-black ring-1 ring-brand-blue-900 bg-brand-blue-50 rounded-full ml-2 px-1.5 py-0.5"
             >
-              {{ space.spaceType }}
+              {{ space.category }}
             </div>
           </div>
         </div>
 
         <p class="mt-1">{{space.locationText}}</p>
 
-        <p class="text-gray-500 mt-3">
-          Reprehenderit laborum veniam deserunt adipisicing est consectetur
-          dolore irure nostrud aliqua in.
-        </p>
+        <p class="text-gray-500 mt-3">{{ space.description }}</p>
       </div>
     </div>
   </div>

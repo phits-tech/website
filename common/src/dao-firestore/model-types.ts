@@ -44,11 +44,14 @@ export interface Event {
   registrationUrl?: string // custom registration
 }
 
+export type SpaceCategory = 'community' | 'coworking' | 'cafe' | 'online'
+
 export interface Space {
   slug: string
   name: string
   logo: string
   banner: string
-  spaceType: string
+  description: string
+  category: SpaceCategory
   locationText: string
 }

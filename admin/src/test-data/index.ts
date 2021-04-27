@@ -64,42 +64,47 @@ const main = async (): Promise<void> => {
     {
       slug: 'maker-club-nu',
       name: 'Maker Club, NU',
+      description: 'Aliquid quod tenetur neque labore sequi non facere. Consequatur voluptatibus quae quisquam explicabo odio, hic natus dolorem, alias error, corporis totam eveniet.',
       logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
       banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      spaceType: 'community',
-      locationText: '4th floor SC2, Naresuan University'
-    },
-    {
-      slug: 'usit-nu',
-      name: 'Maker Club, NU',
-      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      spaceType: 'community',
-      locationText: '4th floor SC2, Naresuan University'
-    },
-    {
-      slug: 'pt-discord',
-      name: 'Maker Club, NU',
-      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      spaceType: 'community',
-      locationText: '4th floor SC2, Naresuan University'
-    },
-    {
-      slug: 'pt-youtube',
-      name: 'Maker Club, NU',
-      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      spaceType: 'community',
+      category: 'community',
       locationText: '4th floor SC2, Naresuan University'
     },
     {
       slug: 'setic-nu',
-      name: 'Maker Club, NU',
+      name: 'SET Investment Center, NU',
+      description: 'Nostrum laborum nemo odio obcaecati omnis amet at pariatur soluta, accusamus incidunt aliquid nesciunt cupiditate quasi cumque beatae nihil perspiciatis ad exercitationem!',
       logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
       banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
-      spaceType: 'community',
-      locationText: '4th floor SC2, Naresuan University'
+      category: 'coworking',
+      locationText: 'Near BEC, Naresuan University'
+    },
+    {
+      slug: 'usit-nu',
+      name: 'USIT, NU',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem commodi dolor corrupti et a vitae aliquam, minima ipsa at quasi. Delectus et ad quis eos repellendus illo, ducimus labore enim!',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      category: 'cafe',
+      locationText: 'Near Engineering, Naresuan University'
+    },
+    {
+      slug: 'pt-discord',
+      name: 'PT Discord',
+      description: 'Optio esse fugit voluptatum! Nesciunt, similique quaerat distinctio voluptatem voluptates facilis totam ex repudiandae. Incidunt quaerat eligendi consequatur non labore facere nulla.',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      category: 'online',
+      locationText: 'https://discord.gg/4CHb53F'
+    },
+    {
+      slug: 'pt-youtube',
+      name: 'PT YouTube',
+      description: 'Facilis rem quas perspiciatis quis quae numquam blanditiis ea sed recusandae aspernatur inventore reprehenderit ut, ullam, asperiores itaque officia perferendis officiis incidunt!',
+      logo: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      banner: 'https://images.unsplash.com/photo-1585980243496-fe29a36bd382',
+      category: 'online',
+      locationText: 'https://www.youtube.com/channel/UC83wlCFD2-FOYxSUzVG-oUg'
     }
   ]
 
