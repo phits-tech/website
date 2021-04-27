@@ -1,10 +1,6 @@
 import { Vue } from 'vue-class-component'
 
-export interface RouteBinding {
-  name: string
-  path: string
-  priority?: number
-}
+import { RouteBinding } from './route-binding'
 
 /***
  * For multiple routes, you must explicitly specify unique names
