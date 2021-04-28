@@ -55,6 +55,6 @@ export interface Space {
   description: string
   category: SpaceCategory
   locationText: string
-  locationLatitude: number
-  locationLongitude: number
+  locationLatitude?: number
+  locationLongitude?: number
 }
