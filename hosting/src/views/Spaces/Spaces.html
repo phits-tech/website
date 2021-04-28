@@ -32,7 +32,13 @@
           </div>
         </div>
 
-        <p class="mt-1">{{space.locationText}}</p>
+        <p class="mt-1">
+          <a
+            :href="
+            `https://www.google.com/maps/search/?api=1&query=${space.locationLatitude},${space.locationLongitude}` "
+            >{{space.locationText}}</a
+          >
+        </p>
 
         <p class="text-gray-500 mt-3">{{ space.description }}</p>
       </div>
