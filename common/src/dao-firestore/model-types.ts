@@ -44,3 +44,17 @@ export interface Event {
   registrationRequired?: boolean
   registrationUrl?: string // custom registration
 }
+
+export type SpaceCategory = 'community' | 'coworking' | 'cafe' | 'online'
+
+export interface Space {
+  slug: string
+  name: string
+  logo: string
+  banner: string
+  description: string
+  category: SpaceCategory
+  locationText: string
+  locationLatitude?: number
+  locationLongitude?: number
+}
