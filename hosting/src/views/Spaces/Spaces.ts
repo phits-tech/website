@@ -4,8 +4,8 @@ import { useMeta } from 'vue-meta'
 import { Space, SpaceCategory } from '@phits-tech/common/src/dao-firestore'
 import { SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
-import { Route } from '~/router/route-decorator'
 import { db } from '~/firebase-initialized'
+import { Route } from '~/router/route-decorator'
 
 const categoryRanking: Record<SpaceCategory, number> = {
   community: 3,

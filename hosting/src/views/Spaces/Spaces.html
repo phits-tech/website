@@ -11,7 +11,7 @@
           :style="{ backgroundImage: 'url(' + space.banner + ')' }"
         >
           <div
-            class="absolute inline-block top-3 right-3 w-16 h-16 rounded-md"
+            class="absolute inline-block top-3 right-3 w-16 h-16 rounded-md bg-cover bg-top"
             :style="{ backgroundImage: 'url(' + space.logo + ')' }"
           />
         </div>
@@ -32,12 +32,35 @@
           </div>
         </div>
 
-        <p class="mt-1">
-          <a
-            :href="
+        <p class="mt-2">
+          <span v-if="space.locationLatitude && space.locationLongitude">
+            <a
+              class="text-blue-700 hover:text-blue-500 line-clamp-1"
+              :href="
             `https://www.google.com/maps/search/?api=1&query=${space.locationLatitude},${space.locationLongitude}` "
-            >{{space.locationText}}</a
-          >
+              ><svg
+                class="inline-block w-4 h-4 mb-0.5"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                />
+              </svg>
+              {{space.locationText}}</a
+            >
+          </span>
+          <span v-else-if="space.locationText.startsWith('http')">
+            <a
+              class="text-blue-700 hover:text-blue-500 line-clamp-1"
+              :href="space.locationText"
+              >{{space.locationText}}</a
+            >
+          </span>
+          <span v-else class="line-clamp-1">{{space.locationText}}</span>
         </p>
 
         <p class="text-gray-500 mt-3">{{ space.description }}</p>
