@@ -1,10 +1,10 @@
-import { setup, Vue } from 'vue-class-component'
+import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
 import { Space, SpaceCategory } from '@phits-tech/common/src/dao-firestore'
 import { SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
-import { Route } from '@/router/route-decorator'
+import { Route } from '~/router/route-decorator'
 import { db } from '~/firebase-initialized'
 
 const categoryRanking: Record<SpaceCategory, number> = {
@@ -16,7 +16,7 @@ const categoryRanking: Record<SpaceCategory, number> = {
 
 @Route({ path: '/spaces' })
 export default class Spaces extends Vue {
-  meta = setup(() => useMeta({ title: 'Spaces' }))
+  meta = useMeta({ title: 'Spaces' })
   spaces: Space[] = []
 
   async mounted(): Promise<void> {

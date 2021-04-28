@@ -1,0 +1,455 @@
+<div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-2">
+    <h1 class="text-3xl font-medium text-brand-black mt-8">Become a Hero</h1>
+    <div class="block sm:hidden text-right mt-8">
+      <p class="text-gray-400 text-xs font-light italic">Your contribution</p>
+      <router-link
+        :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+        class="text-brand-blue-800 text-xs"
+        >CCU: 160 · LCCU: 220</router-link
+      >
+    </div>
+  </div>
+
+  <div class="mt-4">
+    The
+    <router-link
+      :to="{ name: 'HeroesWhy' }"
+      class="inline text-brand-blue-800 hover:text-brand-blue-600 font-bold"
+      >Community Hero</router-link
+    >
+    award is Phits.Tech's way to recognize and thank individuals for their
+    contributions to our community. Every hour engaged in community events earns
+    <span class="font-bold">CCU</span> (<span class="font-bold">C</span>ommunity
+    <span class="font-bold">C</span>ontribution
+    <span class="font-bold">U</span>nits). The easiest way to become a Community
+    Hero is to volunteer to run an event. Learn more about the
+    <router-link
+      :to="{ name: 'HeroesWhy' }"
+      class="inline text-brand-blue-800 hover:text-brand-blue-600"
+      >benefits of becoming a hero</router-link
+    >, or get started now:
+  </div>
+
+  <div class="text-center mt-5">
+    <router-link
+      :to="{ name: 'EventsCreate' }"
+      class="block sm:inline-block text-white text-lg sm:text-xl px-16 sm:px-24 py-3.5 sm:py-4 text-center font-medium bg-brand-blue-600 hover:bg-brand-blue-800 border-brand-blue-900 border-b-2 rounded-md shadow-md"
+    >
+      Host an event
+    </router-link>
+    <router-link
+      :to="{ name: 'Profile', params: { slug: 'charles-allen' }}"
+      class="hidden sm:block text-sm mt-3 text-gray-400 font-light"
+    >
+      Your contribution:
+      <span class="text-brand-blue-800 font-normal">CCU: 160 / LCCU: 220</span>
+    </router-link>
+  </div>
+
+  <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 sm:gap-y-6 mt-4"
+  >
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-5 pt-4 pb-4 relative">
+        <div class="text-xl font-bold">Charleslonglong Veryverylongname</div>
+        <p class="text-base text-gray-700 mt-1 leading-tight">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet,
+          beatae!
+        </p>
+        <p class="text-xs pt-3">Last event:</p>
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup with a longer name
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+          >
+            160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            android
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            devops
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-5 pt-4 pb-4">
+        <div class="text-xl font-bold">Charles Allen</div>
+        <p class="text-base text-gray-700 mt-1 leading-tight">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p class="text-xs pt-3">Last event:</p>
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+          >
+            160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            android
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            devops
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-5 pt-4 pb-4">
+        <div class="text-xl font-bold">Charles Allen</div>
+        <p class="text-base text-gray-700 mt-1 leading-tight">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p class="text-xs pt-3">Last event:</p>
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+          >
+            160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            android
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            devops
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-5 pt-4 pb-4">
+        <div class="text-xl font-bold">Charles Allen</div>
+        <p class="text-base text-gray-700 mt-1 leading-tight">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p class="text-xs pt-3">Last event:</p>
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+          >
+            160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            android
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            devops
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-5 pt-4 pb-4">
+        <div class="text-xl font-bold">Charles Allen</div>
+        <p class="text-base text-gray-700 mt-1 leading-tight">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p class="text-xs pt-3">Last event:</p>
+        <p
+          class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+        >
+          <router-link :to="{ name: 'Event', params: { slug: 'TBD' }}">
+            Kotlin Thailand Meetup
+          </router-link>
+        </p>
+        <p class="pt-4">
+          <router-link
+            :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
+            class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
+          >
+            160
+          </router-link>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            firebase
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            android
+          </span>
+          <span
+            class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          >
+            devops
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <h1 class="text-3xl font-medium text-brand-black mt-10">Hall of Fame</h1>
+  <div
+    class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-5 mt-4"
+  >
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+    <div
+      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
+      class="rounded overflow-hidden shadow-lg"
+    >
+      <div class="w-full aspect-w-1 aspect-h-1">
+        <div
+          class="w-full h-full bg-cover bg-top"
+          :style="false 
+              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+        />
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <div class="text-md font-medium">Charles Allen</div>
+        <p class="text-xs pt-2">Last event:</p>
+        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+      </div>
+    </div>
+  </div>
+</div>
