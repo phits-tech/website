@@ -27,6 +27,7 @@ export interface UserPrivate {
   nuConnectToken?: unknown
 }
 
+// TODO: Maybe rename type to avoid clash with a built-in type
 export interface Event {
   slug: string
   name: string

@@ -3,7 +3,7 @@ import { useMeta } from 'vue-meta'
 
 import { Route } from '~/router/route-decorator'
 
-@Route({ path: '/spaces' })
-export default class Spaces extends Vue {
-  meta = useMeta({ title: 'Spaces' })
+@Route({ path: '/heroes' })
+export default class Heroes extends Vue {
+  meta = useMeta({ title: 'Heroes' })
 }
