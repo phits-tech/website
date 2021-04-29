@@ -57,10 +57,10 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-7 sm:gap-y-6 mt-4"
     >
-      <div
+      <router-link
         v-for="hero in heroesActive"
         :key="hero.slug"
-        @click="$router.push({ name: 'Profile', params: { slug: hero.slug } })"
+        :to="{ name: 'Profile', params: { slug: hero.slug } }"
         class="rounded overflow-hidden shadow-lg cursor-pointer"
       >
         <div class="w-full aspect-w-1 aspect-h-1">
@@ -82,9 +82,9 @@
             class="text-sm text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
           >
             <router-link
-              :to="{ name: 'Event', params: { slug: hero.lastEvent.eventSlug }}"
+              :to="{ name: 'Event', params: { slug: hero.lastEvent.slug }}"
             >
-              {{ hero.lastEvent.eventName }}
+              {{ hero.lastEvent.name }}
             </router-link>
           </p>
           <p class="pt-4">
@@ -103,21 +103,20 @@
             </span>
           </p>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 
   <!-- Hall of Fame -->
-  <!-- URGENT: Clicking event link opens hero profile -->
   <div v-if="heroesHallOfFame.length > 0">
     <h1 class="text-3xl font-medium text-brand-black mt-10">Hall of Fame</h1>
     <div
       class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-5 mt-4"
     >
-      <div
+      <router-link
         v-for="hero in heroesHallOfFame"
         :key="hero.slug"
-        @click="$router.push({ name: 'Profile', params: { slug: hero.slug } })"
+        :to="{ name: 'Profile', params: { slug: hero.slug } }"
         class="rounded overflow-hidden shadow-lg cursor-pointer"
       >
         <div class="w-full aspect-w-1 aspect-h-1">
@@ -136,13 +135,13 @@
             class="text-xs text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
           >
             <router-link
-              :to="{ name: 'Event', params: { slug: hero.lastEvent.eventSlug }}"
+              :to="{ name: 'Event', params: { slug: hero.lastEvent.slug }}"
             >
-              {{ hero.lastEvent.eventName }}
+              {{ hero.lastEvent.name }}
             </router-link>
           </p>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </div>

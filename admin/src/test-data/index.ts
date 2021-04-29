@@ -31,11 +31,11 @@ const main = async (): Promise<void> => {
     hasContributed: true,
     lccus: 40,
     events: [{
-      eventSlug: 'meetup-datehere-agile',
-      eventName: 'Agile: Learn to Plan; Plan to Learn',
-      eventBanner169Url: '',
-      eventDate: firebase.firestore.Timestamp.fromMillis(1_534_824_000_000),
-      eventRole: 'contributor',
+      slug: 'meetup-datehere-agile',
+      name: 'Agile: Learn to Plan; Plan to Learn',
+      banner169Url: '',
+      date: firebase.firestore.Timestamp.fromMillis(1_534_824_000_000),
+      role: 'speaker',
       ccus: 40
     }],
     profileGitHubId: 'charles-allen',

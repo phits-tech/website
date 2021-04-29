@@ -12,14 +12,14 @@ type Timestamp = firebase.firestore.Timestamp
  * Note: all properties are optional during update (readonly are still managed by DAO)
  */
 
-export type EventRole = 'attendee' | 'contributor'
+export type EventRole = 'attendee' | 'speaker' | 'organizer'
 
 export interface EventLog {
-  eventSlug: string
-  eventName: string
-  eventBanner169Url: string
-  eventDate: Timestamp
-  eventRole: EventRole
+  slug: string
+  name: string
+  banner169Url: string
+  date: Timestamp
+  role: EventRole
   ccus: number
 }
 
