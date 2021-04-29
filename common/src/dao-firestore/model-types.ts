@@ -31,7 +31,7 @@ export interface User {
   nameLast?: string
   pic?: string
   tagline?: string
-  description?: string
+  bio?: string
   skills?: string[]
   hasContributed?: boolean
   lccus?: number // calculate active CCUs on the client

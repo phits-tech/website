@@ -1,35 +1,22 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-  <div class="sm:flex p-4">
+  <div v-if="user" class="sm:flex p-4">
     <!-- Contact -->
+    <!-- URGENT: For `sm`, put contact panel top; photo left & details right -->
     <div class="flex-none sm:mr-8 md:mr-10 lg:mr-12 sm:w-48 md:w-60 lg:w-72">
       <div
         class="rounded-md overflow-hidden shadow-lg pb-1 ring-1 ring-gray-50"
       >
         <div
           class="aspect-h-1 aspect-w-1 bg-cover"
-          :style="{ backgroundImage: 'url(https://avatars.githubusercontent.com/u/31621095?v=4)' }"
+          :style="{ backgroundImage: 'url(' + user.pic + ')' }"
         />
         <div class="px-4 py-4">
-          <h1 class="text-3xl font-medium text-brand-black">Charles Allen</h1>
+          <h1 class="text-3xl font-medium text-brand-black">{{ user.name }}</h1>
           <h2 class="text-lg italic text-gray-400 font-light leading-tight">
-            charles-allen
+            {{ user.slug }}
           </h2>
           <p class="pt-4">
-            <a href="/example" class="mr-1 hover:text-brand-blue-800">
-              <svg
-                class="inline w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                alt="StackOverflow profile"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                version="1.1"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M17.36,20.2V14.82H19.15V22H3V14.82H4.8V20.2H17.36M6.77,14.32L7.14,12.56L15.93,14.41L15.56,16.17L6.77,14.32M7.93,10.11L8.69,8.5L16.83,12.28L16.07,13.9L7.93,10.11M10.19,6.12L11.34,4.74L18.24,10.5L17.09,11.87L10.19,6.12M14.64,1.87L20,9.08L18.56,10.15L13.2,2.94L14.64,1.87M6.59,18.41V16.61H15.57V18.41H6.59Z"
-                />
-              </svg>
-            </a>
+            <!-- URGENT: Refactor social profiles (maybe a Map?) -->
             <a href="/example" class="mr-1 hover:text-brand-blue-800">
               <svg
                 class="inline w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6"
@@ -57,6 +44,21 @@
               >
                 <path
                   d="M21.94 13.11L20.89 9.89C20.89 9.86 20.88 9.83 20.87 9.8L18.76 3.32C18.65 3 18.33 2.75 17.96 2.75C17.6 2.75 17.28 3 17.17 3.33L15.17 9.5H8.84L6.83 3.33C6.72 3 6.4 2.75 6.04 2.75H6.04C5.67 2.75 5.35 3 5.24 3.33L3.13 9.82C3.13 9.82 3.13 9.83 3.13 9.83L2.06 13.11C1.9 13.61 2.07 14.15 2.5 14.45L11.72 21.16C11.89 21.28 12.11 21.28 12.28 21.15L21.5 14.45C21.93 14.15 22.1 13.61 21.94 13.11M8.15 10.45L10.72 18.36L4.55 10.45M13.28 18.37L15.75 10.78L15.85 10.45H19.46L13.87 17.61M17.97 3.94L19.78 9.5H16.16M14.86 10.45L13.07 15.96L12 19.24L9.14 10.45M6.03 3.94L7.84 9.5H4.23M3.05 13.69C2.96 13.62 2.92 13.5 2.96 13.4L3.75 10.97L9.57 18.42M20.95 13.69L14.44 18.42L14.46 18.39L20.25 10.97L21.04 13.4C21.08 13.5 21.04 13.62 20.95 13.69"
+                />
+              </svg>
+            </a>
+            <a href="/example" class="mr-1 hover:text-brand-blue-800">
+              <svg
+                class="inline w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6"
+                alt="StackOverflow profile"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.36,20.2V14.82H19.15V22H3V14.82H4.8V20.2H17.36M6.77,14.32L7.14,12.56L15.93,14.41L15.56,16.17L6.77,14.32M7.93,10.11L8.69,8.5L16.83,12.28L16.07,13.9L7.93,10.11M10.19,6.12L11.34,4.74L18.24,10.5L17.09,11.87L10.19,6.12M14.64,1.87L20,9.08L18.56,10.15L13.2,2.94L14.64,1.87M6.59,18.41V16.61H15.57V18.41H6.59Z"
                 />
               </svg>
             </a>
@@ -128,48 +130,14 @@
 
     <!-- Profile -->
     <div class="mt-8 sm:mt-0 sm:flex-auto">
-      <h2 class="text-2xl italic">This is my tagline</h2>
-      <p class="text-lg mt-4">
-        Bio Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Repudiandae laudantium saepe aliquid eum sapiente reiciendis, delectus
-        quis nihil ea suscipit. Dolorem corporis deleniti delectus doloremque
-        natus ad necessitatibus reprehenderit.
-      </p>
+      <h2 class="text-2xl italic">{{ user.tagline }}</h2>
+      <p class="text-lg mt-4">{{ user.bio }}</p>
       <p class="mt-4">
         <span
-          class="inline-block bg-brand-blue-50 hover:bg-white text-brand-blue-900 rounded-md ring-1 ring-brand-blue px-1.5 py-1 text-xs font-normal mr-2 mb-2"
-        >
-          160
-        </span>
-        <span
+          v-for="skill in user.skills.sort()"
           class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
         >
-          android
-        </span>
-        <span
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
-        >
-          firebase
-        </span>
-        <span
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
-        >
-          vue
-        </span>
-        <span
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
-        >
-          typescript
-        </span>
-        <span
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
-        >
-          kotlin
-        </span>
-        <span
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
-        >
-          java
+          {{ skill }}
         </span>
       </p>
       <div class="flex items-center mt-8">
@@ -177,14 +145,14 @@
           <span class="sm:hidden md:inline">Community </span>Contribution
         </h3>
         <p class="flex-none text-right text-sm font-light text-brand-black-900">
-          0
+          {{ ccusFromContribution + ccusFromAttendance }}
           <span class="has-tooltip border-b-2 border-gray-300 border-dotted"
             ><span
               class="tooltip text-center w-36 rounded shadow-lg py-2 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-4"
               >Community Contribution Units</span
             >CCU</span
           >
-          · 43
+          · {{ user.lccus }}
           <span class="has-tooltip border-b-2 border-gray-200 border-dotted"
             ><span
               class="tooltip text-center w-20 rounded shadow-lg py-1 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-5"
@@ -194,59 +162,82 @@
         </p>
       </div>
 
-      <div class="flex items-center bg-gray-100 space-x-4 mt-3">
+      <!-- Contribution CCUs (listed) -->
+      <router-link
+        v-for="contribution in eventsContributionAll"
+        :key="contribution.slug"
+        :to="{ name: 'Event', params: { slug: contribution.slug }}"
+        class="flex items-center bg-gray-100 space-x-4 lg:space-x-5 mt-3"
+      >
         <div class="flex-none">
           <div
-            class="w-28 sm:w-24 md:w-28 aspect-w-16 aspect-h-9 bg-cover bg-top"
+            class="w-28 sm:w-24 md:w-32 lg:w-32 aspect-w-16 aspect-h-9 bg-cover bg-top"
             :style="false 
-            ? { backgroundImage: 'url(' + 'potato' + ')' } 
+            ? { backgroundImage: 'url(' + contribution.banner169Url + ')' } 
             : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
           />
         </div>
         <div class="flex-grow">
-          <p class="sm:text-sm md:text-base lg:text-lg font-light">
-            Agile: Learn to Plan; Plan to Learn
+          <p
+            class="line-clamp-1 sm:text-sm md:text-base lg:text-lg xl:text-xl font-light"
+          >
+            {{ contribution.name }}
+          </p>
+          <p class="text-xs xl:text-sm text-gray-400 font-light italic">
+            <!-- URGENT: Write a filter to convert the date direct from Timestamp -->
+            {{ contribution.role }} - {{ contribution.date.seconds }}
           </p>
         </div>
-        <div class="flex-none pr-4">
-          <p class="text-xl font-extralight">20</p>
-        </div>
-      </div>
-
-      <div class="flex items-center bg-gray-100 space-x-4 mt-3">
-        <div class="flex-none">
-          <div
-            class="w-28 sm:w-24 md:w-28 aspect-w-16 aspect-h-9 bg-cover bg-top"
-            :style="false 
-            ? { backgroundImage: 'url(' + 'potato' + ')' } 
-            : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-          />
-        </div>
-        <div class="flex-grow">
-          <p class="sm:text-sm md:text-base lg:text-lg font-light">
-            Attendee x 15 (23 hours)
+        <div class="flex-none pr-4 lg:pr-5">
+          <p
+            class="text-xl font-extralight"
+            :class="{ 'text-brand-black-100': contribution.date.seconds < ccuCutoffSeconds }"
+          >
+            {{ contribution.ccus }}
           </p>
         </div>
-        <div class="flex-none pr-4">
-          <p class="text-xl font-extralight">23</p>
-        </div>
-      </div>
+      </router-link>
 
-      <h3 class="flex-grow text-xl mt-8">Events Attended (9)</h3>
+      <!-- Attendance CCUs (aggregated) -->
       <div
-        class="grid gap-3 mt-3"
-        style="grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr))"
+        v-if="eventsAttendanceCcu.length > 0"
+        class="flex items-center bg-gray-100 space-x-4 mt-3"
+      >
+        <div class="flex-none">
+          <div
+            class="w-28 sm:w-24 md:w-28 lg:w-32 xl:w-36 aspect-w-16 aspect-h-9 bg-cover bg-top"
+            :style="false 
+            ? { backgroundImage: 'url(' + 'potato' + ')' } 
+            : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+          />
+        </div>
+        <div class="flex-grow">
+          <p class="line-clamp-1 sm:text-sm md:text-base lg:text-lg font-light">
+            Attendee x {{ eventsAttendanceCcu.length }} ({{ ccusFromAttendance
+            }} hours)
+          </p>
+        </div>
+        <div class="flex-none pr-4">
+          <p class="text-xl font-extralight">{{ ccusFromAttendance }}</p>
+        </div>
+      </div>
+
+      <h3 v-if="user.events.length > 0" class="flex-grow text-xl mt-8">
+        Events Attended ({{ user.events.length }})
+      </h3>
+      <div
+        class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 mt-3"
       >
         <router-link
-          v-for="event in [{ slug: 'example' },{ slug: 'example2' },{ slug: 'example3' },{ slug: 'example4' },{ slug: 'example5' },{ slug: 'example6' },{ slug: 'example7' },{ slug: 'example8' },{ slug: 'example9' }]"
+          v-for="event in user.events"
           :key="event.slug"
           :to="{ name: 'Event', params: { slug: event.slug }}"
         >
           <div
             class="aspect-w-16 aspect-h-9 bg-cover bg-top"
             :style="false 
-      ? { backgroundImage: 'url(' + 'potato' + ')' } 
-      : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
+              ? { backgroundImage: 'url(' + event.banner169Url + ')' } 
+              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
           />
         </router-link>
       </div>

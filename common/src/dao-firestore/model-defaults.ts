@@ -7,7 +7,7 @@ export const userDefaults: Defaults<User> = {
   nameLast: '',
   pic: '',
   tagline: '',
-  description: '',
+  bio: '',
   skills: [],
   hasContributed: false,
   lccus: 0,

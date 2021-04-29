@@ -19,6 +19,7 @@ const main = async (): Promise<void> => {
   // Run the migrations
   await migrate()
 
+  // URGENT: Extract example data to `/data`
   // ***** Add test data here *****
   const chaz: New<User> = {
     slug: 'charles-allen',
@@ -26,7 +27,7 @@ const main = async (): Promise<void> => {
     nameLast: 'Allen',
     pic: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/users%2Fcharles-allen.jpg?alt=media&token=3aefa624-8d7f-4938-b3f7-68ca1f11ac43',
     tagline: 'software engineer; team player; lean advocate',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, ad dolorem ipsum deserunt quos odio harum sit? Quae, autem praesentium unde accusamus possimus rerum corrupti dicta delectus omnis quibusdam necessitatibus?',
+    bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, ad dolorem ipsum deserunt quos odio harum sit? Quae, autem praesentium unde accusamus possimus rerum corrupti dicta delectus omnis quibusdam necessitatibus?',
     skills: ['vue', 'node', 'android', 'typescript', 'kotlin', 'scala', 'java', 'erlang', 'agile', 'scrum'],
     hasContributed: true,
     lccus: 40,
