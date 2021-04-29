@@ -1,6 +1,7 @@
 import type firebase from 'firebase/app'
-
 type Timestamp = firebase.firestore.Timestamp
+
+// TODO: Make a decision on slugs: store as field | store as id | store as both
 
 /**
  * Types of property
@@ -14,7 +15,7 @@ type Timestamp = firebase.firestore.Timestamp
 export type EventRole = 'attendee' | 'contributor'
 
 export interface EventLog {
-  eventId: string
+  eventSlug: string
   eventName: string
   eventBanner169Url: string
   eventDate: Timestamp
@@ -26,7 +27,7 @@ export interface EventLog {
 export interface User {
   // TODO: Write real type
   readonly name: string
-  readonly slug: string
+  slug?: string
   nameFirst: string
   nameLast?: string
   pic?: string
@@ -43,6 +44,7 @@ export interface User {
   profileFacebookId?: string
   profileLineId?: string
   profilePublicEmail?: string
+  website?: string
 }
 
 // ID = GUID (from Auth)

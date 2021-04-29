@@ -1,6 +1,6 @@
 import firebase from 'firebase-admin'
 
-import { Dao, Event, Space } from '@phits-tech/common/dist/dao-firestore'
+import { Dao, Event, New, Space, User } from '@phits-tech/common/dist/dao-firestore'
 import { nextDay } from '@phits-tech/common/dist/utils/datetime'
 import { EVENTS, SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
@@ -14,8 +14,6 @@ const main = async (): Promise<void> => {
   await productionWarning(__filename)
   if (MODE !== 'emu') return console.warn('This script is exclusively for local testing')
 
-  // @ts-expect-error - we will use this later
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dao = new Dao(context)
 
   // Run the migrations
@@ -24,6 +22,33 @@ const main = async (): Promise<void> => {
   // ***** Add test data here *****
   const nextMonday = nextDay(1).startOf('day')
   const nextWednesday = nextDay(3).startOf('day')
+
+  const chaz: New<User> = {
+    slug: 'charles-allen',
+    nameFirst: 'Charles',
+    nameLast: 'Allen',
+    pic: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/users%2Fcharles-allen.jpg?alt=media&token=3aefa624-8d7f-4938-b3f7-68ca1f11ac43',
+    tagline: 'software engineer; team player; lean advocate',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, ad dolorem ipsum deserunt quos odio harum sit? Quae, autem praesentium unde accusamus possimus rerum corrupti dicta delectus omnis quibusdam necessitatibus?',
+    skills: ['vue', 'node', 'android', 'typescript', 'kotlin', 'scala', 'java', 'erlang', 'agile', 'scrum'],
+    hasContributed: true,
+    lccus: 40,
+    events: [{
+      eventSlug: 'meetup-datehere-agile',
+      eventName: 'Agile: Learn to Plan; Plan to Learn',
+      eventBanner169Url: '',
+      eventDate: firebase.firestore.Timestamp.fromMillis(1_534_824_000),
+      eventRole: 'contributor',
+      ccus: 40
+    }],
+    profileGitHubId: 'charles-allen',
+    profileStackExchangeId: '2957169',
+    profileTwitterId: 'VoieDev',
+    profilePublicEmail: 'example@example.com',
+    website: 'https://voiedev.com'
+  }
+
+  await dao.createUser(chaz)
 
   const mobileMondays: Event = {
     slug: 'mobile-mondays',
