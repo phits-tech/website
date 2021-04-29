@@ -11,20 +11,52 @@ type Timestamp = firebase.firestore.Timestamp
  * Note: all properties are optional during update (readonly are still managed by DAO)
  */
 
+export type EventRole = 'attendee' | 'contributor'
+
+export interface EventLog {
+  eventId: string
+  eventName: string
+  eventBanner169Url: string
+  eventDate: Timestamp
+  eventRole: EventRole
+  ccus: number
+}
+
 // ID = GUID (from Auth)
 export interface User {
   // TODO: Write real type
   readonly name: string
+  readonly slug: string
   nameFirst: string
   nameLast?: string
-  code?: string
+  pic?: string
+  tagline?: string
+  description?: string
+  skills?: string[]
+  hasContributed?: boolean
+  lccus?: number // calculate active CCUs on the client
+  events?: EventLog[]
+  profileGitHubId?: string
+  profileGitLabId?: string
+  profileStackExchangeId?: string
+  profileTwitterId?: string
+  profileFacebookId?: string
+  profileLineId?: string
+  profilePublicEmail?: string
 }
 
 // ID = GUID (from Auth)
 export interface UserPrivate {
   // TODO: Write real type
   email?: string
-  nuConnectToken?: unknown
+  emails?: string[]
+  tokenNuConnect?: unknown
+  // tokenGitHub?: unknown
+  // tokenGitLab?: unknown
+  // tokenStackExchange?: unknown
+  // tokenTwitter?: unknown
+  // tokenFacebook?: unknown
+  // tokenLine?: unknown
 }
 
 // TODO: Maybe rename type to avoid clash with a built-in type
@@ -42,7 +74,7 @@ export interface Event {
   hostId?: string
   hostName?: string
   registrationRequired?: boolean
-  registrationUrl?: string // custom registration
+  registrationUrl?: string // custom registration form
 }
 
 export type SpaceCategory = 'community' | 'coworking' | 'cafe' | 'online'
