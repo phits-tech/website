@@ -23,14 +23,14 @@ export default class Heroes extends Vue {
 
   async mounted(): Promise<void> {
     // Get & enrich heroes
-    const oneYearAgoSeconds = dayjs().subtract(3, 'year').unix()
+    const ccuCutoffSeconds = dayjs().subtract(2, 'year').unix()
     const heroes = (await db.collection(USERS).where('hasContributed', '==', true).get())
       .docs
       .map(doc => {
         const user = doc.data() as DeepRequiredWithId<User>
         return {
           ...user,
-          ccus: sum(user.events.filter(e => e.eventDate.seconds > oneYearAgoSeconds).map(e => e.ccus)),
+          ccus: sum(user.events.filter(e => e.eventDate.seconds > ccuCutoffSeconds).map(e => e.ccus)),
           lastEvent: user.events.sort((e1, e2) => e2.eventDate.seconds - e1.eventDate.seconds)[0] // hasContributed implies events > 0
         }
       })

@@ -1,4 +1,5 @@
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+  <!--  Become a Hero (heading) -->
   <div class="grid grid-cols-2">
     <h1 class="text-3xl font-medium text-brand-black mt-8">Become a Hero</h1>
     <div class="block sm:hidden text-right mt-8">
@@ -11,6 +12,7 @@
     </div>
   </div>
 
+  <!-- Become a Hero (text) -->
   <div class="mt-4">
     The
     <router-link
@@ -31,6 +33,7 @@
     >, or get started now:
   </div>
 
+  <!-- Call-to-action -->
   <div class="text-center mt-5">
     <router-link
       :to="{ name: 'EventsCreate' }"
@@ -47,6 +50,8 @@
     </router-link>
   </div>
 
+  <!-- Community Heroes -->
+  <!-- URGENT: Clicking event link opens hero profile -->
   <div v-if="heroesActive.length > 0">
     <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
     <div
@@ -56,7 +61,7 @@
         v-for="hero in heroesActive"
         :key="hero.slug"
         @click="$router.push({ name: 'Profile', params: { slug: hero.slug } })"
-        class="rounded overflow-hidden shadow-lg"
+        class="rounded overflow-hidden shadow-lg cursor-pointer"
       >
         <div class="w-full aspect-w-1 aspect-h-1">
           <div
@@ -102,152 +107,41 @@
     </div>
   </div>
 
-  <h1 class="text-3xl font-medium text-brand-black mt-10">Hall of Fame</h1>
-  <div
-    class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-5 mt-4"
-  >
+  <!-- Hall of Fame -->
+  <!-- URGENT: Clicking event link opens hero profile -->
+  <div v-if="heroesHallOfFame.length > 0">
+    <h1 class="text-3xl font-medium text-brand-black mt-10">Hall of Fame</h1>
     <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
+      class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-5 mt-4"
     >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
+      <div
+        v-for="hero in heroesHallOfFame"
+        :key="hero.slug"
+        @click="$router.push({ name: 'Profile', params: { slug: hero.slug } })"
+        class="rounded overflow-hidden shadow-lg cursor-pointer"
+      >
+        <div class="w-full aspect-w-1 aspect-h-1">
+          <div
+            class="w-full h-full bg-cover bg-top"
+            :style="hero.pic
+              ? { backgroundImage: 'url(' + hero.pic + ')' } 
               : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
-      </div>
-    </div>
-    <div
-      @click="$router.push({ name: 'Profile', params: { slug: 'charles-allen' } })"
-      class="rounded overflow-hidden shadow-lg"
-    >
-      <div class="w-full aspect-w-1 aspect-h-1">
-        <div
-          class="w-full h-full bg-cover bg-top"
-          :style="false 
-              ? { backgroundImage: 'url(' + 'potato' + ')' } 
-              : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
-        />
-      </div>
-      <div class="px-3 pt-2 pb-3">
-        <div class="text-md font-medium">Charles Allen</div>
-        <p class="text-xs pt-2">Last event:</p>
-        <p class="text-sm pt-0.5 leading-tight">Kotlin Thailand Meetup</p>
+          />
+          <!-- URGENT: Update default pic -->
+        </div>
+        <div class="px-3 pt-2 pb-3">
+          <div class="text-md font-medium">{{ hero.name }}</div>
+          <p class="text-xs pt-2">Last event:</p>
+          <p
+            class="text-xs text-blue-600 hover:text-blue-400 text-bold leading-tight pt-0.5"
+          >
+            <router-link
+              :to="{ name: 'Event', params: { slug: hero.lastEvent.eventSlug }}"
+            >
+              {{ hero.lastEvent.eventName }}
+            </router-link>
+          </p>
+        </div>
       </div>
     </div>
   </div>

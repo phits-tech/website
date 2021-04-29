@@ -25,7 +25,6 @@ export interface EventLog {
 
 // ID = GUID (from Auth)
 export interface User {
-  // TODO: Write real type
   readonly name: string
   slug?: string
   nameFirst: string
@@ -49,7 +48,6 @@ export interface User {
 
 // ID = GUID (from Auth)
 export interface UserPrivate {
-  // TODO: Write real type
   email?: string
   emails?: string[]
   tokenNuConnect?: unknown
