@@ -1,13 +1,15 @@
 import type firebase from 'firebase/app'
+import type admin from 'firebase-admin'
 import type { DeepRequired, OptionalKeys, Primitive, WritableKeys } from 'ts-essentials'
 
 type FieldValue = firebase.firestore.FieldValue
+type FieldValueAdmin = admin.firestore.FieldValue
 type Timestamp = firebase.firestore.Timestamp
 
 type NewBase<T> = {
-  [P in keyof T]: T[P] extends Timestamp ? Timestamp | FieldValue
-    : T[P] extends Array<infer U> ? Array<NewBase<U>>
-      : T[P] extends Primitive ? T[P]
+  [P in keyof T]: T[P] extends Timestamp ? Timestamp | FieldValue | FieldValueAdmin
+    : T[P] extends Array<infer U> | undefined ? Array<NewBase<U>>
+      : T[P] extends Primitive | undefined ? T[P]
         : DeepRequired<T[P]>
 }
 
@@ -18,10 +20,10 @@ export type NewWithDefaults<T> = Defaults<T> & New<T>
 export type NewComplete<T> = Defaults<T> & New<T> & Calculated<T>
 
 type UpdateBase<T> = {
-  [P in keyof T]: T[P] extends Timestamp ? Timestamp | FieldValue
-    : T[P] extends number ? number | FieldValue
-      : T[P] extends Array<infer U> ? Array<UpdateBase<U>> | FieldValue
-        : T[P] extends Primitive ? T[P]
+  [P in keyof T]: T[P] extends Timestamp | undefined ? Timestamp | FieldValue | FieldValueAdmin
+    : T[P] extends Array<infer U> | undefined ? Array<UpdateBase<U>> | FieldValue | FieldValueAdmin
+      : T[P] extends number ? number | undefined | FieldValue | FieldValueAdmin
+        : T[P] extends Primitive | undefined ? T[P]
           : DeepRequired<T[P]>
 }
 
