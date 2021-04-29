@@ -20,9 +20,6 @@ const main = async (): Promise<void> => {
   await migrate()
 
   // ***** Add test data here *****
-  const nextMonday = nextDay(1).startOf('day')
-  const nextWednesday = nextDay(3).startOf('day')
-
   const chaz: New<User> = {
     slug: 'charles-allen',
     nameFirst: 'Charles',
@@ -37,7 +34,7 @@ const main = async (): Promise<void> => {
       eventSlug: 'meetup-datehere-agile',
       eventName: 'Agile: Learn to Plan; Plan to Learn',
       eventBanner169Url: '',
-      eventDate: firebase.firestore.Timestamp.fromMillis(1_534_824_000),
+      eventDate: firebase.firestore.Timestamp.fromMillis(1_534_824_000_000),
       eventRole: 'contributor',
       ccus: 40
     }],
@@ -50,6 +47,7 @@ const main = async (): Promise<void> => {
 
   await dao.createUser(chaz)
 
+  const nextMonday = nextDay(1).startOf('day')
   const mobileMondays: Event = {
     slug: 'mobile-mondays',
     name: 'Mobile Mondays',
@@ -65,6 +63,7 @@ const main = async (): Promise<void> => {
     hostName: 'Boat-o'
   }
 
+  const nextWednesday = nextDay(3).startOf('day')
   const webWednesdays: Event = {
     slug: 'web-wednesdays',
     name: 'Web Wednesdays',
