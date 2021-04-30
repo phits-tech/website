@@ -133,13 +133,14 @@
         welcome your submissions.
       </p>
       <div class="mt-5 sm:mt-6 lg:flex sm:justify-end lg:justify-start">
+        <!-- TODO: Sync button styles (copy from /heroes) -->
         <div class="rounded-md shadow">
-          <a
-            href="/events/create"
-            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-blue-600 hover:bg-brand-blue-800 md:py-4 md:text-lg md:px-10"
+          <router-link
+            :to="{ name: 'EventsCreate' }"
+            class="shine w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-blue-600 hover:bg-brand-blue-800 md:py-4 md:text-lg md:px-10"
           >
             Host an event
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
