@@ -34,10 +34,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
@@ -48,5 +48,9 @@
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
   "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier"
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "css.customData": ["../.vscode/css_custom_data.json"],
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false
 }

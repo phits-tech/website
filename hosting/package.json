@@ -8,8 +8,8 @@
     "build": "vue-cli-service build",
     "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only hosting",
-    "fix": "vue-cli-service lint --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\" && stylelint --fix \"**/*.{css,scss}\"",
-    "lint": "vue-cli-service lint && prettier --check \"{**/,.}*.{html,css,scss,js,json}\" && stylelint \"**/*.{css,scss}\"",
+    "fix": "vue-cli-service lint --fix && prettier --loglevel warn --write \"{**/,.}*.{html,js,json}\" && stylelint --fix \"**/*.{css,scss}\"",
+    "lint": "vue-cli-service lint && prettier --check \"{**/,.}*.{html,js,json}\" && stylelint \"**/*.{css,scss}\"",
     "rebuild": "yarn clean && yarn build",
     "serve": "vue-cli-service serve --open"
   },
