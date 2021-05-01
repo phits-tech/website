@@ -39,10 +39,12 @@ const main = async (): Promise<void> => {
       role: 'speaker',
       ccus: 40
     }],
-    profileGitHubId: 'charles-allen',
-    profileStackExchangeId: '2957169',
-    profileTwitterId: 'VoieDev',
-    profilePublicEmail: 'example@example.com',
+    socialAccountsIds: {
+      github: 'charles-allen',
+      stackoverflow: '2957169',
+      twitter: 'VoieDev',
+      email: 'example@example.com'
+    },
     website: 'https://voiedev.com'
   }
 

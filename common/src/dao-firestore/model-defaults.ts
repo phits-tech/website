@@ -12,13 +12,7 @@ export const userDefaults: Defaults<User> = {
   hasContributed: false,
   lccus: 0,
   events: [],
-  profileGitHubId: '',
-  profileGitLabId: '',
-  profileStackExchangeId: '',
-  profileTwitterId: '',
-  profileFacebookId: '',
-  profileLineId: '',
-  profilePublicEmail: '',
+  socialAccountsIds: {},
   website: ''
 }
 

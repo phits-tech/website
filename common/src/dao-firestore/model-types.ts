@@ -23,6 +23,8 @@ export interface EventLog {
   ccus: number
 }
 
+export type UserSocialAccount = 'github' | 'gitlab' | 'stackoverflow' | 'linkedin' | 'twitter' | 'facebook' | 'line' | 'email'
+
 // ID = GUID (from Auth)
 export interface User {
   readonly name: string
@@ -36,13 +38,7 @@ export interface User {
   hasContributed?: boolean
   lccus?: number // calculate active CCUs on the client
   events?: EventLog[]
-  profileGitHubId?: string
-  profileGitLabId?: string
-  profileStackExchangeId?: string
-  profileTwitterId?: string
-  profileFacebookId?: string
-  profileLineId?: string
-  profilePublicEmail?: string
+  socialAccountsIds?: Partial<Record<UserSocialAccount, string>>
   website?: string
 }
 

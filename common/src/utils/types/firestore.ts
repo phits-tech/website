@@ -1,6 +1,6 @@
 import type firebase from 'firebase/app'
 import type admin from 'firebase-admin'
-import type { DeepRequired, OptionalKeys, Primitive, WritableKeys } from 'ts-essentials'
+import type { OptionalKeys, Primitive, WritableKeys } from 'ts-essentials'
 
 type FieldValue = firebase.firestore.FieldValue
 type FieldValueAdmin = admin.firestore.FieldValue
@@ -10,7 +10,7 @@ type NewBase<T> = {
   [P in keyof T]: T[P] extends Timestamp ? Timestamp | FieldValue | FieldValueAdmin
     : T[P] extends Array<infer U> | undefined ? Array<NewBase<U>>
       : T[P] extends Primitive | undefined ? T[P]
-        : DeepRequired<T[P]>
+        : NewBase<T[P]>
 }
 
 export type Defaults<T> = Required<Pick<NewBase<T>, OptionalKeys<T>>>
@@ -24,7 +24,7 @@ type UpdateBase<T> = {
     : T[P] extends Array<infer U> | undefined ? Array<UpdateBase<U>> | FieldValue | FieldValueAdmin
       : T[P] extends number ? number | undefined | FieldValue | FieldValueAdmin
         : T[P] extends Primitive | undefined ? T[P]
-          : DeepRequired<T[P]>
+          :UpdateBase<T[P]>
 }
 
 export type Update<T> = Partial<Pick<UpdateBase<T>, WritableKeys<T>>>
