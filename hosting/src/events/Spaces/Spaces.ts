@@ -7,6 +7,7 @@ import { SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
+// URGENT: Extract this
 const categoryRanking: Record<SpaceCategory, number> = {
   community: 3,
   coworking: 2,
