@@ -10,25 +10,10 @@
   .has-tooltip:hover .tooltip {
     @apply visible z-50;
   }
+}
 
-  .shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shine::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform: skewX(-20deg) translateX(-100%);
-    animation: 4s ease-in 0s infinite forwards shine;
-    background-color: rgba(255, 255, 255, 0);
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%);
-    color: rgba(255, 255, 255, 0);
-  }
+html {
+  overflow-y: scroll;
 }
 
 @keyframes shine {
@@ -38,6 +23,21 @@
   }
 }
 
-html {
-  overflow-y: scroll;
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: skewX(-20deg) translateX(-100%);
+  animation: 4s ease-in 2s infinite forwards shine;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%);
+  color: rgba(255, 255, 255, 0);
 }
