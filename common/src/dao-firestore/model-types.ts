@@ -59,7 +59,7 @@ export interface Space {
   locationLongitude?: number
 }
 
-export interface Banner{
+export interface Banner {
   banner52Url: string
   targetUrl: string
   targetEventSlug: string

@@ -2,7 +2,8 @@ import firebase from 'firebase-admin'
 
 import { Dao, Event, Space } from '@phits-tech/common/dist/dao-firestore'
 import { nextDay } from '@phits-tech/common/dist/utils/datetime'
-import { EVENTS, SPACES } from '@phits-tech/common/src/dao-firestore/schema'
+import { Banner } from '@phits-tech/common/src/dao-firestore/model-types'
+import { BANNERS, EVENTS, SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
 import { context } from '~/context'
 import { MODE, productionWarning } from '~/modes'
@@ -117,6 +118,29 @@ const main = async (): Promise<void> => {
   await Promise.all(
     spaces.map(async space =>
       await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
+  )
+
+  const banners: Banner[] = [
+    {
+      banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
+      targetUrl: 'https://otap.phits.tech',
+      targetEventSlug: 'tech-clinic',
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
+      targetRoute: ''
+    },
+    {
+      banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
+      targetUrl: 'https://otap.phits.tech',
+      targetEventSlug: 'maker-club-nu',
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
+      targetRoute: ''
+    }
+  ]
+
+  await Promise.all(
+    banners.map(async banner =>
+      await db.collection(BANNERS).doc(banner.targetEventSlug).set(banner, { merge: true })
+    )
   )
 }
 
