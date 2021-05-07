@@ -59,6 +59,12 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
 
     // Supplementary
+    'no-restricted-imports': ['error', {
+      patterns: [
+        '@phits-tech/common/dist/**/*',
+        '@phits-tech/common/src/**/*'
+      ]
+    }],
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',

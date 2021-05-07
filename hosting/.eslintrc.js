@@ -35,6 +35,15 @@ module.exports = {
     ],
 
     // Supplementary
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: [
+          '@phits-tech/common/dist/**/*',
+          '@phits-tech/common/src/**/*'
+        ]
+      }
+    ],
     'simple-import-sort/imports': [
       'error',
       {
@@ -93,7 +102,15 @@ module.exports = {
         ],
 
         // Supplementary
-        'unused-imports/no-unused-imports-ts': 'error',
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              '@phits-tech/common/dist/**/*',
+              '@phits-tech/common/src/**/*'
+            ]
+          }
+        ],
         'simple-import-sort/imports': [
           'error',
           {
@@ -111,7 +128,8 @@ module.exports = {
             ]
           }
         ],
-        'simple-import-sort/exports': 'error'
+        'simple-import-sort/exports': 'error',
+        'unused-imports/no-unused-imports-ts': 'error'
       }
     }
   ]
