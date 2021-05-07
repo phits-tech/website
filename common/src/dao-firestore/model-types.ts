@@ -60,7 +60,7 @@ export interface Space {
 }
 
 export interface Banner {
-  banner52Url: string
+  banner169Url: string
   targetUrl?: string
   targetEventSlug?: string
   targetRoute?: string
