@@ -16,7 +16,7 @@
     "useDefineForClassFields": true,
     "baseUrl": ".",
     "paths": {
-      "@phits-tech/common/*": ["../common/dist/*"],
+      "@phits-tech/common/*": ["../common/src/*"],
       "@assets/*": ["src/_assets/*"],
       "~/*": ["src/_services/*"],
       "@/*": ["src/*"]
@@ -30,5 +30,5 @@
     "tests/**/*.tsx"
   ],
   "exclude": ["node_modules"],
-  "references": [{ "path": "../common" }]
+  "references": [{ "path": "../common/tsconfig.json" }]
 }

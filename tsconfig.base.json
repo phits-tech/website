@@ -17,7 +17,7 @@
     "strict": true,
     "target": "ES2015",
     "paths": {
-      "@phits-tech/common/*": ["@phits-tech/common/dist/*"]
+      "@phits-tech/common/*": ["common/src/*"]
     }
   },
   "exclude": ["node_modules"]

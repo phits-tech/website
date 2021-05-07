@@ -5,9 +5,9 @@
     "rootDir": "src",
     "outDir": "dist",
     "paths": {
-      "@phits-tech/common/*": ["../common/dist/*"]
+      "@phits-tech/common/*": ["../common/src/*"]
     }
   },
   "include": ["src/**/*.ts"],
-  "references": [{ "path": "../common" }]
+  "references": [{ "path": "../common/tsconfig.json" }]
 }
