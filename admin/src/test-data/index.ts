@@ -123,23 +123,19 @@ const main = async (): Promise<void> => {
   const banners: Banner[] = [
     {
       banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
-      targetUrl: 'https://otap.phits.tech',
       targetEventSlug: 'tech-clinic',
-      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
-      targetRoute: ''
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
     },
     {
       banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
       targetUrl: 'https://otap.phits.tech',
-      targetEventSlug: 'maker-club-nu',
-      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
-      targetRoute: ''
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
     }
   ]
 
   await Promise.all(
     banners.map(async banner =>
-      await db.collection(BANNERS).doc(banner.targetEventSlug).set(banner, { merge: true })
+      await db.collection(BANNERS).doc().set(banner, { merge: true })
     )
   )
 }

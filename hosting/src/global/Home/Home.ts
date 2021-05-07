@@ -31,7 +31,7 @@ export default class Home extends Vue {
 
   async mounted(): Promise<void> {
     this.resetSlideTimer()
-    this.banners = (await db.collection(BANNERS).where('dateExpire', '<', new Date()).get())
+    this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
       .docs
       .map(doc => doc.data() as Banner)
   }

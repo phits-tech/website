@@ -61,8 +61,8 @@ export interface Space {
 
 export interface Banner {
   banner52Url: string
-  targetUrl: string
-  targetEventSlug: string
-  targetRoute: string
+  targetUrl?: string
+  targetEventSlug?: string
+  targetRoute?: string
   dateExpire: Timestamp
 }
