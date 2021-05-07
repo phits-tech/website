@@ -28,7 +28,7 @@ const main = async (): Promise<void> => {
     slug: 'mobile-mondays',
     name: 'Mobile Mondays',
     description: 'Hang-out with fellow mobile developers. Trade knowledge. Learn the latest tech. Be your best dev!',
-    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fmobile-mondays.jpg?alt=media&token=40e01fc2-9aa2-42c1-bd89-9e1ad76d067d',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/events%2Fmobile-mondays.jpg?alt=media&token=61eda595-77e1-40ef-8666-89a5e69dec51',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(18).unix() * 1000),
     dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(19).unix() * 1000),
     location: 'Warehouse Cafe',
@@ -43,7 +43,7 @@ const main = async (): Promise<void> => {
     slug: 'web-wednesdays',
     name: 'Web Wednesdays',
     description: 'TYPESCRIPT IS AMAZING!!!',
-    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fweb-wednesdays.jpg?alt=media&token=2f63c5da-5230-4976-830b-ecfde34a46d9',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/events%2Fweb-wednesdays.jpg?alt=media&token=b4d2eb39-4cb1-4ede-96f9-d602c3577d7c',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextWednesday.hour(23).unix() * 1000),
     dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
     location: 'In Towne',
@@ -120,12 +120,12 @@ const main = async (): Promise<void> => {
 
   const banners: Banner[] = [
     {
-      banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
+      banner169Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fstartup-tech-clinic.png?alt=media&token=0f2a42d0-f0d7-4f87-b4af-a8bfe23859cc',
       targetEventSlug: 'tech-clinic',
       dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
     },
     {
-      banner52Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
+      banner169Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fotap-2021-1.png?alt=media&token=a25cbb6e-e5f2-43c2-80e1-d443e5695af1',
       targetUrl: 'https://otap.phits.tech',
       dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
     }
