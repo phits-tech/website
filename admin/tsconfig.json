@@ -6,6 +6,7 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "paths": {
+      "@phits-tech/common/*": ["../common/dist/*"],
       "~/*": ["src/_services/*"],
       "@/*": ["src/*"]
     }
