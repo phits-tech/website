@@ -1,4 +1,4 @@
-import { FirebaseContext } from '@phits-tech/common/dist/context'
+import { FirebaseContext } from '@phits-tech/common/context'
 
 import { auth, db, FieldValue } from '~/firebase-admin-initialized'
 

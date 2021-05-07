@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions'
 
-import { snakeToCamel } from '@phits-tech/common/dist/utils/string-cases'
+import { snakeToCamel } from '@phits-tech/common/utils/string-cases'
 
 interface FunctionsConfig {
   auth: {

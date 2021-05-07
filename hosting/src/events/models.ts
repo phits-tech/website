@@ -1,6 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs'
 
-import { Event } from '@phits-tech/common/dist/dao-firestore'
+import { Event } from '@phits-tech/common/dao-firestore'
 
 export type EventUi = Omit<Event, 'dateStart' | 'dateEnd'> & {
   dateStart: Dayjs

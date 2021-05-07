@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
-import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
+import { Banner, BANNERS } from '@phits-tech/common/dao-firestore'
 
 import { EventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
