@@ -3,9 +3,8 @@ import { InjectionKey } from '@vue/runtime-core'
 import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import { EVENTS, USERS } from '@phits-tech/common/dist/dao-firestore/schema'
-import { Event, User } from '@phits-tech/common/src/dao-firestore'
-import { DeepRequiredWithId } from '@phits-tech/common/src/utils/types/general'
+import { Event, EVENTS, User, USERS } from '@phits-tech/common/dist/dao-firestore'
+import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
 
 import { eventToEventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'

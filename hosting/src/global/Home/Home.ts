@@ -1,8 +1,7 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
-import { Banner } from '@phits-tech/common/src/dao-firestore/model-types'
-import { BANNERS } from '@phits-tech/common/src/dao-firestore/schema'
+import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
 
 import { EventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
@@ -75,6 +74,7 @@ export default class Home extends Vue {
     this.resetSlideTimer()
   }
 
+  // TODO: This should wrap-around left
   previousSlide(): void {
     const activeSlide = document.querySelector('.slide.translate-x-0')
     const previousSlide = activeSlide?.previousElementSibling

@@ -2,7 +2,7 @@
 import { apps, assertFails, assertSucceeds, clearFirestoreData, firestore, initializeTestApp } from '@firebase/rules-unit-testing'
 import type firebase from 'firebase/app'
 
-import { USERS, USERS_PRIVATE } from '../dao-firestore/schema'
+import { USERS, USERS_PRIVATE } from '../dao-firestore'
 
 import { alice, bertha, clare } from './test-data/users'
 import { writeCoverage } from './test-utils/rule-coverage'

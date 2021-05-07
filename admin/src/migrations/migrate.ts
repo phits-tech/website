@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { CONFIG, CONFIG_MIGRATIONS } from '@phits-tech/common/dist/dao-firestore/schema'
+import { CONFIG, CONFIG_MIGRATIONS } from '@phits-tech/common/dist/dao-firestore'
 
 import { productionWarning } from '@/_services/modes'
 import admin from '~/firebase-admin-initialized'
