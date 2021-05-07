@@ -59,6 +59,7 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
 
     // Supplementary
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
     'no-restricted-imports': ['error', {
       patterns: [
         '@phits-tech/common/dist/**/*',

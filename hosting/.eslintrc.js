@@ -35,6 +35,10 @@ module.exports = {
     ],
 
     // Supplementary
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' }
+    ],
     'no-restricted-imports': [
       'error',
       {
@@ -102,6 +106,10 @@ module.exports = {
         ],
 
         // Supplementary
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          { prefer: 'type-imports' }
+        ],
         'no-restricted-imports': [
           'error',
           {
