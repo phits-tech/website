@@ -49,6 +49,8 @@ export default class Home extends Vue {
   }
 
   nextSlide(): void {
+    if (this.banners.length < 2) return
+
     const activeSlide = document.querySelector('.slide.translate-x-0')
     if (activeSlide === null) return // no slides
 
@@ -57,7 +59,6 @@ export default class Home extends Vue {
       // Return to start...
       const firstSlide = activeSlide.parentElement?.querySelector('.slide') ?? null
       if (firstSlide === null) return
-      if (firstSlide === activeSlide) return
 
       // Old => Exit to right
       activeSlide.classList.remove('translate-x-0')
@@ -85,6 +86,8 @@ export default class Home extends Vue {
   }
 
   previousSlide(): void {
+    if (this.banners.length < 2) return
+
     const activeSlide = document.querySelector('.slide.translate-x-0')
     if (activeSlide === null) return // no slides
 
