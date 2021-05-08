@@ -4,14 +4,14 @@
     v-if="banners.length > 0"
     class="relative max-w-7xl m-auto overflow-hidden relative"
   >
-    <div class="aspect-w-5 aspect-h-2 w-full overflow-hidden">
+    <div class="aspect-w-16 aspect-h-9 w-full overflow-hidden">
       <div
         v-for="(banner, i) in banners"
         :key="'slide' + i"
         @click="bannerClick(banner)"
         class="absolute bg-cover bg-top inset-0 w-full h-full transition-all ease-in-out duration-1000 transform slide object-contain"
         :class="{ ['translate-x-0']: i === 0, ['translate-x-full']: i > 0 }"
-        :style="{ backgroundImage: 'url('+banner.src+')' }"
+        :style="{ backgroundImage: 'url('+banner.banner169Url+')' }"
       ></div>
     </div>
     <div

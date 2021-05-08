@@ -1,8 +1,7 @@
 import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { Space, SpaceCategory } from '@phits-tech/common/src/dao-firestore'
-import { SPACES } from '@phits-tech/common/src/dao-firestore/schema'
+import { Space, SpaceCategory, SPACES } from '@phits-tech/common/dist/dao-firestore'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'

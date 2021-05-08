@@ -1,8 +1,7 @@
 import firebase from 'firebase-admin'
 
-import { Dao, Event, Space } from '@phits-tech/common/dist/dao-firestore'
+import { Banner, BANNERS, Dao, Event, EVENTS, Space, SPACES } from '@phits-tech/common/dist/dao-firestore'
 import { nextDay } from '@phits-tech/common/dist/utils/datetime'
-import { EVENTS, SPACES } from '@phits-tech/common/src/dao-firestore/schema'
 
 import { context } from '~/context'
 import { MODE, productionWarning } from '~/modes'
@@ -29,7 +28,7 @@ const main = async (): Promise<void> => {
     slug: 'mobile-mondays',
     name: 'Mobile Mondays',
     description: 'Hang-out with fellow mobile developers. Trade knowledge. Learn the latest tech. Be your best dev!',
-    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fmobile-mondays.jpg?alt=media&token=40e01fc2-9aa2-42c1-bd89-9e1ad76d067d',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/events%2Fmobile-mondays.jpg?alt=media&token=61eda595-77e1-40ef-8666-89a5e69dec51',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(18).unix() * 1000),
     dateEnd: firebase.firestore.Timestamp.fromMillis(nextMonday.hour(19).unix() * 1000),
     location: 'Warehouse Cafe',
@@ -44,7 +43,7 @@ const main = async (): Promise<void> => {
     slug: 'web-wednesdays',
     name: 'Web Wednesdays',
     description: 'TYPESCRIPT IS AMAZING!!!',
-    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fweb-wednesdays.jpg?alt=media&token=2f63c5da-5230-4976-830b-ecfde34a46d9',
+    bannerUrl: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/events%2Fweb-wednesdays.jpg?alt=media&token=b4d2eb39-4cb1-4ede-96f9-d602c3577d7c',
     dateStart: firebase.firestore.Timestamp.fromMillis(nextWednesday.hour(23).unix() * 1000),
     dateEnd: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000),
     location: 'In Towne',
@@ -117,6 +116,25 @@ const main = async (): Promise<void> => {
   await Promise.all(
     spaces.map(async space =>
       await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
+  )
+
+  const banners: Banner[] = [
+    {
+      banner169Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fstartup-tech-clinic.png?alt=media&token=0f2a42d0-f0d7-4f87-b4af-a8bfe23859cc',
+      targetEventSlug: 'tech-clinic',
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
+    },
+    {
+      banner169Url: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/banners%2Fotap-2021-1.png?alt=media&token=a25cbb6e-e5f2-43c2-80e1-d443e5695af1',
+      targetUrl: 'https://otap.phits.tech',
+      dateExpire: firebase.firestore.Timestamp.fromMillis(nextWednesday.add(1, 'day').hour(0).unix() * 1000)
+    }
+  ]
+
+  await Promise.all(
+    banners.map(async banner =>
+      await db.collection(BANNERS).doc().set(banner, { merge: true })
+    )
   )
 }
 

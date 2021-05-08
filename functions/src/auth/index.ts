@@ -1,6 +1,5 @@
 import type { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/dist/api-callables'
-import { Dao, User, UserPrivate } from '@phits-tech/common/dist/dao-firestore'
-import { USERS, USERS_PRIVATE } from '@phits-tech/common/dist/dao-firestore/schema'
+import { Dao, User, UserPrivate, USERS, USERS_PRIVATE } from '@phits-tech/common/dist/dao-firestore'
 import { fixName } from '@phits-tech/common/dist/utils/string-cases'
 import { New, Update } from '@phits-tech/common/dist/utils/types/firestore'
 

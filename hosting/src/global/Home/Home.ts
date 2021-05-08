@@ -1,29 +1,19 @@
 import dayjs, { Dayjs } from 'dayjs'
 import { Vue } from 'vue-class-component'
 
+import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
+
 import { EventUi } from '@/events/models'
+import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
-interface Banner { src: string, url?: string, eventSlug?: string, route?: string }
 interface EventSummary { slug: string, name: string, dateStart: Dayjs, dateEnd: Dayjs, location: string }
 interface DayAndEvents { day: string, events: EventSummary[] }
 
 @Route({ path: '/' })
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
-
-  get banners(): Banner[] {
-    return [
-      {
-        src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F79af5d39-aa69-4aaa-ad56-6ece7395c827.png?alt=media&token=ca130503-1b0b-41dd-87d1-4736b9aa3553',
-        eventSlug: 'tech-clinic'
-      },
-      {
-        src: 'https://firebasestorage.googleapis.com/v0/b/phits-tech.appspot.com/o/banners%2F2c2fd102-91d1-4cee-8071-c035cef08ac2.jpg?alt=media&token=59df0bcf-38c4-41e8-acdc-411650b26d88',
-        url: 'https://otap.phits.tech'
-      }
-    ]
-  }
+  banners: Banner[] = []
 
   get sevenDaysAhead(): DayAndEvents[] {
     const events: EventUi[] = this.$store.getters.events
@@ -38,8 +28,11 @@ export default class Home extends Vue {
     })
   }
 
-  mounted(): void {
+  async mounted(): Promise<void> {
     this.resetSlideTimer()
+    this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
+      .docs
+      .map(doc => doc.data() as Banner)
   }
 
   beforeUnmount(): void {
@@ -81,6 +74,7 @@ export default class Home extends Vue {
     this.resetSlideTimer()
   }
 
+  // TODO: This should wrap-around left
   previousSlide(): void {
     const activeSlide = document.querySelector('.slide.translate-x-0')
     const previousSlide = activeSlide?.previousElementSibling
@@ -94,8 +88,8 @@ export default class Home extends Vue {
   }
 
   async bannerClick(banner: Banner): Promise<unknown> {
-    if (banner.eventSlug) return await this.$router.push({ name: 'Event', params: { slug: banner.eventSlug } })
-    if (banner.route) return await this.$router.push({ name: banner.route })
-    if (banner.url) window.location.href = banner.url
+    if (banner.targetEventSlug !== undefined) return await this.$router.push({ name: 'Event', params: { slug: banner.targetEventSlug } })
+    if (banner.targetRoute !== undefined) return await this.$router.push({ name: banner.targetRoute })
+    if (banner.targetUrl !== undefined) window.location.href = banner.targetUrl
   }
 }
