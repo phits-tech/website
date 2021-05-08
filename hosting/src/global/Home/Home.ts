@@ -29,62 +29,95 @@ export default class Home extends Vue {
   }
 
   async mounted(): Promise<void> {
-    this.resetSlideTimer()
-    this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
-      .docs
-      .map(doc => doc.data() as Banner)
+    // Banners
+    const bannerSnapshot = await db.collection(BANNERS).where('dateExpire', '>', new Date()).get()
+    this.banners = bannerSnapshot.docs.map(doc => doc.data() as Banner)
+    this.resetSlideTimer() // must be called after banner query
   }
 
   beforeUnmount(): void {
-    this.clearSlideTimer()
+    this.stopSlideTimer()
   }
 
-  clearSlideTimer(): void {
+  stopSlideTimer(): void {
     if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
   }
 
   resetSlideTimer(): void {
-    this.clearSlideTimer()
-    this.nextSlideInterval = setInterval(this.nextSlide, 5000)
+    this.stopSlideTimer()
+    if (this.banners.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, 5000)
   }
 
   nextSlide(): void {
     const activeSlide = document.querySelector('.slide.translate-x-0')
-    if (activeSlide === null) return
-    let nextSlide = activeSlide.nextElementSibling
+    if (activeSlide === null) return // no slides
+
+    const nextSlide = activeSlide.nextElementSibling
     if (nextSlide === null || !nextSlide.classList.contains('slide')) {
-      nextSlide = activeSlide.parentElement?.querySelector('.slide') ?? null
-      if (nextSlide === null) return
+      // Return to start...
+      const firstSlide = activeSlide.parentElement?.querySelector('.slide') ?? null
+      if (firstSlide === null) return
+      if (firstSlide === activeSlide) return
+
+      // Old => Exit to right
       activeSlide.classList.remove('translate-x-0')
       activeSlide.classList.add('translate-x-full')
-      nextSlide.classList.remove('-translate-x-full')
-      nextSlide.classList.add('translate-x-0')
+
+      // New => Enter from left
+      firstSlide.classList.remove('-translate-x-full')
+      firstSlide.classList.add('translate-x-0')
+
+      // Waiting => Ready to move on from right
       const otherSlides = document.querySelectorAll('.slide.-translate-x-full')
       otherSlides.forEach(element => {
         element.classList.remove('-translate-x-full')
         element.classList.add('translate-x-full')
       })
     } else {
+      // Old => Exit to left
       activeSlide.classList.remove('translate-x-0')
       activeSlide.classList.add('-translate-x-full')
+
+      // New => Enter from right
       nextSlide.classList.remove('translate-x-full')
       nextSlide.classList.add('translate-x-0')
     }
-
-    this.resetSlideTimer()
   }
 
-  // TODO: This should wrap-around left
   previousSlide(): void {
     const activeSlide = document.querySelector('.slide.translate-x-0')
-    const previousSlide = activeSlide?.previousElementSibling
-    if (activeSlide === null || previousSlide === null || previousSlide === undefined) return
-    activeSlide.classList.remove('translate-x-0')
-    activeSlide.classList.add('translate-x-full')
-    previousSlide.classList.remove('-translate-x-full')
-    previousSlide.classList.add('translate-x-0')
+    if (activeSlide === null) return // no slides
 
-    this.resetSlideTimer()
+    const previousSlide = activeSlide.previousElementSibling
+    if (previousSlide === null || !previousSlide.classList.contains('slide')) {
+      // Return to end...
+      const allSlides = activeSlide.parentElement?.querySelectorAll('.slide') ?? []
+      const lastSlide = allSlides.length > 0 ? allSlides[allSlides.length - 1] : null
+      if (lastSlide === null) return
+
+      // Old => Exit to left
+      activeSlide.classList.remove('translate-x-0')
+      activeSlide.classList.add('-translate-x-full')
+
+      // New => Enter from right
+      lastSlide.classList.remove('translate-x-full')
+      lastSlide.classList.add('translate-x-0')
+
+      // Waiting => Ready to move on from left
+      const otherSlides = document.querySelectorAll('.slide.translate-x-full')
+      otherSlides.forEach(element => {
+        element.classList.remove('translate-x-full')
+        element.classList.add('-translate-x-full')
+      })
+    } else {
+      // Old => Exit to right
+      activeSlide.classList.remove('translate-x-0')
+      activeSlide.classList.add('translate-x-full')
+
+      // New => Enter from left
+      previousSlide.classList.remove('-translate-x-full')
+      previousSlide.classList.add('translate-x-0')
+    }
   }
 
   async bannerClick(banner: Banner): Promise<unknown> {
