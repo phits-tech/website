@@ -1,6 +1,6 @@
-import { Dayjs } from 'dayjs'
+import type { Dayjs } from 'dayjs'
 
-import { EventUi } from '@/events/models'
+import type { EventUi } from '@/events/models'
 
 export const dateRange = (dateStart: Dayjs, dateEnd: Dayjs): string =>
   `${dateStart.format('ddd DD MMM, HH:mm')}-${dateEnd.format('HH:mm')}${(dateStart.day() !== dateEnd.day()) ? `(+${dateEnd.day() - dateStart.day()})` : ''}`

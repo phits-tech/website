@@ -3,7 +3,7 @@ import cp from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
-import { camelToSnake } from '@phits-tech/common/dist/utils/string-cases'
+import { camelToSnake } from '@phits-tech/common/utils/string-cases'
 
 const projectAlias = process.argv[2]
 if (!projectAlias) {

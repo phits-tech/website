@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Vue } from 'vue-class-component'
 
-import { capitalize } from '@phits-tech/common/dist/utils/string-cases/capitalize'
+import { capitalize } from '@phits-tech/common/utils/string-cases/capitalize'
 
 import { Route } from '~/router/route-decorator'
 

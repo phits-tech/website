@@ -6,10 +6,11 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "paths": {
+      "@phits-tech/common/*": ["../common/src/*"],
       "~/*": ["src/_services/*"],
       "@/*": ["src/*"]
     }
   },
   "include": ["src/**/*.ts"],
-  "references": [{ "path": "../common" }]
+  "references": [{ "path": "../common/tsconfig.json" }]
 }
