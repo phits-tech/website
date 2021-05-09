@@ -1,6 +1,6 @@
-import { Vue } from 'vue-class-component'
+import type { Vue } from 'vue-class-component'
 
-import { RouteBinding } from './route-binding'
+import type { RouteBinding } from './route-binding'
 
 /***
  * For multiple routes, you must explicitly specify unique names

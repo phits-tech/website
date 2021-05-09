@@ -1,7 +1,8 @@
 import firebase from 'firebase-admin'
 
-import { Banner, BANNERS, Dao, Event, EVENTS, Space, SPACES } from '@phits-tech/common/dist/dao-firestore'
-import { nextDay } from '@phits-tech/common/dist/utils/datetime'
+import type { Banner, Event, Space } from '@phits-tech/common/dao-firestore'
+import { BANNERS, Dao, EVENTS, SPACES } from '@phits-tech/common/dao-firestore'
+import { nextDay } from '@phits-tech/common/utils/datetime'
 
 import { context } from '~/context'
 import { MODE, productionWarning } from '~/modes'

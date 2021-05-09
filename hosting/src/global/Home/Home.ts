@@ -1,9 +1,11 @@
-import dayjs, { Dayjs } from 'dayjs'
+import type { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import { Vue } from 'vue-class-component'
 
-import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
+import type { Banner } from '@phits-tech/common/dao-firestore'
+import { BANNERS } from '@phits-tech/common/dao-firestore'
 
-import { EventUi } from '@/events/models'
+import type { EventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
