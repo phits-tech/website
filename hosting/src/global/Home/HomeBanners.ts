@@ -13,6 +13,12 @@ const allClasses = [classLeft, classCenter, classRight]
 class BannerElement {
   constructor(private readonly element: Element) { }
 
+  move(shift: number): void {
+    if (shift > 0) this.moveToLeft()
+    else if (shift < 0) this.moveToRight()
+    else this.moveToCenter()
+  }
+
   moveToLeft(): void { this.setClass(classLeft) }
   moveToCenter(): void { this.setClass(classCenter) }
   moveToRight(): void { this.setClass(classRight) }
@@ -31,6 +37,7 @@ export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
 
   async mounted(): Promise<void> {
+    // TODO: Move banners to Vuex
     this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
       .docs
       .map(doc => doc.data() as Banner)
@@ -68,18 +75,13 @@ export default class Home extends Vue {
     if (newIndex !== newIndexCorrected) return this.jumpToSlide(newIndexCorrected)
 
     // Shift once
-    if (shift === 1) this.bannerSlides[this.currentSlideIndex].moveToLeft()
-    else this.bannerSlides[this.currentSlideIndex].moveToRight()
+    this.bannerSlides[this.currentSlideIndex].move(shift)
     this.bannerSlides[newIndexCorrected].moveToCenter()
     this.currentSlideIndex = newIndexCorrected
   }
 
   jumpToSlide(newIndexCorrected: number): void {
-    this.bannerSlides.forEach((slide, idx) => {
-      if (idx > newIndexCorrected) slide.moveToRight()
-      else if (idx < newIndexCorrected) slide.moveToLeft()
-      else slide.moveToCenter()
-    })
+    this.bannerSlides.forEach((slide, idx) => slide.move(newIndexCorrected - idx))
     this.currentSlideIndex = newIndexCorrected
   }
 
