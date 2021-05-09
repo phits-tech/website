@@ -1,4 +1,4 @@
-import { GuidGen } from '@phits-tech/common/dist/utils/guids'
+import { GuidGen } from '@phits-tech/common/utils/guids'
 
 import admin from '~/firebase-admin-initialized'
 

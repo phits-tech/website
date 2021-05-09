@@ -11,6 +11,7 @@ import 'core-js/features/array/flat-map'
 
 export type { New, Update }
 export * from './model-types'
+export * from './schema'
 
 /**
  * @description Manages saving data to Firestore, including updating computed values

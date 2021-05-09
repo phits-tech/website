@@ -1,5 +1,5 @@
-import { Component } from '@vue/runtime-core'
-import { RouteLocationNormalized, RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
+import type { Component } from '@vue/runtime-core'
+import type { RouteLocationNormalized, RouteRecordRaw, RouteRecordRedirectOption } from 'vue-router'
 
 // Should work but doesn't...
 // export type RouteBinding = Omit<RouteRecordRaw, 'component'> & { priority?: number }

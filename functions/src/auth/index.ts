@@ -1,8 +1,8 @@
-import type { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/dist/api-callables'
-import { Dao, User, UserPrivate } from '@phits-tech/common/dist/dao-firestore'
-import { USERS, USERS_PRIVATE } from '@phits-tech/common/dist/dao-firestore/schema'
-import { fixName } from '@phits-tech/common/dist/utils/string-cases'
-import { New, Update } from '@phits-tech/common/dist/utils/types/firestore'
+import type { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
+import type { User, UserPrivate } from '@phits-tech/common/dao-firestore'
+import { Dao, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
+import { fixName } from '@phits-tech/common/utils/string-cases'
+import type { New, Update } from '@phits-tech/common/utils/types/firestore'
 
 import { context } from '../_services/context'
 import admin, { db, FieldValue } from '../_services/firebase-admin-initialized'

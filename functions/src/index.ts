@@ -1,4 +1,4 @@
-// import { TBD } from '@phits-tech/common/dist/dao-firestore/schema'
+// import { TBD } from '@phits-tech/common/dao-firestore'
 
 // import functions from './_services/firebase-functions-initialized'
 // import { getToken, getUrl } from './auth'

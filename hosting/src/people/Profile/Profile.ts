@@ -1,13 +1,13 @@
 import { computed } from '@vue/runtime-core'
 import dayjs from 'dayjs'
 import { partition, sumBy } from 'lodash'
-import { DeepRequired } from 'ts-essentials'
+import type { DeepRequired } from 'ts-essentials'
 import { setup, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { entries } from '@phits-tech/common/dist/utils/object-extensions'
-import { EventLog, User, UserSocialAccount } from '@phits-tech/common/src/dao-firestore'
-import { USERS } from '@phits-tech/common/src/dao-firestore/schema'
+import type { EventLog, User, UserSocialAccount } from '@phits-tech/common/dao-firestore'
+import { USERS } from '@phits-tech/common/dao-firestore'
+import { entries } from '@phits-tech/common/utils/object-extensions'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'

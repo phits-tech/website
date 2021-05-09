@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
 import { partition, sum } from 'lodash'
-import { DeepRequired } from 'ts-essentials'
+import type { DeepRequired } from 'ts-essentials'
 import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { EventLog, User } from '@phits-tech/common/src/dao-firestore'
-import { USERS } from '@phits-tech/common/src/dao-firestore/schema'
+import type { EventLog, User } from '@phits-tech/common/dao-firestore'
+import { USERS } from '@phits-tech/common/dao-firestore'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'

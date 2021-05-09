@@ -86,3 +86,11 @@ export interface Space {
   locationLatitude?: number
   locationLongitude?: number
 }
+
+export interface Banner {
+  banner169Url: string
+  targetUrl?: string
+  targetEventSlug?: string
+  targetRoute?: string
+  dateExpire: Timestamp
+}

@@ -9,7 +9,7 @@
     "node": "12"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
     "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only functions",
     "fix": "prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
