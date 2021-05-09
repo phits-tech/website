@@ -9,6 +9,7 @@ import { Route } from '~/router/route-decorator'
 export default class Home extends Vue {
   nextSlideInterval: NodeJS.Timeout | null = null
   banners: Banner[] = []
+  bannerSlides: Element[] = []
 
   async mounted(): Promise<void> {
     // Banners
@@ -17,8 +18,16 @@ export default class Home extends Vue {
     this.resetSlideTimer() // must be called after banner query
   }
 
+  beforeUpdate(): void {
+    this.bannerSlides = []
+  }
+
   beforeUnmount(): void {
     this.stopSlideTimer()
+  }
+
+  registerBanner(el: Element): void {
+    this.bannerSlides.push(el)
   }
 
   stopSlideTimer(): void {
