@@ -4,12 +4,12 @@ import { Banner } from '@phits-tech/common/dist/dao-firestore'
 
 import { Route } from '~/router/route-decorator'
 
-const classLeft = '-translate-x-full'
-const classCenter = 'translate-x-0'
-const classRight = 'translate-x-full'
-const allClasses = [classLeft, classCenter, classRight]
-
 class BannerElement {
+  private readonly classLeft = '-translate-x-full'
+  private readonly classCenter = 'translate-x-0'
+  private readonly classRight = 'translate-x-full'
+  private readonly allClasses = [this.classLeft, this.classCenter, this.classRight]
+
   constructor(private readonly element: Element) { }
 
   /**
@@ -22,21 +22,21 @@ class BannerElement {
     else this.moveToCenter()
   }
 
-  moveToLeft(): void { this.setClass(classLeft) }
-  moveToCenter(): void { this.setClass(classCenter) }
-  moveToRight(): void { this.setClass(classRight) }
+  moveToLeft(): void { this.setClass(this.classLeft) }
+  moveToCenter(): void { this.setClass(this.classCenter) }
+  moveToRight(): void { this.setClass(this.classRight) }
 
   private setClass(className: string): void {
-    this.element.classList.remove(...allClasses)
+    this.element.classList.remove(...this.allClasses)
     this.element.classList.add(className)
   }
 }
 
-const ROTATION_INTERVAL = 5000
-const PAUSE_AFTER_INTERACTION = 15000
-
 @Route({ path: '/' })
 export default class Home extends Vue {
+  private readonly ROTATION_INTERVAL = 5000
+  private readonly PAUSE_AFTER_INTERACTION = 15000
+
   bannerSlides: BannerElement[] = []
   currentSlideIndex = 0
   nextSlideInterval: NodeJS.Timeout | null = null
@@ -56,12 +56,12 @@ export default class Home extends Vue {
 
   resetSlideTimer(): void {
     this.stopSlideTimer()
-    if (this.bannerSlides.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, ROTATION_INTERVAL)
+    if (this.bannerSlides.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, this.ROTATION_INTERVAL)
   }
 
   resetSlideTimerAfterPause(): void {
     this.stopSlideTimer()
-    setTimeout(this.resetSlideTimer, PAUSE_AFTER_INTERACTION - ROTATION_INTERVAL)
+    setTimeout(this.resetSlideTimer, this.PAUSE_AFTER_INTERACTION - this.ROTATION_INTERVAL)
   }
 
   nextSlide(): void { this.shiftSlide(1) }
