@@ -4,8 +4,8 @@ import type { Store } from 'vuex'
 import { createStore } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import type { Event, User } from '@phits-tech/common/dao-firestore'
-import { EVENTS, USERS } from '@phits-tech/common/dao-firestore'
+import type { Banner, Event, User } from '@phits-tech/common/dao-firestore'
+import { BANNERS, EVENTS, USERS } from '@phits-tech/common/dao-firestore'
 import type { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
 
 import { eventToEventUi } from '@/events/models'
@@ -14,6 +14,7 @@ import { db } from '~/firebase-initialized'
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
   eventsRaw: Event[]
+  banners: Array<Omit<Banner, 'dateExpire'>>
 }
 
 /**
@@ -22,7 +23,8 @@ export interface PTStoreState {
 export const STORE = {
   STATE: {
     currentUser: 'currentUser',
-    eventsRaw: 'eventsRaw'
+    eventsRaw: 'eventsRaw',
+    banners: 'banners'
   },
   GETTERS: { },
   MUTATIONS: { },
@@ -37,7 +39,8 @@ export const storeKey: InjectionKey<Store<PTStoreState>> = Symbol('PTStore')
 export const store = createStore<PTStoreState>({
   state: {
     currentUser: null,
-    eventsRaw: []
+    eventsRaw: [],
+    banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
   },
   getters: {
     events: (state) => state.eventsRaw.map(eventToEventUi),
@@ -51,7 +54,10 @@ export const store = createStore<PTStoreState>({
   },
   actions: {
     init: firestoreAction(async ({ bindFirestoreRef }) => {
-      return await bindFirestoreRef(STORE.STATE.eventsRaw, db.collection(EVENTS))
+      return await Promise.all([
+        bindFirestoreRef(STORE.STATE.eventsRaw, db.collection(EVENTS)),
+        bindFirestoreRef(STORE.STATE.banners, db.collection(BANNERS).where('dateExpire', '>', new Date()))
+      ])
     }),
     userChanged: firestoreAction(({ state, bindFirestoreRef, unbindFirestoreRef }, user: FirebaseUser | { uid: string } | undefined) => {
       const uid = user?.uid
