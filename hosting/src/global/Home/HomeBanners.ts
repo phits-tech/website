@@ -25,7 +25,7 @@ class BannerElement {
 
 @Route({ path: '/' })
 export default class Home extends Vue {
-  banners: Banner[] = []
+  banners: Array<Omit<Banner, 'dateExpire'>> = [{ banner169Url: '/images/banner_16_9_loading.png' }]
   bannerSlides: BannerElement[] = []
   currentSlideIndex = 0
   nextSlideInterval: NodeJS.Timeout | null = null
