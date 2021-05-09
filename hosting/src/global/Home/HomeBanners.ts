@@ -1,8 +1,7 @@
 import { Vue } from 'vue-class-component'
 
-import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
+import { Banner } from '@phits-tech/common/dist/dao-firestore'
 
-import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
 const classLeft = '-translate-x-full'
@@ -38,23 +37,14 @@ const PAUSE_AFTER_INTERACTION = 15000
 
 @Route({ path: '/' })
 export default class Home extends Vue {
-  banners: Array<Omit<Banner, 'dateExpire'>> = [{ banner169Url: '/images/banner_16_9_loading.png' }]
   bannerSlides: BannerElement[] = []
   currentSlideIndex = 0
   nextSlideInterval: NodeJS.Timeout | null = null
 
-  async mounted(): Promise<void> {
-    // TODO: Move banners to Vuex
-    this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
-      .docs
-      .map(doc => doc.data() as Banner)
-  }
+  get banners(): Array<Omit<Banner, 'dateExpire'>> { return this.$store.state.banners }
 
-  beforeUpdate(): void {
-    this.currentSlideIndex = 0
-    this.bannerSlides = []
-  }
-
+  mounted(): void { this.resetSlideTimer() }
+  beforeUpdate(): void { this.currentSlideIndex = 0; this.bannerSlides = [] }
   updated(): void { this.resetSlideTimer() }
   beforeUnmount(): void { this.stopSlideTimer() }
 
