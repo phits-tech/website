@@ -13,9 +13,13 @@ const allClasses = [classLeft, classCenter, classRight]
 class BannerElement {
   constructor(private readonly element: Element) { }
 
-  move(shift: number): void {
-    if (shift > 0) this.moveToLeft()
-    else if (shift < 0) this.moveToRight()
+  /**
+   * Positive "shifts" move slides towards the left
+   * => positive "side" is the left side
+   */
+  move(side: number): void {
+    if (side > 0) this.moveToLeft()
+    else if (side < 0) this.moveToRight()
     else this.moveToCenter()
   }
 
@@ -23,7 +27,7 @@ class BannerElement {
   moveToCenter(): void { this.setClass(classCenter) }
   moveToRight(): void { this.setClass(classRight) }
 
-  setClass(className: string): void {
+  private setClass(className: string): void {
     this.element.classList.remove(...allClasses)
     this.element.classList.add(className)
   }
@@ -81,7 +85,10 @@ export default class Home extends Vue {
   }
 
   jumpToSlide(newIndexCorrected: number): void {
-    this.bannerSlides.forEach((slide, idx) => slide.move(newIndexCorrected - idx))
+    // slideIdx < current => wait on left
+    // slideIdx == current => move to center
+    // slideIdx > current => wait on right
+    this.bannerSlides.forEach((slide, slideIdx) => slide.move(newIndexCorrected - slideIdx))
     this.currentSlideIndex = newIndexCorrected
   }
 
