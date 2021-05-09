@@ -5,113 +5,82 @@ import { Banner, BANNERS } from '@phits-tech/common/dist/dao-firestore'
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
+const classLeft = '-translate-x-full'
+const classCenter = 'translate-x-0'
+const classRight = 'translate-x-full'
+const allClasses = [classLeft, classCenter, classRight]
+
+class BannerElement {
+  constructor(private readonly element: Element) { }
+
+  moveToLeft(): void { this.setClass(classLeft) }
+  moveToCenter(): void { this.setClass(classCenter) }
+  moveToRight(): void { this.setClass(classRight) }
+
+  setClass(className: string): void {
+    this.element.classList.remove(...allClasses)
+    this.element.classList.add(className)
+  }
+}
+
 @Route({ path: '/' })
 export default class Home extends Vue {
-  nextSlideInterval: NodeJS.Timeout | null = null
   banners: Banner[] = []
-  bannerSlides: Element[] = []
+  bannerSlides: BannerElement[] = []
+  currentSlideIndex = 0
+  nextSlideInterval: NodeJS.Timeout | null = null
 
   async mounted(): Promise<void> {
-    // Banners
-    const bannerSnapshot = await db.collection(BANNERS).where('dateExpire', '>', new Date()).get()
-    this.banners = bannerSnapshot.docs.map(doc => doc.data() as Banner)
-    this.resetSlideTimer() // must be called after banner query
+    this.banners = (await db.collection(BANNERS).where('dateExpire', '>', new Date()).get())
+      .docs
+      .map(doc => doc.data() as Banner)
   }
 
   beforeUpdate(): void {
+    this.currentSlideIndex = 0
     this.bannerSlides = []
   }
 
-  beforeUnmount(): void {
-    this.stopSlideTimer()
-  }
+  updated(): void { this.resetSlideTimer() }
+  beforeUnmount(): void { this.stopSlideTimer() }
 
-  registerBanner(el: Element): void {
-    this.bannerSlides.push(el)
-  }
+  registerBanner(el: Element): void { this.bannerSlides.push(new BannerElement(el)) }
 
   stopSlideTimer(): void {
     if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
   }
 
+  // TODO: Add larger pause after a user interaction (then resume standard)
   resetSlideTimer(): void {
     this.stopSlideTimer()
-    if (this.banners.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, 5000)
+    if (this.bannerSlides.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, 5000)
   }
 
-  nextSlide(): void {
-    if (this.banners.length < 2) return
+  nextSlide(): void { this.shiftSlide(1) }
+  previousSlide(): void { this.shiftSlide(-1) }
 
-    const activeSlide = document.querySelector('.slide.translate-x-0')
-    if (activeSlide === null) return // no slides
+  shiftSlide(shift: -1 | 1): void {
+    if (this.bannerSlides.length < 2) return
 
-    const nextSlide = activeSlide.nextElementSibling
-    if (nextSlide === null || !nextSlide.classList.contains('slide')) {
-      // Return to start...
-      const firstSlide = activeSlide.parentElement?.querySelector('.slide') ?? null
-      if (firstSlide === null) return
+    // Detect wrap-around
+    const newIndex = this.currentSlideIndex + shift
+    const newIndexCorrected = (newIndex < 0) ? this.bannerSlides.length - 1 : (newIndex > this.bannerSlides.length - 1) ? 0 : newIndex
+    if (newIndex !== newIndexCorrected) return this.jumpToSlide(newIndexCorrected)
 
-      // Old => Exit to right
-      activeSlide.classList.remove('translate-x-0')
-      activeSlide.classList.add('translate-x-full')
-
-      // New => Enter from left
-      firstSlide.classList.remove('-translate-x-full')
-      firstSlide.classList.add('translate-x-0')
-
-      // Waiting => Ready to move on from right
-      const otherSlides = document.querySelectorAll('.slide.-translate-x-full')
-      otherSlides.forEach(element => {
-        element.classList.remove('-translate-x-full')
-        element.classList.add('translate-x-full')
-      })
-    } else {
-      // Old => Exit to left
-      activeSlide.classList.remove('translate-x-0')
-      activeSlide.classList.add('-translate-x-full')
-
-      // New => Enter from right
-      nextSlide.classList.remove('translate-x-full')
-      nextSlide.classList.add('translate-x-0')
-    }
+    // Shift once
+    if (shift === 1) this.bannerSlides[this.currentSlideIndex].moveToLeft()
+    else this.bannerSlides[this.currentSlideIndex].moveToRight()
+    this.bannerSlides[newIndexCorrected].moveToCenter()
+    this.currentSlideIndex = newIndexCorrected
   }
 
-  previousSlide(): void {
-    if (this.banners.length < 2) return
-
-    const activeSlide = document.querySelector('.slide.translate-x-0')
-    if (activeSlide === null) return // no slides
-
-    const previousSlide = activeSlide.previousElementSibling
-    if (previousSlide === null || !previousSlide.classList.contains('slide')) {
-      // Return to end...
-      const allSlides = activeSlide.parentElement?.querySelectorAll('.slide') ?? []
-      const lastSlide = allSlides.length > 0 ? allSlides[allSlides.length - 1] : null
-      if (lastSlide === null) return
-
-      // Old => Exit to left
-      activeSlide.classList.remove('translate-x-0')
-      activeSlide.classList.add('-translate-x-full')
-
-      // New => Enter from right
-      lastSlide.classList.remove('translate-x-full')
-      lastSlide.classList.add('translate-x-0')
-
-      // Waiting => Ready to move on from left
-      const otherSlides = document.querySelectorAll('.slide.translate-x-full')
-      otherSlides.forEach(element => {
-        element.classList.remove('translate-x-full')
-        element.classList.add('-translate-x-full')
-      })
-    } else {
-      // Old => Exit to right
-      activeSlide.classList.remove('translate-x-0')
-      activeSlide.classList.add('translate-x-full')
-
-      // New => Enter from left
-      previousSlide.classList.remove('-translate-x-full')
-      previousSlide.classList.add('translate-x-0')
-    }
+  jumpToSlide(newIndexCorrected: number): void {
+    this.bannerSlides.forEach((slide, idx) => {
+      if (idx > newIndexCorrected) slide.moveToRight()
+      else if (idx < newIndexCorrected) slide.moveToLeft()
+      else slide.moveToCenter()
+    })
+    this.currentSlideIndex = newIndexCorrected
   }
 
   async bannerClick(banner: Banner): Promise<unknown> {
