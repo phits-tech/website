@@ -5,7 +5,7 @@ import { useStore } from 'vuex'
 
 import { Route } from '~/router/route-decorator'
 import { storeKey } from '~/store'
-import { EventUi } from '../models'
+import type { EventUi } from '../models'
 
 @Route({ path: '/events/:slug', props: true })
 export default class Event extends Vue.with(class {

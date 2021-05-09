@@ -15,7 +15,10 @@
     "pretty": true,
     "sourceMap": true,
     "strict": true,
-    "target": "ES2015"
+    "target": "ES2015",
+    "paths": {
+      "@phits-tech/common/*": ["common/src/*"]
+    }
   },
   "exclude": ["node_modules"]
 }

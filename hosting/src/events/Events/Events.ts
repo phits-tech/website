@@ -2,7 +2,7 @@ import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
 import { Route } from '~/router/route-decorator'
-import { EventUi } from '../models'
+import type { EventUi } from '../models'
 
 @Route({ path: '/events' })
 export default class Events extends Vue {

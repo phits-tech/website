@@ -3,8 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@phits-tech/common/*": ["../common/src/*"]
+    }
   },
   "include": ["src/**/*.ts"],
-  "references": [{ "path": "../common" }]
+  "references": [{ "path": "../common/tsconfig.json" }]
 }

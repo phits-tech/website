@@ -1,7 +1,7 @@
-import { Component } from '@vue/runtime-core'
-import { RouteRecordRaw } from 'vue-router'
+import type { Component } from '@vue/runtime-core'
+import type { RouteRecordRaw } from 'vue-router'
 
-import { RouteBinding } from './route-binding'
+import type { RouteBinding } from './route-binding'
 
 export const getRoutes = (components: Component[] | __WebpackModuleApi.RequireContext): RouteRecordRaw[] =>
   Array.isArray(components)

@@ -1,10 +1,12 @@
 import type { User as FirebaseUser } from '@firebase/auth-types'
-import { InjectionKey } from '@vue/runtime-core'
-import { createStore, Store } from 'vuex'
+import type { InjectionKey } from '@vue/runtime-core'
+import type { Store } from 'vuex'
+import { createStore } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import { Banner, BANNERS, Event, EVENTS, User, USERS } from '@phits-tech/common/dist/dao-firestore'
-import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
+import type { Banner, Event, User } from '@phits-tech/common/dao-firestore'
+import { BANNERS, EVENTS, USERS } from '@phits-tech/common/dao-firestore'
+import type { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
 
 import { eventToEventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
