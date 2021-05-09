@@ -1,4 +1,4 @@
-import { BANNERS, EVENTS, SPACES } from '@phits-tech/common/dist/dao-firestore'
+import { BANNERS, EVENTS, SPACES } from '@phits-tech/common/dao-firestore'
 
 import { context } from '~/context'
 import { MODE } from '~/modes'
