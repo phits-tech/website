@@ -16,14 +16,14 @@
   <div
     v-if="banners.length > 1"
     class="absolute bottom-0 left-0 rounded-tr-md sm:rounded-tr-xl lg:rounded-tr-3xl bg-black bg-opacity-30 pr-1 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-lg sm:text-xl md:text-2xl lg:text-4xl flex items-center justify-center text-white cursor-pointer"
-    @click="previousSlide(); resetSlideTimer()"
+    @click="previousSlide(); resetSlideTimerAfterPause()"
   >
     &#x276E;
   </div>
   <div
     v-if="banners.length > 1"
     class="absolute bottom-0 right-0 rounded-tl-md sm:rounded-tl-xl lg:rounded-tl-3xl bg-black bg-opacity-30 pl-1 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-lg sm:text-xl md:text-2xl lg:text-4xl flex items-center justify-center text-white cursor-pointer"
-    @click="nextSlide(); resetSlideTimer()"
+    @click="nextSlide(); resetSlideTimerAfterPause()"
   >
     &#x276F;
   </div>

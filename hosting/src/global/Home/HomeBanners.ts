@@ -33,6 +33,9 @@ class BannerElement {
   }
 }
 
+const ROTATION_INTERVAL = 5000
+const PAUSE_AFTER_INTERACTION = 15000
+
 @Route({ path: '/' })
 export default class Home extends Vue {
   banners: Array<Omit<Banner, 'dateExpire'>> = [{ banner169Url: '/images/banner_16_9_loading.png' }]
@@ -61,10 +64,14 @@ export default class Home extends Vue {
     if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
   }
 
-  // TODO: Add larger pause after a user interaction (then resume standard)
   resetSlideTimer(): void {
     this.stopSlideTimer()
-    if (this.bannerSlides.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, 5000)
+    if (this.bannerSlides.length > 1) this.nextSlideInterval = setInterval(this.nextSlide, ROTATION_INTERVAL)
+  }
+
+  resetSlideTimerAfterPause(): void {
+    this.stopSlideTimer()
+    setTimeout(this.resetSlideTimer, PAUSE_AFTER_INTERACTION - ROTATION_INTERVAL)
   }
 
   nextSlide(): void { this.shiftSlide(1) }
