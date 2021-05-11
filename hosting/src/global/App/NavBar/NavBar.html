@@ -8,16 +8,16 @@
           class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-brand-black-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
+          @click="toggleCollapse"
         >
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
-
             Heroicon name: outline/menu
-
             Menu open: "hidden", Menu closed: "block"
           -->
           <svg
+            ref="menuClosedIcon"
             class="block h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -34,12 +34,11 @@
           </svg>
           <!--
             Icon when menu is open.
-
             Heroicon name: outline/x
-
             Menu open: "block", Menu closed: "hidden"
           -->
           <svg
+            ref="menuOpenIcon"
             class="hidden h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -197,7 +196,7 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div ref="mobileMenu" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- 
         Current: "bg-gray-800 text-white"
