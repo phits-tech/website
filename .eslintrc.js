@@ -18,11 +18,19 @@ module.exports = {
       extends: ['.eslintrc-vue.js'],
       rules: {
         // URGENT: Fix errors & remove these exceptions
+        'unicorn/filename-case': 'off',
         'unicorn/no-array-callback-reference': 'off',
         'unicorn/no-keyword-prefix': 'off',
         'unicorn/no-null': 'off'
       }
     }
   ],
-  root: true
+  root: true,
+  rules: {
+    // URGENT: Fix errors & remove these exceptions
+    'unicorn/filename-case': 'off',
+    'unicorn/no-array-callback-reference': 'off',
+    'unicorn/no-keyword-prefix': 'off',
+    'unicorn/no-null': 'off'
+  }
 }
