@@ -20,7 +20,7 @@ export default class Home extends Vue {
     return Array.from({ length: 7 }, (_, i) => {
       const day = startOfDayLocal.add(i, 'day')
       return {
-        day: (i === 0) ? 'Today' : (i === 1) ? 'Tomorrow' : day.format('ddd'),
+        day: (i === 0) ? 'Today' : ((i === 1) ? 'Tomorrow' : day.format('ddd')),
         events: events.filter(e => day.isBefore(e.dateStart) && day.add(1, 'day').isAfter(e.dateStart))
       }
     })

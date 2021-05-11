@@ -26,8 +26,8 @@ export const STORE = {
     eventsRaw: 'eventsRaw',
     banners: 'banners'
   },
-  GETTERS: { },
-  MUTATIONS: { },
+  GETTERS: {},
+  MUTATIONS: {},
   ACTIONS: {
     init: 'init',
     userChanged: 'userChanged'

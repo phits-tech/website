@@ -10,7 +10,7 @@ class BannerElement {
   private readonly classRight = 'translate-x-full'
   private readonly allClasses = [this.classLeft, this.classCenter, this.classRight]
 
-  constructor(private readonly element: Element) { }
+  constructor(private readonly element: Element) {}
 
   /**
    * Positive "shifts" move slides towards the left
@@ -35,7 +35,7 @@ class BannerElement {
 @Route({ path: '/' })
 export default class Home extends Vue {
   private readonly ROTATION_INTERVAL = 5000
-  private readonly PAUSE_AFTER_INTERACTION = 15000
+  private readonly PAUSE_AFTER_INTERACTION = 15_000
 
   bannerSlides: BannerElement[] = []
   currentSlideIndex = 0
@@ -72,7 +72,7 @@ export default class Home extends Vue {
 
     // Detect wrap-around
     const newIndex = this.currentSlideIndex + shift
-    const newIndexCorrected = (newIndex < 0) ? this.bannerSlides.length - 1 : (newIndex > this.bannerSlides.length - 1) ? 0 : newIndex
+    const newIndexCorrected = (newIndex < 0) ? this.bannerSlides.length - 1 : ((newIndex > this.bannerSlides.length - 1) ? 0 : newIndex)
     if (newIndex !== newIndexCorrected) return this.jumpToSlide(newIndexCorrected)
 
     // Shift once

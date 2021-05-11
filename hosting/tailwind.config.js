@@ -30,15 +30,15 @@ module.exports = {
           700: '#2f2427',
           800: '#271e20',
           900: '#1a1314'
-        },
+        }
       }
-    },
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp')
-  ],
+  ]
 }
