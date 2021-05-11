@@ -14,7 +14,6 @@
           <!--
             Icon when menu is closed.
             Heroicon name: outline/menu
-            Menu open: "hidden", Menu closed: "block"
           -->
           <svg
             ref="menuClosedIcon"
@@ -35,7 +34,6 @@
           <!--
             Icon when menu is open.
             Heroicon name: outline/x
-            Menu open: "block", Menu closed: "hidden"
           -->
           <svg
             ref="menuOpenIcon"
@@ -200,22 +198,21 @@
   <!-- Mobile menu, show/hide based on menu state. -->
   <div ref="mobileMenu" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- 
-        Current: "bg-gray-800 text-white"
-        Default: "text-gray-300 hover:bg-brand-black-400 hover:text-white"
-      -->
       <router-link
         :to="{ name: 'Events' }"
+        @click="$router.push({ name: 'Events' }); toggleCollapse()"
         class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Events</router-link
       >
       <router-link
         :to="{ name: 'Spaces' }"
+        @click="$router.push({ name: 'Spaces' }); toggleCollapse()"
         class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Spaces</router-link
       >
       <router-link
         :to="{ name: 'Heroes' }"
+        @click="$router.push({ name: 'Heroes' }); toggleCollapse()"
         class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
         >Heroes</router-link
       >
