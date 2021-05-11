@@ -12,8 +12,8 @@
     "build": "tsc -b",
     "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only functions",
-    "fix": "prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
+    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
+    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
     "logs": "firebase functions:log",
     "rebuild": "yarn clean && yarn build",
     "watch": "tsc -w"

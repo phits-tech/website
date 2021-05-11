@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc -b",
     "clean": "rimraf ./dist",
-    "fix": "prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
+    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
+    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
     "rebuild": "yarn clean && yarn build",
     "serve": "ts-node --files -r tsconfig-paths/register",
     "-": "----- SCRIPTS -----",
