@@ -20,7 +20,7 @@ interface FirebaseConfig {
 const PREFIX = 'VUE_APP_FIREBASE_'
 const config = mapKeys(
   pickBy(process.env, (_value, key) => key.startsWith(PREFIX)),
-  (_value, key) => camelize(key.substring(PREFIX.length).toLowerCase())
+  (_value, key) => camelize(key.slice(PREFIX.length).toLowerCase())
 ) as unknown as FirebaseConfig
 
 // Initialize

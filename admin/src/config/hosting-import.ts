@@ -39,8 +39,8 @@ const main = async (): Promise<void> => {
 
     // Merge - existing values
     const merged = mapValues(
-      keyBy(lines, (line) => line.substring(0, line.indexOf('='))),
-      (line) => line.substring(line.indexOf('=') + 1)
+      keyBy(lines, (line) => line.slice(0, Math.max(0, line.indexOf('=')))),
+      (line) => line.slice(Math.max(0, line.indexOf('=') + 1))
     )
 
     // Merge - based on mode
@@ -71,4 +71,4 @@ const main = async (): Promise<void> => {
 
 main()
   .then(() => process.exit())
-  .catch((e) => console.error(e))
+  .catch((error) => console.error(error))
