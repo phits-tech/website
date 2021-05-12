@@ -6,6 +6,18 @@ Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & 
 
 # Deployment
 
+## Login to Google Cloud & Firebase
+
+Authenticate & set the current project:
+
+```
+gcloud auth login
+gcloud config set project phits-tech-emu
+gcloud auth application-default login
+firebase login
+firebase use default
+```
+
 ## Initial Setup
 
 See: [New Git Clone](./New-Clone.md) if you have not deployed this `clone` before.  
@@ -74,9 +86,9 @@ See: [New Firebase Project](./New-Project.md) if you need to setup a new Firebas
 - [Scripts](./Scripts.md)
 - [Runners](../Runners/Index.md)
 
-# Backup Firestore prod and restore to dev
+# Backup Firestore production and restore to dev
 
-1. Backup prod
+1. Backup production
    _- from `admin` -_
 
    ```

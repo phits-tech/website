@@ -1,0 +1,8 @@
+# managed by eslint
+*.ts
+
+# deps & build
+node_modules
+dist
+lib
+coverage

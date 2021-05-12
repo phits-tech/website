@@ -4,7 +4,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: { // Generator: http://mcg.mbitson.com
+      colors: {
+        // Generator: http://mcg.mbitson.com
         'brand-blue': {
           DEFAULT: '#72cee6',
           50: '#eef9fc',
@@ -30,15 +31,15 @@ module.exports = {
           700: '#2f2427',
           800: '#271e20',
           900: '#1a1314'
-        },
+        }
       }
-    },
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp')
-  ],
+  ]
 }

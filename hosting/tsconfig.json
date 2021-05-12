@@ -1,34 +1,19 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": "src",
     "outDir": "dist",
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "strict": true,
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "useDefineForClassFields": true,
-    "baseUrl": ".",
     "paths": {
       "@phits-tech/common/*": ["../common/src/*"],
       "@assets/*": ["src/_assets/*"],
       "~/*": ["src/_services/*"],
       "@/*": ["src/*"]
-    }
+    },
+    // Override
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "../common/tsconfig.json" }]
 }

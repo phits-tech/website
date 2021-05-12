@@ -32,15 +32,15 @@ if (mode === 'emu') {
 
 const configString = fs.readFileSync(configPath, { encoding: 'utf8' })
 
-// TODO: Make this a pure function
-const collectConfigLines = (o: Record<string, unknown>, propPath: string, configLines: string[]): void => {
-  propPath = propPath || ''
-  for (const key of Object.keys(o)) {
-    const newPropPath = propPath + key
-    if (typeof o[key] === 'object') {
-      collectConfigLines(o[key] as Record<string, unknown>, newPropPath + '.', configLines)
-    } else if (o[key] != null && o[key] !== '') {
-      configLines.push(`${newPropPath}=${JSON.stringify(o[key])}`)
+// TODO: Make this a pure function (no by reference)
+const collectConfigLines = (config: Record<string, unknown>, pathPrefix: string, configLines: string[]): void => {
+  pathPrefix = pathPrefix || ''
+  for (const key of Object.keys(config)) {
+    const path = pathPrefix + key
+    if (typeof config[key] === 'object') {
+      collectConfigLines(config[key] as Record<string, unknown>, path + '.', configLines)
+    } else if (config[key] !== undefined) {
+      configLines.push(`${path}=${JSON.stringify(config[key])}`)
     }
   }
 }
@@ -48,7 +48,7 @@ const collectConfigLines = (o: Record<string, unknown>, propPath: string, config
 // Convert to snake and then put in Firebase CLI format
 const configSnaked = camelToSnake(JSON.parse(configString), 3)
 const configLines: string[] = []
-collectConfigLines(configSnaked, '', configLines) // TODO: Is this by reference? Why not return?
+collectConfigLines(configSnaked, '', configLines)
 const configKeyValuePairs = configLines.join(' ')
 
 console.log(`Deploying config to ${projectAlias}: ${configKeyValuePairs}`)

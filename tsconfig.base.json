@@ -1,24 +1,41 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
+    // Project
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "CommonJS",
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES2015",
+
+    // Module resolution
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+
+    // Linting
+    "alwaysStrict": true,
+    "strict": true /* includes: strictNullChecks, strictBindCallApply, strictFunctionTypes, strictPropertyInitialization, noImplicitAny, noImplicitThis */,
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitOverride": true, // requires TypeScript 4.3
     "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": false, // seems undesirable
+    "noUncheckedIndexedAccess": false, // troublesome for array indexing
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "pretty": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "ES2015",
-    "paths": {
-      "@phits-tech/common/*": ["common/src/*"]
-    }
+
+    // Experimental
+    "experimentalDecorators": true,
+
+    // Advanced
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "error",
+    "noErrorTruncation": true,
+    "pretty": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", "lib", ".*/**"]
 }

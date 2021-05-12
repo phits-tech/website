@@ -3,6 +3,6 @@
     "default": "phits-tech-emu",
     "emu": "phits-tech-emu",
     "dev": "phits-tech-dev",
-    "prod": "phits-tech"
+    "production": "phits-tech"
   }
 }
