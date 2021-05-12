@@ -13,7 +13,7 @@ _- from `admin` -_
 yarn serve "src/path/to/script"
 ```
 
-By default scripts will run against the `emulator`. If you need to run a script against `dev` or `prod` you must specify `--mode` (and provide the matching `service-account.[alias].json` in `configs`):
+By default scripts will run against the `emulator`. If you need to run a script against `dev` or `production` you must specify `--mode` (and provide the matching `service-account.[alias].json` in `configs`):
 
 ```
 yarn serve "src/path/to/script" --mode=[alias]

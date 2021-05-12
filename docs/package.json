@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "description": "Documentation",
   "scripts": {
-    "fix": "prettier --loglevel warn --write \"**/*.md\" \"{**/,.}*.{js,json}\"",
-    "lint": "prettier --check \"**/*.md\" \"{**/,.}*.{js,json}\""
+    "fix": "prettier --loglevel warn --write \"**/*.md\"",
+    "lint": "prettier --check \"**/*.md\""
   },
   "dependencies": {},
   "devDependencies": {}

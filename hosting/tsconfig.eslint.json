@@ -3,6 +3,8 @@
   "include": [
     // src
     "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
     // scripts & configs
     "*.ts",
     "*.js",

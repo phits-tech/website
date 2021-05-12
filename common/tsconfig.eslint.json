@@ -3,13 +3,12 @@
   "include": [
     // src
     "src/**/*.ts",
-    "src/**/*.js",
-    "src/**/*.json",
     // scripts & configs
     "*.ts",
-    ".*.ts",
     "*.js",
+    "*.json",
+    ".*.ts",
     ".*.js",
-    "*.json"
+    ".*.json"
   ]
 }

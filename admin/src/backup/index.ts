@@ -2,10 +2,12 @@ import cp from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
-const description = process.argv[2]
-const projectAlias = process.argv[3] || 'prod'
+type FirebaseProjectAlias = 'production' | 'dev'
 
-if (!description) {
+const description = process.argv[2]
+const projectAlias = process.argv[3] as FirebaseProjectAlias | undefined
+
+if (!projectAlias || !description) {
   console.log('USAGE: yarn backup "SHORT DESCRIPTION" [ALIAS]')
   process.exit(1)
 }
@@ -13,7 +15,7 @@ if (!description) {
 // Get the project id from .firebaserc
 const pathToRoot = '../../../'
 const firebaseRcPath = path.resolve(__dirname, pathToRoot, '.firebaserc')
-const projects = JSON.parse(fs.readFileSync(firebaseRcPath, { encoding: 'utf8' })).projects as { [projectAlias: string]: string }
+const projects = JSON.parse(fs.readFileSync(firebaseRcPath, { encoding: 'utf8' })).projects as Partial<Record<FirebaseProjectAlias, string>>
 
 const selectedProject = projects[projectAlias]
 if (!selectedProject) {
@@ -22,8 +24,8 @@ if (!selectedProject) {
 }
 
 // To backup other environments, create a new bucket in Firebase Console and add below
-const buckets: { [projectAlias: string]: string } = {
-  prod: 'phits-tech.appspot.com/backups',
+const buckets: Record<FirebaseProjectAlias, string> = {
+  production: 'phits-tech.appspot.com/backups',
   dev: 'phits-tech-dev.appspot.com/backups'
 }
 

@@ -30,14 +30,14 @@ export default class Profile extends Vue.with(class {
   slug!: string
 }) {
   ccuCutoffSeconds = dayjs().subtract(2, 'year').unix()
-  user: DeepRequired<User> | null = null
+  user?: DeepRequired<User> = undefined
 
   meta = setup(() => useMeta(computed(() => ({
     title: this.user?.name ?? 'Profile'
   }))))
 
   async mounted(): Promise<void> {
-    this.user = (await db.collection(USERS).doc(this.slug).get()).data() as (DeepRequired<User> | undefined) ?? null
+    this.user = (await db.collection(USERS).doc(this.slug).get()).data() as (DeepRequired<User> | undefined)
   }
 
   // URGENT: Extract this

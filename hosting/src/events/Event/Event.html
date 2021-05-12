@@ -14,7 +14,18 @@
         {{ event.name }}
         <div
           v-if="event.series && event.seriesType"
-          class="inline-block align-middle bg-brand-black text-brand-blue-500 rounded-sm text-xs px-1 py-0.5 mb-1 ml-0.5"
+          class="
+            inline-block
+            align-middle
+            bg-brand-black
+            text-brand-blue-500
+            rounded-sm
+            text-xs
+            px-1
+            py-0.5
+            mb-1
+            ml-0.5
+          "
         >
           {{ event.seriesType }}
         </div>
@@ -26,7 +37,15 @@
       <div v-if="event.description" class="my-4">{{ event.description }}</div>
       <div
         v-for="badge in event.badges"
-        class="inline-block bg-brand-black-50 rounded-sm text-sm py-0.5 px-1.5 mr-1.5"
+        class="
+          inline-block
+          bg-brand-black-50
+          rounded-sm
+          text-sm
+          py-0.5
+          px-1.5
+          mr-1.5
+        "
       >
         {{ badge }}
       </div>

@@ -40,7 +40,19 @@
       <p class="mt-4">
         <span
           v-for="skill in user.skills.sort()"
-          class="inline-block bg-gray-100 text-brand-black rounded-md ring-1 ring-gray-200 px-1.5 py-1 text-xs font-light mr-2 mb-2"
+          class="
+            inline-block
+            bg-gray-100
+            text-brand-black
+            rounded-md
+            ring-1 ring-gray-200
+            px-1.5
+            py-1
+            text-xs
+            font-light
+            mr-2
+            mb-2
+          "
         >
           {{ skill }}
         </span>
@@ -53,14 +65,42 @@
           {{ ccusFromContribution + ccusFromAttendance }}
           <span class="has-tooltip border-b-2 border-gray-300 border-dotted"
             ><span
-              class="tooltip text-center w-36 rounded shadow-lg py-2 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-4"
+              class="
+                tooltip
+                text-center
+                w-36
+                rounded
+                shadow-lg
+                py-2
+                bg-gray-50
+                text-brand-black-500
+                italic
+                transform
+                -translate-x-1/2
+                mt-7
+                ml-4
+              "
               >Community Contribution Units</span
             >CCU</span
           >
           · {{ user.lccus }}
           <span class="has-tooltip border-b-2 border-gray-200 border-dotted"
             ><span
-              class="tooltip text-center w-20 rounded shadow-lg py-1 bg-gray-50 text-brand-black-500 italic transform -translate-x-1/2 mt-7 ml-5"
+              class="
+                tooltip
+                text-center
+                w-20
+                rounded
+                shadow-lg
+                py-1
+                bg-gray-50
+                text-brand-black-500
+                italic
+                transform
+                -translate-x-1/2
+                mt-7
+                ml-5
+              "
               >Lifetime CCUs</span
             >LCCU</span
           >
@@ -76,7 +116,14 @@
       >
         <div class="flex-none">
           <div
-            class="w-28 sm:w-24 md:w-32 lg:w-32 aspect-w-16 aspect-h-9 bg-cover bg-top"
+            class="
+              w-28
+              sm:w-24
+              md:w-32
+              lg:w-32
+              aspect-w-16 aspect-h-9
+              bg-cover bg-top
+            "
             :style="false 
             ? { backgroundImage: 'url(' + contribution.banner169Url + ')' } 
             : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
@@ -84,7 +131,14 @@
         </div>
         <div class="flex-grow">
           <p
-            class="line-clamp-1 sm:text-sm md:text-base lg:text-lg xl:text-xl font-light"
+            class="
+              line-clamp-1
+              sm:text-sm
+              md:text-base
+              lg:text-lg
+              xl:text-xl
+              font-light
+            "
           >
             {{ contribution.name }}
           </p>
@@ -110,7 +164,15 @@
       >
         <div class="flex-none">
           <div
-            class="w-28 sm:w-24 md:w-28 lg:w-32 xl:w-36 aspect-w-16 aspect-h-9 bg-cover bg-top"
+            class="
+              w-28
+              sm:w-24
+              md:w-28
+              lg:w-32
+              xl:w-36
+              aspect-w-16 aspect-h-9
+              bg-cover bg-top
+            "
             :style="false 
             ? { backgroundImage: 'url(' + 'potato' + ')' } 
             : { backgroundImage: 'url(/images/banner_16_9_default.jpg)'}"
@@ -131,7 +193,14 @@
         Events Attended ({{ user.events.length }})
       </h3>
       <div
-        class="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 mt-3"
+        class="
+          grid grid-cols-4
+          md:grid-cols-5
+          lg:grid-cols-6
+          xl:grid-cols-7
+          gap-3
+          mt-3
+        "
       >
         <router-link
           v-for="event in user.events"

@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf ./dist ./tsconfig.tsbuildinfo",
-    "fix": "prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
+    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
+    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
     "rebuild": "yarn clean && yarn build",
     "test": "jest --testPathIgnorePatterns=emu",
     "test:ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=../result.json --testLocationInResults",
@@ -15,19 +15,8 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "core-js": "^3.10.1",
+    "core-js": "^3.12.1",
     "dayjs": "^1.10.4",
     "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@firebase/app-types": "^0.6.2",
-    "@firebase/rules-unit-testing": "^1.2.9",
-    "@google-cloud/firestore": "^4.9.9",
-    "firebase": "^8.4.1",
-    "firebase-admin": "^9.6.0",
-    "jest": "^26.6.3",
-    "ts-essentials": "^7.0.1",
-    "ts-jest": "^26.5.4",
-    "typescript": "^4.2.4"
   }
 }
