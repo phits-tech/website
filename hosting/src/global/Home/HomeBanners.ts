@@ -93,5 +93,6 @@ export default class Home extends Vue {
     if (banner.targetEventSlug !== undefined) return await this.$router.push({ name: 'Event', params: { slug: banner.targetEventSlug } })
     if (banner.targetRoute !== undefined) return await this.$router.push({ name: banner.targetRoute })
     if (banner.targetUrl !== undefined) window.location.href = banner.targetUrl
+    return await Promise.resolve()
   }
 }
