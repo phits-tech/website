@@ -4,7 +4,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: { // Generator: http://mcg.mbitson.com
+      colors: {
+        // Generator: http://mcg.mbitson.com
         'brand-blue': {
           DEFAULT: '#72cee6',
           50: '#eef9fc',
