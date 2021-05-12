@@ -9,12 +9,7 @@ module.exports = {
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 
     // Additional
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['@phits-tech/common/dist/**/*', '@phits-tech/common/src/**/*']
-      }
-    ],
+    'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/dist/**/*', '@phits-tech/common/src/**/*'] }],
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',
@@ -63,15 +58,7 @@ module.exports = {
     'unicorn/escape-case': 'error',
     'unicorn/expiring-todo-comments': 'error',
     'unicorn/explicit-length-check': 'error',
-    'unicorn/filename-case': [
-      'error',
-      {
-        cases: {
-          kebabCase: true,
-          pascalCase: true
-        }
-      }
-    ],
+    'unicorn/filename-case': ['error', { cases: { kebabCase: true, pascalCase: true } }],
     'unicorn/import-index': 'error',
     'unicorn/import-style': 'error',
     'unicorn/new-for-builtins': 'error',
