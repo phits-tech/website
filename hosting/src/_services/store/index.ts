@@ -11,6 +11,7 @@ import type { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
 import { eventToEventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
 
+// VuexFire resets objects to null
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
   eventsRaw: Event[]
@@ -38,7 +39,7 @@ export const storeKey: InjectionKey<Store<PTStoreState>> = Symbol('PTStore')
 
 export const store = createStore<PTStoreState>({
   state: {
-    currentUser: null,
+    currentUser: null, // eslint-disable-line unicorn/no-null
     eventsRaw: [],
     banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
   },

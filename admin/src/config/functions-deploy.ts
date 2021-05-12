@@ -39,7 +39,7 @@ const collectConfigLines = (o: Record<string, unknown>, propPath: string, config
     const newPropPath = propPath + key
     if (typeof o[key] === 'object') {
       collectConfigLines(o[key] as Record<string, unknown>, newPropPath + '.', configLines)
-    } else if (o[key] != null && o[key] !== '') {
+    } else if (o[key] !== undefined) {
       configLines.push(`${newPropPath}=${JSON.stringify(o[key])}`)
     }
   }

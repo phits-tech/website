@@ -39,7 +39,7 @@ export default class Home extends Vue {
 
   bannerSlides: BannerElement[] = []
   currentSlideIndex = 0
-  nextSlideInterval: NodeJS.Timeout | null = null
+  nextSlideInterval?: NodeJS.Timeout = undefined
 
   get banners(): Array<Omit<Banner, 'dateExpire'>> { return this.$store.state.banners }
 
