@@ -148,6 +148,6 @@ module.exports = {
     'woke/LGBTQ': 'error',
     'woke/gender': 'error',
     'woke/profanity': 'error',
-    'woke/racism': 'off' // need to find another abbreviation for "production"
+    'woke/racism': 'error'
   }
 }

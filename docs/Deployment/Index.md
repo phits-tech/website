@@ -86,9 +86,9 @@ See: [New Firebase Project](./New-Project.md) if you need to setup a new Firebas
 - [Scripts](./Scripts.md)
 - [Runners](../Runners/Index.md)
 
-# Backup Firestore prod and restore to dev
+# Backup Firestore production and restore to dev
 
-1. Backup prod
+1. Backup production
    _- from `admin` -_
 
    ```
