@@ -4,18 +4,7 @@ module.exports = {
   ignorePatterns: ['**/node_modules', '**/dist', '**/lib', '.*/**/*'],
   overrides: [
     { files: ['*.ts'], extends: ['.eslintrc-ts.js'] },
-    {
-      files: ['*.vue'],
-      extends: ['.eslintrc-vue.js'],
-      rules: {
-        // URGENT: Fix errors & remove these exceptions
-        'unicorn/filename-case': 'off'
-      }
-    }
+    { files: ['*.vue'], extends: ['.eslintrc-vue.js'] }
   ],
-  root: true,
-  rules: {
-    // URGENT: Fix errors & remove these exceptions
-    'unicorn/filename-case': 'off'
-  }
+  root: true
 }
