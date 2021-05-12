@@ -6,6 +6,18 @@ Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & 
 
 # Deployment
 
+## Login to Google Cloud & Firebase
+
+Authenticate & set the current project:
+
+```
+gcloud auth login
+gcloud config set project phits-tech-emu
+gcloud auth application-default login
+firebase login
+firebase use default
+```
+
 ## Initial Setup
 
 See: [New Git Clone](./New-Clone.md) if you have not deployed this `clone` before.  

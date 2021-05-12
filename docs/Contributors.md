@@ -20,15 +20,22 @@ Install programs & extensions:
   - [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) for AI suggestions (optional)
   - [Folder Templates](https://marketplace.visualstudio.com/items?itemName=Huuums.vscode-fast-folder-structure) (optional)
 
-Install CLI tools, by running this command in VSCode terminal:
+Install CLI tools (paste & run in VSCode terminal):
 
 ```
-npm i -g firebase-tools serve typescript yarn
+npm i -g firebase-tools lerna serve typescript yarn
+```
+
+## Login to Firebase
+
+```
+firebase login
+firebase use default
 ```
 
 ## Dependencies & Build
 
-From the `project-root` directory:
+Install deps, build project, and setup configuration:
 
 ```
 yarn && yarn build && yarn bootstrap
@@ -40,41 +47,28 @@ If you get the error: `The engine "node" is incompatible with this module`, then
 yarn config set ignore-engines true
 ```
 
-## Login to Google Cloud & Firebase
-
-Authenticate & set the current project:
-
-// TODO: Why do we need application-default?
-
-```
-gcloud auth login
-gcloud config set project phits-tech-emu
-gcloud auth application-default login
-firebase login
-firebase use default
-```
-
 ## Quick Start
 
-Open 3 terminals:
+Start the emulator:
 
-1. From the `project-root` directory, start the emulator:
+```
+yarn emu
+```
 
-   ```
-   yarn emulate
-   -OR-
-   yarn emu
-   ```
+Seed example data (also runs migrations):
 
-2. Seed example data:
+```
+yarn seed
+```
 
-   ```
-   yarn seed
-   ```
+Watch & compile modules (if editing `common` or `functions`):
 
-3. Run the web app:  
-   _(it will connect to the emulator by default)_
+```
+yarn watch
+```
 
-   ```
-   yarn serve
-   ```
+Run the web app (if editing `hosting`):
+
+```
+yarn serve
+```
