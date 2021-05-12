@@ -15,20 +15,18 @@
             hover:text-white
             hover:bg-brand-black-400
             focus:outline-none
-            focus:ring-2 focus:ring-inset focus:ring-white
           "
           aria-controls="mobile-menu"
           aria-expanded="false"
+          @click="toggleCollapse"
         >
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
-
             Heroicon name: outline/menu
-
-            Menu open: "hidden", Menu closed: "block"
           -->
           <svg
+            ref="menuClosedIcon"
             class="block h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -45,12 +43,10 @@
           </svg>
           <!--
             Icon when menu is open.
-
             Heroicon name: outline/x
-
-            Menu open: "block", Menu closed: "hidden"
           -->
           <svg
+            ref="menuOpenIcon"
             class="hidden h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -170,8 +166,6 @@
           items-center
           sm:static
           sm:inset-auto
-          pr-2
-          sm:pr-0
         "
       >
         <router-link
@@ -179,12 +173,13 @@
           class="
             flex
             items-center
-            px-3
+            px-2
+            sm:px-3
             py-2
             rounded-md
-            ring-2 ring-brand-blue
-            bg-brand-black-900
-            hover:bg-brand-black
+            sm:ring-2 sm:ring-brand-blue
+            bg-brand-black
+            sm:hover:bg-brand-blue
             text-gray-300
             hover:text-white
           "
@@ -204,7 +199,9 @@
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          <span class="pl-1 pr-0.5 text-sm md:text-base">Add an event</span>
+          <span class="pl-1 pr-0.5 hidden sm:block text-sm md:text-base"
+            >Add an event</span
+          >
         </router-link>
 
         <!-- Profile dropdown -->
@@ -267,14 +264,11 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div ref="mobileMenu" class="hidden sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- 
-        Current: "bg-gray-800 text-white"
-        Default: "text-gray-300 hover:bg-brand-black-400 hover:text-white"
-      -->
       <router-link
         :to="{ name: 'Events' }"
+        @click="$router.push({ name: 'Events' }); toggleCollapse()"
         class="
           text-gray-300
           hover:bg-brand-black-400
@@ -290,6 +284,7 @@
       >
       <router-link
         :to="{ name: 'Spaces' }"
+        @click="$router.push({ name: 'Spaces' }); toggleCollapse()"
         class="
           text-gray-300
           hover:bg-brand-black-400
@@ -305,6 +300,7 @@
       >
       <router-link
         :to="{ name: 'Heroes' }"
+        @click="$router.push({ name: 'Heroes' }); toggleCollapse()"
         class="
           text-gray-300
           hover:bg-brand-black-400
