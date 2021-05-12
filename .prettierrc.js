@@ -6,5 +6,6 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'none',
-  useTabs: false
+  useTabs: false,
+  overrides: [{ files: '*.js', options: { printWidth: 160 } }]
 }

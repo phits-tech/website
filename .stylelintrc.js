@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-sass-guidelines',
-    'stylelint-config-property-sort-order-smacss'
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-sass-guidelines', 'stylelint-config-property-sort-order-smacss'],
   rules: {
     // Override
     'no-empty-source': undefined,
@@ -11,14 +7,8 @@ module.exports = {
     'declaration-block-trailing-semicolon': undefined,
 
     // Additional
-    'function-name-case': [
-      'lower',
-      { ignoreFunctions: [/^[a-z][\dA-Za-z]+$/] }
-    ],
+    'function-name-case': ['lower', { ignoreFunctions: [/^[a-z][\dA-Za-z]+$/] }],
     'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
-    'selector-pseudo-class-no-unknown': [
-      true,
-      { ignorePseudoClasses: ['global', 'export'] }
-    ]
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global', 'export'] }]
   }
 }

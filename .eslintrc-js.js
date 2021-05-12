@@ -4,24 +4,15 @@ module.exports = {
   plugins: ['radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
   rules: {
     // Override
-    'jest/expect-expect': [
-      'error',
-      { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }
-    ],
+    'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
-    'space-before-function-paren': [
-      'error',
-      { anonymous: 'always', named: 'never', asyncArrow: 'always' }
-    ],
+    'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 
     // Additional
     'no-restricted-imports': [
       'error',
       {
-        patterns: [
-          '@phits-tech/common/dist/**/*',
-          '@phits-tech/common/src/**/*'
-        ]
+        patterns: ['@phits-tech/common/dist/**/*', '@phits-tech/common/src/**/*']
       }
     ],
     'radar/no-all-duplicated-branches': 'error',
