@@ -8,7 +8,6 @@ module.exports = {
       extends: ['.eslintrc-ts.js'],
       rules: {
         // URGENT: Fix errors & remove these exceptions
-        'unicorn/no-array-callback-reference': 'off',
         'unicorn/no-keyword-prefix': 'off',
         'unicorn/no-null': 'off'
       }
@@ -19,7 +18,6 @@ module.exports = {
       rules: {
         // URGENT: Fix errors & remove these exceptions
         'unicorn/filename-case': 'off',
-        'unicorn/no-array-callback-reference': 'off',
         'unicorn/no-keyword-prefix': 'off',
         'unicorn/no-null': 'off'
       }
@@ -29,7 +27,6 @@ module.exports = {
   rules: {
     // URGENT: Fix errors & remove these exceptions
     'unicorn/filename-case': 'off',
-    'unicorn/no-array-callback-reference': 'off',
     'unicorn/no-keyword-prefix': 'off',
     'unicorn/no-null': 'off'
   }
