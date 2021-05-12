@@ -25,6 +25,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
+    // Experimental
+    "experimentalDecorators": true,
+
     // Advanced
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
