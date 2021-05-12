@@ -1,6 +1,6 @@
 // TODO: Continue exploring: https://github.com/dustinspecker/awesome-eslint#practices
 module.exports = {
-  extends: ['plugin:lodash/recommended', 'plugin:jest/recommended', 'standard'],
+  extends: ['plugin:jest/recommended', 'standard'],
   plugins: ['radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
   rules: {
     // Override
@@ -8,9 +8,6 @@ module.exports = {
       'error',
       { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }
     ],
-    'lodash/prefer-lodash-method': 'off',
-    'lodash/prefer-constant': 'off',
-    'lodash/prefer-lodash-typecheck': 'off',
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
     'space-before-function-paren': [
       'error',
