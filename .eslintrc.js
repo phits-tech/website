@@ -3,28 +3,19 @@ module.exports = {
   extends: ['.eslintrc-js.js'],
   ignorePatterns: ['**/node_modules', '**/dist', '**/lib', '.*/**/*'],
   overrides: [
-    {
-      files: ['*.ts'],
-      extends: ['.eslintrc-ts.js'],
-      rules: {
-        // URGENT: Fix errors & remove these exceptions
-        'unicorn/no-keyword-prefix': 'off'
-      }
-    },
+    { files: ['*.ts'], extends: ['.eslintrc-ts.js'] },
     {
       files: ['*.vue'],
       extends: ['.eslintrc-vue.js'],
       rules: {
         // URGENT: Fix errors & remove these exceptions
-        'unicorn/filename-case': 'off',
-        'unicorn/no-keyword-prefix': 'off'
+        'unicorn/filename-case': 'off'
       }
     }
   ],
   root: true,
   rules: {
     // URGENT: Fix errors & remove these exceptions
-    'unicorn/filename-case': 'off',
-    'unicorn/no-keyword-prefix': 'off'
+    'unicorn/filename-case': 'off'
   }
 }

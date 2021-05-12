@@ -5,10 +5,10 @@ import type { Banner } from '@phits-tech/common/dao-firestore'
 import { Route } from '~/router/route-decorator'
 
 class BannerElement {
-  private readonly classLeft = '-translate-x-full'
-  private readonly classCenter = 'translate-x-0'
-  private readonly classRight = 'translate-x-full'
-  private readonly allClasses = [this.classLeft, this.classCenter, this.classRight]
+  private readonly cssClassLeft = '-translate-x-full'
+  private readonly cssClassCenter = 'translate-x-0'
+  private readonly cssClassRight = 'translate-x-full'
+  private readonly allClasses = [this.cssClassLeft, this.cssClassCenter, this.cssClassRight]
 
   constructor(private readonly element: Element) {}
 
@@ -22,13 +22,13 @@ class BannerElement {
     else this.moveToCenter()
   }
 
-  moveToLeft(): void { this.setClass(this.classLeft) }
-  moveToCenter(): void { this.setClass(this.classCenter) }
-  moveToRight(): void { this.setClass(this.classRight) }
+  moveToLeft(): void { this.setClass(this.cssClassLeft) }
+  moveToCenter(): void { this.setClass(this.cssClassCenter) }
+  moveToRight(): void { this.setClass(this.cssClassRight) }
 
-  private setClass(className: string): void {
+  private setClass(cssClass: string): void {
     this.element.classList.remove(...this.allClasses)
-    this.element.classList.add(className)
+    this.element.classList.add(cssClass)
   }
 }
 
@@ -71,22 +71,22 @@ export default class Home extends Vue {
     if (this.bannerSlides.length < 2) return
 
     // Detect wrap-around
-    const newIndex = this.currentSlideIndex + shift
-    const newIndexCorrected = (newIndex < 0) ? this.bannerSlides.length - 1 : ((newIndex > this.bannerSlides.length - 1) ? 0 : newIndex)
-    if (newIndex !== newIndexCorrected) return this.jumpToSlide(newIndexCorrected)
+    const targetIndex = this.currentSlideIndex + shift
+    const targetIndexCorrected = (targetIndex < 0) ? this.bannerSlides.length - 1 : ((targetIndex > this.bannerSlides.length - 1) ? 0 : targetIndex)
+    if (targetIndex !== targetIndexCorrected) return this.jumpToSlide(targetIndexCorrected)
 
     // Shift once
     this.bannerSlides[this.currentSlideIndex].move(shift)
-    this.bannerSlides[newIndexCorrected].moveToCenter()
-    this.currentSlideIndex = newIndexCorrected
+    this.bannerSlides[targetIndexCorrected].moveToCenter()
+    this.currentSlideIndex = targetIndexCorrected
   }
 
-  jumpToSlide(newIndexCorrected: number): void {
+  jumpToSlide(targetIndexCorrected: number): void {
     // slideIdx < current => wait on left
     // slideIdx == current => move to center
     // slideIdx > current => wait on right
-    this.bannerSlides.forEach((slide, slideIdx) => slide.move(newIndexCorrected - slideIdx))
-    this.currentSlideIndex = newIndexCorrected
+    this.bannerSlides.forEach((slide, slideIdx) => slide.move(targetIndexCorrected - slideIdx))
+    this.currentSlideIndex = targetIndexCorrected
   }
 
   async bannerClick(banner: Banner): Promise<unknown> {
