@@ -1,4 +1,4 @@
-import type firebase from 'firebase/app'
+import firebase from 'firebase/app'
 type Timestamp = firebase.firestore.Timestamp
 
 // TODO: Make a decision on slugs: store as field | store as id | store as both

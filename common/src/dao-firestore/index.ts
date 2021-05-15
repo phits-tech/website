@@ -1,10 +1,10 @@
-import type firebase from 'firebase/app'
+import firebase from 'firebase/app'
 
-import type { FirebaseContext } from '../context'
-import type { New, NewComplete, NewWithDefaults, Update } from '../utils/types/firestore'
+import { FirebaseContext } from '../context'
+import { New, NewComplete, NewWithDefaults, Update } from '../utils/types/firestore'
 
 import { userDefaults } from './model-defaults'
-import type { User, UserPrivate } from './model-types'
+import { User, UserPrivate } from './model-types'
 import { USERS } from './schema'
 
 import 'core-js/features/array/flat-map'

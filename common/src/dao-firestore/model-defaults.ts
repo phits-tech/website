@@ -1,6 +1,6 @@
-import type { Defaults } from '../utils/types/firestore'
+import { Defaults } from '../utils/types/firestore'
 
-import type { User, UserPrivate } from './model-types'
+import { User, UserPrivate } from './model-types'
 
 export const userDefaults: Defaults<User> = {
   slug: '',

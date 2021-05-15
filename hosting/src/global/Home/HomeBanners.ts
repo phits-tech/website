@@ -1,6 +1,6 @@
 import { Vue } from 'vue-class-component'
 
-import type { Banner } from '@phits-tech/common/dao-firestore'
+import { Banner } from '@phits-tech/common/dao-firestore'
 
 import { Route } from '~/router/route-decorator'
 

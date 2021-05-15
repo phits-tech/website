@@ -1,8 +1,7 @@
-import type { Dayjs } from 'dayjs'
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 import { Options, Vue } from 'vue-class-component'
 
-import type { EventUi } from '@/events/models'
+import { EventUi } from '@/events/models'
 import { Route } from '~/router/route-decorator'
 
 import HomeBanners from './HomeBanners.vue'

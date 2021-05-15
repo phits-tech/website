@@ -1,6 +1,6 @@
-import type { Store } from 'vuex'
+import { Store } from 'vuex'
 
-import type { PTStoreState } from '~/store'
+import { PTStoreState } from '~/store'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {

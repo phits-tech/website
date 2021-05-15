@@ -1,5 +1,4 @@
-import type { App as VueApp } from 'vue'
-import { createApp } from 'vue'
+import { App as VueApp, createApp } from 'vue'
 
 import App from '@/global/App/App.vue'
 import * as filters from '~/filters'

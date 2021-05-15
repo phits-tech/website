@@ -1,6 +1,6 @@
 // TODO: I think: rules should be at the root; rule tests should be in a global tests module (which also has tests like checking no "/src" refs, checking package.json is consistent, etc)
 import { apps, assertFails, assertSucceeds, clearFirestoreData, firestore, initializeTestApp } from '@firebase/rules-unit-testing'
-import type firebase from 'firebase/app'
+import firebase from 'firebase/app'
 
 import { USERS, USERS_PRIVATE } from '../dao-firestore'
 

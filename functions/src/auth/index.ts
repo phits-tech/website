@@ -1,12 +1,11 @@
-import type { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
-import type { User, UserPrivate } from '@phits-tech/common/dao-firestore'
-import { Dao, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
+import { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
+import { Dao, User, UserPrivate, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
 import { fixName } from '@phits-tech/common/utils/string-cases'
-import type { New, Update } from '@phits-tech/common/utils/types/firestore'
+import { New, Update } from '@phits-tech/common/utils/types/firestore'
 
 import { context } from '../_services/context'
 import admin, { db, FieldValue } from '../_services/firebase-admin-initialized'
-import type { Handler } from '../types'
+import { Handler } from '../types'
 
 import { authorizeUrl, exchangeAuthCodeForToken, getUserIdentity } from './nu-connect'
 

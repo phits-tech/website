@@ -1,6 +1,6 @@
-import type firebase from 'firebase/app'
-import type admin from 'firebase-admin'
-import type { OptionalKeys, Primitive, WritableKeys } from 'ts-essentials'
+import firebase from 'firebase/app'
+import admin from 'firebase-admin'
+import { OptionalKeys, Primitive, WritableKeys } from 'ts-essentials'
 
 type FieldValue = firebase.firestore.FieldValue
 type FieldValueAdmin = admin.firestore.FieldValue
