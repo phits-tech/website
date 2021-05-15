@@ -11,8 +11,9 @@
       "@/*": ["src/*"]
     },
     // Override
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM"]
+    "importHelpers": true,
+    "jsx": "preserve",
+    "target": "ESNext"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "../common/tsconfig.json" }]

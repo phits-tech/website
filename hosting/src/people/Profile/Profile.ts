@@ -1,4 +1,4 @@
-import { computed } from '@vue/runtime-core'
+import { computed, ref } from '@vue/runtime-core'
 import dayjs from 'dayjs'
 import { partition, sumBy } from 'lodash'
 import type { DeepRequired } from 'ts-essentials'
@@ -30,7 +30,7 @@ export default class Profile extends Vue.with(class {
   slug!: string
 }) {
   ccuCutoffSeconds = dayjs().subtract(2, 'year').unix()
-  user?: DeepRequired<User> = undefined
+  user?: DeepRequired<User> = setup(() => ref())
 
   meta = setup(() => useMeta(computed(() => ({
     title: this.user?.name ?? 'Profile'
