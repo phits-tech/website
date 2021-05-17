@@ -5,7 +5,7 @@ export const spaces: Space[] = [
     slug: 'maker-club-nu',
     name: 'Maker Club, NU',
     description: {
-      en: 'Interested in IoT? Hacking hardware? Amazingly advanced at Arduino? The Maker Club is the place for those making something mega.',
+      en: 'A lab for working on hardware, IoT, Arduino and other engineering projects.',
       th: ''
     },
     banner: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/spaces%2Fmaker-club-nu-banner.jpg?alt=media&token=9ccefce1-b0d2-4808-a4a3-109ed37a9194',
@@ -19,7 +19,7 @@ export const spaces: Space[] = [
     slug: 'setic-nu',
     name: 'SET Investment Center, NU',
     description: {
-      en: 'Nostrum laborum nemo odio obcaecati omnis amet at pariatur soluta, accusamus incidunt aliquid nesciunt cupiditate quasi cumque beatae nihil perspiciatis ad exercitationem!',
+      en: 'A co-working space for individuals and groups, supported by Stock Exchange of Thailand. Also has a selection of boardgames!',
       th: ''
     },
     banner: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/spaces%2Fsetic-nu-banner.jpg?alt=media&token=a5ce286e-37d1-4cbe-80ed-e14db07c4438',
@@ -33,7 +33,7 @@ export const spaces: Space[] = [
     slug: 'usit-nu',
     name: 'USIT, NU',
     description: {
-      en: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem commodi dolor corrupti et a vitae aliquam, minima ipsa at quasi. Delectus et ad quis eos repellendus illo, ducimus labore enim!',
+      en: 'A coffee shop and small co-working space behind Engineering.',
       th: ''
     },
     banner: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/spaces%2Fusit-nu-banner.jpg?alt=media&token=4a5b2039-a513-48c3-9d26-719ddc8d97c2',
@@ -47,7 +47,7 @@ export const spaces: Space[] = [
     slug: 'pt-discord',
     name: 'PT Discord',
     description: {
-      en: 'Optio esse fugit voluptatum! Nesciunt, similique quaerat distinctio voluptatem voluptates facilis totam ex repudiandae. Incidunt quaerat eligendi consequatur non labore facere nulla.',
+      en: 'A virtual meeting place to learn and socialize with the tech community in Phitsanulok.',
       th: ''
     },
     banner: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/spaces%2Fmodern-technology.jpeg?alt=media&token=e440f586-b143-4ce0-9039-a1e03921e441',
@@ -59,7 +59,7 @@ export const spaces: Space[] = [
     slug: 'pt-youtube',
     name: 'PT YouTube',
     description: {
-      en: 'Facilis rem quas perspiciatis quis quae numquam blanditiis ea sed recusandae aspernatur inventore reprehenderit ut, ullam, asperiores itaque officia perferendis officiis incidunt!',
+      en: 'A place to re-live streamed events run by Phits Tech.',
       th: ''
     },
     banner: 'https://firebasestorage.googleapis.com/v0/b/phits-tech-emu.appspot.com/o/spaces%2Ftarget-marketing.jpeg?alt=media&token=aec127f6-e685-40de-a09c-416450b0dcf3',
