@@ -1,18 +1,22 @@
+import type { Banner, Event, Space } from '@phits-tech/common/dao-firestore'
 import { BANNERS, EVENTS, SPACES } from '@phits-tech/common/dao-firestore'
 
+import { productionWarning } from '@/_services/modes'
 import { context } from '~/context'
 import { MODE } from '~/modes'
 import migrate from '../migrations/migrate'
 
-import { banners } from './data/banners'
-import { events } from './data/events'
-import { spaces } from './data/spaces'
-
 const db = context.db
 
 const main = async (): Promise<void> => {
-  if (MODE !== 'emu') return console.warn('This script is exclusively for local testing')
+  if (!process.argv.includes('--yes')) {
+    await productionWarning(__filename)
+  }
   await migrate()
+
+  const banners = await import(`./${MODE}/banners`).catch(_ => []) as Banner[]
+  const events = await import(`./${MODE}/events`).catch(_ => []) as Event[]
+  const spaces = await import(`./${MODE}/spaces`).catch(_ => []) as Space[]
 
   // ***** Save test data here *****
   await Promise.all([
