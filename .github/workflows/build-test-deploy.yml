@@ -35,7 +35,7 @@ jobs:
           map: |
             {
               "main": {
-                "BUILD_ALIAS": "prod",
+                "BUILD_ALIAS": "production",
                 "BUILD_VERSION": "${{ steps.package-version.outputs.current-version }}",
                 "SECRET_NAME_FIREBASE_API_KEY": "PROD_FIREBASE_API_KEY",
                 "SECRET_NAME_FIREBASE_APP_ID": "PROD_FIREBASE_APP_ID",
@@ -45,7 +45,7 @@ jobs:
                 "SECRET_NAME_FIREBASE_PROJECT_ID": "PROD_FIREBASE_PROJECT_ID",
                 "SECRET_NAME_FIREBASE_STORAGE_BUCKET": "PROD_FIREBASE_STORAGE_BUCKET",
                 "SECRET_NAME_FUNCTIONS_REGION": "PROD_FUNCTIONS_REGION",
-                "VUE_APP_MODE": "PROD"
+                "VUE_APP_MODE": "PRODUCTION"
               },
               "develop": {
                 "BUILD_ALIAS": "dev",
