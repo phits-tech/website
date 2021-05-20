@@ -42,7 +42,6 @@ const main = async (): Promise<void> => {
     )
 
     // Merge - based on mode (ports default to '')
-    envObject.VUE_APP_MODE = mode.toUpperCase()
     if (!envObject.VUE_APP_EMU_PORT_AUTH) envObject.VUE_APP_EMU_PORT_AUTH = ''
     if (!envObject.VUE_APP_EMU_PORT_FIRESTORE) envObject.VUE_APP_EMU_PORT_FIRESTORE = ''
     if (!envObject.VUE_APP_EMU_PORT_FUNCTIONS) envObject.VUE_APP_EMU_PORT_FUNCTIONS = ''
