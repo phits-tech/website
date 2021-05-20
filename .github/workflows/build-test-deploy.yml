@@ -95,7 +95,7 @@ jobs:
         run: cd functions && yarn build
 
       - name: 'Build: hosting'
-        run: cd hosting && rm -f .env && yarn build --mode=${{ env.BUILD_ALIAS }}
+        run: cd hosting && rm -f .env && yarn build
         env:
           NODE_ENV: production
           VUE_APP_FIREBASE_API_KEY: ${{ secrets[env.SECRET_NAME_FIREBASE_API_KEY] }}

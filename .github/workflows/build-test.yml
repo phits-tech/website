@@ -43,11 +43,9 @@ jobs:
         run: cd functions && yarn build
 
       - name: 'Build: hosting'
-        run: cd hosting && rm -f .env && yarn build --mode=${{ env.BUILD_ALIAS }}
+        run: cd hosting && rm -f .env && yarn build
         env:
           NODE_ENV: production
-          BUILD_ALIAS: production
-          BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
           VUE_APP_FIREBASE_API_KEY: abcd
           VUE_APP_FIREBASE_APP_ID: 1234
           VUE_APP_FIREBASE_AUTH_DOMAIN: xyz
@@ -56,7 +54,7 @@ jobs:
           VUE_APP_FIREBASE_PROJECT_ID: xyz
           VUE_APP_FIREBASE_STORAGE_BUCKET: xyz
           VUE_APP_FUNCTIONS_REGION: xyz
-          VUE_APP_BUILD_VERSION: PR
+          VUE_APP_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
 
       - name: 'Build: admin'
         run: cd admin && yarn build
