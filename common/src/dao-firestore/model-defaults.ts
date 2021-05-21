@@ -1,13 +1,23 @@
-import type { Defaults } from '../utils/types/firestore'
+import { Defaults } from '../utils/types/firestore'
 
-import type { User, UserPrivate } from './model-types'
+import { User, UserPrivate } from './model-types'
 
 export const userDefaults: Defaults<User> = {
-  code: '',
-  nameLast: ''
+  slug: '',
+  nameLast: '',
+  pic: '',
+  tagline: '',
+  bio: '',
+  skills: [],
+  hasContributed: false,
+  lccus: 0,
+  events: [],
+  socialAccountsIds: {},
+  website: ''
 }
 
 export const userPrivateDefaults: Defaults<UserPrivate> = {
   email: '',
-  nuConnectToken: ''
+  emails: [],
+  tokenNuConnect: ''
 }

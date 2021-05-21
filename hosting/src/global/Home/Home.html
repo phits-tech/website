@@ -173,9 +173,10 @@
         welcome your submissions.
       </p>
       <div class="mt-5 sm:mt-6 lg:flex sm:justify-end lg:justify-start">
+        <!-- TODO: Sync button styles (copy from /heroes) -->
         <div class="rounded-md shadow">
-          <a
-            href="/events/create"
+          <router-link
+            :to="{ name: 'EventsCreate' }"
             class="
               w-full
               flex
@@ -196,7 +197,7 @@
             "
           >
             Host an event
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

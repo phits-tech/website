@@ -14,42 +14,29 @@
   "prettier.endOfLine": "auto",
 
   // Language-specific
+  "css.customData": ["../.vscode/css_custom_data.json"],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "shortest",
   "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[scss]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[vue]": { "editor.defaultFormatter": "octref.vetur" },
   "vetur.format.options.tabSize": 2,
   "vetur.format.options.useTabs": false,
   "vetur.format.defaultFormatter.js": "vscode-typescript",
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
   "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier",
-  "css.customData": [".vscode/css_custom_data.json"]
+  "vetur.format.defaultFormatter.scss": "prettier"
 }

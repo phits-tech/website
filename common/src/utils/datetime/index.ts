@@ -1,5 +1,4 @@
-import type { Dayjs } from 'dayjs'
-import dayjs from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 
 /**
  * Finds first instance of the requested day after today

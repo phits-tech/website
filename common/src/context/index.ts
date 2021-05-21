@@ -1,5 +1,5 @@
-import type firebaseClient from 'firebase/app'
-import type firebaseAdmin from 'firebase-admin'
+import firebaseClient from 'firebase/app'
+import firebaseAdmin from 'firebase-admin'
 
 import { GuidGen } from '../utils/guids'
 

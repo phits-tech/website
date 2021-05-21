@@ -18,7 +18,7 @@
     "alwaysStrict": true,
     "strict": true /* includes: strictNullChecks, strictBindCallApply, strictFunctionTypes, strictPropertyInitialization, noImplicitAny, noImplicitThis */,
     "noFallthroughCasesInSwitch": true,
-    // "noImplicitOverride": true, // requires TypeScript 4.3
+    // "noImplicitOverride": true, // requires TypeScript 4.3 (which breaks ts-essentials)
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": false, // seems undesirable
     "noUncheckedIndexedAccess": false, // troublesome for array indexing
@@ -33,9 +33,9 @@
     "allowUnusedLabels": false,
     "assumeChangesOnlyAffectDirectDependencies": true,
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error",
     "noErrorTruncation": true,
-    "pretty": true
+    "pretty": true,
+    "useDefineForClassFields": true
   },
   "exclude": ["node_modules", "dist", "lib", ".*/**"]
 }

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import firebase from 'firebase-admin'
 
-import type { Banner } from '@phits-tech/common/dao-firestore'
+import { Banner } from '@phits-tech/common/dao-firestore'
 
 export const banners: Banner[] = [
   {

@@ -1,12 +1,11 @@
-import type { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
-import type { User, UserPrivate } from '@phits-tech/common/dao-firestore'
-import { Dao, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
+import { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
+import { Dao, User, UserPrivate, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
 import { fixName } from '@phits-tech/common/utils/string-cases'
-import type { New, Update } from '@phits-tech/common/utils/types/firestore'
+import { New, Update } from '@phits-tech/common/utils/types/firestore'
 
 import { context } from '../_services/context'
-import admin, { db } from '../_services/firebase-admin-initialized'
-import type { Handler } from '../types'
+import admin, { db, FieldValue } from '../_services/firebase-admin-initialized'
+import { Handler } from '../types'
 
 import { authorizeUrl, exchangeAuthCodeForToken, getUserIdentity } from './nu-connect'
 
@@ -32,7 +31,7 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
   let userId: string | undefined
   let userData: admin.firestore.DocumentData | undefined
   try {
-    const userPrivateSnapshot = await db.collection(USERS_PRIVATE).where('email', '==', userIdentity.email).limit(1).get()
+    const userPrivateSnapshot = await db.collection(USERS_PRIVATE).where('emails', 'array-contains', userIdentity.email).limit(1).get()
     userId = userPrivateSnapshot.docs[0]?.id
     if (userId) {
       const userSnapshot = await db.collection(USERS).doc(userId).get()
@@ -45,34 +44,30 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
 
   // Update Firestore profile
   const { nameFirst, nameLast } = fixName(userIdentity.name)
-  const existingName = (userData?.name as string | undefined) ?? ''
-  if (userData) {
-    console.log('Updating user')
-    const update: Update<User> = existingName
-      ? {
-          code: userIdentity.username
-        }
-      : {
-          code: userIdentity.username,
-          nameFirst,
-          nameLast
-        }
+  const existingName = (userData?.name as string | undefined)
+  if (userData && !existingName) {
+    // Update user
+    const update: Update<User> = {
+      nameFirst,
+      nameLast
+    }
     const updatePrivate: Update<UserPrivate> = {
-      nuConnectToken: nuToken
+      emails: FieldValue.arrayUnion(userIdentity.email),
+      tokenNuConnect: nuToken
     }
 
     await dao.updateUser(update, userId)
     await dao.updateUserPrivate(updatePrivate, userId)
   } else {
-    console.log('Creating user')
+    // Create user
     const user: New<User> = {
-      code: userIdentity.username,
       nameFirst,
       nameLast
     }
-    const userPrivate: Update<UserPrivate> = {
+    const userPrivate: New<UserPrivate> = {
       email: userIdentity.email,
-      nuConnectToken: nuToken
+      emails: [userIdentity.email],
+      tokenNuConnect: nuToken
     }
 
     userId = await dao.createUser(user)

@@ -8,7 +8,7 @@ module.exports = {
 
     // Additional
     'function-name-case': ['lower', { ignoreFunctions: [/^[a-z][\dA-Za-z]+$/] }],
-    'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind'] }],
+    'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['tailwind', 'layer'] }],
     'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global', 'export'] }]
   }
 }

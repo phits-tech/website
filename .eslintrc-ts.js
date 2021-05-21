@@ -12,6 +12,6 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': ['error', { allowString: true, allowNullableString: true }],
 
     // Additional
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }]
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'no-type-imports' }]
   }
 }

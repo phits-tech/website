@@ -1,4 +1,4 @@
-import type { DeepRequired } from 'ts-essentials'
+import { DeepRequired } from 'ts-essentials'
 
 export type DeepRequiredWithId<T> = { id: string } & DeepRequired<T>
 

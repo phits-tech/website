@@ -1,12 +1,10 @@
-import type { User as FirebaseUser } from '@firebase/auth-types'
-import type { InjectionKey } from '@vue/runtime-core'
-import type { Store } from 'vuex'
-import { createStore } from 'vuex'
+import { User as FirebaseUser } from '@firebase/auth-types'
+import { InjectionKey } from '@vue/runtime-core'
+import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import type { Banner, Event, User } from '@phits-tech/common/dao-firestore'
-import { BANNERS, EVENTS, USERS } from '@phits-tech/common/dao-firestore'
-import type { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
+import { Banner, BANNERS, Event, EVENTS, User, USERS } from '@phits-tech/common/dao-firestore'
+import { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
 
 import { eventToEventUi } from '@/events/models'
 import { db } from '~/firebase-initialized'
@@ -39,7 +37,7 @@ export const storeKey: InjectionKey<Store<PTStoreState>> = Symbol('PTStore')
 
 export const store = createStore<PTStoreState>({
   state: {
-    currentUser: null, // eslint-disable-line unicorn/no-null
+    currentUser: null, // eslint-disable-line unicorn/no-null -- vuexfire
     eventsRaw: [],
     banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
   },

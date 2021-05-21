@@ -1,12 +1,12 @@
 import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import type { Space, SpaceCategory } from '@phits-tech/common/dao-firestore'
-import { SPACES } from '@phits-tech/common/dao-firestore'
+import { Space, SpaceCategory, SPACES } from '@phits-tech/common/dao-firestore'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
+// URGENT: Extract this
 const categoryRanking: Record<SpaceCategory, number> = {
   community: 3,
   coworking: 2,

@@ -22,7 +22,6 @@
     "fix": "yarn fix-root && lerna run fix --parallel",
     "lint-root": "eslint \".*.js\" && prettier --check \"./*.{js,json}\" \".*.{js,json}\"",
     "lint": "yarn lint-root && lerna run lint",
-    "publish": "yarn build && lerna publish",
     "purge": "yarn clean && lerna clean --yes && rimraf ./node_modules",
     "rebuild": "lerna run rebuild",
     "reset": "yarn add rimraf -D -W && yarn purge && yarn && yarn build",

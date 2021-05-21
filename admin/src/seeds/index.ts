@@ -1,5 +1,4 @@
-import type { Banner, Event, Space } from '@phits-tech/common/dao-firestore'
-import { BANNERS, EVENTS, SPACES } from '@phits-tech/common/dao-firestore'
+import { Banner, BANNERS, Dao, Event, EVENTS, New, Space, SPACES, User } from '@phits-tech/common/dao-firestore'
 
 import { productionWarning } from '@/_services/modes'
 import { context } from '~/context'
@@ -16,19 +15,24 @@ const load = async <T>(filename: string): Promise<T[]> => {
 const main = async (): Promise<void> => {
   await productionWarning(__filename)
 
-  await migrate()
-
+  // Load data
   const banners: Banner[] = await load('banners')
   const events: Event[] = await load('events')
   const spaces: Space[] = await load('spaces')
+  const people: Array<New<User>> = await load('people')
 
-  // ***** Save test data here *****
-  await Promise.all([
+  // Run the migrations
+  await migrate()
+
+  // Save data
+  const dao = new Dao(context)
+
+  await Promise.all<unknown>([
+    ...people.map(async person => await dao.createUser(person)),
     ...banners.map(async banner => await db.collection(BANNERS).doc().set(banner, { merge: true })),
     ...events.map(async event => await db.collection(EVENTS).doc(event.slug).set(event, { merge: true })),
     ...spaces.map(async space => await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
   ]).catch(error => console.error(error))
-  // ***** End test data *****
 }
 
 main()

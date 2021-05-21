@@ -1,4 +1,4 @@
-import type admin from 'firebase-admin'
+import admin from 'firebase-admin'
 
 export const up = async (_db: admin.firestore.Firestore): Promise<void> => {
   // Should be an atomic action (transaction or batched write)

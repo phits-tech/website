@@ -1,7 +1,7 @@
-import type firebase from 'firebase/app'
+import firebase from 'firebase/app'
 
-import type { FirebaseContext } from '../context'
-import type { Dao } from '../dao-firestore'
+import { FirebaseContext } from '../context'
+import { Dao } from '../dao-firestore'
 
 type Storage = firebase.storage.Storage
 
