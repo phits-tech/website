@@ -33,7 +33,7 @@ export class Dao {
 
   async createUser(data: New<User>): Promise<string> {
     const userWd: NewWithDefaults<User> = { ...userDefaults, ...data }
-    const userComplete: NewComplete<User> = { ...userWd, ...{ slug: userWd.slug ?? this.getGuid(), name: `${userWd.nameFirst} ${userWd.nameLast}` } }
+    const userComplete: NewComplete<User> = { ...userWd, slug: userWd.slug ?? this.getGuid(), name: `${userWd.nameFirst} ${userWd.nameLast}` }
 
     // TODO: Check slug is available
     return await this.db.collection(USERS).doc(userComplete.slug).set(userComplete, { merge: true })

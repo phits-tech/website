@@ -142,9 +142,9 @@
           >
             {{ contribution.name }}
           </p>
-          <p class="text-xs xl:text-sm text-gray-400 font-light italic">
-            <!-- URGENT: Write a filter to convert the date direct from Timestamp -->
-            {{ contribution.role }} - {{ contribution.date.seconds }}
+          <p class="text-xs xl:text-sm text-gray-400 font-light">
+            {{ $filters.monthYear(contribution.date) }} -
+            <span class="italic">{{ contribution.role }}</span>
           </p>
         </div>
         <div class="flex-none pr-4 lg:pr-5">

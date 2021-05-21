@@ -24,7 +24,7 @@ type UpdateBase<T> = {
     : T[P] extends Array<infer U> | undefined ? Array<UpdateBase<U>> | FieldValue | FieldValueAdmin
       : T[P] extends number ? number | undefined | FieldValue | FieldValueAdmin
         : T[P] extends Primitive | undefined ? T[P]
-          :UpdateBase<T[P]>
+          : UpdateBase<T[P]>
 }
 
 export type Update<T> = Partial<Pick<UpdateBase<T>, WritableKeys<T>>>
