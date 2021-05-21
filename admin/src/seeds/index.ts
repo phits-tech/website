@@ -8,14 +8,19 @@ import migrate from '../migrations/migrate'
 
 const db = context.db
 
+const load = async <T>(filename: string): Promise<T[]> => {
+  const path = `./${MODE}/${filename}`
+  return await import(path).then(imported => Object.values(imported)[0] as T[]).catch(_ => [])
+}
+
 const main = async (): Promise<void> => {
-    await productionWarning(__filename)
+  await productionWarning(__filename)
 
   await migrate()
 
-  const banners = await import(`./${MODE}/banners`).then(_ => _.banners).catch(_ => []) as Banner[]
-  const events = await import(`./${MODE}/events`).then(_ => _.events).catch(_ => []) as Event[]
-  const spaces = await import(`./${MODE}/spaces`).then(_ => _.spaces).catch(_ => []) as Space[]
+  const banners: Banner[] = await load('banners')
+  const events: Event[] = await load('events')
+  const spaces: Space[] = await load('spaces')
 
   // ***** Save test data here *****
   await Promise.all([
