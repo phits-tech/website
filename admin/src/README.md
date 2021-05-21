@@ -15,5 +15,12 @@
 ## Seeders
 
 - Scripts that should only be run once; focus on loading data
-- Named by date
-- _Ex: `201208-course-oop`_
+- Only `emu` seeds are committed to the repo
+- Each data type has its own file: `banners.ts`, `events.ts`, `spaces.ts`
+
+To create a new event in production:
+
+1. Copy the `events.ts` file from the `emu` folder to the `production` folder
+2. Remove existing events from the `events` array in `production/events.ts`
+3. Add the new event to the `events` array
+4. Run `yarn seed --mode=production`
