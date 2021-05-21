@@ -1,6 +1,8 @@
 import type firebase from 'firebase/app'
 
 type Timestamp = firebase.firestore.Timestamp
+type Language = 'en' | 'th'
+type TranslatedString = Record<Language, string>
 
 /**
  * Types of property
@@ -52,7 +54,7 @@ export interface Space {
   name: string
   logo: string
   banner: string
-  description: string
+  description: TranslatedString
   category: SpaceCategory
   locationText: string
   locationLatitude?: number
