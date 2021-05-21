@@ -14,9 +14,9 @@ const main = async (): Promise<void> => {
   }
   await migrate()
 
-  const banners = await import(`./${MODE}/banners`).catch(_ => []) as Banner[]
-  const events = await import(`./${MODE}/events`).catch(_ => []) as Event[]
-  const spaces = await import(`./${MODE}/spaces`).catch(_ => []) as Space[]
+  const banners = await import(`./${MODE}/banners`).then(_ => _.banners).catch(_ => []) as Banner[]
+  const events = await import(`./${MODE}/events`).then(_ => _.events).catch(_ => []) as Event[]
+  const spaces = await import(`./${MODE}/spaces`).then(_ => _.spaces).catch(_ => []) as Space[]
 
   // ***** Save test data here *****
   await Promise.all([

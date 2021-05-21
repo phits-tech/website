@@ -15,7 +15,7 @@
     "backup": "yarn serve \"src/backup/index.ts\"",
     "config:deploy": "yarn serve \"src/config/functions-deploy.ts\"",
     "migrate": "yarn serve \"src/migrations\"",
-    "seed": "yarn serve \"src/test-data\""
+    "seed": "yarn serve \"src/seeds\""
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
