@@ -29,7 +29,7 @@
       <!-- Space: Text -->
       <div class="px-5 py-5">
         <div class="flex items-center">
-          <h1 class="flex-none text-brand-black text-3xl leading-none">
+          <h1 class="flex-shrink text-brand-black text-3xl leading-none">
             {{ space.name }}
           </h1>
           <div class="flex-grow">
@@ -83,7 +83,7 @@
           <span v-else class="line-clamp-1">{{space.locationText}}</span>
         </p>
 
-        <p class="text-gray-500 mt-3">{{ space.description }}</p>
+        <p class="text-gray-500 mt-3">{{ space.description.th }}</p>
       </div>
     </div>
   </div>
