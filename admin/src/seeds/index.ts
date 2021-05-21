@@ -9,9 +9,8 @@ import migrate from '../migrations/migrate'
 const db = context.db
 
 const main = async (): Promise<void> => {
-  if (!process.argv.includes('--yes')) {
     await productionWarning(__filename)
-  }
+
   await migrate()
 
   const banners = await import(`./${MODE}/banners`).then(_ => _.banners).catch(_ => []) as Banner[]
