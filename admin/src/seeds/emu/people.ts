@@ -29,4 +29,4 @@ const chaz: New<User> = {
   website: 'https://voiedev.com'
 }
 
-export const people = [chaz]
+export const people: Array<New<User>> = [chaz]
