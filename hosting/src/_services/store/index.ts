@@ -54,7 +54,7 @@ export const store = createStore<PTStoreState>({
   actions: {
     init: firestoreAction(async ({ bindFirestoreRef }) => {
       return await Promise.all([
-        bindFirestoreRef(STORE.STATE.eventsRaw, db.collection(EVENTS)),
+        bindFirestoreRef(STORE.STATE.eventsRaw, db.collection(EVENTS).orderBy('dateStart', 'desc')),
         bindFirestoreRef(STORE.STATE.banners, db.collection(BANNERS).where('dateExpire', '>', new Date()))
       ])
     }),
