@@ -1,6 +1,5 @@
 import { User as FirebaseUser } from '@firebase/auth-types'
 import { InjectionKey } from '@vue/runtime-core'
-import dayjs from 'dayjs'
 import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
