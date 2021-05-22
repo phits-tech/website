@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
   <h1 class="text-3xl font-medium text-brand-black pb-8">Upcoming Events</h1>
   <EventRow
-    v-for="event in currentEvents"
+    v-for="event in futureEvents"
     :key="'event' + event.slug"
     :event="event"
   />

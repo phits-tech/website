@@ -12,7 +12,7 @@ import EventRow from './EventRow.vue'
 export default class Events extends Vue {
   meta = useMeta({ title: 'Events' })
 
-  get currentEvents(): EventUi[] {
+  get futureEvents(): EventUi[] {
     const now = dayjs()
     return this.$store.getters.events.filter((event: EventUi) => event.dateStart.isAfter(now)).reverse()
   }
