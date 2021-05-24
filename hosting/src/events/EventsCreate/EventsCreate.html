@@ -1,10 +1,7 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
-  <h3 class="text-3xl font-medium text-brand-black">Add Event</h3>
+  <h3 class="text-3xl font-medium text-brand-black">{{ t.title[lang] }}</h3>
 
-  <p class="mt-4">
-    All fields are optional, but the more your fill-in the easier it is for us
-    to publish your event.
-  </p>
+  <p class="mt-4">{{ t.intro[lang] }}</p>
 
   <form>
     <!-- Share or Propose? -->
@@ -45,9 +42,9 @@
             class="text-brand-blue-900 pr-4"
           />
           <div>
-            <p class="font-semibold leading-5">Share an existing event</p>
+            <p class="font-semibold leading-5">{{ t.modeShareTitle[lang] }}</p>
             <p class="text-brand-black-400 text-sm">
-              publicize an event on Phits-Tech
+              {{ t.modeShareDescription[lang] }}
             </p>
           </div>
         </label>
@@ -88,9 +85,11 @@
             class="text-brand-blue-900 pr-4"
           />
           <div>
-            <p class="font-semibold leading-5">Propose a new event</p>
+            <p class="font-semibold leading-5">
+              {{ t.modeProposeTitle[lang] }}
+            </p>
             <p class="text-brand-black-400 text-sm">
-              organize an event with Phits-Tech
+              {{ t.modeProposeDescription[lang] }}
             </p>
           </div>
         </label>
@@ -122,7 +121,7 @@
             "
             for="event-name"
           >
-            Event Name
+            {{ t.eventNameLabel[lang] }}
           </label>
           <input
             v-model="event.name"
@@ -167,7 +166,7 @@
           "
           for="event-url"
         >
-          Website
+          {{ t.eventWebsiteLabel[lang] }}
         </label>
         <input
           v-model="event.website"
@@ -205,7 +204,7 @@
           "
           for="event-topics"
         >
-          Topics
+          {{ t.eventTopicsLabel[lang] }}
         </label>
         <input
           v-model="event.topics"
@@ -243,7 +242,7 @@
           "
           for="date"
         >
-          Date
+          {{ t.eventDateLabel[lang] }}
         </label>
         <input
           v-model="event.date"
@@ -280,7 +279,7 @@
           "
           for="time-start"
         >
-          Time Start
+          {{ t.eventTimeStartLabel[lang] }}
         </label>
         <input
           v-model="event.timeStart"
@@ -317,7 +316,7 @@
           "
           for="time-end"
         >
-          Time End
+          {{ t.eventTimeEndLabel[lang] }}
         </label>
         <input
           v-model="event.timeEnd"
@@ -354,7 +353,7 @@
           "
           for="location"
         >
-          Location
+          {{ t.eventLocationLabel[lang] }}
         </label>
         <select
           v-model="event.location"
@@ -397,7 +396,7 @@
           "
           for="location-map"
         >
-          Venue or Map URL
+          {{ t.eventLocationVenueLabel[lang] }}
         </label>
         <input
           v-model="event.locationVenue"
@@ -439,7 +438,7 @@
           "
           for="notes"
         >
-          Description and Requests
+          {{ t.eventDescriptionRequestsLabel[lang] }}
         </label>
         <textarea
           v-model="event.description"
@@ -477,7 +476,7 @@
           "
           for="contact-name"
         >
-          Your Name
+          {{ t.eventContactNameLabel[lang] }}
         </label>
         <input
           v-model="event.contactName"
@@ -515,7 +514,7 @@
           "
           for="contact-id"
         >
-          Contact
+          {{ t.eventContactIdLabel[lang] }}
         </label>
         <input
           v-model="event.contactId"
@@ -562,7 +561,7 @@
             focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500
           "
         >
-          Submit
+          {{ t.submitLabel[lang] }}
         </button>
       </div>
     </div>
