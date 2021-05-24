@@ -1,40 +1,38 @@
 import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
+import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dao-firestore'
+
 import { Route } from '~/router/route-decorator'
 
-import translations, { moreTranslations } from './Translations'
+import translations from './Translations'
 
-type EventType = 'event-type-share' | 'event-type-propose'
-const eventTypeShare: EventType = 'event-type-share'
+const emptyForm: EventSuggested = {
+  eventType: 'share',
+  name: '',
+  website: '',
+  topics: '',
+  date: '',
+  timeStart: '',
+  timeEnd: '',
+  location: '',
+  locationVenue: '',
+  contactName: '',
+  contactId: '',
+  description: ''
+}
 
 @Route({ path: '/events/create' })
 export default class EventsCreate extends Vue {
   meta = useMeta({ title: 'Create Event' })
   t = translations
-  mt = moreTranslations
-  lang = 'th'
+  lang = 'en' // TODO: Connect to vue-i18n
 
-  event = {
-    eventType: eventTypeShare,
-    name: '',
-    website: '',
-    topics: '',
-    date: '',
-    timeStart: '',
-    timeEnd: '',
-    location: '',
-    locationVenue: '',
-    contactName: '',
-    contactId: '',
-    description: ''
-  }
+  form = emptyForm
 
-  get isShare(): boolean {
-    return this.event.eventType === eventTypeShare
-  }
+  isSubmitting = false
+  get isShare(): boolean { return this.form.eventType === 'share' }
+  get isPropose(): boolean { return !this.isShare }
 
-  get isPropose(): boolean {
-    return !this.isShare
   }
 }

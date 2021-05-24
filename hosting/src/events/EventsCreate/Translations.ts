@@ -29,13 +29,25 @@ const translations: { [key: string]: TranslatedString } = {
     en: 'Event Name',
     th: 'ชื่อเหตุการณ์'
   },
+  eventNamePlaceholder: {
+    en: 'TypeScript Together',
+    th: 'TypeScript Together'
+  },
   eventWebsiteLabel: {
     en: 'Website',
     th: 'เว็บไซต์'
   },
+  eventWebsitePlaceholder: {
+    en: 'https://awesomewebsite.com',
+    th: 'https://awesomewebsite.com'
+  },
   eventTopicsLabel: {
     en: 'Topics',
     th: 'หัวข้อ'
+  },
+  eventTopicsPlaceholder: {
+    en: 'typescript, javascript, web dev, meetup',
+    th: 'typescript, javascript, web dev, meetup'
   },
   eventDateLabel: {
     en: 'Date',
@@ -52,47 +64,6 @@ const translations: { [key: string]: TranslatedString } = {
   eventLocationLabel: {
     en: 'Location',
     th: 'สถานที่'
-  },
-  eventLocationVenueLabel: {
-    en: 'Venue or Map URL',
-    th: 'สถานที่หรือแผนที่ URL'
-  },
-  eventContactNameLabel: {
-    en: 'Your Name',
-    th: 'ชื่อของคุณ'
-  },
-  eventContactIdLabel: {
-    en: 'Contact',
-    th: 'ติดต่อ'
-  },
-  eventDescriptionRequestsLabel: {
-    en: 'Description and Requests',
-    th: 'คำอธิบายและคำขอ'
-  },
-  submitLabel: {
-    en: 'Submit',
-    th: 'ส่ง'
-  },
-  submitLabelSubmitting: {
-    en: 'Sending...',
-    th: 'กำลังส่ง...'
-  }
-}
-
-export default translations
-
-export const moreTranslations: { [key: string]: TranslatedString } = {
-  eventNamePlaceholder: {
-    en: 'TypeScript Together',
-    th: 'TypeScript Together'
-  },
-  eventWebsitePlaceholder: {
-    en: 'https://awesomewebsite.com',
-    th: 'https://awesomewebsite.com'
-  },
-  eventTopicsPlaceholder: {
-    en: 'typescript, javascript, web dev, meetup',
-    th: 'typescript, javascript, web dev, meetup'
   },
   eventLocationPlaceholder: {
     en: '-- Pick --',
@@ -112,22 +83,48 @@ export const moreTranslations: { [key: string]: TranslatedString } = {
   },
   eventLocationOther: {
     en: 'Other...',
-    th: 'อื่นๆ'
+    th: 'อื่นๆ...'
+  },
+  eventLocationVenueLabel: {
+    en: 'Venue or Map URL',
+    th: 'สถานที่หรือแผนที่ URL'
   },
   eventLocationVenuePlaceholder: {
     en: 'SET Investment Center, NU',
     th: 'ศูนย์การเรียนรู้การลงทุน มหาวิทยาลัยนเรศวร'
   },
+  eventContactNameLabel: {
+    en: 'Your Name',
+    th: 'ชื่อของคุณ'
+  },
   eventContactNamePlaceholder: {
     en: 'Charles Allen',
     th: 'Charles Allen'
+  },
+  eventContactIdLabel: {
+    en: 'Contact',
+    th: 'ติดต่อ'
   },
   eventContactIdPlaceholder: {
     en: 'LINE: @yourlineid',
     th: 'LINE: @yourlineid'
   },
+  eventDescriptionRequestsLabel: {
+    en: 'Description and Requests',
+    th: 'คำอธิบายและคำขอ'
+  },
   eventDescriptionRequestsPlaceholder: {
     en: 'Describe your idea&#10;What help do you need from Phits Tech?',
-    th: ''
+    th: 'อธิบายความคิดของคุณ&#10;คุณต้องการความช่วยเหลืออะไรจาก Phits Tech?'
+  },
+  submitLabel: {
+    en: 'Submit',
+    th: 'ส่ง'
+  },
+  submitLabelSubmitting: {
+    en: 'Sending...',
+    th: 'กำลังส่ง...'
   }
 }
+
+export default translations

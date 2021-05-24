@@ -59,6 +59,21 @@ export interface UserPrivate {
   // tokenLine?: unknown
 }
 
+export interface EventSuggested {
+  eventType: 'share' | 'propose'
+  name: string
+  website: string
+  topics: string
+  date: string
+  timeStart: string
+  timeEnd: string
+  location: string
+  locationVenue: string
+  contactName: string
+  contactId: string
+  description: string
+}
+
 // TODO: Maybe rename type to avoid clash with a built-in type
 export interface Event {
   slug: string

@@ -11,8 +11,8 @@
           type="radio"
           id="event-type-share"
           name="event-type"
-          value="event-type-share"
-          v-model="event.eventType"
+          value="share"
+          v-model="form.eventType"
           class="hidden"
         />
         <label
@@ -54,8 +54,8 @@
           type="radio"
           id="event-type-propose"
           name="event-type"
-          value="event-type-propose"
-          v-model="event.eventType"
+          value="propose"
+          v-model="form.eventType"
           class="hidden"
         />
         <label
@@ -124,7 +124,7 @@
             {{ t.eventNameLabel[lang] }}
           </label>
           <input
-            v-model="event.name"
+            v-model="form.name"
             class="
               appearance-none
               block
@@ -142,14 +142,14 @@
             "
             id="event-name"
             type="text"
-            :placeholder="mt.eventNamePlaceholder[lang]"
+            :placeholder="t.eventNamePlaceholder[lang]"
             maxlength="50"
           />
         </div>
         <div
           class="flex-none mt-auto mb-2.5 px-3 text-gray-400 text-md font-mono"
         >
-          {{ event.name.length }}/50
+          {{ form.name.length }}/50
         </div>
       </div>
 
@@ -169,7 +169,7 @@
           {{ t.eventWebsiteLabel[lang] }}
         </label>
         <input
-          v-model="event.website"
+          v-model="form.website"
           class="
             appearance-none
             block
@@ -187,7 +187,7 @@
           "
           id="event-url"
           type="url"
-          :placeholder="mt.eventWebsitePlaceholder[lang]"
+          :placeholder="t.eventWebsitePlaceholder[lang]"
         />
       </div>
 
@@ -207,7 +207,7 @@
           {{ t.eventTopicsLabel[lang] }}
         </label>
         <input
-          v-model="event.topics"
+          v-model="form.topics"
           class="
             appearance-none
             block
@@ -225,7 +225,7 @@
           "
           id="event-topics"
           type="text"
-          :placeholder="mt.eventTopicsPlaceholder[lang]"
+          :placeholder="t.eventTopicsPlaceholder[lang]"
         />
       </div>
 
@@ -245,7 +245,7 @@
           {{ t.eventDateLabel[lang] }}
         </label>
         <input
-          v-model="event.date"
+          v-model="form.date"
           class="
             appearance-none
             block
@@ -282,7 +282,7 @@
           {{ t.eventTimeStartLabel[lang] }}
         </label>
         <input
-          v-model="event.timeStart"
+          v-model="form.timeStart"
           class="
             appearance-none
             block
@@ -319,7 +319,7 @@
           {{ t.eventTimeEndLabel[lang] }}
         </label>
         <input
-          v-model="event.timeEnd"
+          v-model="form.timeEnd"
           class="
             appearance-none
             block
@@ -356,7 +356,7 @@
           {{ t.eventLocationLabel[lang] }}
         </label>
         <select
-          v-model="event.location"
+          v-model="form.location"
           class="
             appearance-none
             block
@@ -375,13 +375,13 @@
           id="location"
           placeholder="blah"
         >
-          <option value="">{{ mt.eventLocationPlaceholder[lang] }}</option>
-          <option value="online">{{ mt.eventLocationOnline[lang] }}</option>
+          <option value="">{{ t.eventLocationPlaceholder[lang] }}</option>
+          <option value="online">{{ t.eventLocationOnline[lang] }}</option>
           <option value="phitsanulok">
-            {{ mt.eventLocationPhitsanulok[lang] }}
+            {{ t.eventLocationPhitsanulok[lang] }}
           </option>
-          <option value="bangkok">{{ mt.eventLocationBangkok[lang] }}</option>
-          <option value="other">{{ mt.eventLocationOther[lang] }}</option>
+          <option value="bangkok">{{ t.eventLocationBangkok[lang] }}</option>
+          <option value="other">{{ t.eventLocationOther[lang] }}</option>
         </select>
       </div>
 
@@ -401,7 +401,7 @@
           {{ t.eventLocationVenueLabel[lang] }}
         </label>
         <input
-          v-model="event.locationVenue"
+          v-model="form.locationVenue"
           class="
             appearance-none
             block
@@ -419,7 +419,7 @@
           "
           id="location-map"
           type="text"
-          :placeholder="mt.eventLocationVenuePlaceholder[lang]"
+          :placeholder="t.eventLocationVenuePlaceholder[lang]"
         />
       </div>
 
@@ -443,7 +443,7 @@
           {{ t.eventDescriptionRequestsLabel[lang] }}
         </label>
         <textarea
-          v-model="event.description"
+          v-model="form.description"
           class="
             appearance-none
             block
@@ -461,7 +461,7 @@
           "
           id="notes"
           type="text"
-          :placeholder="mt.eventDescriptionRequestsPlaceholder[lang]"
+          :placeholder="t.eventDescriptionRequestsPlaceholder[lang]"
         ></textarea>
       </div>
 
@@ -481,7 +481,7 @@
           {{ t.eventContactNameLabel[lang] }}
         </label>
         <input
-          v-model="event.contactName"
+          v-model="form.contactName"
           class="
             appearance-none
             block
@@ -519,7 +519,7 @@
           {{ t.eventContactIdLabel[lang] }}
         </label>
         <input
-          v-model="event.contactId"
+          v-model="form.contactId"
           class="
             appearance-none
             block
@@ -561,9 +561,15 @@
             hover:bg-brand-blue-700
             focus:outline-none
             focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500
+            disabled:bg-gray-300
+            disabled:text-gray-900
+            disabled:opacity-50
+            disabled:cursor-wait
           "
+          :disabled="isSubmitting"
         >
-          {{ t.submitLabel[lang] }}
+          <span v-if="isSubmitting">{{ t.submitLabelSubmitting[lang] }}</span>
+          <span v-else>{{ t.submitLabel[lang] }}</span>
         </button>
       </div>
     </div>
