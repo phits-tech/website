@@ -3,75 +3,79 @@ import { TranslatedString } from '@phits-tech/common/dao-firestore'
 const translations: { [key: string]: TranslatedString } = {
   title: {
     en: 'Add Event',
-    th: ''
+    th: 'เพิ่มเหตุการณ์'
   },
   intro: {
     en: 'All fields are optional, but the more your fill-in the easier it is for us to publish your event.',
-    th: ''
+    th: 'ฟิลด์ทั้งหมดเป็นทางเลือก แต่ยิ่งคุณกรอกข้อมูลมากเท่าไหร่ เราก็ยิ่งเผยแพร่กิจกรรมของคุณได้ง่ายขึ้น'
   },
   modeShareTitle: {
     en: 'Share an existing event',
-    th: ''
+    th: 'แบ่งปันเหตุการณ์ที่มีอยู่'
   },
   modeShareDescription: {
     en: 'publicize an event on Phits-Tech',
-    th: ''
+    th: 'เผยแพร่เหตุการณ์บน Phits-Tech'
   },
   modeProposeTitle: {
     en: 'Propose a new event',
-    th: ''
+    th: 'เสนอเหตุการณ์ใหม่'
   },
   modeProposeDescription: {
     en: 'organize an event with Phits-Tech',
-    th: ''
+    th: 'จัดงานร่วมกับ Phits-Tech'
   },
   eventNameLabel: {
     en: 'Event Name',
-    th: ''
+    th: 'ชื่อเหตุการณ์'
   },
   eventWebsiteLabel: {
     en: 'Website',
-    th: ''
+    th: 'เว็บไซต์'
   },
   eventTopicsLabel: {
     en: 'Topics',
-    th: ''
+    th: 'หัวข้อ'
   },
   eventDateLabel: {
     en: 'Date',
-    th: ''
+    th: 'วันที่'
   },
   eventTimeStartLabel: {
     en: 'Time Start',
-    th: ''
+    th: 'เวลาเริ่มต้น'
   },
   eventTimeEndLabel: {
     en: 'Time End',
-    th: ''
+    th: 'หมดเวลา'
   },
   eventLocationLabel: {
     en: 'Location',
-    th: ''
+    th: 'สถานที่'
   },
   eventLocationVenueLabel: {
     en: 'Venue or Map URL',
-    th: ''
+    th: 'สถานที่หรือแผนที่ URL'
   },
   eventContactNameLabel: {
     en: 'Your Name',
-    th: ''
+    th: 'ชื่อของคุณ'
   },
   eventContactIdLabel: {
     en: 'Contact',
-    th: ''
+    th: 'ติดต่อ'
   },
   eventDescriptionRequestsLabel: {
     en: 'Description and Requests',
-    th: ''
+    th: 'คำอธิบายและคำขอ'
   },
   submitLabel: {
     en: 'Submit',
-    th: ''
+    th: 'ส่ง'
+  },
+  submitLabelSubmitting: {
+    en: 'Sending...',
+    th: 'กำลังส่ง...'
   }
 }
 
@@ -92,27 +96,27 @@ export const moreTranslations: { [key: string]: TranslatedString } = {
   },
   eventLocationPlaceholder: {
     en: '-- Pick --',
-    th: ''
+    th: '-- เลือก --'
   },
   eventLocationOnline: {
     en: 'Online',
-    th: ''
+    th: 'ออนไลน์'
   },
   eventLocationPhitsanulok: {
     en: 'Phitsanulok',
-    th: ''
+    th: 'พิษณุโลก'
   },
   eventLocationBangkok: {
     en: 'Bangkok',
-    th: ''
+    th: 'กรุงเทพมหานครฯ'
   },
   eventLocationOther: {
     en: 'Other...',
-    th: ''
+    th: 'อื่นๆ'
   },
   eventLocationVenuePlaceholder: {
-    en: 'SET IC, NU',
-    th: ''
+    en: 'SET Investment Center, NU',
+    th: 'ศูนย์การเรียนรู้การลงทุน มหาวิทยาลัยนเรศวร'
   },
   eventContactNamePlaceholder: {
     en: 'Charles Allen',
