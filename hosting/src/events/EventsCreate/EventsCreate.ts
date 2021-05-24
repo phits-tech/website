@@ -3,7 +3,33 @@ import { useMeta } from 'vue-meta'
 
 import { Route } from '~/router/route-decorator'
 
+type EventType = 'event-type-share' | 'event-type-propose'
+const eventTypeShare: EventType = 'event-type-share'
+
 @Route({ path: '/events/create' })
 export default class EventsCreate extends Vue {
   meta = useMeta({ title: 'Create Event' })
+
+  event = {
+    eventType: eventTypeShare,
+    name: '',
+    website: '',
+    topics: '',
+    date: '',
+    timeStart: '',
+    timeEnd: '',
+    location: '',
+    locationVenue: '',
+    contactName: '',
+    contactId: '',
+    description: ''
+  }
+
+  get isShare(): boolean {
+    return this.event.eventType === eventTypeShare
+  }
+
+  get isPropose(): boolean {
+    return !this.isShare
+  }
 }
