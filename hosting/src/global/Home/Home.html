@@ -15,8 +15,9 @@
           v-if="dayAndEvent.events.length === 0"
           :to="{ name: 'EventsCreate' }"
           class="block py-2 text-xs text-gray-400 hover:text-blue-400"
-          >Add event</router-link
         >
+          Add event
+        </router-link>
         <div
           v-for="(event, idx) in dayAndEvent.events"
           :key="event.id"
@@ -57,10 +58,8 @@
                 mt-0.5
               "
             >
-              {{ $filters.eventTime(event) }}<sup
-                v-if="event.dateStart.day() !== event.dateEnd.day()"
-                >+1</sup
-              >
+              {{ $filters.eventTime(event) }}
+              <sup v-if="event.dateStart.day() !== event.dateEnd.day()">+1</sup>
             </div>
           </div>
           <div
@@ -78,8 +77,9 @@
       <router-link
         :to="{ name: 'Events' }"
         class="text-xs text-blue-600 hover:text-blue-400"
-        >See all &gt;</router-link
       >
+        See all &gt;
+      </router-link>
     </div>
   </div>
 </div>
