@@ -29,7 +29,7 @@ export default class EventsCreate extends Vue {
   t = translations
   lang = 'en' // TODO: Connect to vue-i18n
 
-  form = emptyForm
+  form = { ...emptyForm }
 
   isSubmitting = false
   isConfirming = false
@@ -42,7 +42,7 @@ export default class EventsCreate extends Vue {
 
     return await db.collection(EVENTS_SUGGESTED).add(this.form)
       .then(() => {
-        this.form = emptyForm
+        this.form = { ...emptyForm, eventType: this.form.eventType }
         this.isSubmitting = false
         this.isConfirming = true
       })

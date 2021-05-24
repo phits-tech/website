@@ -114,8 +114,8 @@ const translations: { [key: string]: TranslatedString } = {
     th: 'คำอธิบายและคำขอ'
   },
   eventDescriptionRequestsPlaceholder: {
-    en: 'Describe your idea&#10;What help do you need from Phits Tech?',
-    th: 'อธิบายความคิดของคุณ&#10;คุณต้องการความช่วยเหลืออะไรจาก Phits Tech?'
+    en: 'Describe your idea\nWhat help do you need from Phits Tech?',
+    th: 'อธิบายความคิดของคุณ\nคุณต้องการความช่วยเหลืออะไรจาก Phits Tech?'
   },
   submitLabel: {
     en: 'Submit',
