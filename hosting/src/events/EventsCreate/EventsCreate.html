@@ -3,7 +3,7 @@
 
   <p class="mt-4">{{ t.intro[lang] }}</p>
 
-  <form>
+  <form @submit.prevent="submit">
     <!-- Share or Propose? -->
     <div class="flex flex-wrap mt-3 -mx-3">
       <div class="w-full md:w-1/2 mt-3 px-3">
@@ -574,4 +574,56 @@
       </div>
     </div>
   </form>
+
+  <div
+    v-if="isConfirming"
+    @click="isConfirming = false"
+    class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-50"
+  ></div>
+
+  <div
+    v-if="isConfirming"
+    @click="isConfirming = false"
+    class="
+      absolute
+      top-1/2
+      left-1/2
+      transform
+      -translate-x-1/2 -translate-y-1/2
+    "
+  >
+    <div
+      class="
+        bg-brand-blue-100
+        border border-brand-blue-400
+        pl-4
+        pr-4
+        py-3
+        rounded
+      "
+      role="alert"
+    >
+      <p class="text-brand-blue-900 font-bold">Thank you!</p>
+      <p class="text-black-400">Your submission was received successfully</p>
+      <svg
+        class="
+          absolute
+          top-1.5
+          right-1
+          fill-current
+          h-5
+          w-5
+          text-brand-blue-600
+        "
+        role="button"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <title>Close</title>
+        <path
+          d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+        />
+      </svg>
+    </div>
+  </div>
 </div>

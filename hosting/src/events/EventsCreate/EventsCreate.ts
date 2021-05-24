@@ -3,6 +3,7 @@ import { useMeta } from 'vue-meta'
 
 import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dao-firestore'
 
+import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
 import translations from './Translations'
@@ -31,8 +32,23 @@ export default class EventsCreate extends Vue {
   form = emptyForm
 
   isSubmitting = false
+  isConfirming = false
+
   get isShare(): boolean { return this.form.eventType === 'share' }
   get isPropose(): boolean { return !this.isShare }
 
+  async submit(): Promise<unknown> {
+    this.isSubmitting = true
+
+    return await db.collection(EVENTS_SUGGESTED).add(this.form)
+      .then(() => {
+        this.form = emptyForm
+        this.isSubmitting = false
+        this.isConfirming = true
+      })
+      .catch(error => {
+        console.error(error)
+        this.isSubmitting = false
+      })
   }
 }
