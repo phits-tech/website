@@ -76,3 +76,54 @@ const translations: { [key: string]: TranslatedString } = {
 }
 
 export default translations
+
+export const moreTranslations: { [key: string]: TranslatedString } = {
+  eventNamePlaceholder: {
+    en: 'TypeScript Together',
+    th: 'TypeScript Together'
+  },
+  eventWebsitePlaceholder: {
+    en: 'https://awesomewebsite.com',
+    th: 'https://awesomewebsite.com'
+  },
+  eventTopicsPlaceholder: {
+    en: 'typescript, javascript, web dev, meetup',
+    th: 'typescript, javascript, web dev, meetup'
+  },
+  eventLocationPlaceholder: {
+    en: '-- Pick --',
+    th: ''
+  },
+  eventLocationOnline: {
+    en: 'Online',
+    th: ''
+  },
+  eventLocationPhitsanulok: {
+    en: 'Phitsanulok',
+    th: ''
+  },
+  eventLocationBangkok: {
+    en: 'Bangkok',
+    th: ''
+  },
+  eventLocationOther: {
+    en: 'Other...',
+    th: ''
+  },
+  eventLocationVenuePlaceholder: {
+    en: 'SET IC, NU',
+    th: ''
+  },
+  eventContactNamePlaceholder: {
+    en: 'Charles Allen',
+    th: 'Charles Allen'
+  },
+  eventContactIdPlaceholder: {
+    en: 'LINE: @yourlineid',
+    th: 'LINE: @yourlineid'
+  },
+  eventDescriptionRequestsPlaceholder: {
+    en: 'Describe your idea&#10;What help do you need from Phits Tech?',
+    th: ''
+  }
+}
