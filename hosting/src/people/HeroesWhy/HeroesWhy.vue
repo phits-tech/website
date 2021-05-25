@@ -1,2 +1,2 @@
-<template src="./HeroesWhy.html" />
-<script src="./HeroesWhy.ts" lang="ts"></script>
+<script src="HeroesWhy.ts" lang="ts"></script>
+<template src="HeroesWhy.html" />

@@ -1,2 +1,2 @@
-<template src="./App.html" />
-<script src="./App.ts" lang="ts"></script>
+<script src="App.ts" lang="ts"></script>
+<template src="App.html" />

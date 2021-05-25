@@ -1,2 +1,2 @@
-<template src="./EventsCreate.html" />
-<script src="./EventsCreate.ts" lang="ts"></script>
+<script src="EventsCreate.ts" lang="ts"></script>
+<template src="EventsCreate.html" />
