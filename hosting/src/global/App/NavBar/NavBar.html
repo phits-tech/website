@@ -172,6 +172,11 @@
           sm:inset-auto
         "
       >
+        <!-- NEW CODE STARTS HERE -->
+        <select v-model="$i18n.locale" class="appearance-none p-2 mr-2">
+          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+        </select>
+        <!-- NEW CODE ENDS HERE -->
         <router-link
           :to="{ name: 'EventsCreate' }"
           class="

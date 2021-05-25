@@ -1,7 +1,7 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
-  <h3 class="text-3xl font-medium text-brand-black">{{ t.title[lang] }}</h3>
+  <h3 class="text-3xl font-medium text-brand-black">{{ $t('title') }}</h3>
 
-  <p class="mt-4">{{ t.intro[lang] }}</p>
+  <p class="mt-4">{{ $t('intro') }}</p>
 
   <form @submit.prevent="submit">
     <!-- Share or Propose? -->
@@ -26,7 +26,7 @@
             border-2 border-gray-300
             rounded-lg
           "
-          :class="{ 
+          :class="{
             'bg-brand-blue-50': isShare,
             'border-brand-blue-900' : isShare
           }"
@@ -42,9 +42,9 @@
             class="text-brand-blue-900 pr-4"
           />
           <div>
-            <p class="font-semibold leading-5">{{ t.modeShareTitle[lang] }}</p>
+            <p class="font-semibold leading-5">{{ $t('modeShareTitle') }}</p>
             <p class="text-brand-black-400 text-sm">
-              {{ t.modeShareDescription[lang] }}
+              {{ $t('modeShareDescription') }}
             </p>
           </div>
         </label>
@@ -69,7 +69,7 @@
             border-2 border-gray-300
             rounded-lg
           "
-          :class="{ 
+          :class="{
             'bg-brand-blue-50': isPropose,
             'border-brand-blue-900' : isPropose
           }"
@@ -86,10 +86,10 @@
           />
           <div>
             <p class="font-semibold leading-5">
-              {{ t.modeProposeTitle[lang] }}
+              {{ $t('modeProposeTitle') }}
             </p>
             <p class="text-brand-black-400 text-sm">
-              {{ t.modeProposeDescription[lang] }}
+              {{ $t('modeProposeDescription') }}
             </p>
           </div>
         </label>
@@ -121,7 +121,7 @@
             "
             for="event-name"
           >
-            {{ t.eventNameLabel[lang] }}
+            {{ $t('eventNameLabel') }}
           </label>
           <input
             v-model="form.name"
@@ -166,7 +166,7 @@
           "
           for="event-url"
         >
-          {{ t.eventWebsiteLabel[lang] }}
+          {{ $t('eventWebsiteLabel') }}
         </label>
         <input
           v-model="form.website"
@@ -204,7 +204,7 @@
           "
           for="event-topics"
         >
-          {{ t.eventTopicsLabel[lang] }}
+          {{ $t('eventTopicsLabel') }}
         </label>
         <input
           v-model="form.topics"
@@ -242,7 +242,7 @@
           "
           for="date"
         >
-          {{ t.eventDateLabel[lang] }}
+          {{ $t('eventDateLabel') }}
         </label>
         <input
           v-model="form.date"
@@ -279,7 +279,7 @@
           "
           for="time-start"
         >
-          {{ t.eventTimeStartLabel[lang] }}
+          {{ $t('eventTimeStartLabel') }}
         </label>
         <input
           v-model="form.timeStart"
@@ -316,7 +316,7 @@
           "
           for="time-end"
         >
-          {{ t.eventTimeEndLabel[lang] }}
+          {{ $t('eventTimeEndLabel') }}
         </label>
         <input
           v-model="form.timeEnd"
@@ -353,7 +353,7 @@
           "
           for="location"
         >
-          {{ t.eventLocationLabel[lang] }}
+          {{ $t('eventLocationLabel') }}
         </label>
         <select
           v-model="form.location"
@@ -375,13 +375,13 @@
           id="location"
           placeholder="blah"
         >
-          <option value="">{{ t.eventLocationPlaceholder[lang] }}</option>
-          <option value="online">{{ t.eventLocationOnline[lang] }}</option>
+          <option value="">{{ $t('eventLocationPlaceholder') }}</option>
+          <option value="online">{{ $t('eventLocationOnline') }}</option>
           <option value="phitsanulok">
-            {{ t.eventLocationPhitsanulok[lang] }}
+            {{ $t('eventLocationPhitsanulok') }}
           </option>
-          <option value="bangkok">{{ t.eventLocationBangkok[lang] }}</option>
-          <option value="other">{{ t.eventLocationOther[lang] }}</option>
+          <option value="bangkok">{{ $t('eventLocationBangkok') }}</option>
+          <option value="other">{{ $t('eventLocationOther') }}</option>
         </select>
       </div>
 
@@ -398,7 +398,7 @@
           "
           for="location-map"
         >
-          {{ t.eventLocationVenueLabel[lang] }}
+          {{ $t('eventLocationVenueLabel') }}
         </label>
         <input
           v-model="form.locationVenue"
@@ -440,7 +440,7 @@
           "
           for="notes"
         >
-          {{ t.eventDescriptionRequestsLabel[lang] }}
+          {{ $t('eventDescriptionRequestsLabel') }}
         </label>
         <textarea
           v-model="form.description"
@@ -478,7 +478,7 @@
           "
           for="contact-name"
         >
-          {{ t.eventContactNameLabel[lang] }}
+          {{ $t('eventContactNameLabel') }}
         </label>
         <input
           v-model="form.contactName"
@@ -516,7 +516,7 @@
           "
           for="contact-id"
         >
-          {{ t.eventContactIdLabel[lang] }}
+          {{ $t('eventContactIdLabel') }}
         </label>
         <input
           v-model="form.contactId"
@@ -568,8 +568,8 @@
           "
           :disabled="isSubmitting"
         >
-          <span v-if="isSubmitting">{{ t.submitLabelSubmitting[lang] }}</span>
-          <span v-else>{{ t.submitLabel[lang] }}</span>
+          <span v-if="isSubmitting">{{ $t('submitLabelSubmitting') }}</span>
+          <span v-else>{{ $t('submitLabel') }}</span>
         </button>
       </div>
     </div>
