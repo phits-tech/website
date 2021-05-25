@@ -1,18 +1,24 @@
-// TODO: Continue exploring: https://github.com/dustinspecker/awesome-eslint#practices
 module.exports = {
   extends: ['plugin:jest/recommended', 'standard'],
   plugins: ['fp', 'radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
   rules: {
-    // Override
-    'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
+    // Built-in
+    // URGENT: Add more built-in rules: https://eslint.org/docs/rules
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
-    'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
-
-    // Additional
-    'fp/no-delete': 'error',
-    'fp/no-mutating-assign': 'error',
     'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
     'prefer-object-spread': 'error',
+    'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
+
+    // TODO: Add more: https://github.com/dustinspecker/awesome-eslint#practices
+
+    // FP
+    'fp/no-delete': 'error',
+    'fp/no-mutating-assign': 'error',
+
+    // Jest
+    'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
+
+    // Radar
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',
@@ -38,6 +44,8 @@ module.exports = {
     'radar/prefer-object-literal': 'error',
     'radar/prefer-single-boolean-return': 'error',
     'radar/prefer-while': 'error',
+
+    // Simple Import Sort
     'simple-import-sort/imports': [
       'error',
       {
@@ -51,6 +59,8 @@ module.exports = {
       }
     ],
     'simple-import-sort/exports': 'error',
+
+    // Unicorn
     'unicorn/better-regex': 'error',
     'unicorn/catch-error-name': 'error',
     'unicorn/consistent-destructuring': 'error',
@@ -122,10 +132,11 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/string-content': 'error',
     'unicorn/throw-new-error': 'error',
+
+    // Unused imports
     'unused-imports/no-unused-imports-ts': 'error',
-    'woke/LGBTQ': 'error',
-    'woke/gender': 'error',
-    'woke/profanity': 'error',
-    'woke/racism': 'error'
+
+    // Woke
+    'woke/all': 'error'
   }
 }
