@@ -59,7 +59,7 @@ const translations: { [key: string]: TranslatedString } = {
   },
   eventTimeEndLabel: {
     en: 'Time End',
-    th: 'หมดเวลา'
+    th: 'เวลาสิ้นสุด'
   },
   eventLocationLabel: {
     en: 'Location',
@@ -83,11 +83,11 @@ const translations: { [key: string]: TranslatedString } = {
   },
   eventLocationOther: {
     en: 'Other...',
-    th: 'อื่นๆ...'
+    th: 'อื่น ๆ ...'
   },
   eventLocationVenueLabel: {
     en: 'Venue or Map URL',
-    th: 'สถานที่หรือแผนที่ URL'
+    th: 'สถานที่จัดงานหรือลิ้งค์แผนที่'
   },
   eventLocationVenuePlaceholder: {
     en: 'SET Investment Center, NU',

@@ -27,7 +27,7 @@ const emptyForm: EventSuggested = {
 export default class EventsCreate extends Vue {
   meta = useMeta({ title: 'Create Event' })
   t = translations
-  lang = 'en' // TODO: Connect to vue-i18n
+  lang = 'th' // TODO: Connect to vue-i18n
 
   form = { ...emptyForm }
 
