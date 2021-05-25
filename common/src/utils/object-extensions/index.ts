@@ -24,7 +24,7 @@ export function length<T>(obj: { [s: string]: T } | ArrayLike<T> | null | undefi
  * Like `values` but also copies the keys into the objects as "id" property
  */
 export function valuesWithIds<U>(obj?: { [key: string]: U }): Array<U & { id: string }> {
-  return obj ? Object.entries(obj).map(([key, value]) => Object.assign(value, { id: key })) : []
+  return obj ? Object.entries(obj).map(([key, value]) => ({ ...value, id: key })) : []
 }
 
 /**
@@ -33,5 +33,5 @@ export function valuesWithIds<U>(obj?: { [key: string]: U }): Array<U & { id: st
 export function valueWithId<U>(tuple: [string, U]): U & { id: string }
 export function valueWithId<U>(tuple?: [string, U]): (U & { id: string }) | undefined
 export function valueWithId<U>(tuple?: [string, U]): (U & { id: string }) | undefined {
-  return tuple ? Object.assign(tuple[1], { id: tuple[0] }) : undefined
+  return tuple ? { ...tuple[1], id: tuple[0] } : undefined
 }

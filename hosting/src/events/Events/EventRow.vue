@@ -1,2 +1,2 @@
-<template src="./EventRow.html"></template>
+<template src="./EventRow.html" />
 <script src="./EventRow.ts" lang="ts"></script>

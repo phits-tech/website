@@ -1,2 +1,2 @@
-<template src="./Heroes.html"></template>
+<template src="./Heroes.html" />
 <script src="./Heroes.ts" lang="ts"></script>

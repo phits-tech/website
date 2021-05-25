@@ -1,7 +1,7 @@
 // TODO: Continue exploring: https://github.com/dustinspecker/awesome-eslint#practices
 module.exports = {
   extends: ['plugin:jest/recommended', 'standard'],
-  plugins: ['radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
+  plugins: ['fp', 'radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
   rules: {
     // Override
     'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
@@ -9,7 +9,10 @@ module.exports = {
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 
     // Additional
+    'fp/no-delete': 'error',
+    'fp/no-mutating-assign': 'error',
     'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
+    'prefer-object-spread': 'error',
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',
@@ -110,7 +113,7 @@ module.exports = {
     'unicorn/prefer-regexp-test': 'error',
     'unicorn/prefer-set-has': 'error',
     'unicorn/prefer-spread': 'error',
-    'unicorn/prefer-string-replace-all': 'error',
+    'unicorn/prefer-string-replace-all': 'off', // only available in Node 15
     'unicorn/prefer-string-slice': 'error',
     'unicorn/prefer-string-starts-ends-with': 'error',
     'unicorn/prefer-string-trim-start-end': 'error',

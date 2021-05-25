@@ -1,2 +1,2 @@
-<template src="./HomeBanners.html"></template>
+<template src="./HomeBanners.html" />
 <script src="./HomeBanners.ts" lang="ts"></script>
