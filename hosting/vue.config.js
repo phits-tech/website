@@ -5,7 +5,6 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@phits-tech/common': path.resolve(__dirname, '../common/dist'),
         '@assets': path.resolve(__dirname, 'src/_assets'),
         '~': path.resolve(__dirname, 'src/_services')
       }

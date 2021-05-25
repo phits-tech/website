@@ -5,8 +5,8 @@ import { DeepRequired } from 'ts-essentials'
 import { setup, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { EventLog, User, USERS, UserSocialAccount } from '@phits-tech/common/dao-firestore'
-import { entries } from '@phits-tech/common/utils/object-extensions'
+import { EventLog, User, USERS, UserSocialAccount } from '@phits-tech/common/dist/dao-firestore'
+import { entries } from '@phits-tech/common/dist/utils/object-extensions'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'

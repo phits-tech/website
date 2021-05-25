@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import mapKeys from 'lodash/mapKeys'
 import pickBy from 'lodash/pickBy'
 
-import { camelize } from '@phits-tech/common/utils/string-cases'
+import { camelize } from '@phits-tech/common/dist/utils/string-cases'
 
 import 'firebase/auth'
 import 'firebase/firestore'

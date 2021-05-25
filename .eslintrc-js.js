@@ -9,7 +9,7 @@ module.exports = {
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 
     // Additional
-    'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/dist/**/*', '@phits-tech/common/src/**/*'] }],
+    'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',

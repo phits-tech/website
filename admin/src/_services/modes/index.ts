@@ -1,7 +1,7 @@
 import dedent from 'dedent-js'
 import readline from 'readline'
 
-import { randomElement } from '@phits-tech/common/utils/random'
+import { randomElement } from '@phits-tech/common/dist/utils/random'
 
 const modeArg = process.argv.find((arg) => arg.startsWith('--mode='))
 export const MODE = modeArg?.split('=')[1].toLowerCase() ?? 'emu'

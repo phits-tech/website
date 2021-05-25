@@ -2,7 +2,7 @@ import fs from 'fs'
 import { keyBy, mapValues } from 'lodash'
 import path from 'path'
 
-import { snakeize } from '@phits-tech/common/utils/string-cases'
+import { snakeize } from '@phits-tech/common/dist/utils/string-cases'
 
 const VUE_FIREBASE_PREFIX = 'VUE_APP_FIREBASE_'
 

@@ -1,4 +1,4 @@
-import { Space } from '@phits-tech/common/dao-firestore'
+import { Space } from '@phits-tech/common/dist/dao-firestore'
 
 export const spaces: Space[] = [
   {

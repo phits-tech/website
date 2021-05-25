@@ -1,7 +1,7 @@
 import firebase from 'firebase-admin'
 
-import { Event } from '@phits-tech/common/dao-firestore'
-import { nextDay } from '@phits-tech/common/utils/datetime'
+import { Event } from '@phits-tech/common/dist/dao-firestore'
+import { nextDay } from '@phits-tech/common/dist/utils/datetime'
 
 const nextMonday = nextDay(1).startOf('day')
 const nextWednesday = nextDay(3).startOf('day')

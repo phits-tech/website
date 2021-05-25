@@ -1,4 +1,4 @@
-import { Banner, BANNERS, Dao, Event, EVENTS, New, Space, SPACES, User } from '@phits-tech/common/dao-firestore'
+import { Banner, BANNERS, Dao, Event, EVENTS, New, Space, SPACES, User } from '@phits-tech/common/dist/dao-firestore'
 
 import { productionWarning } from '@/_services/modes'
 import { context } from '~/context'
