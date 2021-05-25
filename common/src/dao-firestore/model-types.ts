@@ -1,7 +1,9 @@
 import firebase from 'firebase/app'
+
 type Timestamp = firebase.firestore.Timestamp
+
 type Language = 'en' | 'th'
-type TranslatedString = Record<Language, string>
+export type TranslatedString = Record<Language, string> // TODO: Might want to extract this
 
 // TODO: Make a decision on slugs: store as field | store as id | store as both
 
@@ -55,6 +57,21 @@ export interface UserPrivate {
   // tokenTwitter?: unknown
   // tokenFacebook?: unknown
   // tokenLine?: unknown
+}
+
+export interface EventSuggested {
+  eventType: 'share' | 'propose'
+  name: string
+  website: string
+  topics: string
+  date: string
+  timeStart: string
+  timeEnd: string
+  location: string
+  locationVenue: string
+  contactName: string
+  contactId: string
+  description: string
 }
 
 // TODO: Maybe rename type to avoid clash with a built-in type

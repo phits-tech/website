@@ -13,15 +13,17 @@
         <router-link
           :to="{ name: 'Event', params: { slug: event.slug } }"
           class="text-brand-blue-900 hover:text-brand-blue-500"
-          >&gt; &gt; Register Now &lt; &lt;</router-link
         >
+          &gt; &gt; Register Now &lt; &lt;
+        </router-link>
       </p>
     </div>
     <div class="col-span-1 sm:col-span-2">
       <router-link
         :to="{ name: 'Event', params: { slug: event.slug } }"
         class="text-2xl text-brand-blue-900 hover:text-brand-blue-500"
-        >{{ event.name }}
+      >
+        {{ event.name }}
         <div
           v-if="event.series && event.seriesType"
           class="

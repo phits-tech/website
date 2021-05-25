@@ -36,7 +36,12 @@ module.exports = {
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      opacity: ['disabled'],
+      backgroundColor: ['disabled'],
+      textColor: ['disabled'],
+      cursor: ['disabled']
+    }
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

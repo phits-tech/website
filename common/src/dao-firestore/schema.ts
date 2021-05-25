@@ -5,6 +5,7 @@ export const CONFIG = 'configuration'
 export const CONFIG_MIGRATIONS = 'migrations'
 
 export const EVENTS = 'events'
+export const EVENTS_SUGGESTED = 'events-suggested'
 
 export const SPACES = 'spaces'
 
