@@ -1,5 +1,5 @@
 <nav class="bg-brand-black">
-  <div class="max-w-7xl mx-auto px-2 sm:px-4 xl:px-2">
+  <div class="max-w-7xl mx-auto">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
@@ -10,6 +10,7 @@
             items-center
             justify-center
             p-2
+            ml-2
             rounded-md
             text-gray-400
             hover:text-white
@@ -74,7 +75,13 @@
       >
         <router-link
           :to="{ name: 'Home' }"
-          class="flex-shrink-0 flex items-center"
+          class="
+            flex-shrink-0 flex
+            items-center
+            h-16
+            px-5
+            sm:hover:bg-brand-black-400
+          "
         >
           <img
             class="block sm:hidden h-10 w-auto"
@@ -87,7 +94,8 @@
             alt="Phits Tech"
           />
         </router-link>
-        <div class="hidden sm:block sm:ml-4 md:ml-6">
+
+        <div class="hidden my-auto sm:block sm:ml-2">
           <div class="flex space-x-0 md:space-x-2">
             <router-link
               :to="{ name: 'Events' }"
@@ -161,6 +169,7 @@
           </div>
         </div>
       </div>
+
       <div
         class="
           absolute
@@ -172,43 +181,68 @@
           sm:inset-auto
         "
       >
-        <!-- NEW CODE STARTS HERE -->
-        <select v-model="$i18n.locale" class="appearance-none p-2 mr-2">
-          <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
-        </select>
-        <!-- NEW CODE ENDS HERE -->
+        <p
+          @click="toggleLocale"
+          class="
+            w-10
+            h-10
+            flex
+            items-center
+            justify-center
+            cursor-pointer
+            select-none
+            sm:mr-2.5
+            bg-brand-black
+            hover:bg-brand-black-400
+            text-gray-300
+            hover:text-white
+            sm:text-sm
+            md:text-base
+            uppercase
+            rounded-md
+          "
+        >
+          <span>{{ $i18n.locale }}</span>
+        </p>
+
         <router-link
           :to="{ name: 'EventsCreate' }"
           class="
             flex
             items-center
+            h-10
             px-2
-            sm:px-3
-            py-2
-            rounded-md
-            sm:ring-2 sm:ring-brand-blue
-            bg-brand-black
-            sm:hover:bg-brand-blue
+            sm:px-2.5
+            mr-2
+            sm:mr-3
+            hover:bg-brand-black-400
+            sm:bg-brand-blue-300
+            sm:hover:bg-brand-blue-200
             text-gray-300
             hover:text-white
+            sm:text-brand-black-800
+            sm:hover:text-brand-black-900
+            rounded-md
+            sm:ring-2
+            ring-brand-blue-900 ring-opacity-60
+            hover:ring-opacity-100
           "
         >
           <svg
-            class="h-6 w-6 mr-1"
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            fill="currentColor"
             aria-hidden="true"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              d="M12,12L8,16H11V22H13V16H16M19,4H18V2H16V4H8V2H6V4H5A2,2 0 0,0 3,6V20A2,2 0 0,0 5,22H9V20H5V9H19V20H15V22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4Z"
             />
           </svg>
-          <span class="pl-1 pr-0.5 hidden sm:block text-sm md:text-base">
+          <span class="pl-1.5 pr-0.5 hidden sm:block text-sm md:text-base">
             Add an event
           </span>
         </router-link>
@@ -274,7 +308,7 @@
 
   <!-- Mobile menu, show/hide based on menu state. -->
   <div ref="mobileMenu" class="hidden sm:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1">
+    <div class="px-2 pb-2 space-y-1">
       <router-link
         :to="{ name: 'Events' }"
         @click="$router.push({ name: 'Events' }); toggleCollapse()"

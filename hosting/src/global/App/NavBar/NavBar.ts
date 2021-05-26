@@ -17,4 +17,9 @@ export default class NavBar extends Vue {
       this.menuClosedIcon.classList.replace('hidden', 'block')
     }
   }
+
+  toggleLocale(): void {
+    const otherLocales = this.$i18n.availableLocales.filter(l => l !== this.$i18n.locale)
+    if (otherLocales.length > 0) this.$i18n.locale = otherLocales[0]
+  }
 }
