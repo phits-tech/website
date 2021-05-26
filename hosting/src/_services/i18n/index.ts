@@ -1,11 +1,13 @@
 import { mapValues } from 'lodash'
 import { createI18n } from 'vue-i18n'
 
-import translations from '@/events/EventsCreate/Translations'
+import { TranslatedString } from '@phits-tech/common/dao-firestore'
+
+const globalTranslations: { [key: string]: TranslatedString } = {}
 
 const messages = {
-  en: mapValues(translations, vals => vals.en),
-  th: mapValues(translations, vals => vals.th)
+  en: mapValues(globalTranslations, vals => vals.en),
+  th: mapValues(globalTranslations, vals => vals.th)
 }
 
 export const i18n = createI18n({
