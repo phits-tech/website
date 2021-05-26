@@ -31,7 +31,7 @@ async function scanMigrations(): Promise<string[]> {
 
 async function readMigration(name: string): Promise<Migration> {
   const fullPath = path.join(__dirname, `${name}.ts`)
-  return await import(fullPath).then((migration) => {
+  return await import(fullPath).then(migration => {
     if ('up' in migration) {
       return migration as Migration
     }

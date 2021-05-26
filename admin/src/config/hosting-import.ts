@@ -13,7 +13,7 @@ const main = async (): Promise<void> => {
 
   // Look for Firebase configs
   const configPattern = /^firebase-config\.(\w+)\.json$/g
-  fs.readdirSync(configPath).forEach((filename) => {
+  fs.readdirSync(configPath).forEach(filename => {
     // Ignore irrelevant files
     const matches = configPattern.exec(filename)
     if (!matches) return
@@ -33,7 +33,7 @@ const main = async (): Promise<void> => {
     const envPairs = existingEnv
       .replace(/\r\n/g, '\n')
       .split('\n')
-      .filter((line) => line.includes('='))
+      .filter(line => line.includes('='))
       .map(line => line.split('='))
 
     const envObject = mapValues(
@@ -68,4 +68,4 @@ const main = async (): Promise<void> => {
 
 main()
   .then(() => process.exit())
-  .catch((error) => console.error(error))
+  .catch(error => console.error(error))

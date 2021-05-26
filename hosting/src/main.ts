@@ -32,7 +32,7 @@ const create = async (): Promise<VueApp<Element>> => {
 
 // Load auth state => start Vue
 let shouldInitialize = true
-auth.onAuthStateChanged(async (user) => {
+auth.onAuthStateChanged(async user => {
   await store.dispatch(STORE.ACTIONS.userChanged, user)
   if (shouldInitialize) {
     shouldInitialize = false

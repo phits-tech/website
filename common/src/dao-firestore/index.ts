@@ -38,7 +38,7 @@ export class Dao {
     // TODO: Check slug is available
     return await this.db.collection(USERS).doc(userComplete.slug).set(userComplete, { merge: true })
       .then(() => userComplete.slug)
-      .catch(_ => '')
+      .catch(() => '')
   }
 
   createUserPrivate(_data: New<UserPrivate>, _userId: string): void {}

@@ -9,7 +9,7 @@ const db = context.db
 
 const load = async <T>(filename: string): Promise<T[]> => {
   const path = `./${MODE}/${filename}`
-  return await import(path).then(imported => Object.values(imported)[0] as T[]).catch(_ => [])
+  return await import(path).then(imported => Object.values(imported)[0] as T[]).catch(() => [])
 }
 
 const main = async (): Promise<void> => {
@@ -37,4 +37,4 @@ const main = async (): Promise<void> => {
 
 main()
   .then(() => process.exit())
-  .catch((error) => console.error(error))
+  .catch(error => console.error(error))

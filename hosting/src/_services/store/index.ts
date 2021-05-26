@@ -42,8 +42,8 @@ export const store = createStore<PTStoreState>({
     banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
   },
   getters: {
-    events: (state) => state.eventsRaw.map(event => eventToEventUi(event)),
-    eventBySlug: (state) => (slug: string) => {
+    events: state => state.eventsRaw.map(event => eventToEventUi(event)),
+    eventBySlug: state => (slug: string) => {
       const event = state.eventsRaw.find(event => event.slug === slug)
       return event ? eventToEventUi(event) : undefined
     }
@@ -66,7 +66,7 @@ export const store = createStore<PTStoreState>({
         ? Promise.all([
           bindFirestoreRef(STORE.STATE.currentUser, db.collection(USERS).doc(uid))
         ])
-        : new Promise<void>((resolve) => {
+        : new Promise<void>(resolve => {
           unbindFirestoreRef(STORE.STATE.currentUser)
           resolve()
         })

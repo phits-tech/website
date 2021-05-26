@@ -78,7 +78,7 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
   return await admin
     .auth()
     .createCustomToken(userId)
-    .catch((error) => {
+    .catch(error => {
       console.error(error)
       return { error: 'Failed to create Firebase token' }
     })
