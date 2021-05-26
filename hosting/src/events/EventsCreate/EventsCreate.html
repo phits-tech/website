@@ -34,11 +34,13 @@
           <img
             v-if="isShare"
             src="@assets/icons/calendar-import.svg"
+            alt="Share an event"
             class="text-brand-blue-900 pr-4"
           />
           <img
             v-else
             src="@assets/icons/circle-outline.svg"
+            alt="Share an event (unselected)"
             class="text-brand-blue-900 pr-4"
           />
           <div>
@@ -77,11 +79,13 @@
           <img
             v-if="isPropose"
             src="@assets/icons/calendar-plus.svg"
+            alt="Propose an event"
             class="text-brand-blue-900 pr-4"
           />
           <img
             v-else
             src="@assets/icons/circle-outline.svg"
+            alt="Propose an event (unselected)"
             class="text-brand-blue-900 pr-4"
           />
           <div>
@@ -140,7 +144,7 @@
             "
             id="event-name"
             type="text"
-            :placeholder="t.eventNamePlaceholder[lang]"
+            :placeholder="$t('eventNamePlaceholder')"
             maxlength="50"
           />
         </div>
@@ -185,7 +189,7 @@
           "
           id="event-url"
           type="url"
-          :placeholder="t.eventWebsitePlaceholder[lang]"
+          :placeholder="$t('eventWebsitePlaceholder')"
         />
       </div>
 
@@ -223,7 +227,7 @@
           "
           id="event-topics"
           type="text"
-          :placeholder="t.eventTopicsPlaceholder[lang]"
+          :placeholder="$t('eventTopicsPlaceholder')"
         />
       </div>
 
@@ -417,7 +421,7 @@
           "
           id="location-map"
           type="text"
-          :placeholder="t.eventLocationVenuePlaceholder[lang]"
+          :placeholder="$t('eventLocationVenuePlaceholder')"
         />
       </div>
 
@@ -459,7 +463,7 @@
           "
           id="notes"
           type="text"
-          :placeholder="t.eventDescriptionRequestsPlaceholder[lang]"
+          :placeholder="$t('eventDescriptionRequestsPlaceholder')"
         ></textarea>
       </div>
 
@@ -539,14 +543,15 @@
         />
       </div>
 
-      <div class="mt-8 px-3">
+      <div class="w-full mt-8 px-3">
         <button
           type="submit"
           class="
-            inline-flex
+            block
+            w-full
             mb-2
             py-2
-            px-4
+            px-10
             bg-brand-blue-600
             text-white text-sm
             font-semibold
