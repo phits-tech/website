@@ -11,9 +11,8 @@ import { authorizeUrl, exchangeAuthCodeForToken, getUserIdentity } from './nu-co
 
 const dao = new Dao(context)
 
-export const getUrl: Handler<UrlRequestCallable> = (data, _context) => {
-  return authorizeUrl(data.redirectUri)
-}
+export const getUrl: Handler<UrlRequestCallable> = (data, _context) =>
+  authorizeUrl(data.redirectUri)
 
 export const getToken: Handler<TokenRequestCallable> = async (data, _context) => {
   const response = await exchangeAuthCodeForToken(data.authCode, data.redirectUri)

@@ -36,10 +36,12 @@ const configString = fs.readFileSync(configPath, { encoding: 'utf8' })
 const collectConfigLines = (config: Record<string, unknown>, pathPrefix: string, configLines: string[]): void => {
   pathPrefix = pathPrefix || ''
   for (const key of Object.keys(config)) {
+    if (config[key] === undefined) continue
+
     const path = pathPrefix + key
     if (typeof config[key] === 'object') {
       collectConfigLines(config[key] as Record<string, unknown>, path + '.', configLines)
-    } else if (config[key] !== undefined) {
+    } else {
       configLines.push(`${path}=${JSON.stringify(config[key])}`)
     }
   }

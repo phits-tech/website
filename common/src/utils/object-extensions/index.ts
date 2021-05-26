@@ -4,19 +4,21 @@
  * See also: https://github.com/tc39/proposal-optional-chaining#semantics
  */
 
+type NullableObjectOrArray<T> = { [s: string]: T } | ArrayLike<T> | null | undefined
+
 export function keys(obj: { [s: string]: unknown } | null | undefined): string[] {
   return obj ? Object.keys(obj) : []
 }
 
-export function values<T>(obj: { [s: string]: T } | ArrayLike<T> | null | undefined): T[] {
+export function values<T>(obj: NullableObjectOrArray<T>): T[] {
   return obj ? Object.values(obj) : []
 }
 
-export function entries<T>(obj: { [s: string]: T } | ArrayLike<T> | null | undefined): Array<[string, T]> {
+export function entries<T>(obj: NullableObjectOrArray<T>): Array<[string, T]> {
   return obj ? Object.entries(obj) : []
 }
 
-export function length<T>(obj: { [s: string]: T } | ArrayLike<T> | null | undefined): number {
+export function length<T>(obj: NullableObjectOrArray<T>): number {
   return obj ? Object.keys(obj).length : 0
 }
 

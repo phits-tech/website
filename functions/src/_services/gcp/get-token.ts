@@ -15,6 +15,7 @@ async function getLocalToken(): Promise<string> {
 }
 
 async function getOauthToken(receivingServiceUrl: string): Promise<string> {
+  // eslint-disable-next-line sonar/no-clear-text-protocols -- this is a local call running on cloud functions
   const metadataServerUrl = 'http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience='
   const url = metadataServerUrl + receivingServiceUrl
   const headers = { 'Metadata-Flavor': 'Google' }
@@ -22,6 +23,5 @@ async function getOauthToken(receivingServiceUrl: string): Promise<string> {
   return response.body.toString()
 }
 
-export const getToken = async (serviceUrl: string): Promise<string> => {
-  return process.env.FUNCTIONS_EMULATOR ? await getLocalToken() : await getOauthToken(serviceUrl)
-}
+export const getToken = async (serviceUrl: string): Promise<string> =>
+  process.env.FUNCTIONS_EMULATOR ? await getLocalToken() : await getOauthToken(serviceUrl)

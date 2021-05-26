@@ -41,7 +41,7 @@ export class Dao {
       .catch(() => '')
   }
 
-  createUserPrivate(_data: New<UserPrivate>, _userId: string): void {}
-  updateUser(_data: Update<User>, _userId: string): void {}
-  updateUserPrivate(_data: Update<UserPrivate>, _userId: string): void {}
+  async createUserPrivate(_data: New<UserPrivate>, _userId: string): Promise<void> {}
+  async updateUser(_data: Update<User>, _userId: string): Promise<void> {}
+  async updateUserPrivate(_data: Update<UserPrivate>, _userId: string): Promise<void> {}
 }
