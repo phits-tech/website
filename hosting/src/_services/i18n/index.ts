@@ -8,8 +8,6 @@ const messages = {
   th: mapValues(translations, vals => vals.th)
 }
 
-console.log(messages)
-
 export const i18n = createI18n({
   locale: 'th',
   fallbackLocale: 'en',
