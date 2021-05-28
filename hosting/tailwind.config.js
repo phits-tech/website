@@ -31,12 +31,22 @@ module.exports = {
           700: '#2f2427',
           800: '#271e20',
           900: '#1a1314'
-        }
+        },
+        'discord-blurple': { DEFAULT: '#5865F2' },
+        'youtube-red': { DEFAULT: '#FF0000' },
+        'facebook-blue': { DEFAULT: '#1778F2' }
       }
     }
   },
   variants: {
-    extend: {}
+    extend: {
+      ringColor: ['hover'],
+      ringOpacity: ['hover'],
+      opacity: ['disabled'],
+      backgroundColor: ['disabled'],
+      textColor: ['disabled'],
+      cursor: ['disabled']
+    }
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

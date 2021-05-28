@@ -8,15 +8,18 @@
   <div class="max-w-7xl mx-auto px-3 pt-3 pb-1.5">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-x-4 px-2">
       <div v-for="(dayAndEvent, i) in sevenDaysAhead" :key="'calendar' + i">
-        <div class="text-sm text-gray-500 font-semibold tracking-wide">
+        <div
+          class="text-sm text-gray-500 font-semibold tracking-wide capitalize"
+        >
           {{ dayAndEvent.day }}
         </div>
         <router-link
           v-if="dayAndEvent.events.length === 0"
           :to="{ name: 'EventsCreate' }"
           class="block py-2 text-xs text-gray-400 hover:text-blue-400"
-          >Add event</router-link
         >
+          Add event
+        </router-link>
         <div
           v-for="(event, idx) in dayAndEvent.events"
           :key="event.id"
@@ -57,10 +60,8 @@
                 mt-0.5
               "
             >
-              {{ $filters.eventTime(event) }}<sup
-                v-if="event.dateStart.day() !== event.dateEnd.day()"
-                >+1</sup
-              >
+              {{ $filters.eventTime(event) }}
+              <sup v-if="event.dateStart.day() !== event.dateEnd.day()">+1</sup>
             </div>
           </div>
           <div
@@ -77,9 +78,10 @@
     <div class="text-right leading-none pb-1 sm:pb-0">
       <router-link
         :to="{ name: 'Events' }"
-        class="text-xs text-blue-600 hover:text-blue-400"
-        >See all &gt;</router-link
+        class="text-xs text-blue-600 hover:text-blue-400 capitalize"
       >
+        {{ $t('seeAll') }} &gt;
+      </router-link>
     </div>
   </div>
 </div>
@@ -146,33 +148,9 @@
           md:mt-5
         "
       >
-        Phits Tech
-        มีความตั้งใจที่จะรวมกลุ่มคนสายเทคโนโลยีในจังหวัดพิษณุโลกและพื้นที่ใกล้เคียง
-        เพื่อแบ่งปันประสบการณ์ แลกเปลี่ยนเรียนรู้ มาสนุกและเติบโตไปด้วยกัน
-        หากคุณกำลังมีการจัดประชุม
-        นัดพบปะพูดคุยในเรื่องที่พวกคุณสนใจเกี่ยวกับเทคโนโลยี
-        หรือหากคุณมีความคิดที่จะจัดกิจกรรมอื่น ๆ เรายินดีช่วยประชาสัมพันธ์
-        ให้คำปรึกษาและช่วยเหลือคุณ
+        {{ $t('becomeHeroText') }}
       </p>
-      <p
-        class="
-          lg:max-w-xl
-          text-gray-500 text-base
-          sm:text-lg
-          md:text-xl
-          mt-3
-          sm:mt-5
-          md:mt-5
-        "
-      >
-        Phits Tech aims to bring together the tech community in or around
-        Phitsanulok to share, learn, grow and have fun together. If you are
-        organising a meetup, talk, hackathon, or any other type of tech event
-        that the community might be interested in then please let us know. Or if
-        you have an idea for an event but need help organising then we also
-        welcome your submissions.
-      </p>
-      <div class="mt-5 sm:mt-6 lg:flex sm:justify-end lg:justify-start">
+      <div class="mt-5 sm:mt-6 md:mt-8 lg:flex sm:justify-end lg:justify-start">
         <!-- TODO: Sync button styles (copy from /heroes) -->
         <div class="rounded-md shadow">
           <router-link
@@ -196,7 +174,7 @@
               md:px-10
             "
           >
-            Host an event
+            {{ $t('hostAnEvent') }}
           </router-link>
         </div>
       </div>

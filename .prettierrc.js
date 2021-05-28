@@ -1,6 +1,7 @@
 module.exports = {
   arrowParens: 'avoid',
   endOfLine: 'auto',
+  htmlWhitespaceSensitivity: 'ignore',
   printWidth: 80,
   semi: false,
   singleQuote: true,

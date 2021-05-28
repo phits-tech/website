@@ -4,6 +4,7 @@ import App from '@/global/App/App.vue'
 import * as filters from '~/filters'
 import { auth } from '~/firebase-initialized'
 import { globals } from '~/globals'
+import { i18n } from '~/i18n'
 import { metaManager } from '~/meta'
 import { mixins } from '~/mixins'
 import router from '~/router'
@@ -17,6 +18,7 @@ const create = async (): Promise<VueApp<Element>> => {
     .use(router)
     .use(store, storeKey)
     .use(metaManager)
+    .use(i18n)
 
   // TODO: I think I'm doing this wrong... https://learnvue.co/2020/03/designing-vue3-plugins-using-provide-and-inject/
   Object.entries(globals).forEach(([key, value]) => app.provide(key, value))

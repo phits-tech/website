@@ -1,326 +1,632 @@
-<div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 mt-8 sm:mt-6">
-  <h3 class="text-3xl font-medium text-brand-black">
-    Create or suggest an event
-  </h3>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-6">
+  <h3 class="text-3xl font-medium text-brand-black">{{ $t('title') }}</h3>
 
-  <div
-    class="
-      bg-brand-blue-100
-      border-t-4 border-brand-blue-500
-      rounded-b
-      text-brand-blue-900
-      px-4
-      py-3
-      shadow-md
-      my-8
-      sm:my-6
-    "
-    role="alert"
-  >
-    <div class="flex">
-      <div class="py-1">
-        <svg
-          class="fill-current h-6 w-6 text-brand-blue-500 mr-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
+  <p class="mt-4">{{ $t('intro') }}</p>
+
+  <form @submit.prevent="submit">
+    <!-- Share or Propose? -->
+    <div class="flex flex-wrap mt-3 -mx-3">
+      <div class="w-full md:w-1/2 mt-3 px-3">
+        <input
+          type="radio"
+          id="event-type-share"
+          name="event-type"
+          value="share"
+          v-model="form.eventType"
+          class="hidden"
+        />
+        <label
+          for="event-type-share"
+          class="
+            flex
+            w-full
+            p-4
+            text-brand-black-700
+            bg-gray-100
+            border-2 border-gray-300
+            rounded-lg
+          "
+          :class="{
+            'bg-brand-blue-50': isShare,
+            'border-brand-blue-900' : isShare
+          }"
         >
-          <path
-            d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
+          <img
+            v-if="isShare"
+            src="@assets/icons/calendar-import.svg"
+            alt="Share an event"
+            class="text-brand-blue-900 pr-4"
           />
-        </svg>
+          <img
+            v-else
+            src="@assets/icons/circle-outline.svg"
+            alt="Share an event (unselected)"
+            class="text-brand-blue-900 pr-4"
+          />
+          <div>
+            <p class="font-semibold leading-5">{{ $t('modeShareTitle') }}</p>
+            <p class="text-brand-black-400 text-sm">
+              {{ $t('modeShareDescription') }}
+            </p>
+          </div>
+        </label>
       </div>
-      <div>
-        <p class="font-bold">How to fill in this form?</p>
-        <p class="text-sm">Make sure you know why you are doing this.</p>
+      <div class="w-full md:w-1/2 mt-3 px-3">
+        <input
+          type="radio"
+          id="event-type-propose"
+          name="event-type"
+          value="propose"
+          v-model="form.eventType"
+          class="hidden"
+        />
+        <label
+          for="event-type-propose"
+          class="
+            flex
+            w-full
+            p-4
+            text-brand-black-700
+            bg-gray-100
+            border-2 border-gray-300
+            rounded-lg
+          "
+          :class="{
+            'bg-brand-blue-50': isPropose,
+            'border-brand-blue-900' : isPropose
+          }"
+        >
+          <img
+            v-if="isPropose"
+            src="@assets/icons/calendar-plus.svg"
+            alt="Propose an event"
+            class="text-brand-blue-900 pr-4"
+          />
+          <img
+            v-else
+            src="@assets/icons/circle-outline.svg"
+            alt="Propose an event (unselected)"
+            class="text-brand-blue-900 pr-4"
+          />
+          <div>
+            <p class="font-semibold leading-5">{{ $t('modeProposeTitle') }}</p>
+            <p class="text-brand-black-400 text-sm">
+              {{ $t('modeProposeDescription') }}
+            </p>
+          </div>
+        </label>
       </div>
     </div>
-  </div>
 
-  <form>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
+    <div
+      class="
+        mt-6
+        py-4
+        px-3
+        flex flex-wrap
+        rounded-lg
+        border-2 border-brand-blue-900
+      "
+    >
+      <!-- Event Name -->
+      <!-- Note: Full-width first row simplifies top-margin on mobile -->
+      <div class="flex w-full px-3">
+        <div class="flex-grow">
+          <label
+            class="
+              block
+              py-2
+              uppercase
+              tracking-wide
+              text-brand-black-700 text-xs
+              font-bold
+            "
+            for="event-name"
+          >
+            {{ $t('eventNameLabel') }}
+          </label>
+          <input
+            v-model="form.name"
+            class="
+              appearance-none
+              block
+              w-full
+              py-3
+              px-4
+              bg-gray-100
+              border border-gray-200
+              text-brand-black-700
+              leading-tight
+              rounded
+              focus:outline-none
+              focus:bg-white
+              focus:border-gray-500
+            "
+            id="event-name"
+            type="text"
+            :placeholder="$t('eventNamePlaceholder')"
+            maxlength="50"
+          />
+        </div>
+        <div
+          class="flex-none mt-auto mb-2.5 px-3 text-gray-400 text-md font-mono"
+        >
+          {{ form.name.length }}/50
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div v-if="isShare" class="w-full md:w-1/2 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-event-name"
+          for="event-url"
         >
-          Event Name
+          {{ $t('eventWebsiteLabel') }}
         </label>
         <input
+          v-model="form.website"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-gray-200
-            rounded
             py-3
             px-4
-            mb-3
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
             leading-tight
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-event-name"
-          type="text"
+          id="event-url"
+          type="url"
+          :placeholder="$t('eventWebsitePlaceholder')"
         />
-        <p class="text-gray-600 text-xs italic">
-          A fun name is more likely to attract the community!
-        </p>
       </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+
+      <!-- Topics -->
+      <div v-if="isShare" class="w-full md:w-1/2 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-date"
+          for="event-topics"
         >
-          Date
+          {{ $t('eventTopicsLabel') }}
         </label>
         <input
+          v-model="form.topics"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-gray-200
-            rounded
             py-3
             px-4
-            mb-3
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
             leading-tight
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-date"
+          id="event-topics"
           type="text"
-          placeholder="day / month / year"
+          :placeholder="$t('eventTopicsPlaceholder')"
         />
       </div>
-      <div class="w-full md:w-1/2 px-3">
+
+      <!-- Date -->
+      <div v-if="isShare" class="w-full md:w-1/2 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-time"
+          for="date"
         >
-          Time
+          {{ $t('eventDateLabel') }}
         </label>
         <input
+          v-model="form.date"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-gray-200
-            rounded
             py-3
             px-4
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
             leading-tight
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-time"
-          type="text"
-          placeholder="from - to"
+          id="date"
+          type="date"
         />
       </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
+
+      <!-- Time Start -->
+      <div v-if="isShare" class="w-full md:w-1/4 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-location"
+          for="time-start"
         >
-          Location
+          {{ $t('eventTimeStartLabel') }}
         </label>
         <input
+          v-model="form.timeStart"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-gray-200
-            rounded
             py-3
             px-4
-            mb-3
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
             leading-tight
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-location"
-          type="text"
+          id="time-start"
+          type="time"
         />
       </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
+
+      <!-- Time End -->
+      <div v-if="isShare" class="w-full md:w-1/4 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-notes"
+          for="time-end"
         >
-          Other Information and Requests
+          {{ $t('eventTimeEndLabel') }}
+        </label>
+        <input
+          v-model="form.timeEnd"
+          class="
+            appearance-none
+            block
+            w-full
+            py-3
+            px-4
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
+            leading-tight
+            rounded
+            focus:outline-none
+            focus:bg-white
+            focus:border-gray-500
+          "
+          id="time-end"
+          type="time"
+        />
+      </div>
+
+      <!-- Location -->
+      <div v-if="isShare" class="w-full md:w-1/4 mt-6 px-3">
+        <label
+          class="
+            block
+            py-2
+            uppercase
+            tracking-wide
+            text-brand-black-700 text-xs
+            font-bold
+          "
+          for="location"
+        >
+          {{ $t('eventLocationLabel') }}
+        </label>
+        <select
+          v-model="form.location"
+          class="
+            appearance-none
+            block
+            w-full
+            py-3
+            px-4
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
+            leading-tight
+            rounded
+            focus:outline-none
+            focus:bg-white
+            focus:border-gray-500
+          "
+          id="location"
+          placeholder="blah"
+        >
+          <option value="">{{ $t('eventLocationPlaceholder') }}</option>
+          <option value="online">{{ $t('eventLocationOnline') }}</option>
+          <option value="phitsanulok">
+            {{ $t('eventLocationPhitsanulok') }}
+          </option>
+          <option value="bangkok">{{ $t('eventLocationBangkok') }}</option>
+          <option value="other">{{ $t('eventLocationOther') }}</option>
+        </select>
+      </div>
+
+      <!-- Venue -->
+      <div v-if="isShare" class="w-full md:w-3/4 mt-6 px-3">
+        <label
+          class="
+            block
+            py-2
+            uppercase
+            tracking-wide
+            text-brand-black-700 text-xs
+            font-bold
+          "
+          for="location-map"
+        >
+          {{ $t('eventLocationVenueLabel') }}
+        </label>
+        <input
+          v-model="form.locationVenue"
+          class="
+            appearance-none
+            block
+            w-full
+            py-3
+            px-4
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
+            leading-tight
+            rounded
+            focus:outline-none
+            focus:bg-white
+            focus:border-gray-500
+          "
+          id="location-map"
+          type="text"
+          :placeholder="$t('eventLocationVenuePlaceholder')"
+        />
+      </div>
+
+      <hr
+        v-if="isShare"
+        class="w-full mt-8 mx-3 border border-brand-blue-900"
+      />
+
+      <div v-if="isPropose" class="w-full mt-6 px-3">
+        <label
+          class="
+            block
+            py-2
+            uppercase
+            tracking-wide
+            text-brand-black-700 text-xs
+            font-bold
+          "
+          for="notes"
+        >
+          {{ $t('eventDescriptionRequestsLabel') }}
         </label>
         <textarea
+          v-model="form.description"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-gray-200
-            rounded
+            h-32
             py-3
             px-4
-            mb-3
-            leading-tight
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-notes"
+          id="notes"
           type="text"
-          placeholder="What help do you need from Phits Tech?"
+          :placeholder="$t('eventDescriptionRequestsPlaceholder')"
         ></textarea>
       </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+
+      <!-- Name -->
+      <div class="w-full md:w-1/2 mt-6 px-3">
         <label
           class="
             block
+            py-2
             uppercase
             tracking-wide
             text-brand-black-700 text-xs
             font-bold
-            mb-2
           "
-          for="grid-contact-name"
+          for="contact-name"
         >
-          Your Name
+          {{ $t('eventContactNameLabel') }}
         </label>
         <input
+          v-model="form.contactName"
           class="
             appearance-none
             block
             w-full
-            bg-gray-200
-            text-brand-black-700
-            border border-red-500
-            rounded
             py-3
             px-4
-            mb-3
-            leading-tight
-            focus:outline-none
-            focus:bg-white
-          "
-          id="grid-contact-name"
-          type="text"
-        />
-        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-      </div>
-      <div class="w-full md:w-1/2 px-3">
-        <label
-          class="
-            block
-            uppercase
-            tracking-wide
-            text-brand-black-700 text-xs
-            font-bold
-            mb-2
-          "
-          for="grid-contact-line-id"
-        >
-          LINE ID
-        </label>
-        <input
-          class="
-            appearance-none
-            block
-            w-full
-            bg-gray-200
-            text-brand-black-700
+            bg-gray-100
             border border-gray-200
-            rounded
-            py-3
-            px-4
+            text-brand-black-700
             leading-tight
+            rounded
             focus:outline-none
             focus:bg-white
             focus:border-gray-500
           "
-          id="grid-contact-line-id"
+          id="contact-name"
           type="text"
+          placeholder="Charles Allen"
         />
       </div>
-    </div>
-    <div class="py-3">
-      <button
-        type="submit"
-        class="
-          inline-flex
-          uppercase
-          tracking-wide
-          font-bold
-          justify-center
-          py-2
-          px-4
-          border border-transparent
-          shadow-sm
-          text-sm
-          font-medium
-          rounded-md
-          text-white
-          bg-brand-blue-600
-          hover:bg-brand-blue-700
-          focus:outline-none
-          focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500
-        "
-      >
-        Submit
-      </button>
+
+      <!-- Contact -->
+      <div class="w-full md:w-1/2 mt-6 px-3">
+        <label
+          class="
+            block
+            py-2
+            uppercase
+            tracking-wide
+            text-brand-black-700 text-xs
+            font-bold
+          "
+          for="contact-id"
+        >
+          {{ $t('eventContactIdLabel') }}
+        </label>
+        <input
+          v-model="form.contactId"
+          class="
+            appearance-none
+            block
+            w-full
+            py-3
+            px-4
+            bg-gray-100
+            border border-gray-200
+            text-brand-black-700
+            leading-tight
+            rounded
+            focus:outline-none
+            focus:bg-white
+            focus:border-gray-500
+          "
+          id="contact-id"
+          type="text"
+          placeholder="LINE: @yourlineid"
+        />
+      </div>
+
+      <div class="w-full mt-8 px-3">
+        <button
+          type="submit"
+          class="
+            block
+            w-full
+            mb-2
+            py-2
+            px-10
+            bg-brand-blue-600
+            text-white text-sm
+            font-semibold
+            uppercase
+            tracking-wide
+            justify-center
+            border border-transparent
+            shadow-sm
+            rounded-md
+            hover:bg-brand-blue-700
+            focus:outline-none
+            focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue-500
+            disabled:bg-gray-300
+            disabled:text-gray-900
+            disabled:opacity-50
+            disabled:cursor-wait
+          "
+          :disabled="isSubmitting"
+        >
+          <span v-if="isSubmitting">{{ $t('submitLabelSubmitting') }}</span>
+          <span v-else>{{ $t('submitLabel') }}</span>
+        </button>
+      </div>
     </div>
   </form>
+
+  <div
+    v-if="isConfirming"
+    @click="isConfirming = false"
+    class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-50"
+  ></div>
+
+  <div
+    v-if="isConfirming"
+    @click="isConfirming = false"
+    class="
+      absolute
+      top-1/2
+      left-1/2
+      transform
+      -translate-x-1/2 -translate-y-1/2
+    "
+  >
+    <div
+      class="
+        bg-brand-blue-100
+        border border-brand-blue-400
+        pl-4
+        pr-4
+        py-3
+        rounded
+      "
+      role="alert"
+    >
+      <p class="text-brand-blue-900 font-bold">Thank you!</p>
+      <p class="text-black-400">Your submission was received successfully</p>
+      <svg
+        class="
+          absolute
+          top-1.5
+          right-1
+          fill-current
+          h-5
+          w-5
+          text-brand-blue-600
+        "
+        role="button"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+      >
+        <title>Close</title>
+        <path
+          d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+        />
+      </svg>
+    </div>
+  </div>
 </div>
