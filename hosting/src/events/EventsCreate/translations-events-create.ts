@@ -1,3 +1,5 @@
+import { mapValues } from 'lodash'
+
 import { TranslatedString } from '@phits-tech/common/dao-firestore'
 
 const translations: { [key: string]: TranslatedString } = {
@@ -127,4 +129,7 @@ const translations: { [key: string]: TranslatedString } = {
   }
 }
 
-export default translations
+export const messages = {
+  en: mapValues(translations, vals => vals.en),
+  th: mapValues(translations, vals => vals.th)
+}

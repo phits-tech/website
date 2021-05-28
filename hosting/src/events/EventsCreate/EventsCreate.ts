@@ -1,4 +1,4 @@
-import { Vue } from 'vue-class-component'
+import { Options, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
 import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dao-firestore'
@@ -6,7 +6,7 @@ import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dao-firesto
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
-import translations from './Translations'
+import { messages } from './translations-events-create'
 
 const emptyForm: EventSuggested = {
   eventType: 'share',
@@ -24,10 +24,9 @@ const emptyForm: EventSuggested = {
 }
 
 @Route({ path: '/events/create' })
+@Options({ i18n: { messages } })
 export default class EventsCreate extends Vue {
   meta = useMeta({ title: 'Create Event' })
-  t = translations
-  lang = 'th' // TODO: Connect to vue-i18n
 
   form = { ...emptyForm }
 
