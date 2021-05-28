@@ -18,6 +18,7 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
+  "i18n-ally.localesPaths": ["src/_services/i18n"],
   "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.preferences.importModuleSpecifier": "shortest",
