@@ -1,4 +1,4 @@
-import { computed, ref } from '@vue/runtime-core'
+import { computed } from '@vue/runtime-core'
 import dayjs from 'dayjs'
 import { partition, sumBy } from 'lodash'
 import { DeepRequired } from 'ts-essentials'
@@ -29,14 +29,14 @@ export default class Profile extends Vue.with(class {
   slug!: string
 }) {
   ccuCutoffSeconds = dayjs().subtract(2, 'year').unix()
-  user?: DeepRequired<User> = setup(() => ref())
+  user: DeepRequired<User> | null = null // eslint-disable-line unicorn/no-null
 
   meta = setup(() => useMeta(computed(() => ({
     title: this.user?.name ?? 'Profile'
   }))))
 
   async mounted(): Promise<void> {
-    this.user = (await db.collection(USERS).doc(this.slug).get()).data() as (DeepRequired<User> | undefined)
+    this.user = (await db.collection(USERS).doc(this.slug).get()).data() as (DeepRequired<User> | undefined) ?? null // eslint-disable-line unicorn/no-null
   }
 
   // URGENT: Extract this

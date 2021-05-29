@@ -17,7 +17,7 @@ export default class Event extends Vue.with(class {
     title: this.event?.name ?? 'Event not found',
     og: {
       // TODO: This will only be relevant if we enable SSR
-      image: this.event?.bannerUrl ?? ''
+      image: this.event?.bannerUrl ?? '' // TODO: Add a fallback banner
     }
   }))))
 
