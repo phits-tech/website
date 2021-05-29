@@ -38,7 +38,7 @@ const main = async (): Promise<void> => {
   printSummary({ banners, events, spaces, people })
   await Promise.all<unknown>([
     ...people.map(async person => await dao.createUser(person)),
-    ...banners.map(async banner => await db.collection(BANNERS).doc().set(banner, { merge: true })),
+    ...banners.map(async banner => await db.collection(BANNERS).doc(banner.slug).set(banner, { merge: true })),
     ...events.map(async event => await db.collection(EVENTS).doc(event.slug).set(event, { merge: true })),
     ...spaces.map(async space => await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
   ]).catch(error => console.error(error))

@@ -41,7 +41,7 @@ export default class Home extends Vue {
   currentSlideIndex = 0
   nextSlideInterval?: NodeJS.Timeout = undefined
 
-  get banners(): Array<Omit<Banner, 'dateExpire'>> { return this.$store.state.banners }
+  get banners(): Array<Omit<Banner, 'slug' | 'dateExpire'>> { return this.$store.state.banners }
 
   mounted(): void { this.resetSlideTimer() }
   beforeUpdate(): void { this.currentSlideIndex = 0; this.bannerSlides = [] }
