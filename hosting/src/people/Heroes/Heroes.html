@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
   <!--  Become a Hero (heading) -->
   <div class="grid grid-cols-2">
-    <h1 class="text-3xl font-medium text-brand-black mt-8">Become a Hero</h1>
+    <h1 class="text-3xl font-medium text-brand-black mt-8">{{ $t('heroesBecomeTitle') }}</h1>
     <div class="block sm:hidden text-right mt-8">
       <p class="text-gray-400 text-xs font-light italic">Your contribution</p>
       <router-link
@@ -15,15 +15,14 @@
 
   <!-- Become a Hero (text) -->
   <div class="mt-4">
-    The
+    {{ $t('heroesThe') }}
     <router-link
       :to="{ name: 'HeroesWhy' }"
       class="inline text-brand-blue-800 hover:text-brand-blue-600 font-bold"
     >
-      Community Hero
+      {{ $t('heroesCommunityHero') }}
     </router-link>
-    award is Phits.Tech's way to recognize and thank individuals for their
-    contributions to our community. Every hour engaged in community events earns
+    {{ $t('heroesAward') }}
     <span class="font-bold">CCU</span>
     (
     <span class="font-bold">C</span>
@@ -31,15 +30,14 @@
     <span class="font-bold">C</span>
     ontribution
     <span class="font-bold">U</span>
-    nits). The easiest way to become a Community Hero is to volunteer to run an
-    event. Learn more about the
+    nits). {{ $t('heroesEasiest') }}
     <router-link
       :to="{ name: 'HeroesWhy' }"
       class="inline text-brand-blue-800 hover:text-brand-blue-600"
     >
-      benefits of becoming a hero
+      {{ $t('heroesBenefits') }}
     </router-link>
-    , or get started now:
+    {{ $t('heroesStarted') }}
   </div>
 
   <!-- Call-to-action -->
@@ -71,7 +69,7 @@
       :to="{ name: 'Profile', params: { slug: 'charles-allen' }}"
       class="hidden sm:block text-sm mt-3 text-gray-400 font-light"
     >
-      Your contribution:
+      {{ $t('heroesYourContribution') }}:
       <span class="text-brand-blue-800 font-normal">CCU: 160 / LCCU: 220</span>
     </router-link>
   </div>
