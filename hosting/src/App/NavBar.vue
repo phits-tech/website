@@ -3,21 +3,21 @@
 <template>
   <nav class="bg-brand-black">
     <div class="max-w-7xl mx-auto">
-      <div class="relative flex items-center justify-between h-16">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
+      <div class="flex h-16 items-center justify-between relative">
+        <div class="absolute flex inset-y-0 items-center left-0 sm:hidden">
+          <!-- Mobile menu button -->
           <button
             type="button"
-            class="inline-flex items-center justify-center p-2 ml-2 rounded-md text-gray-400 hover:text-white hover:bg-brand-black-400 focus:outline-none"
+            class="focus:outline-none hover:bg-brand-black-400 hover:text-white inline-flex items-center justify-center ml-2 p-2 rounded-md text-gray-400"
             aria-controls="mobile-menu"
             aria-expanded="false"
             @click="toggleCollapse"
           >
             <span class="sr-only">Open main menu</span>
             <!--
-            Icon when menu is closed.
-            Heroicon name: outline/menu
-          -->
+              Icon when menu is closed.
+              Heroicon name: outline/menu
+            -->
             <svg
               ref="menuClosedIcon"
               class="block h-6 w-6"
@@ -35,12 +35,12 @@
               />
             </svg>
             <!--
-            Icon when menu is open.
-            Heroicon name: outline/x
-          -->
+              Icon when menu is open.
+              Heroicon name: outline/x
+            -->
             <svg
               ref="menuOpenIcon"
-              class="hidden h-6 w-6"
+              class="h-6 hidden w-6"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -57,51 +57,51 @@
           </button>
         </div>
         <div
-          class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+          class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
         >
           <router-link
-            :to="{ name: 'Home' }"
-            class="flex-shrink-0 flex items-center h-16 px-5 sm:hover:bg-brand-black-400"
+            :to="{name: 'Home'}"
+            class="flex flex-shrink-0 h-16 items-center px-5 sm:hover:bg-brand-black-400"
           >
             <img
-              class="block sm:hidden h-10 w-auto"
+              class="block h-10 sm:hidden w-auto"
               src="@assets/logo-small.png"
               alt="Phits Tech"
-            />
+            >
             <img
-              class="hidden sm:block h-8 w-auto"
+              class="h-8 hidden sm:block w-auto"
               src="@assets/logo-on-dark.png"
               alt="Phits Tech"
-            />
+            >
           </router-link>
 
           <div class="hidden my-auto sm:block sm:ml-2">
-            <div class="flex space-x-0 md:space-x-2">
+            <div class="flex md:space-x-2 space-x-0">
               <router-link
-                :to="{ name: 'Events' }"
-                class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
+                :to="{name: 'Events'}"
+                class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Events
               </router-link>
               <router-link
-                :to="{ name: 'Spaces' }"
-                class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
+                :to="{name: 'Spaces'}"
+                class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Spaces
               </router-link>
               <router-link
-                :to="{ name: 'Heroes' }"
-                class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
+                :to="{name: 'Heroes'}"
+                class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Heroes
               </router-link>
               <a
                 href="https://otap.phits.tech"
-                class="text-gray-300 text-sm md:text-base hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md"
+                class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Accelerator
                 <svg
-                  class="inline w-4 h-4 mb-0.5"
+                  class="h-4 inline mb-0.5 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -119,18 +119,18 @@
         </div>
 
         <div
-          class="absolute inset-y-0 right-0 flex items-center sm:static sm:inset-auto"
+          class="absolute flex inset-y-0 items-center right-0 sm:inset-auto sm:static"
         >
           <p
+            class="bg-brand-black cursor-pointer flex h-10 hover:bg-brand-black-400 hover:text-white items-center justify-center md:text-base rounded-md select-none sm:mr-2.5 sm:text-sm text-gray-300 uppercase w-10"
             @click="toggleLocale"
-            class="w-10 h-10 flex items-center justify-center cursor-pointer select-none sm:mr-2.5 bg-brand-black hover:bg-brand-black-400 text-gray-300 hover:text-white sm:text-sm md:text-base uppercase rounded-md"
           >
             <span>{{ otherLocale }}</span>
           </p>
 
           <router-link
-            :to="{ name: 'EventsCreate' }"
-            class="flex items-center h-10 px-2 sm:px-2.5 mr-2 sm:mr-4 hover:bg-brand-black-400 sm:bg-brand-blue-300 sm:hover:bg-brand-blue-200 text-gray-300 hover:text-white sm:text-brand-black-800 sm:hover:text-brand-black-900 rounded-md sm:ring-2 ring-brand-blue-900 ring-opacity-60 hover:ring-opacity-100"
+            :to="{name: 'EventsCreate'}"
+            class="flex h-10 hover:bg-brand-black-400 hover:ring-opacity-100 hover:text-white items-center mr-2 px-2 ring-brand-blue-900 ring-opacity-60 rounded-md sm:bg-brand-blue-300 sm:hover:bg-brand-blue-200 sm:hover:text-brand-black-900 sm:mr-4 sm:px-2.5 sm:ring-2 sm:text-brand-black-800 text-gray-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -146,110 +146,108 @@
                 d="M12,12L8,16H11V22H13V16H16M19,4H18V2H16V4H8V2H6V4H5A2,2 0 0,0 3,6V20A2,2 0 0,0 5,22H9V20H5V9H19V20H15V22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4Z"
               />
             </svg>
-            <span class="pl-1.5 pr-0.5 hidden sm:block text-sm md:text-base">
+            <span class="hidden md:text-base pl-1.5 pr-0.5 sm:block text-sm">
               Add an event
             </span>
           </router-link>
 
           <!-- Profile dropdown -->
-          <!-- <div class="ml-3 relative">
-          <div>
+          <!--
+            <div class="ml-3 relative">
+            <div>
             <button
-              type="button"
-              class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-              id="user-menu"
-              aria-expanded="false"
-              aria-haspopup="true"
+            type="button"
+            class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            id="user-menu"
+            aria-expanded="false"
+            aria-haspopup="true"
             >
-              <span class="sr-only">Open user menu</span>
-              <img
-                class="h-8 w-8 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
+            <span class="sr-only">Open user menu</span>
+            <img
+            class="h-8 w-8 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+            />
             </button>
-          </div> -->
+            </div>
+          -->
 
           <!--
             Dropdown menu, show/hide based on menu state.
 
             Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
+            From: "transform opacity-0 scale-95"
+            To: "transform opacity-100 scale-100"
             Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
+            From: "transform opacity-100 scale-100"
+            To: "transform opacity-0 scale-95"
           -->
-          <!-- <div
+          <!--
+            <div
             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="user-menu"
-          >
-            <a
-              href="#"
-              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
-              role="menuitem"
-              >Your Profile</a
             >
             <a
-              href="#"
-              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
-              role="menuitem"
-              >Settings</a
+            href="#"
+            class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
+            role="menuitem"
+            >Your Profile</a
             >
             <a
-              href="#"
-              class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
-              role="menuitem"
-              >Sign out</a
+            href="#"
+            class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
+            role="menuitem"
+            >Settings</a
             >
-          </div>
-        </div> -->
+            <a
+            href="#"
+            class="block px-4 py-2 text-sm text-brand-black-700 hover:bg-gray-100"
+            role="menuitem"
+            >Sign out</a
+            >
+            </div>
+            </div>
+          -->
         </div>
       </div>
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div ref="mobileMenu" class="hidden sm:hidden">
-      <div class="px-2 pb-2 space-y-1">
+    <div
+      ref="mobileMenu"
+      class="hidden sm:hidden"
+    >
+      <div class="pb-2 px-2 space-y-1">
         <router-link
-          :to="{ name: 'Events' }"
-          @click="
-            $router.push({ name: 'Events' })
-            toggleCollapse()
-          "
-          class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          :to="{name: 'Events'}"
+          class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
+          @click="$router.push({name: 'Events'}), toggleCollapse()"
         >
           Events
         </router-link>
         <router-link
-          :to="{ name: 'Spaces' }"
-          @click="
-            $router.push({ name: 'Spaces' })
-            toggleCollapse()
-          "
-          class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          :to="{name: 'Spaces'}"
+          class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
+          @click="$router.push({name: 'Spaces'}), toggleCollapse()"
         >
           Spaces
         </router-link>
         <router-link
-          :to="{ name: 'Heroes' }"
-          @click="
-            $router.push({ name: 'Heroes' })
-            toggleCollapse()
-          "
-          class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          :to="{name: 'Heroes'}"
+          class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
+          @click="$router.push({name: 'Heroes'}), toggleCollapse()"
         >
           Heroes
         </router-link>
         <a
           href="https://otap.phits.tech"
-          class="text-gray-300 hover:bg-brand-black-400 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
         >
           Accelerator
           <svg
-            class="inline w-4 h-4 mb-0.5"
+            class="h-4 inline mb-0.5 w-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"

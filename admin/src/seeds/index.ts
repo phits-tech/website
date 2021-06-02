@@ -13,11 +13,11 @@ const load = async <T>(filename: string): Promise<T[]> => {
 }
 
 const printSummary = (data: { [key: string]: unknown[] }): void => {
-  console.log('\nSeeding:')
+  console.info('\nSeeding:')
   Object.entries(data).forEach(([key, value]) => {
-    if (value.length > 0) console.log(`- ${value.length} ${key}`)
+    if (value.length > 0) console.info(`- ${value.length} ${key}`)
   })
-  console.log()
+  console.info()
 }
 
 const main = async (): Promise<void> => {
