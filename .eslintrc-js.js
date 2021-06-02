@@ -7,11 +7,9 @@ module.exports = {
     // URGENT: Add more built-in rules: https://eslint.org/docs/rules
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
     'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
-    // 'no-warning-comments': ['error', { terms: ['urgent'] }], // URGENT: Enable this
+    'no-warning-comments': ['off', { terms: ['urgent'] }], // URGENT: Enable this
     'prefer-object-spread': 'error',
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
-
-    // TODO: Add more: https://github.com/dustinspecker/awesome-eslint#practices
 
     // FP
     'fp/no-delete': 'error',
@@ -216,7 +214,7 @@ module.exports = {
     'sonar/strings-comparison': 'error',
     'sonar/super-invocation': 'error',
     'sonar/switch-without-default': 'off', // TypeScript does this better
-    'sonar/todo-tag': 'warn',
+    'sonar/todo-tag': 'off',
     'sonar/too-many-break-or-continue-in-loop': 'error',
     'sonar/unused-import': 'error',
     'sonar/unverified-certificate': 'error',

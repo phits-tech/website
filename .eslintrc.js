@@ -4,7 +4,7 @@ module.exports = {
   ignorePatterns: ['**/node_modules', '**/dist', '**/lib', '.*/**/*'],
   overrides: [
     { files: ['*.ts'], extends: ['.eslintrc-ts.js'] },
-    { files: ['*.vue'], extends: ['.eslintrc-vue.js'] }
+    { files: ['*.tsx', '*.vue'], extends: ['.eslintrc-vue.js'] }
   ],
   root: true
 }

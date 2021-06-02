@@ -1,8 +1,7 @@
 module.exports = {
-  extends: ['plugin:vue/vue3-recommended', '@vue/standard', '@vue/typescript/recommended', '.eslintrc-js.js'],
+  extends: ['plugin:vue/vue3-recommended', '@vue/standard', '@vue/typescript/recommended', '.eslintrc-ts.js'],
   rules: {
-    // Vue
-    // URGENT: Lint HTML files too
+    // Vue Uncategorized
     'vue/block-tag-newline': 'error',
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/custom-event-name-casing': 'error',
@@ -13,7 +12,7 @@ module.exports = {
     'vue/match-component-file-name': 'error',
     'vue/new-line-between-multi-line-property': 'error',
     'vue/next-tick-style': 'error',
-    'vue/no-bare-strings-in-template': 'warn', // TODO: Make this error
+    'vue/no-bare-strings-in-template': 'off', // TODO: Make this error
     'vue/no-boolean-default': 'error',
     'vue/no-duplicate-attr-inheritance': 'error',
     'vue/no-empty-component-block': 'error',
@@ -30,24 +29,24 @@ module.exports = {
     'vue/no-restricted-v-bind': 'error',
     'vue/no-static-inline-styles': 'error',
     'vue/no-template-target-blank': 'error',
-    'vue/no-unregistered-components': ['error', { ignorePatterns: ['router-link'] }],
+    'vue/no-unregistered-components': 'off', // Doesn't work if TS in separate file
     'vue/no-unsupported-features': 'error',
     'vue/no-unused-properties': 'error',
-    'vue/no-unused-refs': 'error',
+    'vue/no-unused-refs': 'off', // Doesn't work if TS in separate file
     'vue/no-useless-mustaches': 'error',
     'vue/no-useless-v-bind': 'error',
-    'vue/padding-line-between-blocks': ['error', 'never'],
+    'vue/padding-line-between-blocks': ['error'],
     'vue/require-direct-export': 'error',
     'vue/require-name-property': 'error',
     'vue/script-indent': 'error',
-    'vue/sort-keys': 'error',
+    'vue/sort-keys': 'off', // Too much
     'vue/static-class-names-order': 'error',
     'vue/v-for-delimiter-style': 'error',
     'vue/v-on-event-hyphenation': 'error',
     'vue/v-on-function-call': 'error',
     'vue/valid-next-tick': 'error',
 
-    // ESLint basics for Vue template
+    // ESLint for Vue
     // URGENT: Check if these need params
     'vue/array-bracket-newline': 'error',
     'vue/array-bracket-spacing': 'error',

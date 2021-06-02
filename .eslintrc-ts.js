@@ -1,9 +1,11 @@
 module.exports = {
   extends: ['.eslintrc-js.js', 'standard-with-typescript'],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module',
+    ecmaFeatures: { jsx: true },
+    extraFileExtensions: ['.vue'],
+    parser: '@typescript-eslint/parser',
     project: ['**/tsconfig.eslint.json'],
+    sourceType: 'module',
     tsconfigRootDir: __dirname
   },
   rules: {

@@ -52,6 +52,7 @@
         <p class="mt-4">
           <span
             v-for="skill in user.skills.sort()"
+            :key="skill"
             class="bg-gray-100 font-light inline-block mb-2 mr-2 px-1.5 py-1 ring-1 ring-gray-200 rounded-md text-brand-black text-xs"
           >
             {{ skill }}
@@ -98,7 +99,7 @@
             <div
               class="aspect-h-9 aspect-w-16 bg-cover bg-top lg:w-32 md:w-32 sm:w-24 w-28"
               :style="
-                false
+                false // eslint-disable-line vue/no-constant-condition -- WIP
                   ? {
                     backgroundImage: `url(${contribution.banner169Url})`
                   }
@@ -139,8 +140,8 @@
             <div
               class="aspect-h-9 aspect-w-16 bg-cover bg-top lg:w-32 md:w-28 sm:w-24 w-28 xl:w-36"
               :style="
-                false
-                  ? {backgroundImage: 'url(' + 'potato' + ')'}
+                false // eslint-disable-line vue/no-constant-condition -- WIP
+                  ? {backgroundImage: 'url(' + 'potato' + ')'} // eslint-disable-line vue/no-useless-concat -- WIP
                   : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
               "
             />
@@ -180,7 +181,7 @@
             <div
               class="aspect-h-9 aspect-w-16 bg-cover bg-top"
               :style="
-                false
+                false // eslint-disable-line vue/no-constant-condition -- WIP
                   ? {backgroundImage: `url(${event.banner169Url})`}
                   : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
               "

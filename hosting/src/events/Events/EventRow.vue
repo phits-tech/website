@@ -49,6 +49,7 @@
         </div>
         <div
           v-for="badge in event.badges"
+          :key="badge"
           class="bg-brand-black-50 inline-block lowercase mr-1.5 px-1.5 py-0.5 rounded-sm text-xs"
         >
           {{ badge }}
