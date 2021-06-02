@@ -48,8 +48,5 @@ module.exports = {
       cursor: ['disabled']
     }
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp')
-  ]
+  plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/line-clamp')]
 }

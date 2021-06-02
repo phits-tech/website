@@ -27,6 +27,8 @@
     "reset": "yarn add rimraf -D -W && yarn purge && yarn && yarn build",
     "seed": "cd ./admin && yarn seed",
     "serve": "cd ./hosting && yarn serve",
+    "test": "lerna run test -- --color --verbose",
+    "test:ci": "lerna run test",
     "up": "ncu -u && lerna exec --parallel -- ncu -u && yarn && yarn audit",
     "watch": "lerna run watch --parallel"
   },

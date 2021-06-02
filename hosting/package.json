@@ -52,6 +52,7 @@
     "sass": "^1.32.12",
     "sass-loader": "~10.1.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "terser-webpack-plugin": "~4.2.3",
     "vue-jest": "^5.0.0-0",
     "vue-template-compiler": "^2.x",
     "webpack": "~4.46.0"
