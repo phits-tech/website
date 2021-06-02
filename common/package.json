@@ -10,7 +10,7 @@
     "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
     "rebuild": "yarn clean && yarn build",
     "test": "jest --testPathIgnorePatterns=emu",
-    "test:ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=../result.json --testLocationInResults",
+    "test:ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=../result.json --testLocationInResults --verbose",
     "test:emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
     "watch": "tsc -w"
   },
