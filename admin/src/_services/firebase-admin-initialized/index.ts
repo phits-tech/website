@@ -29,7 +29,7 @@ if (MODE === 'emu') {
   // Initialize
   const emuProjectId = 'phits-tech-emu'
   admin.initializeApp({ projectId: emuProjectId })
-  console.info(`Using project: ${emuProjectId}`)
+  console.info(`Using project: ${emuProjectId}\n`)
 } else {
   // Read service-account
   interface ServiceAccountJson {
@@ -43,7 +43,7 @@ if (MODE === 'emu') {
 
   // Initialize
   admin.initializeApp({ credential: admin.credential.cert(serviceAccount as admin.ServiceAccount) })
-  console.info(`Using project: ${serviceAccount.project_id}`)
+  console.info(`Using project: ${serviceAccount.project_id}\n`)
 }
 
 export default admin

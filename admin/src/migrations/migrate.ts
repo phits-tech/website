@@ -58,7 +58,7 @@ const main = async (): Promise<void> => {
     .sort((a, b) => a.localeCompare(b))
 
   if (neededMigrations.length === 0) {
-    return console.info('Migrations up-to-date already')
+    return console.info('\nMigrations up-to-date already')
   }
 
   // Run migrations

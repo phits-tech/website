@@ -12,6 +12,14 @@ const load = async <T>(filename: string): Promise<T[]> => {
   return await import(path).then(imported => Object.values(imported)[0] as T[]).catch(() => [])
 }
 
+const printSummary = (data: { [key: string]: unknown[] }): void => {
+  console.log('\nSeeding:')
+  Object.entries(data).forEach(([key, value]) => {
+    if (value.length > 0) console.log(`- ${value.length} ${key}`)
+  })
+  console.log()
+}
+
 const main = async (): Promise<void> => {
   await productionWarning(__filename)
 
@@ -27,9 +35,10 @@ const main = async (): Promise<void> => {
   // Save data
   const dao = new Dao(context)
 
+  printSummary({ banners, events, spaces, people })
   await Promise.all<unknown>([
     ...people.map(async person => await dao.createUser(person)),
-    ...banners.map(async banner => await db.collection(BANNERS).doc().set(banner, { merge: true })),
+    ...banners.map(async banner => await db.collection(BANNERS).doc(banner.slug).set(banner, { merge: true })),
     ...events.map(async event => await db.collection(EVENTS).doc(event.slug).set(event, { merge: true })),
     ...spaces.map(async space => await db.collection(SPACES).doc(space.slug).set(space, { merge: true }))
   ]).catch(error => console.error(error))

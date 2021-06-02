@@ -18,8 +18,11 @@ export default class NavBar extends Vue {
     }
   }
 
+  get otherLocale(): string {
+    return this.$i18n.availableLocales.find(l => l !== this.$i18n.locale) ?? this.$i18n.locale
+  }
+
   toggleLocale(): void {
-    const otherLocales = this.$i18n.availableLocales.filter(l => l !== this.$i18n.locale)
-    if (otherLocales.length > 0) this.$i18n.locale = otherLocales[0]
+    this.$i18n.locale = this.otherLocale
   }
 }

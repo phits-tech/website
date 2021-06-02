@@ -54,17 +54,5 @@ export const spaces: Space[] = [
     logo: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/phits-tech-logo.png',
     category: 'online',
     locationText: 'https://discord.gg/4CHb53F'
-  },
-  {
-    slug: 'pt-youtube',
-    name: 'PT YouTube',
-    description: {
-      en: 'A place to re-live streamed events run by Phits Tech.',
-      th: 'สถานที่สำหรับถ่ายทอดสดกิจกรรมที่ดำเนินการโดย Phits Tech'
-    },
-    banner: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/youtube-banner.png',
-    logo: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/phits-tech-logo.png',
-    category: 'online',
-    locationText: 'https://www.youtube.com/channel/UC83wlCFD2-FOYxSUzVG-oUg'
   }
 ]
