@@ -1,7 +1,7 @@
 import { Options, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import NavBar from './NavBar/NavBar.vue'
+import NavBar from './NavBar.vue'
 import { messages } from './translations-app'
 
 @Options({

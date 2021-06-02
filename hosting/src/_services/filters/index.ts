@@ -1,7 +1,7 @@
 import { Timestamp } from '@google-cloud/firestore'
 import dayjs, { Dayjs } from 'dayjs'
 
-import { EventUi } from '@/events/models'
+import { EventUi } from '@/models'
 
 export const monthYear = (date: Timestamp): string => dayjs.unix(date.seconds).format('MMM YYYY')
 

@@ -20,20 +20,14 @@
     <div
       v-if="banners.length > 1"
       class="absolute bg-black bg-opacity-30 bottom-0 cursor-pointer flex h-8 items-center justify-center left-0 lg:h-14 lg:rounded-tr-3xl lg:text-4xl lg:w-14 md:h-12 md:text-2xl md:w-12 pr-1 rounded-tr-md sm:h-10 sm:rounded-tr-xl sm:text-xl sm:w-10 text-lg text-white w-8"
-      @click="
-        previousSlide()
-        resetSlideTimerAfterPause()
-      "
+      @click="previousSlide(), resetSlideTimerAfterPause()"
     >
       &#x276E;
     </div>
     <div
       v-if="banners.length > 1"
       class="absolute bg-black bg-opacity-30 bottom-0 cursor-pointer flex h-8 items-center justify-center lg:h-14 lg:rounded-tl-3xl lg:text-4xl lg:w-14 md:h-12 md:text-2xl md:w-12 pl-1 right-0 rounded-tl-md sm:h-10 sm:rounded-tl-xl sm:text-xl sm:w-10 text-lg text-white w-8"
-      @click="
-        nextSlide()
-        resetSlideTimerAfterPause()
-      "
+      @click="nextSlide(), resetSlideTimerAfterPause()"
     >
       &#x276F;
     </div>

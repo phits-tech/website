@@ -1,6 +1,6 @@
 import { App as VueApp, createApp } from 'vue'
 
-import App from '@/global/App/App.vue'
+import App from '@/App/App.vue'
 import * as filters from '~/filters'
 import { auth } from '~/firebase-initialized'
 import { globals } from '~/globals'

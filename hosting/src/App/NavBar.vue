@@ -223,30 +223,21 @@
         <router-link
           :to="{name: 'Events'}"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="
-            $router.push({name: 'Events'})
-            toggleCollapse()
-          "
+          @click="$router.push({name: 'Events'}), toggleCollapse()"
         >
           Events
         </router-link>
         <router-link
           :to="{name: 'Spaces'}"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="
-            $router.push({name: 'Spaces'})
-            toggleCollapse()
-          "
+          @click="$router.push({name: 'Spaces'}), toggleCollapse()"
         >
           Spaces
         </router-link>
         <router-link
           :to="{name: 'Heroes'}"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="
-            $router.push({name: 'Heroes'})
-            toggleCollapse()
-          "
+          @click="$router.push({name: 'Heroes'}), toggleCollapse()"
         >
           Heroes
         </router-link>

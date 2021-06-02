@@ -6,7 +6,7 @@ import { firestoreAction, vuexfireMutations } from 'vuexfire'
 import { Banner, BANNERS, Event, EVENTS, User, USERS } from '@phits-tech/common/dist/dao-firestore'
 import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
 
-import { eventToEventUi } from '@/events/models'
+import { eventToEventUi } from '@/models'
 import { db } from '~/firebase-initialized'
 
 // VuexFire resets objects to null
