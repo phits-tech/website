@@ -15,8 +15,8 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "core-js": "^3.12.1",
-    "dayjs": "^1.10.4",
+    "core-js": "^3.13.1",
+    "dayjs": "^1.10.5",
     "lodash": "^4.17.21"
   }
 }

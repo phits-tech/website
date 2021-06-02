@@ -21,9 +21,9 @@
   "dependencies": {
     "@phits-tech/common": "0.0.1",
     "express": "^4.17.1",
-    "firebase-admin": "^9.8.0",
-    "firebase-functions": "^3.13.2",
-    "phin": "^3.5.1"
+    "firebase-admin": "^9.9.0",
+    "firebase-functions": "^3.14.1",
+    "phin": "^3.6.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.2.3"

@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
-    "dayjs": "^1.10.4",
+    "dayjs": "^1.10.5",
     "dedent-js": "^1.0.1",
-    "firebase-admin": "^9.8.0",
+    "firebase-admin": "^9.9.0",
     "lodash": "^4.17.21",
     "passport-title-generator": "^0.1.3",
     "txtgen": "^2.2.8"
