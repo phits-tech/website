@@ -1,7 +1,7 @@
 import { mapValues } from 'lodash'
 import { createI18n } from 'vue-i18n'
 
-import { TranslatedString } from '@phits-tech/common/dao-firestore'
+import { TranslatedString } from '@phits-tech/common/dist/dao-firestore'
 
 const globalTranslations: { [key: string]: TranslatedString } = {}
 

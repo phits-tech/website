@@ -1,4 +1,5 @@
-<script src="./NotFound.ts" lang="ts"></script>
+<script src="./NotFound.tsx" lang="ts"></script>
+
 <template>
   <div class="block">
     <span v-if="item">{{ itemCapitalized }}</span>

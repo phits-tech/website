@@ -1,7 +1,7 @@
 import { Options, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dao-firestore'
+import { EVENTS_SUGGESTED, EventSuggested } from '@phits-tech/common/dist/dao-firestore'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'

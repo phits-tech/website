@@ -1,6 +1,6 @@
 import { mapValues } from 'lodash'
 
-import { TranslatedString } from '@phits-tech/common/dao-firestore'
+import { TranslatedString } from '@phits-tech/common/dist/dao-firestore'
 
 const translations: { [key: string]: TranslatedString } = {
   title: {
