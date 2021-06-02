@@ -5,6 +5,8 @@ module.exports = {
   rules: {
     // Built-in
     // URGENT: Add more built-in rules: https://eslint.org/docs/rules
+    'no-console': process.env.NODE_ENV === 'development' ? 'off' : ['error', { allow: ['info', 'warn', 'error'] }], // prefer specific log types
+    'no-debugger': 'off', // remove during build
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
     'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
     'no-warning-comments': ['off', { terms: ['urgent'] }], // URGENT: Enable this

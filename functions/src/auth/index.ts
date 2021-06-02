@@ -37,7 +37,7 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
       userData = userSnapshot.data()
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return { error: 'Failed to load profile' }
   }
 

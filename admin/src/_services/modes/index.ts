@@ -9,8 +9,8 @@ export const MODE = modeArg?.split('=')[1].toLowerCase() ?? 'emu'
 const phews = ['Phew; that was close!', 'Good choice bro!']
 
 export const productionWarning = async (filename: string): Promise<void> => {
-  console.log('Begin:', filename.split(/[/\\]/).pop())
-  console.log()
+  console.info('Begin:', filename.split(/[/\\]/).pop())
+  console.info()
 
   if (MODE !== 'emu') {
     // Warn & require confirmation
@@ -28,7 +28,7 @@ export const productionWarning = async (filename: string): Promise<void> => {
 
     // Kill if no confirmation
     if (result.toLowerCase() !== 'y') {
-      console.log(`${randomElement(phews)} Execution cancelled`)
+      console.info(`${randomElement(phews)} Execution cancelled`)
       process.exit(0)
     }
   }

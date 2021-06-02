@@ -7,7 +7,7 @@ import { camelToSnake } from '@phits-tech/common/dist/utils/string-cases'
 
 const projectAlias = process.argv[2]
 if (!projectAlias) {
-  console.log('USAGE: yarn config:deploy PROJECT_ALIAS')
+  console.info('USAGE: yarn config:deploy PROJECT_ALIAS')
   process.exit(1)
 }
 
@@ -26,7 +26,7 @@ if (mode === 'emu') {
   // Copy emu to .runtimeconfig.json
   const destinationPath = path.join(__dirname, pathToRoot, 'functions/.runtimeconfig.json')
   fs.copyFileSync(configPath, destinationPath)
-  console.log('Copied emu config to functions/.runtimeconfig.json')
+  console.info('Copied emu config to functions/.runtimeconfig.json')
   process.exit(0)
 }
 
@@ -53,5 +53,5 @@ const configLines: string[] = []
 collectConfigLines(configSnaked, '', configLines)
 const configKeyValuePairs = configLines.join(' ')
 
-console.log(`Deploying config to ${projectAlias}: ${configKeyValuePairs}`)
+console.info(`Deploying config to ${projectAlias}: ${configKeyValuePairs}`)
 cp.execSync(`firebase -P ${projectAlias} functions:config:set ${configKeyValuePairs}`)

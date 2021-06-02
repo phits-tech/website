@@ -25,7 +25,7 @@ const config = mapKeys(
 
 // Initialize
 firebase.initializeApp(config)
-console.log(`Using project: ${config.projectId}`)
+console.info(`Using project: ${config.projectId}`)
 
 // Cloud Functions region
 const region = VUE_APP_EMU_PORT_FUNCTIONS ? 'us-central1' : VUE_APP_FUNCTIONS_REGION

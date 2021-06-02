@@ -20,7 +20,7 @@ const main = async (): Promise<void> => {
 
     // Extract "mode" (and ignore emu)
     const mode = matches[1].toLowerCase()
-    if (mode === 'emu') return console.log('emu: Ignore (emu is the default configuration from .env)')
+    if (mode === 'emu') return console.info('emu: Ignore (emu is the default configuration from .env)')
 
     // Read firebase-config
     const firebaseConfig = JSON.parse(fs.readFileSync(path.join(configPath, filename), { encoding: 'utf8' })) as Record<string, string>
@@ -58,10 +58,10 @@ const main = async (): Promise<void> => {
       .join('\n')
 
     if (updatedEnv === existingEnv) {
-      console.log(`${mode}: Already up-to-date`)
+      console.info(`${mode}: Already up-to-date`)
     } else {
       fs.writeFileSync(destinationFile, updatedEnv)
-      console.log(`${mode}: Updated firebase-config`)
+      console.info(`${mode}: Updated firebase-config`)
     }
   })
 }

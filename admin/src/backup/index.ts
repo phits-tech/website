@@ -8,7 +8,7 @@ const description = process.argv[2]
 const projectAlias = process.argv[3] as FirebaseProjectAlias | undefined
 
 if (!projectAlias || !description) {
-  console.log('USAGE: yarn backup "SHORT DESCRIPTION" [ALIAS]')
+  console.info('USAGE: yarn backup "SHORT DESCRIPTION" [ALIAS]')
   process.exit(1)
 }
 
@@ -19,7 +19,7 @@ const projects = JSON.parse(fs.readFileSync(firebaseRcPath, { encoding: 'utf8' }
 
 const selectedProject = projects[projectAlias]
 if (!selectedProject) {
-  console.log(`No project for alias ${projectAlias}`)
+  console.error(`No project for alias ${projectAlias}`)
   process.exit(1)
 }
 
@@ -31,12 +31,12 @@ const buckets: Record<FirebaseProjectAlias, string> = {
 
 const selectedBucket = buckets[projectAlias]
 if (!selectedBucket) {
-  console.log(`No backup bucket for ${projectAlias}`)
+  console.error(`No backup bucket for ${projectAlias}`)
   process.exit(1)
 }
 
 const folder = (new Date()).toISOString().slice(0, 19).replace(/[:T]/g, '-') +
   '-' + description.replace(/[\W_]+/g, '-').toLowerCase()
 const storageUrl = `gs://${selectedBucket}/${folder}`
-console.log(`Backing up ${selectedProject} to: ${storageUrl}`)
+console.info(`Backing up ${selectedProject} to: ${storageUrl}`)
 cp.execSync(`gcloud firestore export ${storageUrl} --project ${selectedProject}`)

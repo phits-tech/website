@@ -20,7 +20,6 @@ interface DayAndEvents { day: string, events: EventSummary[] }
 export default class Home extends Vue {
   get sevenDaysAhead(): DayAndEvents[] {
     const events: EventUi[] = this.$store.getters.events
-    console.log(this.$i18n.locale)
     const startOfDayLocal = dayjs().locale(this.$i18n.locale).startOf('day')
 
     return Array.from({ length: 7 }, (_, i) => {

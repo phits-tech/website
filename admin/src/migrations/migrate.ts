@@ -58,19 +58,19 @@ const main = async (): Promise<void> => {
     .sort((a, b) => a.localeCompare(b))
 
   if (neededMigrations.length === 0) {
-    return console.log('Migrations up-to-date already')
+    return console.info('Migrations up-to-date already')
   }
 
   // Run migrations
   for (const migrationName of neededMigrations) {
     // TODO: Wrap this in a try/catch?
-    console.log(`Migration: ${migrationName}`)
+    console.info(`Migration: ${migrationName}`)
     const migration = await readMigration(migrationName)
     await migration.up(db)
     await migrationsRef.set({ [migrationName]: true }, { merge: true })
-    console.log(`Migration: ${migrationName} ✅`)
+    console.info(`Migration: ${migrationName} ✅`)
   }
-  console.log('Complete')
+  console.info('Complete')
 }
 
 export default main
