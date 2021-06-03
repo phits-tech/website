@@ -9,8 +9,9 @@ export const MODE = modeArg?.split('=')[1].toLowerCase() ?? 'emu'
 const phews = ['Phew; that was close!', 'Good choice bro!']
 
 export const productionWarning = async (filename: string): Promise<void> => {
-  console.log('Begin:', filename.split(/[/\\]/).pop())
-  console.log()
+  const filePathParts = filename.split(/[/\\]/)
+  const [file, folder] = [filePathParts.pop(), filePathParts.pop()]
+  console.log(`Begin: ${folder ?? ''}/${file ?? ''}`)
 
   if (MODE !== 'emu') {
     // Warn & require confirmation
