@@ -7,7 +7,5 @@
   "scripts": {
     "fix": "prettier --loglevel warn --write \"**/*.md\"",
     "lint": "prettier --check \"**/*.md\""
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  }
 }
