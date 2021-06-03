@@ -17,8 +17,10 @@ Install programs & extensions:
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for `html`/`scss`/`js`/`json`
   - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) for `scss`
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) for `vue`
+  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense)
   - [TabNine](https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode) for AI suggestions (optional)
-  - [Folder Templates](https://marketplace.visualstudio.com/items?itemName=Huuums.vscode-fast-folder-structure) (optional)
+  - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+  - [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
 
 Install CLI tools (paste & run in VSCode terminal):
 
@@ -49,6 +51,12 @@ yarn config set ignore-engines true
 
 ## Quick Start
 
+Watch & compile modules (if editing `common` or `functions`):
+
+```
+yarn watch
+```
+
 Start the emulator:
 
 ```
@@ -59,12 +67,6 @@ Seed example data (also runs migrations):
 
 ```
 yarn seed
-```
-
-Watch & compile modules (if editing `common` or `functions`):
-
-```
-yarn watch
 ```
 
 Run the web app (if editing `hosting`):
