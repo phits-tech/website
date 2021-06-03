@@ -26,7 +26,7 @@
             <p class="pt-4">
               <a
                 v-for="[socialKey, socialUrl] in socialAccounts"
-                :key="`${user.slug}${socialKey}`"
+                :key="`profile-social-${socialKey}`"
                 :href="socialUrl"
                 class="hover:text-brand-blue-800 mr-1"
               >
@@ -52,7 +52,7 @@
         <p class="mt-4">
           <span
             v-for="skill in user.skills.sort()"
-            :key="skill"
+            :key="`profile-skill-${skill}`"
             class="bg-gray-100 font-light inline-block mb-2 mr-2 px-1.5 py-1 ring-1 ring-gray-200 rounded-md text-brand-black text-xs"
           >
             {{ skill }}
@@ -90,7 +90,7 @@
         <!-- Contribution CCUs (listed) -->
         <router-link
           v-for="contribution in eventsContributionAll"
-          :key="contribution.slug"
+          :key="`profile-contrib-${contribution.slug}`"
           :to="{ name: 'Event', params: { slug: contribution.slug } }"
           class="bg-gray-100 flex items-center lg:space-x-5 mt-3 space-x-4"
         >
@@ -179,7 +179,7 @@
         >
           <router-link
             v-for="event in user.events"
-            :key="event.slug"
+            :key="`profile-event-${event.slug}`"
             :to="{ name: 'Event', params: { slug: event.slug } }"
           >
             <div

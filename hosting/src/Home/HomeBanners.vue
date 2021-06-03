@@ -8,7 +8,7 @@
     <div class="aspect-h-9 aspect-w-16 overflow-hidden w-full">
       <div
         v-for="(banner, i) in banners"
-        :key="`slide${i}`"
+        :key="`homebanners-slide-${i}`"
         :ref="registerBanner"
         class="bg-cover bg-top duration-1000 ease-in-out h-full slide transform transition-all w-full"
         :class="{ ['translate-x-0']: i === 0, ['translate-x-full']: i > 0 }"

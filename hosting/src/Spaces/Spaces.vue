@@ -8,7 +8,7 @@
     >
       <div
         v-for="space in spaces"
-        :key="space.slug"
+        :key="`spaces-${space.slug}`"
         class="shadow-lg"
       >
         <!-- Space: Banner -->
@@ -68,10 +68,7 @@
                 {{ space.locationText }}
               </a>
             </span>
-            <span
-              v-else
-              class="line-clamp-1"
-            >{{ space.locationText }}</span>
+            <span v-else class="line-clamp-1">{{ space.locationText }}</span>
           </p>
 
           <p class="mt-3 text-gray-500">

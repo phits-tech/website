@@ -22,10 +22,7 @@
 
     <!-- Become a Hero (text) -->
     <div class="mt-4">
-      <i18n-t
-        keypath="becomeHeroText"
-        tag="p"
-      >
+      <i18n-t keypath="becomeHeroText" tag="p">
         <template #linkCommunityHero>
           <router-link
             :to="{ name: 'HeroesWhy' }"
@@ -77,7 +74,7 @@
       >
         <router-link
           v-for="hero in heroesActive"
-          :key="hero.slug"
+          :key="`heroes-active-${hero.slug}`"
           :to="{ name: 'Profile', params: { slug: hero.slug } }"
           class="cursor-pointer overflow-hidden rounded shadow-lg"
         >
@@ -99,9 +96,7 @@
             <p class="leading-tight mt-1 text-base text-gray-700">
               {{ hero.bio }}
             </p>
-            <p class="pt-3 text-xs">
-              {{ $t('latestEvent') }}:
-            </p>
+            <p class="pt-3 text-xs">{{ $t('latestEvent') }}:</p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-sm"
             >
@@ -120,7 +115,7 @@
               </router-link>
               <span
                 v-for="skill in hero.skills.sort().slice(0, 12)"
-                :key="`skill-${hero.slug}-${skill}`"
+                :key="`heroes-active-${hero.slug}-${skill}`"
                 class="bg-gray-100 font-light inline-block mb-2 mr-2 px-1.5 py-1 ring-1 ring-gray-200 rounded-md text-brand-black text-xs"
               >
                 {{ skill }}
@@ -141,7 +136,7 @@
       >
         <router-link
           v-for="hero in heroesHallOfFame"
-          :key="hero.slug"
+          :key="`heroes-hof-${hero.slug}`"
           :to="{ name: 'Profile', params: { slug: hero.slug } }"
           class="cursor-pointer overflow-hidden rounded shadow-lg"
         >
@@ -160,9 +155,7 @@
             <div class="font-medium text-md">
               {{ hero.name }}
             </div>
-            <p class="pt-2 text-xs">
-              {{ $t('latestEvent') }}:
-            </p>
+            <p class="pt-2 text-xs">{{ $t('latestEvent') }}:</p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-xs"
             >

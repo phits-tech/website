@@ -10,7 +10,7 @@
     </h1>
     <EventRow
       v-for="event in futureEvents"
-      :key="`event${event.slug}`"
+      :key="`events-future-${event.slug}`"
       :event="event"
     />
 
@@ -22,7 +22,7 @@
     </h1>
     <EventRow
       v-for="event in pastEvents"
-      :key="`event${event.slug}`"
+      :key="`events-past-${event.slug}`"
       :event="event"
     />
   </div>

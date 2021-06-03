@@ -12,7 +12,7 @@
       <div class="gap-x-4 grid grid-cols-1 md:grid-cols-7 px-2 sm:grid-cols-2">
         <div
           v-for="(dayAndEvent, i) in sevenDaysAhead"
-          :key="`calendar${i}`"
+          :key="`home-lookahead-day-${i}`"
         >
           <div
             class="capitalize font-semibold text-gray-500 text-sm tracking-wide"
@@ -28,7 +28,7 @@
           </router-link>
           <div
             v-for="(event, idx) in dayAndEvent.events"
-            :key="event.slug"
+            :key="`home-lookahead-event-${event.slug}`"
             class="bg-gray-100 cursor-pointer hover:bg-white my-2 ring-2 ring-gray-300 rounded-sm text-blue-600"
           >
             <div
