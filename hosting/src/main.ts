@@ -10,6 +10,7 @@ import { mixins } from '~/mixins'
 import { createRouter } from '~/router'
 import { STORE, store, storeKey } from '~/store'
 
+import 'virtual:windi.css'
 import '@/main.css'
 
 // Setup Vue

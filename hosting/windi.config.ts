@@ -1,6 +1,11 @@
-module.exports = {
-  // purge: ['./public/index.html', './src/views/**/*.{vue,js,ts,jsx,tsx}'],
-  purge: { enabled: false },
+import pluginAnimations from '@windicss/plugin-animations'
+import pluginIcons from '@windicss/plugin-icons'
+import { defineConfig } from 'windicss/helpers'
+import pluginAspectRatio from 'windicss/plugin/aspect-ratio'
+import pluginForms from 'windicss/plugin/forms'
+import pluginLineClamp from 'windicss/plugin/line-clamp'
+
+export default defineConfig({
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -33,20 +38,16 @@ module.exports = {
           900: '#1a1314'
         },
         'discord-blurple': { DEFAULT: '#5865F2' },
-        'youtube-red': { DEFAULT: '#FF0000' },
-        'facebook-blue': { DEFAULT: '#1778F2' }
+        'facebook-blue': { DEFAULT: '#1778F2' },
+        'youtube-red': { DEFAULT: '#FF0000' }
       }
     }
   },
-  variants: {
-    extend: {
-      ringColor: ['hover'],
-      ringOpacity: ['hover'],
-      opacity: ['disabled'],
-      backgroundColor: ['disabled'],
-      textColor: ['disabled'],
-      cursor: ['disabled']
-    }
-  },
-  plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/line-clamp')]
-}
+  plugins: [
+    pluginAnimations,
+    pluginAspectRatio,
+    pluginForms,
+    pluginIcons,
+    pluginLineClamp
+  ]
+})

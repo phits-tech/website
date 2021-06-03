@@ -1,5 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
+import windicss from 'vite-plugin-windicss'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 // const isDev = import.meta.env.NODE_ENV === 'development'
@@ -8,7 +9,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [
     vue(),
-    tsconfigPaths()
+    tsconfigPaths(),
+    windicss()
   ],
   server: {
     port: 8080,
