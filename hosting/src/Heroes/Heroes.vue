@@ -1,4 +1,4 @@
-<script src="./Heroes.tsx" lang="ts"></script>
+<script src="./Heroes" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-7xl mx-auto px-6 sm:px-6">
@@ -12,8 +12,7 @@
           Your contribution
         </p>
         <router-link
-          :to="{name: 'Profile',
-                params: {slug: 'charles-allen'}}"
+          :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
           class="text-brand-blue-800 text-xs"
         >
           CCU: 160 · LCCU: 220
@@ -25,7 +24,7 @@
     <div class="mt-4">
       The
       <router-link
-        :to="{name: 'HeroesWhy'}"
+        :to="{ name: 'HeroesWhy' }"
         class="font-bold hover:text-brand-blue-600 inline text-brand-blue-800"
       >
         Community Hero
@@ -43,7 +42,7 @@
       nits). The easiest way to become a Community Hero is to volunteer to run
       an event. Learn more about the
       <router-link
-        :to="{name: 'HeroesWhy'}"
+        :to="{ name: 'HeroesWhy' }"
         class="hover:text-brand-blue-600 inline text-brand-blue-800"
       >
         benefits of becoming a hero
@@ -54,14 +53,13 @@
     <!-- Call-to-action -->
     <div class="mt-5 text-center">
       <router-link
-        :to="{name: 'EventsCreate'}"
+        :to="{ name: 'EventsCreate' }"
         class="bg-brand-blue-600 block border-b-2 border-brand-blue-900 font-medium hover:bg-brand-blue-800 px-16 py-3.5 rounded-md shadow-md shine sm:inline-block sm:px-24 sm:py-4 sm:text-xl text-center text-lg text-white"
       >
         Host an event
       </router-link>
       <router-link
-        :to="{name: 'Profile',
-              params: {slug: 'charles-allen'}}"
+        :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
         class="font-light hidden mt-3 sm:block text-gray-400 text-sm"
       >
         Your contribution:
@@ -83,8 +81,7 @@
         <router-link
           v-for="hero in heroesActive"
           :key="hero.slug"
-          :to="{name: 'Profile',
-                params: {slug: hero.slug}}"
+          :to="{ name: 'Profile', params: { slug: hero.slug } }"
           class="cursor-pointer overflow-hidden rounded shadow-lg"
         >
           <div class="aspect-h-1 aspect-w-1 w-full">
@@ -92,8 +89,11 @@
               class="bg-cover bg-top h-full w-full"
               :style="
                 hero.pic
-                  ? {backgroundImage: `url(${hero.pic})`}
-                  : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                  ? { backgroundImage: `url(${hero.pic})` }
+                  : {
+                    backgroundImage:
+                      'url(/images/placeholders/banner_16_9_default.jpg)'
+                  }
               "
             />
             <!-- URGENT: Update default pic -->
@@ -103,7 +103,7 @@
               {{ hero.name }}
             </div>
             <p class="leading-tight mt-1 text-base text-gray-700">
-              {{ hero.description }}
+              {{ hero.bio }}
             </p>
             <p class="pt-3 text-xs">
               Last event:
@@ -112,16 +112,14 @@
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-sm"
             >
               <router-link
-                :to="{name: 'Event',
-                      params: {slug: hero.lastEvent.slug}}"
+                :to="{ name: 'Event', params: { slug: hero.lastEvent.slug } }"
               >
                 {{ hero.lastEvent.name }}
               </router-link>
             </p>
             <p class="pt-4">
               <router-link
-                :to="{name: 'Profile',
-                      params: {slug: hero.slug}}"
+                :to="{ name: 'Profile', params: { slug: hero.slug } }"
                 class="bg-brand-blue-50 font-normal hover:bg-white inline-block mb-2 mr-2 px-1.5 py-1 ring-1 ring-brand-blue rounded-md text-brand-blue-900 text-xs"
               >
                 {{ hero.ccus }}
@@ -150,8 +148,7 @@
         <router-link
           v-for="hero in heroesHallOfFame"
           :key="hero.slug"
-          :to="{name: 'Profile',
-                params: {slug: hero.slug}}"
+          :to="{ name: 'Profile', params: { slug: hero.slug } }"
           class="cursor-pointer overflow-hidden rounded shadow-lg"
         >
           <div class="aspect-h-1 aspect-w-1 w-full">
@@ -159,8 +156,11 @@
               class="bg-cover bg-top h-full w-full"
               :style="
                 hero.pic
-                  ? {backgroundImage: `url(${hero.pic})`}
-                  : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                  ? { backgroundImage: `url(${hero.pic})` }
+                  : {
+                    backgroundImage:
+                      'url(/images/placeholders/banner_16_9_default.jpg)'
+                  }
               "
             />
             <!-- URGENT: Update default pic -->
@@ -176,8 +176,7 @@
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-xs"
             >
               <router-link
-                :to="{name: 'Event',
-                      params: {slug: hero.lastEvent.slug}}"
+                :to="{ name: 'Event', params: { slug: hero.lastEvent.slug } }"
               >
                 {{ hero.lastEvent.name }}
               </router-link>

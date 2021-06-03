@@ -1,4 +1,4 @@
-<script src="./Home.tsx" lang="ts"></script>
+<script src="./Home" lang="ts"></script>
 
 <template>
   <!-- Banner -->
@@ -21,22 +21,21 @@
           </div>
           <router-link
             v-if="dayAndEvent.events.length === 0"
-            :to="{name: 'EventsCreate'}"
+            :to="{ name: 'EventsCreate' }"
             class="block hover:text-blue-400 py-2 text-gray-400 text-xs"
           >
             Add event
           </router-link>
           <div
             v-for="(event, idx) in dayAndEvent.events"
-            :key="event.id"
+            :key="event.slug"
             class="bg-gray-100 cursor-pointer hover:bg-white my-2 ring-2 ring-gray-300 rounded-sm text-blue-600"
           >
             <div
               v-if="idx < 2"
               class="lg:px-2.5 lg:py-2 px-2 py-1.5"
               @click="
-                $router.push({name: 'Event',
-                              params: {slug: event.slug}})
+                $router.push({ name: 'Event', params: { slug: event.slug } })
               "
             >
               <div
@@ -56,7 +55,7 @@
             <div
               v-if="idx === 2"
               class="font-light lg:px-2.5 lg:py-2 px-2 py-1.5 text-gray-400"
-              @click="$router.push({name: 'Events'})"
+              @click="$router.push({ name: 'Events' })"
             >
               ...
             </div>
@@ -66,7 +65,7 @@
 
       <div class="leading-none pb-1 sm:pb-0 text-right">
         <router-link
-          :to="{name: 'Events'}"
+          :to="{ name: 'Events' }"
           class="capitalize hover:text-blue-400 text-blue-600 text-xs"
         >
           {{ $t('seeAll') }} &gt;
@@ -109,7 +108,7 @@
           <!-- TODO: Sync button styles (copy from /heroes) -->
           <div class="rounded-md shadow">
             <router-link
-              :to="{name: 'EventsCreate'}"
+              :to="{ name: 'EventsCreate' }"
               class="bg-brand-blue-600 border border-transparent flex font-medium hover:bg-brand-blue-800 items-center justify-center md:px-10 md:py-4 md:text-lg px-8 py-3 rounded-md text-base text-white w-full"
             >
               {{ $t('hostAnEvent') }}
@@ -123,7 +122,7 @@
     >
       <img
         class="h-56 lg:h-full lg:w-full md:h-96 object-cover sm:h-72 w-full"
-        src="@assets/group-photo.jpg"
+        src="/images/group-photo.jpg"
         alt="People gathering at a Phits.Tech community event"
       >
     </div>

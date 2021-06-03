@@ -1,4 +1,4 @@
-<script src="./HeroesWhy.tsx" lang="ts"></script>
+<script src="./HeroesWhy" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-7xl mx-auto px-6 sm:px-6">
@@ -10,7 +10,7 @@
 
     <img
       class="mt-4 rounded-xl w-full"
-      src="@assets/hero-socks.jpg"
+      src="/images/hero-socks.jpg"
       alt="SWAG"
     >
 

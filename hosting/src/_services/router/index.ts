@@ -1,13 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter as vrcreate, createWebHistory, Router } from 'vue-router'
 
-import { getRoutes } from './route-decorator'
+import { routesFromGlobImport } from './route-decorator'
 
-const context = require.context('@/', true, /\.vue$/i)
+// URGENT: Use globeager
+const globImport = import.meta.glob('/**/*.vue')
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes: getRoutes(context),
+export const createRouter: () => Promise<Router> = async () => vrcreate({
+  routes: await routesFromGlobImport(globImport),
+  history: createWebHistory(import.meta.env.BASE_URL),
   linkActiveClass: 'is-active'
 })
-
-export default router

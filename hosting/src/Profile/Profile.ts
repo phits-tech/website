@@ -4,6 +4,7 @@ import { partition, sumBy } from 'lodash'
 import { DeepRequired } from 'ts-essentials'
 import { setup, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
+import { Prop } from 'vue-property-decorator'
 
 import { EventLog, User, USERS, UserSocialAccount } from '@phits-tech/common/dist/dao-firestore'
 import { entries } from '@phits-tech/common/dist/utils/object-extensions'
@@ -25,9 +26,9 @@ const socialRanking: Record<UserSocialAccount, number> = {
 
 // URGENT: Factor out CCU calculation
 @Route({ path: '/profile/:slug', props: true })
-export default class Profile extends Vue.with(class {
-  slug!: string
-}) {
+export default class Profile extends Vue {
+  @Prop(String) slug!: string
+
   ccuCutoffSeconds = dayjs().subtract(2, 'year').unix()
   user: DeepRequired<User> | null = null // eslint-disable-line unicorn/no-null
 

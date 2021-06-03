@@ -4,7 +4,7 @@ import path from 'path'
 
 import { snakeize } from '@phits-tech/common/dist/utils/string-cases'
 
-const VUE_FIREBASE_PREFIX = 'VUE_APP_FIREBASE_'
+const VITE_FIREBASE_PREFIX = 'VITE_FIREBASE_'
 
 const main = async (): Promise<void> => {
   const pathToRoot = '../../../'
@@ -42,13 +42,13 @@ const main = async (): Promise<void> => {
     )
 
     // Merge - based on mode (ports default to '')
-    if (!envObject.VUE_APP_EMU_PORT_AUTH) envObject.VUE_APP_EMU_PORT_AUTH = ''
-    if (!envObject.VUE_APP_EMU_PORT_FIRESTORE) envObject.VUE_APP_EMU_PORT_FIRESTORE = ''
-    if (!envObject.VUE_APP_EMU_PORT_FUNCTIONS) envObject.VUE_APP_EMU_PORT_FUNCTIONS = ''
+    if (!envObject.VITE_EMU_PORT_AUTH) envObject.VITE_EMU_PORT_AUTH = ''
+    if (!envObject.VITE_EMU_PORT_FIRESTORE) envObject.VITE_EMU_PORT_FIRESTORE = ''
+    if (!envObject.VITE_EMU_PORT_FUNCTIONS) envObject.VITE_EMU_PORT_FUNCTIONS = ''
 
     // Merge - firebase-config
     Object.entries(firebaseConfig).forEach(([key, value]) => {
-      envObject[VUE_FIREBASE_PREFIX + snakeize(key).toUpperCase()] = value
+      envObject[VITE_FIREBASE_PREFIX + snakeize(key).toUpperCase()] = value
     })
 
     // Write new .env

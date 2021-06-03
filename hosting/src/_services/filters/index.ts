@@ -1,8 +1,6 @@
 import { Timestamp } from '@google-cloud/firestore'
 import dayjs, { Dayjs } from 'dayjs'
 
-import { EventUi } from '@/models'
-
 export const monthYear = (date: Timestamp): string => dayjs.unix(date.seconds).format('MMM YYYY')
 
 export const dateRange = (dateStart: Dayjs, dateEnd: Dayjs): string => {
@@ -14,6 +12,6 @@ export const dateRange = (dateStart: Dayjs, dateEnd: Dayjs): string => {
 export const timeRange = (dateStart: Dayjs, dateEnd: Dayjs): string =>
   `${dateStart.format('HH:mm')}-${dateEnd.format('HH:mm')}`
 
-export const eventDate = ({ dateStart, dateEnd }: EventUi): string => dateRange(dateStart, dateEnd)
+export const eventDate = ({ dateStart, dateEnd }: { dateStart: Dayjs, dateEnd: Dayjs }): string => dateRange(dateStart, dateEnd)
 
-export const eventTime = ({ dateStart, dateEnd }: EventUi): string => timeRange(dateStart, dateEnd)
+export const eventTime = ({ dateStart, dateEnd }: { dateStart: Dayjs, dateEnd: Dayjs }): string => timeRange(dateStart, dateEnd)

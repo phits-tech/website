@@ -1,8 +1,8 @@
-<script src="./App.tsx" lang="ts"></script>
+<script src="./App" lang="ts"></script>
 
 <template>
   <metainfo>
-    <template #title="{content}">
+    <template #title="{ content }">
       {{ content ? `${content} | Phits.Tech` : `Phits.Tech` }}
     </template>
   </metainfo>

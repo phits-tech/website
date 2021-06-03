@@ -1,4 +1,4 @@
-<script src="./Event.tsx" lang="ts"></script>
+<script src="./Event" lang="ts"></script>
 
 <template>
   <div class="max-w-7xl mx-auto overflow-hidden relative">
@@ -8,8 +8,11 @@
           class="absolute bg-cover bg-top h-full inset-0 object-contain w-full"
           :style="
             event.bannerUrl
-              ? {backgroundImage: `url(${event.bannerUrl})`}
-              : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+              ? { backgroundImage: `url(${event.bannerUrl})` }
+              : {
+                backgroundImage:
+                  'url(/images/placeholders/banner_16_9_default.jpg)'
+              }
           "
         />
       </div>

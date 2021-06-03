@@ -4,16 +4,18 @@ import App from '@/App/App.vue'
 import * as filters from '~/filters'
 import { auth } from '~/firebase-initialized'
 import { globals } from '~/globals'
-import { i18n } from '~/i18n'
+import { i18n, td } from '~/i18n'
 import { metaManager } from '~/meta'
 import { mixins } from '~/mixins'
-import router from '~/router'
+import { createRouter } from '~/router'
 import { STORE, store, storeKey } from '~/store'
 
 import '@/main.css'
 
 // Setup Vue
 const create = async (): Promise<VueApp<Element>> => {
+  const router = await createRouter()
+
   const app = createApp(App)
     .use(router)
     .use(store, storeKey)
@@ -25,6 +27,7 @@ const create = async (): Promise<VueApp<Element>> => {
 
   mixins.forEach(mixin => app.mixin(mixin))
   app.config.globalProperties.$filters = filters
+  app.config.globalProperties.$td = td
 
   await store.dispatch(STORE.ACTIONS.init)
   await router.isReady()

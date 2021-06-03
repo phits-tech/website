@@ -1,4 +1,4 @@
-<script src="./Events.tsx" lang="ts"></script>
+<script src="./Events" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-7xl mt-8 mx-auto px-4 sm:mt-6 sm:px-6">

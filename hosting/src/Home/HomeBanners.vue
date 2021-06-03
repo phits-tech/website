@@ -1,4 +1,4 @@
-<script src="./HomeBanners.tsx" lang="ts"></script>
+<script src="./HomeBanners" lang="ts"></script>
 
 <template>
   <div
@@ -11,9 +11,8 @@
         :key="`slide${i}`"
         :ref="registerBanner"
         class="bg-cover bg-top duration-1000 ease-in-out h-full slide transform transition-all w-full"
-        :class="{['translate-x-0']: i === 0,
-                 ['translate-x-full']: i > 0}"
-        :style="{backgroundImage: `url(${banner.banner169Url})`}"
+        :class="{ ['translate-x-0']: i === 0, ['translate-x-full']: i > 0 }"
+        :style="{ backgroundImage: `url(${banner.banner169Url})` }"
         @click="bannerClick(banner)"
       />
     </div>

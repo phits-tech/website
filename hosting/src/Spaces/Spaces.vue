@@ -1,4 +1,4 @@
-<script src="./Spaces.tsx" lang="ts"></script>
+<script src="./Spaces" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-7xl mx-auto px-6 sm:px-6">
@@ -15,11 +15,11 @@
         <div class="aspect-h-9 aspect-w-16 relative w-full">
           <div
             class="bg-cover bg-top h-full w-full"
-            :style="{backgroundImage: `url(${space.banner})`}"
+            :style="{ backgroundImage: `url(${space.banner})` }"
           >
             <div
               class="absolute bg-cover bg-top h-16 inline-block right-3 rounded-md top-3 w-16"
-              :style="{backgroundImage: `url(${space.logo})`}"
+              :style="{ backgroundImage: `url(${space.logo})` }"
             />
           </div>
         </div>
@@ -75,7 +75,7 @@
           </p>
 
           <p class="mt-3 text-gray-500">
-            {{ space.description[$i18n.locale] }}
+            {{ $td(space.description) }}
           </p>
         </div>
       </div>

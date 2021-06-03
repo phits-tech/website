@@ -39,7 +39,7 @@ export const store = createStore<PTStoreState>({
   state: {
     currentUser: null, // eslint-disable-line unicorn/no-null -- vuexfire
     eventsRaw: [],
-    banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
+    banners: [{ banner169Url: '/images/placeholders/banner_16_9_loading.png' }]
   },
   getters: {
     events: state => state.eventsRaw.map(event => eventToEventUi(event)),

@@ -1,4 +1,4 @@
-<script src="./NavBar.tsx" lang="ts"></script>
+<script src="./NavBar" lang="ts"></script>
 
 <template>
   <nav class="bg-brand-black">
@@ -60,17 +60,17 @@
           class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
         >
           <router-link
-            :to="{name: 'Home'}"
+            :to="{ name: 'Home' }"
             class="flex flex-shrink-0 h-16 items-center px-5 sm:hover:bg-brand-black-400"
           >
             <img
               class="block h-10 sm:hidden w-auto"
-              src="@assets/logo-small.png"
+              src="/logo-small.png"
               alt="Phits Tech"
             >
             <img
               class="h-8 hidden sm:block w-auto"
-              src="@assets/logo-on-dark.png"
+              src="/logo-on-dark.png"
               alt="Phits Tech"
             >
           </router-link>
@@ -78,19 +78,19 @@
           <div class="hidden my-auto sm:block sm:ml-2">
             <div class="flex md:space-x-2 space-x-0">
               <router-link
-                :to="{name: 'Events'}"
+                :to="{ name: 'Events' }"
                 class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Events
               </router-link>
               <router-link
-                :to="{name: 'Spaces'}"
+                :to="{ name: 'Spaces' }"
                 class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Spaces
               </router-link>
               <router-link
-                :to="{name: 'Heroes'}"
+                :to="{ name: 'Heroes' }"
                 class="hover:bg-brand-black-400 hover:text-white md:text-base px-3 py-2 rounded-md text-gray-300 text-sm"
               >
                 Heroes
@@ -129,7 +129,7 @@
           </p>
 
           <router-link
-            :to="{name: 'EventsCreate'}"
+            :to="{ name: 'EventsCreate' }"
             class="flex h-10 hover:bg-brand-black-400 hover:ring-opacity-100 hover:text-white items-center mr-2 px-2 ring-brand-blue-900 ring-opacity-60 rounded-md sm:bg-brand-blue-300 sm:hover:bg-brand-blue-200 sm:hover:text-brand-black-900 sm:mr-4 sm:px-2.5 sm:ring-2 sm:text-brand-black-800 text-gray-300"
           >
             <svg
@@ -221,23 +221,23 @@
     >
       <div class="pb-2 px-2 space-y-1">
         <router-link
-          :to="{name: 'Events'}"
+          :to="{ name: 'Events' }"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="$router.push({name: 'Events'}), toggleCollapse()"
+          @click="$router.push({ name: 'Events' }), toggleCollapse()"
         >
           Events
         </router-link>
         <router-link
-          :to="{name: 'Spaces'}"
+          :to="{ name: 'Spaces' }"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="$router.push({name: 'Spaces'}), toggleCollapse()"
+          @click="$router.push({ name: 'Spaces' }), toggleCollapse()"
         >
           Spaces
         </router-link>
         <router-link
-          :to="{name: 'Heroes'}"
+          :to="{ name: 'Heroes' }"
           class="block font-medium hover:bg-brand-black-400 hover:text-white px-3 py-2 rounded-md text-base text-gray-300"
-          @click="$router.push({name: 'Heroes'}), toggleCollapse()"
+          @click="$router.push({ name: 'Heroes' }), toggleCollapse()"
         >
           Heroes
         </router-link>

@@ -9,15 +9,15 @@ import { auth, db, functions, storage } from '~/firebase-initialized'
 const context = new FirebaseContext(auth, db, firebase.firestore.FieldValue)
 
 const dao = new Dao(context)
-const storageBucket = process.env.VUE_APP_FIREBASE_STORAGE_BUCKET ?? ''
+const storageBucket = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ?? ''
 const storageDao = new StorageDao(context, dao, storage, storageBucket)
 
 export const globals = {
   auth,
   context,
+  dao,
   db,
   functions,
   storage,
-  dao,
   storageDao
 }

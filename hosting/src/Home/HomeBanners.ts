@@ -1,3 +1,4 @@
+import { ComponentInternalInstance } from 'vue'
 import { Vue } from 'vue-class-component'
 
 import { Banner } from '@phits-tech/common/dist/dao-firestore'
@@ -48,7 +49,7 @@ export default class Home extends Vue {
   updated(): void { this.resetSlideTimer() }
   beforeUnmount(): void { this.stopSlideTimer() }
 
-  registerBanner(el: Element): void { this.bannerSlides.push(new BannerElement(el)) }
+  registerBanner(el: Element | ComponentInternalInstance | null): void { if (el instanceof Element) this.bannerSlides.push(new BannerElement(el)) }
 
   stopSlideTimer(): void {
     if (this.nextSlideInterval) clearInterval(this.nextSlideInterval)
@@ -89,7 +90,7 @@ export default class Home extends Vue {
     this.currentSlideIndex = targetIndexCorrected
   }
 
-  async bannerClick(banner: Banner): Promise<unknown> {
+  async bannerClick(banner: Omit<Banner, 'slug' | 'dateExpire'>): Promise<unknown> {
     if (banner.targetEventSlug !== undefined) return await this.$router.push({ name: 'Event', params: { slug: banner.targetEventSlug } })
     if (banner.targetRoute !== undefined) return await this.$router.push({ name: banner.targetRoute })
     if (banner.targetUrl !== undefined) window.location.href = banner.targetUrl

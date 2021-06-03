@@ -1,4 +1,4 @@
-<script src="./Profile.tsx" lang="ts"></script>
+<script src="./Profile" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-7xl mt-6 mx-auto px-4 sm:px-6">
@@ -14,7 +14,7 @@
         >
           <div
             class="aspect-h-1 aspect-w-1 bg-cover"
-            :style="{backgroundImage: `url(${user.pic})`}"
+            :style="{ backgroundImage: `url(${user.pic})` }"
           />
           <div class="px-4 py-4">
             <h1 class="font-medium text-3xl text-brand-black">
@@ -31,7 +31,7 @@
                 class="hover:text-brand-blue-800 mr-1"
               >
                 <img
-                  :src="require(`@assets/icons/${socialKey}.svg`)"
+                  :src="`/images/icons/${socialKey}.svg`"
                   class="h-6 inline md:h-6 md:w-6 sm:h-5 sm:w-5 w-6"
                   :alt="`${socialKey} profile`"
                 >
@@ -91,8 +91,7 @@
         <router-link
           v-for="contribution in eventsContributionAll"
           :key="contribution.slug"
-          :to="{name: 'Event',
-                params: {slug: contribution.slug}}"
+          :to="{ name: 'Event', params: { slug: contribution.slug } }"
           class="bg-gray-100 flex items-center lg:space-x-5 mt-3 space-x-4"
         >
           <div class="flex-none">
@@ -103,7 +102,10 @@
                   ? {
                     backgroundImage: `url(${contribution.banner169Url})`
                   }
-                  : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                  : {
+                    backgroundImage:
+                      'url(/images/placeholders/banner_16_9_default.jpg)'
+                  }
               "
             />
           </div>
@@ -141,8 +143,11 @@
               class="aspect-h-9 aspect-w-16 bg-cover bg-top lg:w-32 md:w-28 sm:w-24 w-28 xl:w-36"
               :style="
                 false // eslint-disable-line vue/no-constant-condition -- WIP
-                  ? {backgroundImage: 'url(' + 'potato' + ')'} // eslint-disable-line vue/no-useless-concat -- WIP
-                  : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                  ? { backgroundImage: 'url(' + 'potato' + ')' } // eslint-disable-line vue/no-useless-concat -- WIP
+                  : {
+                    backgroundImage:
+                      'url(/images/placeholders/banner_16_9_default.jpg)'
+                  }
               "
             />
           </div>
@@ -175,15 +180,17 @@
           <router-link
             v-for="event in user.events"
             :key="event.slug"
-            :to="{name: 'Event',
-                  params: {slug: event.slug}}"
+            :to="{ name: 'Event', params: { slug: event.slug } }"
           >
             <div
               class="aspect-h-9 aspect-w-16 bg-cover bg-top"
               :style="
                 false // eslint-disable-line vue/no-constant-condition -- WIP
-                  ? {backgroundImage: `url(${event.banner169Url})`}
-                  : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                  ? { backgroundImage: `url(${event.banner169Url})` }
+                  : {
+                    backgroundImage:
+                      'url(/images/placeholders/banner_16_9_default.jpg)'
+                  }
               "
             />
           </router-link>

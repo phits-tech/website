@@ -1,4 +1,4 @@
-<script src="./EventsCreate.tsx" lang="ts"></script>
+<script src="./EventsCreate" lang="ts"></script>
 
 <template>
   <div class="lg:px-8 max-w-4xl mt-8 mx-auto px-4 sm:mt-6 sm:px-6">
@@ -32,13 +32,13 @@
           >
             <img
               v-if="isShare"
-              src="@assets/icons/calendar-import.svg"
+              src="/images/icons/calendar-import.svg"
               alt="Share an event"
               class="pr-4 text-brand-blue-900"
             >
             <img
               v-else
-              src="@assets/icons/circle-outline.svg"
+              src="/images/icons/circle-outline.svg"
               alt="Share an event (unselected)"
               class="pr-4 text-brand-blue-900"
             >
@@ -69,13 +69,13 @@
           >
             <img
               v-if="isPropose"
-              src="@assets/icons/calendar-plus.svg"
+              src="/images/icons/calendar-plus.svg"
               alt="Propose an event"
               class="pr-4 text-brand-blue-900"
             >
             <img
               v-else
-              src="@assets/icons/circle-outline.svg"
+              src="/images/icons/circle-outline.svg"
               alt="Propose an event (unselected)"
               class="pr-4 text-brand-blue-900"
             >

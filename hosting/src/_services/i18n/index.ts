@@ -15,3 +15,6 @@ export const i18n = createI18n({
   fallbackLocale: 'en',
   messages
 })
+
+export const td = (message: TranslatedString): string =>
+  (message as Record<string, string>)[i18n.global.locale] ?? message.en ?? message.th

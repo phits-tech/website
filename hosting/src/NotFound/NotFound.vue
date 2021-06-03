@@ -1,4 +1,4 @@
-<script src="./NotFound.tsx" lang="ts"></script>
+<script src="./NotFound" lang="ts"></script>
 
 <template>
   <div class="block">

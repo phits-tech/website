@@ -1,3 +1,3 @@
-<script src="./<FTName>.tsx" lang="ts"></script>
+<script src="./<FTName>" lang="ts"></script>
 
 <template></template>

@@ -1,4 +1,4 @@
-<script src="./EventRow.tsx" lang="ts"></script>
+<script src="./EventRow" lang="ts"></script>
 
 <template>
   <div class="bg-gray-50 mb-6 px-4 py-4 ring-2 ring-gray-100 rounded-xl">
@@ -9,15 +9,17 @@
             class="bg-cover bg-top h-full rounded-lg shadow-lg w-full"
             :style="
               event.bannerUrl
-                ? {backgroundImage: `url(${event.bannerUrl})`}
-                : {backgroundImage: 'url(/images/banner_16_9_default.jpg)'}
+                ? { backgroundImage: `url(${event.bannerUrl})` }
+                : {
+                  backgroundImage:
+                    'url(/images/placeholders/banner_16_9_default.jpg)'
+                }
             "
           />
         </div>
         <p class="hidden mt-3 text-center">
           <router-link
-            :to="{name: 'Event',
-                  params: {slug: event.slug}}"
+            :to="{ name: 'Event', params: { slug: event.slug } }"
             class="hover:text-brand-blue-500 text-brand-blue-900"
           >
             &gt; &gt; Register Now &lt; &lt;
@@ -26,8 +28,7 @@
       </div>
       <div class="col-span-1 sm:col-span-2">
         <router-link
-          :to="{name: 'Event',
-                params: {slug: event.slug}}"
+          :to="{ name: 'Event', params: { slug: event.slug } }"
           class="hover:text-brand-blue-500 text-2xl text-brand-blue-900"
         >
           {{ event.name }}
