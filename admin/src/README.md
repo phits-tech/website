@@ -25,7 +25,6 @@ To create a new event in production:
 3. Add the new event to the `events` array
 4. Run `yarn seed --mode=production`
 
-To upload files (folders are `banners`, `events` and `spaces`):
+To upload files (folders are `events` and `spaces`):
 
-- `gsutil cp new-banner.jpg gs://phits-tech.appspot.com/banners/`
-- `gsutil acl set -R -a public-read gs://phits-tech.appspot.com/banners`
+- `gsutil cp new-banner.png gs://phits-tech.appspot.com/events/`

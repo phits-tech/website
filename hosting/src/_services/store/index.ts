@@ -13,7 +13,7 @@ import { db } from '~/firebase-initialized'
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
   eventsRaw: Event[]
-  banners: Array<Omit<Banner, 'dateExpire'>>
+  banners: Array<Omit<Banner, 'slug' | 'dateExpire'>>
 }
 
 /**
