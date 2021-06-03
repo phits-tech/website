@@ -3,11 +3,11 @@ import { mapValues } from 'lodash'
 import { TranslatedString } from '@phits-tech/common/dao-firestore'
 
 const translations: { [key: string]: TranslatedString } = {
-  eventUpcomingTitle: {
+  eventsFutureTitle: {
     en: 'Upcoming Events',
     th: 'เหตุการณ์ที่จะเกิดขึ้น'
   },
-  eventPastTitle: {
+  eventsPastTitle: {
     en: 'Past Events',
     th: 'เหตุการณ์ที่ผ่านมา'
   }
