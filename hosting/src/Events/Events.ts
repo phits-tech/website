@@ -6,9 +6,13 @@ import { Route } from '~/router/route-decorator'
 import { EventUi } from '../models'
 
 import EventRow from './EventRow.vue'
+import { messages } from './translations-events'
 
 @Route({ path: '/events' })
-@Options({ components: { EventRow } })
+@Options({
+  components: { EventRow },
+  i18n: { messages }
+})
 export default class Events extends Vue {
   meta = useMeta({ title: 'Events' })
 

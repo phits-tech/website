@@ -5,11 +5,11 @@
     <!--  Become a Hero (heading) -->
     <div class="grid grid-cols-2">
       <h1 class="font-medium mt-8 text-3xl text-brand-black">
-        Become a Hero
+        {{ $t('becomeHeroTitle') }}
       </h1>
       <div class="block mt-8 sm:hidden text-right">
         <p class="font-light italic text-gray-400 text-xs">
-          Your contribution
+          {{ $t('yourContribution') }}
         </p>
         <router-link
           :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
@@ -22,32 +22,30 @@
 
     <!-- Become a Hero (text) -->
     <div class="mt-4">
-      The
-      <router-link
-        :to="{ name: 'HeroesWhy' }"
-        class="font-bold hover:text-brand-blue-600 inline text-brand-blue-800"
+      <i18n-t
+        keypath="becomeHeroText"
+        tag="p"
       >
-        Community Hero
-      </router-link>
-      award is Phits.Tech's way to recognize and thank individuals for their
-      contributions to our community. Every hour engaged in community events
-      earns
-      <span class="font-bold">CCU</span>
-      (
-      <span class="font-bold">C</span>
-      ommunity
-      <span class="font-bold">C</span>
-      ontribution
-      <span class="font-bold">U</span>
-      nits). The easiest way to become a Community Hero is to volunteer to run
-      an event. Learn more about the
-      <router-link
-        :to="{ name: 'HeroesWhy' }"
-        class="hover:text-brand-blue-600 inline text-brand-blue-800"
-      >
-        benefits of becoming a hero
-      </router-link>
-      , or get started now:
+        <template #linkCommunityHero>
+          <router-link
+            :to="{ name: 'HeroesWhy' }"
+            class="font-bold hover:text-brand-blue-600 inline text-brand-blue-800"
+          >
+            Community Hero
+          </router-link>
+        </template>
+        <template #boldCcus>
+          <span class="font-bold">CCUs</span>
+        </template>
+        <template #linkBenefits>
+          <router-link
+            :to="{ name: 'HeroesWhy' }"
+            class="hover:text-brand-blue-600 inline text-brand-blue-800"
+          >
+            {{ $t('becomeHeroTextBenefits') }}
+          </router-link>
+        </template>
+      </i18n-t>
     </div>
 
     <!-- Call-to-action -->
@@ -62,7 +60,7 @@
         :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
         class="font-light hidden mt-3 sm:block text-gray-400 text-sm"
       >
-        Your contribution:
+        {{ $t('yourContribution') }}:
         <span class="font-normal text-brand-blue-800">
           CCU: 160 / LCCU: 220
         </span>
@@ -70,7 +68,6 @@
     </div>
 
     <!-- Community Heroes -->
-    <!-- URGENT: Clicking event link opens hero profile -->
     <div v-if="heroesActive.length > 0">
       <h1 class="font-medium mt-8 text-3xl text-brand-black">
         Community Heroes
@@ -90,10 +87,7 @@
               :style="
                 hero.pic
                   ? { backgroundImage: `url(${hero.pic})` }
-                  : {
-                    backgroundImage:
-                      'url(/images/placeholders/banner_16_9_default.jpg)'
-                  }
+                  : { backgroundImage: 'url(/images/banner_16_9_default.jpg)' }
               "
             />
             <!-- URGENT: Update default pic -->
@@ -106,7 +100,7 @@
               {{ hero.bio }}
             </p>
             <p class="pt-3 text-xs">
-              Last event:
+              {{ $t('latestEvent') }}:
             </p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-sm"
@@ -140,7 +134,7 @@
     <!-- Hall of Fame -->
     <div v-if="heroesHallOfFame.length > 0">
       <h1 class="font-medium mt-10 text-3xl text-brand-black">
-        Hall of Fame
+        {{ $t('hallOfFame') }}
       </h1>
       <div
         class="gap-x-4 gap-y-5 grid grid-cols-3 lg:grid-cols-6 md:grid-cols-5 mt-4 sm:grid-cols-4"
@@ -157,10 +151,7 @@
               :style="
                 hero.pic
                   ? { backgroundImage: `url(${hero.pic})` }
-                  : {
-                    backgroundImage:
-                      'url(/images/placeholders/banner_16_9_default.jpg)'
-                  }
+                  : { backgroundImage: 'url(/images/banner_16_9_default.jpg)' }
               "
             />
             <!-- URGENT: Update default pic -->
@@ -170,7 +161,7 @@
               {{ hero.name }}
             </div>
             <p class="pt-2 text-xs">
-              Last event:
+              {{ $t('latestEvent') }}:
             </p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-xs"
