@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { partition, sum } from 'lodash'
 import { DeepRequired } from 'ts-essentials'
-import { Vue } from 'vue-class-component'
+import { Options, Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
 import { EventLog, User, USERS } from '@phits-tech/common/dao-firestore'
@@ -9,12 +9,15 @@ import { EventLog, User, USERS } from '@phits-tech/common/dao-firestore'
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
+import { messages } from './translations-heroes'
+
 interface HeroData {
   ccus: number
   lastEvent: EventLog
 }
 
 @Route({ path: '/heroes' })
+@Options({ i18n: { messages } })
 export default class Heroes extends Vue {
   meta = useMeta({ title: 'Heroes' })
   heroesActive: Array<DeepRequired<User> & HeroData> = []

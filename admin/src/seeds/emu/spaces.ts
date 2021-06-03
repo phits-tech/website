@@ -50,9 +50,21 @@ export const spaces: Space[] = [
       en: 'A virtual meeting place to learn and socialize with the tech community in Phitsanulok.',
       th: 'สถานที่พบกันเสมือนจริงเพื่อเรียนรู้และสังสรรค์กับชุมชนเทคโนโลยีในพิษณุโลก'
     },
-    banner: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/discord-banner.png',
-    logo: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/phits-tech-logo.png',
+    banner: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/pt-discord-banner.png',
+    logo: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/pt-logo.png',
     category: 'online',
     locationText: 'https://discord.gg/4CHb53F'
+  },
+  {
+    slug: 'pt-youtube',
+    name: 'PT YouTube',
+    description: {
+      en: 'A place to re-live streamed events run by Phits Tech.',
+      th: 'สถานที่สำหรับถ่ายทอดสดกิจกรรมที่ดำเนินการโดย Phits Tech'
+    },
+    banner: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/pt-youtube-banner.png',
+    logo: 'https://storage.googleapis.com/phits-tech-emu.appspot.com/spaces/pt-logo.png',
+    category: 'online',
+    locationText: 'https://www.youtube.com/channel/UC83wlCFD2-FOYxSUzVG-oUg'
   }
 ]
