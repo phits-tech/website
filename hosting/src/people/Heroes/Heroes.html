@@ -1,9 +1,13 @@
 <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
   <!--  Become a Hero (heading) -->
   <div class="grid grid-cols-2">
-    <h1 class="text-3xl font-medium text-brand-black mt-8">{{ $t('heroesBecomeTitle') }}</h1>
+    <h1 class="text-3xl font-medium text-brand-black mt-8">
+      {{ $t('becomeHeroTitle') }}
+    </h1>
     <div class="block sm:hidden text-right mt-8">
-      <p class="text-gray-400 text-xs font-light italic">Your contribution</p>
+      <p class="text-gray-400 text-xs font-light italic">
+        {{ $t('yourContribution') }}
+      </p>
       <router-link
         :to="{ name: 'Profile', params: { slug: 'charles-allen' } }"
         class="text-brand-blue-800 text-xs"
@@ -15,29 +19,27 @@
 
   <!-- Become a Hero (text) -->
   <div class="mt-4">
-    {{ $t('heroesThe') }}
-    <router-link
-      :to="{ name: 'HeroesWhy' }"
-      class="inline text-brand-blue-800 hover:text-brand-blue-600 font-bold"
-    >
-      {{ $t('heroesCommunityHero') }}
-    </router-link>
-    {{ $t('heroesAward') }}
-    <span class="font-bold">CCU</span>
-    (
-    <span class="font-bold">C</span>
-    ommunity
-    <span class="font-bold">C</span>
-    ontribution
-    <span class="font-bold">U</span>
-    nits). {{ $t('heroesEasiest') }}
-    <router-link
-      :to="{ name: 'HeroesWhy' }"
-      class="inline text-brand-blue-800 hover:text-brand-blue-600"
-    >
-      {{ $t('heroesBenefits') }}
-    </router-link>
-    {{ $t('heroesStarted') }}
+    <i18n-t keypath="becomeHeroText" tag="p">
+      <template #linkCommunityHero>
+        <router-link
+          :to="{ name: 'HeroesWhy' }"
+          class="inline text-brand-blue-800 hover:text-brand-blue-600 font-bold"
+        >
+          Community Hero
+        </router-link>
+      </template>
+      <template #boldCcus>
+        <span class="font-bold">CCUs</span>
+      </template>
+      <template #linkBenefits>
+        <router-link
+          :to="{ name: 'HeroesWhy' }"
+          class="inline text-brand-blue-800 hover:text-brand-blue-600"
+        >
+          {{ $t('benefits') }}
+        </router-link>
+      </template>
+    </i18n-t>
   </div>
 
   <!-- Call-to-action -->
@@ -69,13 +71,12 @@
       :to="{ name: 'Profile', params: { slug: 'charles-allen' }}"
       class="hidden sm:block text-sm mt-3 text-gray-400 font-light"
     >
-      {{ $t('heroesYourContribution') }}:
+      {{ $t('yourContribution') }}:
       <span class="text-brand-blue-800 font-normal">CCU: 160 / LCCU: 220</span>
     </router-link>
   </div>
 
   <!-- Community Heroes -->
-  <!-- URGENT: Clicking event link opens hero profile -->
   <div v-if="heroesActive.length > 0">
     <h1 class="text-3xl font-medium text-brand-black mt-8">Community Heroes</h1>
     <div
@@ -109,7 +110,7 @@
           <p class="text-base text-gray-700 mt-1 leading-tight">
             {{ hero.description }}
           </p>
-          <p class="text-xs pt-3">Last event:</p>
+          <p class="text-xs pt-3">{{ $t('latestEvent') }}:</p>
           <p
             class="
               text-sm text-blue-600
@@ -172,7 +173,9 @@
 
   <!-- Hall of Fame -->
   <div v-if="heroesHallOfFame.length > 0">
-    <h1 class="text-3xl font-medium text-brand-black mt-10">Hall of Fame</h1>
+    <h1 class="text-3xl font-medium text-brand-black mt-10">
+      {{ $t('hallOfFame') }}
+    </h1>
     <div
       class="
         grid grid-cols-3
@@ -200,7 +203,7 @@
         </div>
         <div class="px-3 pt-2 pb-3">
           <div class="text-md font-medium">{{ hero.name }}</div>
-          <p class="text-xs pt-2">Last event:</p>
+          <p class="text-xs pt-2">{{ $t('latestEvent') }}:</p>
           <p
             class="
               text-xs text-blue-600
