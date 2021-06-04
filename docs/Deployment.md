@@ -1,8 +1,4 @@
-Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & Migrations](./Seeds-Migrations.md) | [Deployment](./Deployment/Index.md) | [Test Runners](./Runners/Index.md) | [Known Issues](./Known-Issues.md)
-
----
-
-[Home](../../README.md) / [Contributors](../Contributors.md) / Deployment
+[Home](../README.md) | [Emulators](../docs/Emulators.md) | [Scripts](../admin/README.md) | **[Deployment](../docs/Deployment.md)**
 
 # Deployment
 
@@ -83,8 +79,7 @@ See: [New Firebase Project](./New-Project.md) if you need to setup a new Firebas
 
 ## See also
 
-- [Scripts](./Scripts.md)
-- [Runners](../Runners/Index.md)
+- [Scripts](../admin/README.md)
 
 # Backup Firestore production and restore to dev
 

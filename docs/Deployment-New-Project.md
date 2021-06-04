@@ -1,8 +1,4 @@
-Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & Migrations](./Seeds-Migrations.md) | [Deployment](./Deployment/Index.md) | [Test Runners](./Runners/Index.md) | [Known Issues](./Known-Issues.md)
-
----
-
-[Home](../../README.md) / [Contributors](../Contributors.md) / [Deployment](./Index.md) / New Project
+[Home](../README.md) | [Emulators](../docs/Emulators.md) | [Scripts](../admin/README.md) | **[Deployment](../docs/Deployment.md)**
 
 # Deployment: New Firebase Project
 
@@ -12,7 +8,7 @@ You will need to download `firebase-config.[alias].json` and `service-account.[a
 
 ## Storage
 
-Everyone has "Get Only" access to storage (used by runners to get submission files)
+Everyone is granted "Get Only" access to storage (to get event banners & user pics)
 
 1. Create a custom role with Get Only access
 
@@ -54,7 +50,3 @@ Everyone has "Get Only" access to storage (used by runners to get submission fil
 _TODO_
 
 - deploy security rules
-
----
-
-[< Back to Deployment](./Index.md)

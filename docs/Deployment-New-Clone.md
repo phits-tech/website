@@ -1,8 +1,4 @@
-Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & Migrations](./Seeds-Migrations.md) | [Deployment](./Deployment/Index.md) | [Test Runners](./Runners/Index.md) | [Known Issues](./Known-Issues.md)
-
----
-
-[Home](../../README.md) / [Contributors](../Contributors.md) / [Deployment](./Index.md) / New Clone
+[Home](../README.md) | [Emulators](../docs/Emulators.md) | [Scripts](../admin/README.md) | **[Deployment](../docs/Deployment.md)**
 
 # Deployment: New Git Clone
 
@@ -58,7 +54,3 @@ In the `functions` folder, copy .npmrc.example to .npmrc, and paste your Github 
 //npm.pkg.github.com/:_authToken=YOUR_GITHUB_PAT
 @phits-tech:registry=https://npm.pkg.github.com/phits-tech
 ```
-
----
-
-[< Back to Deployment](./Index.md)
