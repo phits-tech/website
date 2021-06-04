@@ -34,7 +34,7 @@ jobs:
 
       - name: 'Setup: Install new deps'
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
       - name: 'Build: common'
         run: cd common && yarn build
