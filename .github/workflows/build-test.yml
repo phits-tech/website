@@ -63,7 +63,7 @@ jobs:
         run: yarn lint
 
       - name: 'Test: Execute'
-        run: cd common && yarn test:ci
+        run: yarn test:ci
 
       - name: 'Test: Results reporter'
         uses: tanmen/jest-reporter@v1
