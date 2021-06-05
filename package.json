@@ -43,8 +43,8 @@
     "test-emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
     "watch": "yarn workspaces foreach -vip --include @phits-tech/common --include @phits-tech/functions run watch:pwd",
     "watch:pwd": "cd $INIT_CWD && echo Watch: $(pwd) && tsc -w",
-    "wow": "ttab -a iTerm2 'clear; yarn watch'; ttab -a iTerm2 'clear; yarn emu'; ttab -a iTerm2 'clear; read -r -p \"Waiting for emu\" -t 10 -n 1 -s; yarn seed && yarn serve'",
-    "woww": "wttab 'yarn watch' & wttab 'yarn emu' & sleep 15 && wttab 'yarn seed && yarn serve'"
+    "wow": "ttab -w -a iTerm2 'clear; yarn watch'; ttab -w -a iTerm2 'clear; yarn emu'; ttab -w -a iTerm2 'clear; read -r -p \"Waiting for emu\" -t 15 -n 1 -s; yarn seed && yarn serve'",
+    "woww": "wttab 'yarn watch' & wttab 'yarn emu' & sleep 20 && wttab 'yarn seed && yarn serve'"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
