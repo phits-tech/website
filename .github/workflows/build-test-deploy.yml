@@ -88,14 +88,8 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --immutable
 
-      - name: 'Build: common'
-        run: cd common && yarn build
-
-      - name: 'Build: functions'
-        run: cd functions && yarn build
-
-      - name: 'Build: hosting'
-        run: cd hosting && rm -f .env && yarn build
+      - name: 'Build'
+        run: cd hosting && rm -f .env && cd .. && yarn build
         env:
           NODE_ENV: production
           VITE_FIREBASE_API_KEY: ${{ secrets[env.SECRET_NAME_FIREBASE_API_KEY] }}
@@ -108,13 +102,10 @@ jobs:
           VITE_FUNCTIONS_REGION: ${{ secrets[env.SECRET_NAME_FUNCTIONS_REGION] }}
           VITE_BUILD_VERSION: ${{ env.BUILD_VERSION }}
 
-      - name: 'Build: admin'
-        run: cd admin && yarn build
-
-      - name: 'Lint: ESLint & Vue'
+      - name: 'Lint'
         run: yarn lint
 
-      - name: 'Test: Execute'
+      - name: 'Test'
         run: yarn test-ci
 
       - name: 'Test: Results reporter'
