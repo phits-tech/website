@@ -27,7 +27,7 @@ const quotes = [
 
 const quote = quotes[Math.floor(Math.random() * quotes.length)]
 
-console.log(`
+console.info(`
        _
       (')=-  ${quote}!
        ;;

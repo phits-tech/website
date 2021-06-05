@@ -7,11 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // const isProd = import.meta.env.PROD
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    tsconfigPaths(),
-    windicss()
-  ],
+  plugins: [vue(), tsconfigPaths(), windicss()],
   server: {
     port: 8080,
     open: true

@@ -10,9 +10,9 @@
             event.bannerUrl
               ? { backgroundImage: `url(${event.bannerUrl})` }
               : {
-                  backgroundImage:
-                    'url(/images/placeholders/banner_16_9_default.jpg)'
-                }
+                backgroundImage:
+                  'url(/images/placeholders/banner_16_9_default.jpg)'
+              }
           "
         />
       </div>
@@ -31,7 +31,10 @@
         <p class="text-gray-400">
           {{ $filters.eventDate(event) }} @ {{ event.location }}
         </p>
-        <div v-if="event.description" class="my-4">
+        <div
+          v-if="event.description"
+          class="my-4"
+        >
           {{ event.description }}
         </div>
         <div
@@ -43,9 +46,14 @@
         </div>
       </div>
     </div>
-    <div v-else class="lg:px-8 mt-12 px-4 sm:px-6 xs:mt-6">
+    <div
+      v-else
+      class="lg:px-8 mt-12 px-4 sm:px-6 xs:mt-6"
+    >
       <!-- TODO: Design this -->
-      <h3 class="text-xl">Event does not exist</h3>
+      <h3 class="text-xl">
+        Event does not exist
+      </h3>
     </div>
   </div>
 </template>

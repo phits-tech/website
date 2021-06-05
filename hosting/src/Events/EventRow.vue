@@ -11,9 +11,9 @@
               event.bannerUrl
                 ? { backgroundImage: `url(${event.bannerUrl})` }
                 : {
-                    backgroundImage:
-                      'url(/images/placeholders/banner_16_9_default.jpg)'
-                  }
+                  backgroundImage:
+                    'url(/images/placeholders/banner_16_9_default.jpg)'
+                }
             "
           />
         </div>
@@ -42,7 +42,10 @@
         <p class="mt-1 text-gray-400">
           {{ $filters.eventDate(event) }} @ {{ event.location }}
         </p>
-        <div v-if="event.description" class="my-4">
+        <div
+          v-if="event.description"
+          class="my-4"
+        >
           {{ event.description }}
         </div>
         <div

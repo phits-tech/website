@@ -1,6 +1,4 @@
 module.exports = {
   presets: ['@babel/preset-env'],
-  plugins: [
-    'babel-plugin-transform-import-meta'
-  ]
+  plugins: ['babel-plugin-transform-import-meta']
 }

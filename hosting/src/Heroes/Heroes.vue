@@ -22,7 +22,10 @@
 
     <!-- Become a Hero (text) -->
     <div class="mt-4">
-      <i18n-t keypath="becomeHeroText" tag="p">
+      <i18n-t
+        keypath="becomeHeroText"
+        tag="p"
+      >
         <template #linkCommunityHero>
           <router-link
             :to="{ name: 'HeroesWhy' }"
@@ -96,7 +99,9 @@
             <p class="leading-tight mt-1 text-base text-gray-700">
               {{ hero.bio }}
             </p>
-            <p class="pt-3 text-xs">{{ $t('latestEvent') }}:</p>
+            <p class="pt-3 text-xs">
+              {{ $t('latestEvent') }}:
+            </p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-sm"
             >
@@ -155,7 +160,9 @@
             <div class="font-medium text-md">
               {{ hero.name }}
             </div>
-            <p class="pt-2 text-xs">{{ $t('latestEvent') }}:</p>
+            <p class="pt-2 text-xs">
+              {{ $t('latestEvent') }}:
+            </p>
             <p
               class="hover:text-blue-400 leading-tight pt-0.5 text-blue-600 text-bold text-xs"
             >
