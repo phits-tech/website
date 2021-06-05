@@ -34,8 +34,10 @@
     "reset": "yarn add rimraf -D && yarn clean && yarn depdelete && yarn && yarn build",
     "seed": "cd ./admin && yarn seed",
     "serve": "cd ./hosting && yarn serve",
-    "test": "lerna run test -- --color --verbose",
-    "test:ci": "lerna run test:ci",
+    "test": "yarn test:pwd",
+    "test:pwd": "cd $INIT_CWD && echo Test: $(pwd) && jest --testPathIgnorePatterns=emu --passWithNoTests --color --verbose",
+    "test-ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=result.json --testLocationInResults --verbose",
+    "test-emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
     "up": "ncu -u && lerna exec --parallel -- ncu -u && yarn && yarn audit",
     "watch": "yarn workspaces foreach -vip --include @phits-tech/common --include @phits-tech/functions run watch:pwd",
     "watch:pwd": "cd $INIT_CWD && echo Watch: $(pwd) && tsc -w"

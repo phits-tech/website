@@ -9,8 +9,7 @@
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "deploy": "firebase deploy --only hosting",
     "preview": "vite preview",
-    "serve": "vite",
-    "test": "echo TODO: configure jest"
+    "serve": "vite"
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
