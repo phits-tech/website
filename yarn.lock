@@ -12877,52 +12877,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"phits-tech@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "phits-tech@workspace:."
-  dependencies:
-    "@babel/core": ^7.14.3
-    "@firebase/app-types": ^0.6.2
-    "@firebase/rules-unit-testing": ^1.3.3
-    "@google-cloud/firestore": ^4.12.2
-    "@types/jest": ^26.0.23
-    "@types/node": ^15.6.2
-    "@typescript-eslint/eslint-plugin": ^4.26.0
-    "@typescript-eslint/parser": ^4.26.0
-    eslint: ^7.27.0
-    eslint-config-prettier: ^8.3.0
-    eslint-config-standard-with-typescript: ^20.0.0
-    eslint-plugin-fp: ^2.3.0
-    eslint-plugin-import: ^2.23.4
-    eslint-plugin-jest: ^24.3.6
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^3.4.0
-    eslint-plugin-promise: ^5.1.0
-    eslint-plugin-radar: ^0.2.1
-    eslint-plugin-simple-import-sort: ^7.0.0
-    eslint-plugin-sonar: ^0.5.1
-    eslint-plugin-unicorn: ^33.0.0
-    eslint-plugin-unused-imports: ^1.1.1
-    eslint-plugin-vue: ^7.10.0
-    eslint-plugin-woke: ^1.0.0
-    firebase: ^8.6.3
-    firebase-admin: ^9.9.0
-    jest: ^27.0.3
-    lerna: ^4.0.0
-    prettier: ^2.3.0
-    rimraf: ^3.0.2
-    stylelint: ^13.13.1
-    stylelint-config-property-sort-order-smacss: ^7.1.0
-    stylelint-config-sass-guidelines: ^8.0.0
-    stylelint-config-standard: ^22.0.0
-    ts-essentials: ^7.0.1
-    ts-jest: ^27.0.2
-    ts-node: ^10.0.0
-    tsconfig-paths: ^3.9.0
-    typescript: ^4.3.2
-  languageName: unknown
-  linkType: soft
-
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3":
   version: 2.3.0
   resolution: "picomatch@npm:2.3.0"
@@ -14349,6 +14303,52 @@ fsevents@^1.2.7:
   checksum: 68e9092c098f85dafd7ea35cd86b996ba5e70b91cb62bd1b02c0ddcec0f9fe74952695e529b002aeeee69443d287b8c9907cd63a24d062ec9e838a34766b481b
   languageName: node
   linkType: hard
+
+"root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "root@workspace:."
+  dependencies:
+    "@babel/core": ^7.14.3
+    "@firebase/app-types": ^0.6.2
+    "@firebase/rules-unit-testing": ^1.3.3
+    "@google-cloud/firestore": ^4.12.2
+    "@types/jest": ^26.0.23
+    "@types/node": ^15.6.2
+    "@typescript-eslint/eslint-plugin": ^4.26.0
+    "@typescript-eslint/parser": ^4.26.0
+    eslint: ^7.27.0
+    eslint-config-prettier: ^8.3.0
+    eslint-config-standard-with-typescript: ^20.0.0
+    eslint-plugin-fp: ^2.3.0
+    eslint-plugin-import: ^2.23.4
+    eslint-plugin-jest: ^24.3.6
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^3.4.0
+    eslint-plugin-promise: ^5.1.0
+    eslint-plugin-radar: ^0.2.1
+    eslint-plugin-simple-import-sort: ^7.0.0
+    eslint-plugin-sonar: ^0.5.1
+    eslint-plugin-unicorn: ^33.0.0
+    eslint-plugin-unused-imports: ^1.1.1
+    eslint-plugin-vue: ^7.10.0
+    eslint-plugin-woke: ^1.0.0
+    firebase: ^8.6.3
+    firebase-admin: ^9.9.0
+    jest: ^27.0.3
+    lerna: ^4.0.0
+    prettier: ^2.3.0
+    rimraf: ^3.0.2
+    stylelint: ^13.13.1
+    stylelint-config-property-sort-order-smacss: ^7.1.0
+    stylelint-config-sass-guidelines: ^8.0.0
+    stylelint-config-standard: ^22.0.0
+    ts-essentials: ^7.0.1
+    ts-jest: ^27.0.2
+    ts-node: ^10.0.0
+    tsconfig-paths: ^3.9.0
+    typescript: ^4.3.2
+  languageName: unknown
+  linkType: soft
 
 "run-async@npm:^2.4.0":
   version: 2.4.1

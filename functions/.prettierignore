@@ -1,5 +1,13 @@
 # managed by eslint
 *.ts
+*.vue
+
+# managed by stylelint
+*.css
+*.scss
+
+# hidden folders
+**/.*/**/*
 
 # deps & build
 node_modules
