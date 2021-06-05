@@ -15,6 +15,7 @@
   "scripts": {
     "audit": "yarn npm audit --all --recursive --environment production",
     "bootstrap": "cd admin && yarn config:deploy emu",
+    "bosh": "ttab -a iTerm2 'clear; yarn watch'; ttab -a iTerm2 'clear; yarn emu'; ttab -a iTerm2 'clear; read -r -p \"Waiting for emu\" -t 10 -n 1 -s; yarn seed && yarn serve'",
     "build": "yarn build:pwd && cd hosting && yarn build",
     "build:pwd": "cd $INIT_CWD && echo Build: $(pwd) && tsc -b",
     "bump": "yarn workspaces foreach -vp run bump:pwd && yarn && yarn audit",
