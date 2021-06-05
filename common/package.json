@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "description": "Shared library for common code",
   "dependencies": {
-    "core-js": "^3.13.1",
+    "core-js": "^3.14.0",
     "dayjs": "^1.10.5",
     "lodash": "^4.17.21"
   }
