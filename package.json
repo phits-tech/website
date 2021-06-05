@@ -13,9 +13,12 @@
     "hosting"
   ],
   "scripts": {
+    "audit": "yarn npm audit --all --recursive --environment production",
     "bootstrap": "cd admin && yarn config:deploy emu",
     "build": "yarn build:pwd && cd hosting && yarn build",
     "build:pwd": "cd $INIT_CWD && echo Build: $(pwd) && tsc -b",
+    "bump": "yarn workspaces foreach -vp run bump:pwd && yarn && yarn audit",
+    "bump:pwd": "cd $INIT_CWD && echo Bump: $(pwd) && ncu -u",
     "clean": "yarn workspaces foreach -vip --exclude root run clean:pwd",
     "clean:pwd": "cd $INIT_CWD && echo Clean: $(pwd) && rimraf ./dist ./tsconfig.tsbuildinfo",
     "depdelete": "yarn workspaces foreach -vip --exclude root run depdelete:pwd && yarn run depdelete:pwd",
@@ -38,7 +41,6 @@
     "test:pwd": "cd $INIT_CWD && echo Test: $(pwd) && jest --testPathIgnorePatterns=emu --passWithNoTests --color --verbose",
     "test-ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=result.json --testLocationInResults --verbose",
     "test-emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
-    "up": "ncu -u && lerna exec --parallel -- ncu -u && yarn && yarn audit",
     "watch": "yarn workspaces foreach -vip --include @phits-tech/common --include @phits-tech/functions run watch:pwd",
     "watch:pwd": "cd $INIT_CWD && echo Watch: $(pwd) && tsc -w"
   },
@@ -71,6 +73,7 @@
     "firebase-admin": "^9.9.0",
     "jest": "^27.0.3",
     "lerna": "^4.0.0",
+    "npm-check-updates": "^11.6.0",
     "prettier": "^2.3.0",
     "rimraf": "^3.0.2",
     "stylelint": "^13.13.1",
