@@ -5,11 +5,6 @@
   "license": "UNLICENSED",
   "description": "CLI app for running scripts",
   "scripts": {
-    "build": "tsc -b",
-    "clean": "rimraf ./dist",
-    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
-    "rebuild": "yarn clean && yarn build",
     "serve": "ts-node --files -r tsconfig-paths/register",
     "-": "----- SCRIPTS -----",
     "backup": "yarn serve \"src/backup/index.ts\"",

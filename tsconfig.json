@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "exclude": ["**/*"],
+  "references": [
+    { "path": "./common/tsconfig.json" },
+    { "path": "./admin/tsconfig.json" },
+    { "path": "./functions/tsconfig.json" }
+  ]
+  // TODO: Maybe we can add aliases here?
+}

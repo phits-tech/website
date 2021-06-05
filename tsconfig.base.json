@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     // Project
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
     "lib": ["ESNext", "DOM"],

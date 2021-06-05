@@ -10,7 +10,9 @@
       "@/*": ["src/*"]
     },
     // Override
+    "composite": false,
     "importHelpers": true,
+    "incremental": false,
     "jsx": "preserve",
     "target": "ESNext",
     "module": "ESNext"

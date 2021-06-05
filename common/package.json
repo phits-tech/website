@@ -4,15 +4,9 @@
   "license": "UNLICENSED",
   "description": "Shared library for common code",
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf ./dist ./tsconfig.tsbuildinfo",
-    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
-    "rebuild": "yarn clean && yarn build",
     "test": "jest --testPathIgnorePatterns=emu",
     "test:ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=../result.json --testLocationInResults --verbose",
-    "test:emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
-    "watch": "tsc -w"
+    "test:emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\""
   },
   "dependencies": {
     "core-js": "^3.13.1",

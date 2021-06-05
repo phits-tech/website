@@ -9,14 +9,8 @@
     "node": "12"
   },
   "scripts": {
-    "build": "tsc -b",
-    "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only functions",
-    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,css,scss,js,json}\"",
-    "lint": "eslint . && prettier --check \"{**/,.}*.{html,css,scss,js,json}\"",
-    "logs": "firebase functions:log",
-    "rebuild": "yarn clean && yarn build",
-    "watch": "tsc -w"
+    "logs": "firebase functions:log"
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",

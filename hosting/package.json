@@ -7,12 +7,8 @@
   "scripts": {
     "--": "// TODO: Remove --skipLibCheck once vue-meta fixes its types (https://github.com/nuxt/vue-meta/issues/665#issuecomment-833749293)",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
-    "clean": "rimraf ./dist",
     "deploy": "firebase deploy --only hosting",
-    "fix": "eslint . --fix && prettier --loglevel warn --write \"{**/,.}*.{html,js,json}\" && stylelint --fix \"**/*.{css,scss}\"",
-    "lint": "eslint . && prettier --check \"{**/,.}*.{html,js,json}\" && stylelint \"**/*.{css,scss}\"",
     "preview": "vite preview",
-    "rebuild": "yarn clean && yarn build",
     "serve": "vite",
     "test": "echo TODO: configure jest"
   },
