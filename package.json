@@ -18,6 +18,7 @@
     "clean": "lerna run clean --parallel",
     "emu": "yarn emulate",
     "emulate": "node egg.js && firebase --project=\"phits-tech-emu\" emulators:start --only firestore,functions,auth",
+    "emulatte": "printf \"\\\\n     /~~~~~~~~~~~~~~~~~~~/|\\\\n    /              /######/ / |\\\\n   /              /______/ /  |\\\\n  ========================= /||\\\\n  |_______________________|/ ||\\\\n   |  \\\\\\\\****/     \\\\\\\\__,,__/    ||\\\\n   |===\\\\\\\\**/       __,,__     ||  Joe Jacques\\\\n   |______________\\\\\\\\====/%%____||\\\\n   |   ___        /~~~~\\\\\\\\ %%  / |\\\\n  _|  |===|===   /      \\\\\\\\%%_/  |\\\\n | |  |###|     |########| | /\\\\n |____\\\\\\\\###/______\\\\\\\\######/__|/\\\\n ~~~~~~~~~~~~~~~~~~~~~~~~~~ \\\\n\\\\n  Here's your emu-latte!\\\\n  Oh... did you mean `yarn emulate`?\\\\n\"",
     "fix": "yarn fix:pwd",
     "fix:pwd": "cd $INIT_CWD && echo Fixing: $(pwd) && eslint . --fix && prettier --loglevel warn --write . && stylelint --fix .",
     "fix-root": "eslint '.*.js' --fix && prettier --loglevel warn --write \"./*.{js,json}\" \".*.{js,json}\"",
