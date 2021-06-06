@@ -4,10 +4,8 @@
 !*.css
 !*.scss
 
-# hidden folders
-**/.*/**/*
-
 # deps & build
+.yarn
 node_modules
 dist
 lib
