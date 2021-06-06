@@ -6,12 +6,12 @@
     "source.eslint.fixAll",
     "source.stylelint.fixAll"
   ],
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": false, // Enabled via codeActionsOnSave (known order)
   "editor.rulers": [80], // Same as Prettier
   "editor.tabSize": 2,
   "eslint.codeAction.showDocumentation": true,
   "eslint.enable": true,
-  "eslint.format.enable": true,
+  "eslint.format.enable": false, // Enabled via codeActionsOnSave (known order)
   "eslint.lintTask.enable": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "prettier.semi": false,
@@ -29,12 +29,12 @@
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[css]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
-  "[scss]": { "editor.defaultFormatter": "stylelint.vscode-stylelint" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[vue]": { "editor.defaultFormatter": "octref.vetur" },
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
+  "css.validate": false, // Prefer stylelint
+  "less.validate": false, // Prefer stylelint
+  "scss.validate": false, // Prefer stylelint
   "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
   "javascript.preferences.importModuleSpecifier": "shortest",
   "javascript.updateImportsOnFileMove.enabled": "always",
