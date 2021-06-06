@@ -38,8 +38,6 @@ console.info(`
    ',____.'
      /  /
     /  /___
-   /       )
+   /       )  jrei
    \\
-   
- (credit: jrei)
 `)
