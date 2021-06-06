@@ -7,6 +7,7 @@
     "source.stylelint.fixAll"
   ],
   "editor.formatOnSave": false, // Enabled via codeActionsOnSave (known order)
+  "editor.formatOnPaste": true,
   "editor.rulers": [80], // Same as Prettier
   "editor.tabSize": 2,
   "eslint.codeAction.showDocumentation": true,
@@ -14,6 +15,7 @@
   "eslint.format.enable": false, // Enabled via codeActionsOnSave (known order)
   "eslint.lintTask.enable": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
+  "files.autoSave": "onFocusChange",
   "prettier.semi": false,
   "prettier.trailingComma": "none",
   "prettier.singleQuote": true,
