@@ -1,10 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "exclude": ["**/*"],
+  "noEmit": true,
   "references": [
-    { "path": "./common/tsconfig.json" },
-    { "path": "./admin/tsconfig.json" },
-    { "path": "./functions/tsconfig.json" }
+    { "path": "./admin/tsconfig.build.json" },
+    { "path": "./common/tsconfig.build.json" },
+    { "path": "./functions/tsconfig.build.json" },
+    { "path": "./hosting/tsconfig.json" }
   ]
-  // TODO: Maybe we can add aliases here?
 }

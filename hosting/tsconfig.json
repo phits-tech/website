@@ -18,5 +18,5 @@
     "module": "ESNext"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "../common/tsconfig.json" }]
+  "references": [{ "path": "../common/tsconfig.build.json" }]
 }

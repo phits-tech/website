@@ -12,12 +12,6 @@ export default defineConfig({
     port: 8080,
     open: true
   },
-  // resolve: {
-  //   alias: [
-  //     { find: '~', replacement: path.resolve(__dirname, 'src/_services') },
-  //     { find: '@', replacement: path.resolve(__dirname, 'src') }
-  //   ]
-  // },
   optimizeDeps: {
     include: ['lodash']
   }
