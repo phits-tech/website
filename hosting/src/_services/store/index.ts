@@ -1,5 +1,6 @@
 import { User as FirebaseUser } from '@firebase/auth-types'
 import { InjectionKey } from '@vue/runtime-core'
+import { DeepRequired } from 'ts-essentials'
 import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
@@ -12,7 +13,7 @@ import { db } from '~/firebase-initialized'
 // VuexFire resets objects to null
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
-  eventsRaw: Event[]
+  eventsRaw: Array<DeepRequired<Event>>
   banners: Array<Omit<Banner, 'slug' | 'dateExpire'>>
 }
 
