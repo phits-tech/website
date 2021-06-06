@@ -3,12 +3,14 @@ import { RouteRecordRaw } from 'vue-router'
 
 import { RouteBinding } from './route-binding'
 
+type GlobImportReturn = ReturnType<ImportMeta['glob']>
+
 export const routesFromComponents = (components: Component[]): RouteRecordRaw[] =>
   components
     .flatMap(component => getBindings(component).map(binding => createRoute(binding, component)))
     .sort((r1, r2) => r2.priority - r1.priority)
 
-export const routesFromGlobImport = async (globImport: Record<string, () => Promise<{ [key: string]: any }>>): Promise<RouteRecordRaw[]> =>
+export const routesFromGlobImport = async (globImport: GlobImportReturn): Promise<RouteRecordRaw[]> =>
   (await Promise.all(
     Object.entries(globImport)
       .map(async pathAndImport => {
