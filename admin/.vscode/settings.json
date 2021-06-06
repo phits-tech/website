@@ -1,9 +1,18 @@
 {
   // Formatting & Linting
-  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.formatDocument",
+    "source.eslint.fixAll",
+    "source.stylelint.fixAll"
+  ],
+  "editor.formatOnSave": false,
   "editor.rulers": [80], // Same as Prettier
   "editor.tabSize": 2,
+  "eslint.codeAction.showDocumentation": true,
+  "eslint.enable": true,
   "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "prettier.semi": false,
   "prettier.trailingComma": "none",
