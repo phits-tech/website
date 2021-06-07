@@ -13,6 +13,7 @@
     "hosting"
   ],
   "scripts": {
+    "--HINT--": "Run `script:pwd` from any module",
     "audit": "yarn npm audit --all --recursive --environment production",
     "build": "yarn build:pwd && cd hosting && yarn build",
     "build:pwd": "cd $INIT_CWD && echo Build: $(pwd) && tsc --build tsconfig.build.json",

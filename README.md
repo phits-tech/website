@@ -1,9 +1,10 @@
-**[Home](README.md)** | [Emulators](docs/Emulators.md) | [Scripts](admin/README.md) | [Deployment](docs/Deployment.md)
+**[Home](README.md)** | [CLI](admin/README.md) | [Emulators](docs/Emulators.md) | [Deployment](docs/Deployment.md)
 
 # Phits-Tech Developer Guide
 
-Welcome new developer! Please read below to get started :)  
-Run shell commands in VSCode terminal, from the `project-root` directory (unless stated otherwise).
+Welcome new developer! Please read below to get started :)
+
+Run shell commands in VSCode terminal (from the root directory unless stated otherwise).
 
 ## Developer Tools
 
@@ -31,13 +32,8 @@ firebase use default
 Install deps, build project, and setup configuration:
 
 ```
-yarn && yarn build && yarn config-sync
-```
-
-If you get the error: `The engine "node" is incompatible with this module`, then tell yarn to ignore the node version:
-
-```
 yarn config set ignore-engines true
+yarn && yarn build && yarn config-sync
 ```
 
 ## Dev Quick Start
@@ -51,3 +47,7 @@ Open 3 terminals & execute these commands (in order):
 | Terminal 1   | Terminal 2 | Terminal 3              |
 | ------------ | ---------- | ----------------------- |
 | `yarn watch` | `yarn emu` | `yarn seed && yarn dev` |
+
+## Debugging
+
+Ask for help on [Phits.Tech Discord](https://discord.gg/4CHb53F) :)

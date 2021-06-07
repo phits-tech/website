@@ -1,4 +1,4 @@
-[Home](../README.md) | [Emulators](../docs/Emulators.md) | [Scripts](../admin/README.md) | **[Deployment](../docs/Deployment.md)**
+[Home](../README.md) | [CLI](../admin/README.md) | [Emulators](../docs/Emulators.md) | **[Deployment](../docs/Deployment.md)**
 
 # Deployment: New Firebase Project
 

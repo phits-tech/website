@@ -1,4 +1,4 @@
-[Home](../README.md) | [Emulators](../docs/Emulators.md) | [Scripts](../admin/README.md) | **[Deployment](../docs/Deployment.md)**
+[Home](../README.md) | [CLI](../admin/README.md) | [Emulators](../docs/Emulators.md) | **[Deployment](../docs/Deployment.md)**
 
 # Deployment
 
@@ -79,7 +79,7 @@ See: [New Firebase Project](./New-Project.md) if you need to setup a new Firebas
 
 ## See also
 
-- [Scripts](../admin/README.md)
+- [CLI](../admin/README.md)
 
 # Backup Firestore production and restore to dev
 
