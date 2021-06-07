@@ -8,6 +8,7 @@
   ],
   "editor.formatOnSave": false, // Enabled via codeActionsOnSave (known order)
   "editor.formatOnPaste": true,
+  "editor.quickSuggestions": { "strings": true },
   "editor.rulers": [80], // Same as Prettier
   "editor.tabSize": 2,
   "eslint.codeAction.showDocumentation": true,
@@ -51,5 +52,6 @@
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
   "vetur.format.defaultFormatter.html": "none",
   "vetur.format.defaultFormatter.css": "none",
-  "vetur.format.defaultFormatter.scss": "none"
+  "vetur.format.defaultFormatter.scss": "none",
+  "windicss.includeLanguages": { "vue": "html" }
 }
