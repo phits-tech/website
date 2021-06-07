@@ -50,4 +50,4 @@ Open 3 terminals & execute these commands (in order):
 
 | Terminal 1   | Terminal 2 | Terminal 3                |
 | ------------ | ---------- | ------------------------- |
-| `yarn watch` | `yarn emu` | `yarn seed && yarn serve` |
+| `yarn watch` | `yarn emu` | `yarn seed && yarn dev` |

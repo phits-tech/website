@@ -8,8 +8,8 @@
     "--": "// TODO: Remove --skipLibCheck once vue-meta fixes its types (https://github.com/nuxt/vue-meta/issues/665#issuecomment-833749293)",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "deploy": "firebase deploy --only hosting",
-    "preview": "vite preview",
-    "serve": "vite"
+    "dev": "vite",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
