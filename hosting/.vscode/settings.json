@@ -49,7 +49,7 @@
   "vetur.format.options.useTabs": false,
   "vetur.format.defaultFormatter.js": "vscode-typescript",
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
-  "vetur.format.defaultFormatter.html": "prettier",
-  "vetur.format.defaultFormatter.css": "prettier",
-  "vetur.format.defaultFormatter.scss": "prettier"
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.css": "none",
+  "vetur.format.defaultFormatter.scss": "none"
 }
