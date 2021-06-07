@@ -1,4 +1,4 @@
-import { App as VueApp, createApp } from 'vue'
+import { createApp } from 'vue'
 
 import App from '@/App/App.vue'
 import * as filters from '~/filters'
@@ -7,15 +7,16 @@ import { i18n, td } from '~/i18n'
 import { injects } from '~/injects'
 import { metaManager } from '~/meta'
 import { mixins } from '~/mixins'
-import { createRouter } from '~/router'
+import { router } from '~/router'
 import { STORE, store, storeKey } from '~/store'
 
 import 'virtual:windi.css'
 import '@/main.css'
 
 // Setup Vue
-const create = async (): Promise<VueApp<Element>> => {
-  const router = await createRouter()
+let appInitialized = false
+const init = async (): Promise<void> => {
+  if (appInitialized) return
 
   const app = createApp(App)
     .use(router)
@@ -28,18 +29,18 @@ const create = async (): Promise<VueApp<Element>> => {
   app.config.globalProperties.$filters = filters
   app.config.globalProperties.$td = td
 
-  await store.dispatch(STORE.ACTIONS.init)
-  await router.isReady()
+  await Promise.all([
+    store.dispatch(STORE.ACTIONS.init),
+    router.isReady()
+  ])
   app.mount('#app')
-  return app
+  appInitialized = true
 }
 
 // Load auth state => start Vue
-let shouldInitialize = true
 auth.onAuthStateChanged(async user => {
-  await store.dispatch(STORE.ACTIONS.userChanged, user)
-  if (shouldInitialize) {
-    shouldInitialize = false
-    await create()
-  }
+  await Promise.all([
+    store.dispatch(STORE.ACTIONS.userChanged, user),
+    init()
+  ])
 })
