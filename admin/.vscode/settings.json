@@ -1,10 +1,10 @@
 {
   // Formatting & Linting
   "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.formatDocument",
-    "source.eslint.fixAll",
-    "source.stylelint.fixAll"
+    "source.addMissingImports", // VSCode
+    "source.formatDocument", // Extension: Format Code Action
+    "source.fixAll.eslint", // Extension: ESLint
+    "source.fixAll.stylelint" // Extension: StyleLint
   ],
   "editor.formatOnSave": false, // Enabled via codeActionsOnSave (known order)
   "editor.formatOnPaste": true,
