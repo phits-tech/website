@@ -9,7 +9,7 @@ module.exports = {
     'no-debugger': 'off', // remove during build
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
     'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
-    'no-warning-comments': ['off', { terms: ['urgent'] }], // URGENT: Enable this
+    'no-warning-comments': ['error', { terms: ['urgent'] }],
     'prefer-object-spread': 'error',
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 

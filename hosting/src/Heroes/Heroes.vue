@@ -87,10 +87,9 @@
               :style="
                 hero.pic
                   ? { backgroundImage: `url(${hero.pic})` }
-                  : { backgroundImage: 'url(/images/banner_16_9_default.jpg)' }
+                  : { backgroundImage: 'url(/images/profile_1_1_default.png)' }
               "
             />
-            <!-- URGENT: Update default pic -->
           </div>
           <div class="pb-4 pt-4 px-5 relative">
             <div class="font-bold text-xl">
@@ -151,10 +150,9 @@
               :style="
                 hero.pic
                   ? { backgroundImage: `url(${hero.pic})` }
-                  : { backgroundImage: 'url(/images/banner_16_9_default.jpg)' }
+                  : { backgroundImage: 'url(/images/profile_1_1_default.png)' }
               "
             />
-            <!-- URGENT: Update default pic -->
           </div>
           <div class="pb-3 pt-2 px-3">
             <div class="font-medium text-md">

@@ -36,10 +36,8 @@ if (MODE === 'emu') {
     project_id: string
   }
 
-  // URGENT: Use try/catch (see config-functions-set for example)
   const configPath = path.join(__dirname, pathToRoot, `configs/service-account.${MODE}.json`)
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const serviceAccount = require(configPath) as ServiceAccountJson
+  const serviceAccount = JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' })) as ServiceAccountJson
 
   // Initialize
   admin.initializeApp({ credential: admin.credential.cert(serviceAccount as admin.ServiceAccount) })
