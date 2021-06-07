@@ -13,6 +13,10 @@
 
 - Write a list of changes
 
+## 💉 Testing
+
+- How did you test this change?
+
 ## 🛑 Problems
 
 - Write any discovered & unresolved problems
