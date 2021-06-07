@@ -15,7 +15,7 @@
   "scripts": {
     "audit": "yarn npm audit --all --recursive --environment production",
     "build": "yarn build:pwd && cd hosting && yarn build",
-    "build:pwd": "cd $INIT_CWD && echo Build: $(pwd) && tsc -b tsconfig.build.json",
+    "build:pwd": "cd $INIT_CWD && echo Build: $(pwd) && tsc --build tsconfig.build.json",
     "bump": "yarn workspaces foreach -vp run bump:pwd && yarn && yarn audit",
     "bump:pwd": "cd $INIT_CWD && echo Bump: $(pwd) && ncu -u",
     "clean": "yarn workspaces foreach -vp run clean:pwd",
@@ -42,8 +42,8 @@
     "test:pwd": "cd $INIT_CWD && echo Test: $(pwd) && jest --testPathIgnorePatterns=emu --passWithNoTests --color --verbose",
     "test-ci": "jest --testPathIgnorePatterns=emu --collectCoverage --json --outputFile=result.json --testLocationInResults --verbose",
     "test-emu": "firebase emulators:exec --only firestore \"jest --testPathPattern=emu\"",
-    "watch": "yarn workspaces foreach -vip --include @phits-tech/common --include @phits-tech/functions run watch:pwd",
-    "watch:pwd": "cd $INIT_CWD && echo Watch: $(pwd) && tsc -w",
+    "watch": "yarn watch:pwd",
+    "watch:pwd": "cd $INIT_CWD && echo Watch: $(pwd) && tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "wow": "ttab -w -a iTerm2 'clear; yarn watch'; ttab -w -a iTerm2 'clear; yarn emu'; ttab -w -a iTerm2 'clear; read -r -p \"Waiting for emu\" -t 15 -n 1 -s; yarn seed && yarn serve'",
     "woww": "wttab 'yarn watch' & wttab 'yarn emu' & sleep 20 && wttab 'yarn seed && yarn serve'"
   },

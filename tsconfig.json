@@ -1,4 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
+  "outDir": "whoops", // prevent accidentally spewing over source
   "noEmit": true
 }
