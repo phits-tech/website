@@ -7,7 +7,7 @@
       class="p-4 sm:flex"
     >
       <!-- Contact -->
-      <!-- URGENT: For `sm`, put contact panel top; photo left & details right -->
+      <!-- TODO: For `sm`, put contact panel top; photo left & details right -->
       <div class="flex-none lg:mr-12 lg:w-72 md:mr-10 md:w-60 sm:mr-8 sm:w-48">
         <div
           class="overflow-hidden pb-1 ring-1 ring-gray-50 rounded-md shadow-lg"

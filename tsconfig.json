@@ -1,11 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": { "outDir": "whoops" },
-  "exclude": ["**/*"], // don't directly include any source
-  "references": [
-    { "path": "./common/tsconfig.build.json" },
-    { "path": "./admin/tsconfig.build.json" },
-    { "path": "./functions/tsconfig.build.json" },
-    { "path": "./hosting/tsconfig.build.json" } // let IDE see hosting (we hide this from tsc build)
-  ]
+  "include": ["**/src/**/*.js", "**/src/**/*.ts", "**/src/**/*.vue"]
 }

@@ -2,8 +2,6 @@
 
 # Scripts
 
-
-
 ## Actions
 
 Actions are stored in `admin/src/actions`:

@@ -1,18 +1,12 @@
 import { Vue } from 'vue-class-component'
 import { useMeta } from 'vue-meta'
 
-import { Space, SpaceCategory, SPACES } from '@phits-tech/common/dist/dao-firestore'
+import { Space, SPACES } from '@phits-tech/common/dist/dao-firestore'
 
 import { db } from '~/firebase-initialized'
 import { Route } from '~/router/route-decorator'
 
-// URGENT: Extract this
-const categoryRanking: Record<SpaceCategory, number> = {
-  community: 3,
-  coworking: 2,
-  cafe: 1,
-  online: 0
-}
+import { categoryRanking } from './categories'
 
 @Route({ path: '/spaces' })
 export default class Spaces extends Vue {
