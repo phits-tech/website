@@ -1,5 +1,6 @@
 {
   "extends": "./tsconfig.build.json",
+  "compilerOptions": { "outDir": "whoops" },
   "include": [
     // src
     "src/**/*.ts",
@@ -9,6 +10,8 @@
     "*.json",
     ".*.ts",
     ".*.js",
-    ".*.json"
+    ".*.json",
+    // common
+    "../common/src/**/*.ts"
   ]
 }

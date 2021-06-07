@@ -1,16 +1,17 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": { "outDir": "whoops" },
   "include": [
     // src
     "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
     // scripts & configs
     "*.ts",
     "*.js",
     "*.json",
     ".*.ts",
     ".*.js",
-    ".*.json"
+    ".*.json",
+    // common
+    "../common/src/**/*.ts"
   ]
 }

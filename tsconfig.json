@@ -1,5 +1,11 @@
 {
   "extends": "./tsconfig.base.json",
-  "outDir": "whoops", // prevent accidentally spewing over source
-  "noEmit": true
+  "compilerOptions": { "outDir": "whoops" },
+  "exclude": ["**/*"], // don't directly include any source
+  "references": [
+    { "path": "./common/tsconfig.build.json" },
+    { "path": "./admin/tsconfig.build.json" },
+    { "path": "./functions/tsconfig.build.json" },
+    { "path": "./hosting/tsconfig.build.json" } // let IDE see hosting (we hide this from tsc build)
+  ]
 }

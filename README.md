@@ -48,6 +48,6 @@ Open 3 terminals & execute these commands (in order):
 2. Start cloud services `emulator` (fake db, auth, cloud functions)
 3. Load example data & start `hosting` webserver (w/ auto-update)
 
-| Terminal 1   | Terminal 2 | Terminal 3                |
-| ------------ | ---------- | ------------------------- |
+| Terminal 1   | Terminal 2 | Terminal 3              |
+| ------------ | ---------- | ----------------------- |
 | `yarn watch` | `yarn emu` | `yarn seed && yarn dev` |

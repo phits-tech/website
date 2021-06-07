@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
-  "exclude": ["**/*"],
+  "exclude": ["**/*"], // don't directly include any source
   "references": [
     { "path": "./common/tsconfig.build.json" },
     { "path": "./admin/tsconfig.build.json" },

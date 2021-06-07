@@ -4,7 +4,7 @@ module.exports = {
     ecmaFeatures: { jsx: true },
     extraFileExtensions: ['.vue'],
     parser: '@typescript-eslint/parser',
-    project: ['**/tsconfig.eslint.json'],
+    project: ['*/**/tsconfig.json'],
     sourceType: 'module',
     tsconfigRootDir: __dirname
   },
