@@ -12,7 +12,7 @@ const dao = new Dao(context)
 const storageBucket = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ?? ''
 const storageDao = new StorageDao(context, dao, storage, storageBucket)
 
-export const globals = {
+export const injects = {
   auth,
   context,
   dao,
