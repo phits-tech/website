@@ -1,13 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { getRoutes } from './route-decorator'
+import { routesFromGlobImport } from './route-decorator'
 
-const context = require.context('@/', true, /\.vue$/i)
+const globImport = import.meta.globEager('/**/*.vue')
+const routes = routesFromGlobImport(globImport)
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes: getRoutes(context),
+export const router = createRouter({
+  routes,
+  history: createWebHistory(import.meta.env.BASE_URL),
   linkActiveClass: 'is-active'
 })
-
-export default router

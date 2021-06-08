@@ -1,8 +1,4 @@
-Topics: [Dev Setup](./Contributors.md) | [Emulators](./Emulators.md) | [Seeds & Migrations](./Seeds-Migrations.md) | [Deployment](./Deployment/Index.md) | [Test Runners](./Runners/Index.md) | [Known Issues](./Known-Issues.md)
-
----
-
-[Home](../README.md) / [Contributors](./Contributors.md) / Emulators
+[Home](../README.md) | [CLI](../admin/README.md) | **[Emulators](../docs/Emulators.md)** | [Deployment](../docs/Deployment.md)
 
 # Firebase Emulators
 
@@ -20,23 +16,19 @@ The `firestore.rules` in the root directory is dynamically reloaded -- great for
 
 To seed the Firestore emulator, from the `admin` directory:
 
-// TODO: This script doesn't work any more
-
 ```
 yarn seed
 ```
 
 ## Cloud Functions
 
-// TODO: Now we have `yarn watch` from the root
-
-In a separate terminal, from the `functions` directory:
+In a separate terminal, from the root directory:
 
 ```
 yarn watch
 ```
 
-This will watch your `functions/src` directory and automatically compile to `functions/dist` which will be watched by the Emulator.
+This will watch the `common/src` and `functions/src` directories, and automatically compile them to `dist`, which will be watched by the Emulator.
 
 ## Working with Firestore on the server and emulator
 
@@ -85,7 +77,3 @@ Then you can use it to import into your emulator.
 ```
 firebase emulators:start --only firestore --import backup
 ```
-
----
-
-[< Back to Contributing](./Contributors.md)

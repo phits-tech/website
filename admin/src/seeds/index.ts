@@ -1,4 +1,4 @@
-import { Banner, BANNERS, Dao, Event, EVENTS, New, Space, SPACES, User } from '@phits-tech/common/dao-firestore'
+import { Banner, BANNERS, Dao, Event, EVENTS, New, Space, SPACES, User } from '@phits-tech/common/dist/dao-firestore'
 
 import { productionWarning } from '@/_services/modes'
 import { context } from '~/context'
@@ -13,11 +13,11 @@ const load = async <T>(filename: string): Promise<T[]> => {
 }
 
 const printSummary = (data: { [key: string]: unknown[] }): void => {
-  console.log('\nSeeding:')
+  console.info('\nSeeding:')
   Object.entries(data).forEach(([key, value]) => {
-    if (value.length > 0) console.log(`- ${value.length} ${key}`)
+    if (value.length > 0) console.info(`- ${value.length} ${key}`)
   })
-  console.log()
+  console.info()
 }
 
 const main = async (): Promise<void> => {
@@ -46,4 +46,4 @@ const main = async (): Promise<void> => {
 
 main()
   .then(() => process.exit())
-  .catch((error) => console.error(error))
+  .catch(error => console.error(error))

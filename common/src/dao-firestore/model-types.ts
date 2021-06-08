@@ -2,8 +2,8 @@ import firebase from 'firebase/app'
 
 type Timestamp = firebase.firestore.Timestamp
 
-type Language = 'en' | 'th'
-export type TranslatedString = Record<Language, string> // TODO: Might want to extract this
+export type Locale = 'en' | 'th'
+export type TranslatedString = Record<Locale, string>
 
 // TODO: Make a decision on slugs: store as field | store as id | store as both
 

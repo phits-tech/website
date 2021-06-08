@@ -34,36 +34,27 @@ jobs:
 
       - name: 'Setup: Install new deps'
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile &> /dev/null
+        run: yarn --immutable
 
-      - name: 'Build: common'
-        run: cd common && yarn build
-
-      - name: 'Build: functions'
-        run: cd functions && yarn build
-
-      - name: 'Build: hosting'
-        run: cd hosting && rm -f .env && yarn build
+      - name: 'Build'
+        run: cd hosting && rm -f .env && cd .. && yarn build
         env:
           NODE_ENV: production
-          VUE_APP_FIREBASE_API_KEY: abcd
-          VUE_APP_FIREBASE_APP_ID: 1234
-          VUE_APP_FIREBASE_AUTH_DOMAIN: xyz
-          VUE_APP_FIREBASE_DATABASE_U_R_L: xyz
-          VUE_APP_FIREBASE_MESSAGING_SENDER_ID: 1234
-          VUE_APP_FIREBASE_PROJECT_ID: xyz
-          VUE_APP_FIREBASE_STORAGE_BUCKET: xyz
-          VUE_APP_FUNCTIONS_REGION: xyz
-          VUE_APP_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
+          VITE_FIREBASE_API_KEY: abcd
+          VITE_FIREBASE_APP_ID: 1234
+          VITE_FIREBASE_AUTH_DOMAIN: xyz
+          VITE_FIREBASE_DATABASE_U_R_L: xyz
+          VITE_FIREBASE_MESSAGING_SENDER_ID: 1234
+          VITE_FIREBASE_PROJECT_ID: xyz
+          VITE_FIREBASE_STORAGE_BUCKET: xyz
+          VITE_FUNCTIONS_REGION: xyz
+          VITE_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
 
-      - name: 'Build: admin'
-        run: cd admin && yarn build
-
-      - name: 'Lint: ESLint & Vue'
+      - name: 'Lint'
         run: yarn lint
 
       - name: 'Test: Execute'
-        run: cd common && yarn test:ci
+        run: yarn test-ci
 
       - name: 'Test: Results reporter'
         uses: tanmen/jest-reporter@v1

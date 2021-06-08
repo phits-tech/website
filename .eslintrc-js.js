@@ -1,15 +1,26 @@
-// TODO: Continue exploring: https://github.com/dustinspecker/awesome-eslint#practices
 module.exports = {
+  // URGENT: Replace jest/recommended with ALL jest rules
   extends: ['plugin:jest/recommended', 'standard'],
-  plugins: ['radar', 'simple-import-sort', 'unicorn', 'unused-imports', 'woke'],
+  plugins: ['fp', 'radar', 'simple-import-sort', 'sonar', 'unicorn', 'unused-imports', 'woke'],
   rules: {
-    // Override
-    'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
+    // Built-in
+    // URGENT: Add more built-in rules: https://eslint.org/docs/rules
+    'no-console': process.env.NODE_ENV === 'development' ? 'off' : ['error', { allow: ['info', 'warn', 'error'] }], // prefer specific log types
+    'no-debugger': 'off', // remove during build
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+    'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/src/**/*'] }],
+    'no-warning-comments': ['error', { terms: ['urgent'] }],
+    'prefer-object-spread': 'error',
     'space-before-function-paren': ['error', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
 
-    // Additional
-    'no-restricted-imports': ['error', { patterns: ['@phits-tech/common/dist/**/*', '@phits-tech/common/src/**/*'] }],
+    // FP
+    'fp/no-delete': 'error',
+    'fp/no-mutating-assign': 'error',
+
+    // Jest
+    'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'assertSucceeds', 'assertFails'] }],
+
+    // Radar
     'radar/no-all-duplicated-branches': 'error',
     'radar/no-element-overwrite': 'error',
     'radar/no-extra-arguments': 'error',
@@ -35,19 +46,195 @@ module.exports = {
     'radar/prefer-object-literal': 'error',
     'radar/prefer-single-boolean-return': 'error',
     'radar/prefer-while': 'error',
+
+    // Simple Import Sort
     'simple-import-sort/imports': [
       'error',
       {
         groups: [
-          ['^(@(?!phits-tech))?\\w'], // Packages (start with a letter, digit, underscore, or `@` followed by a letter)
-          ['^@phits-tech'], // Our packages
-          ['^', '^\\.\\.'], // Same project (not matched in another group or starting with 2 dots)
-          ['^\\.'], // Local (anything that starts with 1 dot)
+          ['^(@(?!phits-tech))?\\w'], // Dependencies
+          ['^@phits-tech'], // Our other modules
+          ['^', '^\\.\\.'], // This module (not matched in another group or starts with 2 dots)
+          ['^\\.'], // This package (starts with 1 dot)
           ['^\\u0000'] // Side-effects
         ]
       }
     ],
     'simple-import-sort/exports': 'error',
+
+    // Sonar
+    'sonar/argument-type': 'error',
+    'sonar/arguments-order': 'error',
+    'sonar/arguments-usage': 'error',
+    'sonar/array-callback-without-return': 'error',
+    'sonar/array-constructor': 'error',
+    'sonar/arrow-function-convention': 'error',
+    'sonar/bitwise-operators': 'error',
+    'sonar/bool-param-default': 'error',
+    'sonar/call-argument-line': 'error',
+    'sonar/certificate-transparency': 'error',
+    'sonar/class-name': ['error', { format: '[A-Z][a-zA-Z\\d]*' }],
+    'sonar/class-prototype': 'error',
+    'sonar/code-eval': 'error',
+    'sonar/comma-or-logical-or-case': 'error',
+    'sonar/comment-regex': 'error',
+    'sonar/conditional-indentation': 'error',
+    'sonar/confidential-information-logging': 'error',
+    'sonar/constructor-for-side-effects': 'error',
+    'sonar/content-length': 'error',
+    'sonar/content-security-policy': 'error',
+    'sonar/cookie-no-httponly': 'error',
+    'sonar/cookies': 'error',
+    'sonar/cors': 'error',
+    'sonar/csrf': 'error',
+    'sonar/cyclomatic-complexity': 'error',
+    'sonar/declarations-in-global-scope': 'off', // Doesn't understand scopes
+    'sonar/deprecation': 'error',
+    'sonar/destructuring-assignment-syntax': 'error',
+    'sonar/different-types-comparison': 'error',
+    'sonar/disabled-auto-escaping': 'error',
+    'sonar/disabled-resource-integrity': 'error',
+    'sonar/dns-prefetching': 'error',
+    'sonar/elseif-without-else': 'error',
+    'sonar/encryption-secure-mode': 'error',
+    'sonar/encryption': 'error',
+    'sonar/expression-complexity': 'error',
+    'sonar/file-header': 'off', // Not our convention
+    'sonar/file-name-differ-from-class': 'off', // `export default` isn't always a class
+    'sonar/file-permissions': 'error',
+    'sonar/file-uploads': 'error',
+    'sonar/fixme-tag': 'error',
+    'sonar/for-in': 'error',
+    'sonar/for-loop-increment-sign': 'error',
+    'sonar/frame-ancestors': 'error',
+    'sonar/function-inside-loop': 'error',
+    'sonar/function-name': ['error', { format: '[a-z][a-zA-Z\\d]*' }],
+    'sonar/function-return-type': 'off', // Doesn't support union types
+    'sonar/future-reserved-words': 'error',
+    'sonar/generator-without-yield': 'error',
+    'sonar/hashing': 'error',
+    'sonar/hidden-files': 'error',
+    'sonar/in-operator-type-error': 'error',
+    'sonar/inconsistent-function-call': 'error',
+    'sonar/index-of-compare-to-positive-number': 'error',
+    'sonar/insecure-cookie': 'error',
+    'sonar/insecure-jwt-token': 'error',
+    'sonar/label-position': 'error',
+    'sonar/max-union-size': 'error',
+    'sonar/misplaced-loop-counter': 'error',
+    'sonar/nested-control-flow': 'error',
+    'sonar/new-operator-misuse': ['error', { considerJSDoc: false }],
+    'sonar/no-accessor-field-mismatch': 'error',
+    'sonar/no-alphabetical-sort': 'error',
+    'sonar/no-array-delete': 'error',
+    'sonar/no-associative-arrays': 'error',
+    'sonar/no-built-in-override': 'error',
+    'sonar/no-case-label-in-switch': 'error',
+    'sonar/no-clear-text-protocols': 'error',
+    'sonar/no-commented-code': 'error',
+    'sonar/no-dead-store': 'error',
+    'sonar/no-delete-var': 'error',
+    'sonar/no-duplicate-in-composite': 'error',
+    'sonar/no-empty-collection': 'error',
+    'sonar/no-equals-in-for-termination': 'error',
+    'sonar/no-for-in-iterable': 'error',
+    'sonar/no-function-declaration-in-block': 'error',
+    'sonar/no-global-this': 'error',
+    'sonar/no-globals-shadowing': 'error',
+    'sonar/no-gratuitous-expressions': 'error',
+    'sonar/no-hardcoded-credentials': 'error',
+    'sonar/no-hardcoded-ip': 'error',
+    'sonar/no-ignored-return': 'error',
+    'sonar/no-implicit-dependencies': 'off', // Doesn't support workspace hoisting
+    'sonar/no-implicit-global': 'error',
+    'sonar/no-in-misuse': 'error',
+    'sonar/no-inconsistent-returns': 'off', // TypeScript does this better
+    'sonar/no-incorrect-string-concat': 'error',
+    'sonar/no-infinite-loop': 'error',
+    'sonar/no-intrusive-permissions': 'error',
+    'sonar/no-invalid-await': 'error',
+    'sonar/no-invariant-returns': 'error',
+    'sonar/no-ip-forward': 'error',
+    'sonar/no-labels': 'error',
+    'sonar/no-mime-sniff': 'error',
+    'sonar/no-misleading-array-reverse': 'off', // False-positive on `sort()` that clearly wasn't reverse
+    'sonar/no-mixed-content': 'error',
+    'sonar/no-nested-assignment': 'error',
+    'sonar/no-nested-conditional': 'off', // 3-part inline if is ok...
+    'sonar/no-nested-incdec': 'error',
+    'sonar/no-nested-switch': 'error',
+    'sonar/no-nested-template-literals': 'error',
+    'sonar/no-new-symbol': 'error',
+    'sonar/no-parameter-reassignment': 'error',
+    'sonar/no-primitive-wrappers': 'error',
+    'sonar/no-redundant-assignments': 'error',
+    'sonar/no-redundant-optional': 'error',
+    'sonar/no-redundant-parentheses': 'error',
+    'sonar/no-reference-error': 'off', // TypeScript does this better
+    'sonar/no-referrer-policy': 'error',
+    'sonar/no-require-or-define': 'error',
+    'sonar/no-return-type-any': 'error',
+    'sonar/no-tab': 'error',
+    'sonar/no-try-promise': 'error',
+    'sonar/no-undefined-argument': 'error',
+    'sonar/no-undefined-assignment': 'error',
+    'sonar/no-unenclosed-multiline-block': 'error',
+    'sonar/no-unsafe-unzip': 'error',
+    'sonar/no-unthrown-error': 'error',
+    'sonar/no-unused-function-argument': 'off', // @typescript-eslint rule is better
+    'sonar/no-useless-increment': 'error',
+    'sonar/no-useless-intersection': 'error',
+    'sonar/no-variable-usage-before-declaration': 'error',
+    'sonar/no-weak-cipher': 'error',
+    'sonar/no-weak-keys': 'error',
+    'sonar/no-wildcard-import': 'off', // TODO: We're using this for facades (perhaps we should export explicitly)
+    'sonar/non-existent-operator': 'error',
+    'sonar/non-number-in-arithmetic-expression': 'error',
+    'sonar/null-dereference': 'error',
+    'sonar/operation-returning-nan': 'error',
+    'sonar/os-command': 'off', // TODO: Maybe reenable this
+    'sonar/post-message': 'error',
+    'sonar/prefer-default-last': 'error',
+    'sonar/prefer-promise-shorthand': 'error',
+    'sonar/prefer-type-guard': 'error',
+    'sonar/process-argv': 'off', // TODO: Maybe reenable this
+    'sonar/production-debug': 'error',
+    'sonar/pseudo-random': 'off', // Unnecessary for this project
+    'sonar/publicly-writable-directories': 'error',
+    'sonar/regular-expr': 'off', // TODO: Maybe reenable this
+    'sonar/session-regeneration': 'error',
+    'sonar/shorthand-property-grouping': 'error',
+    'sonar/sockets': 'error',
+    'sonar/sonar-block-scoped-var': 'error',
+    'sonar/sonar-max-lines-per-function': 'error',
+    'sonar/sonar-max-lines': 'error',
+    'sonar/sonar-no-fallthrough': 'error',
+    'sonar/sonar-no-unused-vars': 'error',
+    'sonar/sql-queries': 'error',
+    'sonar/standard-input': 'off', // TODO: Maybe reenable this
+    'sonar/strict-transport-security': 'error',
+    'sonar/strings-comparison': 'error',
+    'sonar/super-invocation': 'error',
+    'sonar/switch-without-default': 'off', // TypeScript does this better
+    'sonar/todo-tag': 'off',
+    'sonar/too-many-break-or-continue-in-loop': 'error',
+    'sonar/unused-import': 'error',
+    'sonar/unverified-certificate': 'error',
+    'sonar/unverified-hostname': 'error',
+    'sonar/updated-const-var': 'error',
+    'sonar/updated-loop-counter': 'error',
+    'sonar/use-type-alias': 'error',
+    'sonar/useless-string-operation': 'error',
+    'sonar/values-not-convertible-to-numbers': 'error',
+    'sonar/variable-name': ['error', { format: '[a-z][a-zA-Z\\d]*|[A-Z_]*' }],
+    'sonar/void-use': 'error',
+    'sonar/weak-ssl': 'error',
+    'sonar/web-sql-database': 'error',
+    'sonar/x-powered-by': 'error',
+    'sonar/xml-parser-xxe': 'error',
+    'sonar/xpath': 'error',
+
+    // Unicorn
     'unicorn/better-regex': 'error',
     'unicorn/catch-error-name': 'error',
     'unicorn/consistent-destructuring': 'error',
@@ -110,7 +297,7 @@ module.exports = {
     'unicorn/prefer-regexp-test': 'error',
     'unicorn/prefer-set-has': 'error',
     'unicorn/prefer-spread': 'error',
-    'unicorn/prefer-string-replace-all': 'error',
+    'unicorn/prefer-string-replace-all': 'off', // Only available in Node 15
     'unicorn/prefer-string-slice': 'error',
     'unicorn/prefer-string-starts-ends-with': 'error',
     'unicorn/prefer-string-trim-start-end': 'error',
@@ -119,10 +306,11 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/string-content': 'error',
     'unicorn/throw-new-error': 'error',
+
+    // Unused imports
     'unused-imports/no-unused-imports-ts': 'error',
-    'woke/LGBTQ': 'error',
-    'woke/gender': 'error',
-    'woke/profanity': 'error',
-    'woke/racism': 'error'
+
+    // Woke
+    'woke/all': 'error'
   }
 }

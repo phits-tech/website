@@ -1,7 +1,7 @@
-import { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/api-callables'
-import { Dao, User, UserPrivate, USERS, USERS_PRIVATE } from '@phits-tech/common/dao-firestore'
-import { fixName } from '@phits-tech/common/utils/string-cases'
-import { New, Update } from '@phits-tech/common/utils/types/firestore'
+import { TokenRequestCallable, UrlRequestCallable } from '@phits-tech/common/dist/api-callables'
+import { Dao, User, UserPrivate, USERS, USERS_PRIVATE } from '@phits-tech/common/dist/dao-firestore'
+import { fixName } from '@phits-tech/common/dist/utils/string-cases'
+import { New, Update } from '@phits-tech/common/dist/utils/types/firestore'
 
 import { context } from '../_services/context'
 import admin, { db, FieldValue } from '../_services/firebase-admin-initialized'
@@ -11,9 +11,8 @@ import { authorizeUrl, exchangeAuthCodeForToken, getUserIdentity } from './nu-co
 
 const dao = new Dao(context)
 
-export const getUrl: Handler<UrlRequestCallable> = (data, _context) => {
-  return authorizeUrl(data.redirectUri)
-}
+export const getUrl: Handler<UrlRequestCallable> = (data, _context) =>
+  authorizeUrl(data.redirectUri)
 
 export const getToken: Handler<TokenRequestCallable> = async (data, _context) => {
   const response = await exchangeAuthCodeForToken(data.authCode, data.redirectUri)
@@ -38,7 +37,7 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
       userData = userSnapshot.data()
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return { error: 'Failed to load profile' }
   }
 
@@ -78,7 +77,7 @@ export const getToken: Handler<TokenRequestCallable> = async (data, _context) =>
   return await admin
     .auth()
     .createCustomToken(userId)
-    .catch((error) => {
+    .catch(error => {
       console.error(error)
       return { error: 'Failed to create Firebase token' }
     })

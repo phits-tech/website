@@ -10,7 +10,7 @@ import { writeCoverage } from './test-utils/rule-coverage'
 const PROJECT_ID = 'firestore-emulator-example'
 
 afterAll(async () => {
-  await Promise.all(apps().map(async (app) => await app.delete()))
+  await Promise.all(apps().map(async app => await app.delete()))
   await writeCoverage(PROJECT_ID, 'firestore-coverage.html')
 })
 

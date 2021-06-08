@@ -59,9 +59,9 @@ jobs:
                 "SECRET_NAME_FUNCTIONS_REGION": "DEV_FUNCTIONS_REGION"
               },
               ".*": {
-                "VUE_APP_EMU_PORT_AUTH": "",
-                "VUE_APP_EMU_PORT_FIRESTORE": "",
-                "VUE_APP_EMU_PORT_FUNCTIONS": ""
+                "VITE_EMU_PORT_AUTH": "",
+                "VITE_EMU_PORT_FIRESTORE": "",
+                "VITE_EMU_PORT_FUNCTIONS": ""
               }
             }
 
@@ -86,36 +86,27 @@ jobs:
 
       - name: 'Setup: Install new deps'
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
-      - name: 'Build: common'
-        run: cd common && yarn build
-
-      - name: 'Build: functions'
-        run: cd functions && yarn build
-
-      - name: 'Build: hosting'
-        run: cd hosting && rm -f .env && yarn build
+      - name: 'Build'
+        run: cd hosting && rm -f .env && cd .. && yarn build
         env:
           NODE_ENV: production
-          VUE_APP_FIREBASE_API_KEY: ${{ secrets[env.SECRET_NAME_FIREBASE_API_KEY] }}
-          VUE_APP_FIREBASE_APP_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_APP_ID] }}
-          VUE_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets[env.SECRET_NAME_FIREBASE_AUTH_DOMAIN] }}
-          VUE_APP_FIREBASE_DATABASE_U_R_L: ${{ secrets[env.SECRET_NAME_FIREBASE_DATABASE_U_R_L] }}
-          VUE_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_MESSAGING_SENDER_ID] }}
-          VUE_APP_FIREBASE_PROJECT_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_PROJECT_ID] }}
-          VUE_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets[env.SECRET_NAME_FIREBASE_STORAGE_BUCKET] }}
-          VUE_APP_FUNCTIONS_REGION: ${{ secrets[env.SECRET_NAME_FUNCTIONS_REGION] }}
-          VUE_APP_BUILD_VERSION: ${{ env.BUILD_VERSION }}
+          VITE_FIREBASE_API_KEY: ${{ secrets[env.SECRET_NAME_FIREBASE_API_KEY] }}
+          VITE_FIREBASE_APP_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_APP_ID] }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets[env.SECRET_NAME_FIREBASE_AUTH_DOMAIN] }}
+          VITE_FIREBASE_DATABASE_U_R_L: ${{ secrets[env.SECRET_NAME_FIREBASE_DATABASE_U_R_L] }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_MESSAGING_SENDER_ID] }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets[env.SECRET_NAME_FIREBASE_PROJECT_ID] }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets[env.SECRET_NAME_FIREBASE_STORAGE_BUCKET] }}
+          VITE_FUNCTIONS_REGION: ${{ secrets[env.SECRET_NAME_FUNCTIONS_REGION] }}
+          VITE_BUILD_VERSION: ${{ env.BUILD_VERSION }}
 
-      - name: 'Build: admin'
-        run: cd admin && yarn build
-
-      - name: 'Lint: ESLint & Vue'
+      - name: 'Lint'
         run: yarn lint
 
-      - name: 'Test: Execute'
-        run: cd common && yarn test:ci
+      - name: 'Test'
+        run: yarn test-ci
 
       - name: 'Test: Results reporter'
         uses: tanmen/jest-reporter@v1

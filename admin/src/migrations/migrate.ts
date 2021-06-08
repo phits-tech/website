@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { CONFIG, CONFIG_MIGRATIONS } from '@phits-tech/common/dao-firestore'
+import { CONFIG, CONFIG_MIGRATIONS } from '@phits-tech/common/dist/dao-firestore'
 
 import { productionWarning } from '@/_services/modes'
 import admin from '~/firebase-admin-initialized'
@@ -31,7 +31,7 @@ async function scanMigrations(): Promise<string[]> {
 
 async function readMigration(name: string): Promise<Migration> {
   const fullPath = path.join(__dirname, `${name}.ts`)
-  return await import(fullPath).then((migration) => {
+  return await import(fullPath).then(migration => {
     if ('up' in migration) {
       return migration as Migration
     }
@@ -58,19 +58,19 @@ const main = async (): Promise<void> => {
     .sort((a, b) => a.localeCompare(b))
 
   if (neededMigrations.length === 0) {
-    return console.log('\nMigrations up-to-date already')
+    return console.info('\nMigrations up-to-date already')
   }
 
   // Run migrations
   for (const migrationName of neededMigrations) {
     // TODO: Wrap this in a try/catch?
-    console.log(`Migration: ${migrationName}`)
+    console.info(`Migration: ${migrationName}`)
     const migration = await readMigration(migrationName)
     await migration.up(db)
     await migrationsRef.set({ [migrationName]: true }, { merge: true })
-    console.log(`Migration: ${migrationName} ✅`)
+    console.info(`Migration: ${migrationName} ✅`)
   }
-  console.log('Complete')
+  console.info('Complete')
 }
 
 export default main

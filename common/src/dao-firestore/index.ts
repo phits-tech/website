@@ -38,10 +38,10 @@ export class Dao {
     // TODO: Check slug is available
     return await this.db.collection(USERS).doc(userComplete.slug).set(userComplete, { merge: true })
       .then(() => userComplete.slug)
-      .catch(_ => '')
+      .catch(() => '')
   }
 
-  createUserPrivate(_data: New<UserPrivate>, _userId: string): void {}
-  updateUser(_data: Update<User>, _userId: string): void {}
-  updateUserPrivate(_data: Update<UserPrivate>, _userId: string): void {}
+  async createUserPrivate(_data: New<UserPrivate>, _userId: string): Promise<void> {}
+  async updateUser(_data: Update<User>, _userId: string): Promise<void> {}
+  async updateUserPrivate(_data: Update<UserPrivate>, _userId: string): Promise<void> {}
 }

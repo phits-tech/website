@@ -1,3 +1,3 @@
-export type { RouteBinding } from './route-binding'
-export { getRoutes } from './route-builder'
-export { Route } from './route-decorator'
+export * from './route-binding'
+export * from './route-builder'
+export * from './route-decorator'

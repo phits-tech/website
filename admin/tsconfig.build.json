@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "..",
+    "outDir": "dist",
+    "paths": {
+      "@phits-tech/common/dist/*": ["../common/src/*"],
+      "~/*": ["src/_services/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "references": [{ "path": "../common/tsconfig.build.json" }]
+}

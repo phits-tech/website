@@ -4,9 +4,9 @@ import { productionWarning } from '.'
 
 const main = async (): Promise<void> => {
   await productionWarning(__filename)
-  console.log(`firebase-admin: v${admin.SDK_VERSION}`)
+  console.info(`firebase-admin: v${admin.SDK_VERSION}`)
 }
 
 main()
   .then(() => process.exit())
-  .catch((error) => console.error(error))
+  .catch(error => console.error(error))

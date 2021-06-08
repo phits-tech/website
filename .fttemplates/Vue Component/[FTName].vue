@@ -1,2 +1,3 @@
-<template src="./<FTName>.html"></template>
-<script src="./<FTName>.ts" lang="ts"></script>
+<script src="./<FTName>" lang="ts"></script>
+
+<template></template>
