@@ -113,4 +113,5 @@ export interface Banner {
   targetEventSlug?: string
   targetRoute?: string
   dateExpire: Timestamp
+  priority: number
 }

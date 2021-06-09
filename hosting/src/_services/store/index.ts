@@ -14,7 +14,7 @@ import { db } from '~/firebase-initialized'
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
   eventsRaw: Array<DeepRequired<Event>>
-  banners: Array<Omit<Banner, 'slug' | 'dateExpire'>>
+  banners: Array<Omit<Banner, 'slug' >>
 }
 
 /**
@@ -40,7 +40,7 @@ export const store = createStore<PTStoreState>({
   state: {
     currentUser: null, // eslint-disable-line unicorn/no-null -- vuexfire
     eventsRaw: [],
-    banners: [{ banner169Url: '/images/placeholders/banner_16_9_loading.png' }]
+    banners: []
   },
   getters: {
     events: state => state.eventsRaw.map(event => eventToEventUi(event)),
