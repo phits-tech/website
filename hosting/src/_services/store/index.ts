@@ -1,19 +1,20 @@
 import { User as FirebaseUser } from '@firebase/auth-types'
 import { InjectionKey } from '@vue/runtime-core'
+import { DeepRequired } from 'ts-essentials'
 import { createStore, Store } from 'vuex'
 import { firestoreAction, vuexfireMutations } from 'vuexfire'
 
-import { Banner, BANNERS, Event, EVENTS, User, USERS } from '@phits-tech/common/dao-firestore'
-import { DeepRequiredWithId } from '@phits-tech/common/utils/types/general'
+import { Banner, BANNERS, Event, EVENTS, User, USERS } from '@phits-tech/common/dist/dao-firestore'
+import { DeepRequiredWithId } from '@phits-tech/common/dist/utils/types/general'
 
-import { eventToEventUi } from '@/events/models'
+import { eventToEventUi } from '@/models'
 import { db } from '~/firebase-initialized'
 
 // VuexFire resets objects to null
 export interface PTStoreState {
   currentUser: DeepRequiredWithId<User> | null
-  eventsRaw: Event[]
-  banners: Array<Omit<Banner, 'slug' | 'dateExpire'>>
+  eventsRaw: Array<DeepRequired<Event>>
+  banners: Array<Omit<Banner, 'slug' >>
 }
 
 /**
@@ -39,11 +40,11 @@ export const store = createStore<PTStoreState>({
   state: {
     currentUser: null, // eslint-disable-line unicorn/no-null -- vuexfire
     eventsRaw: [],
-    banners: [{ banner169Url: '/images/banner_16_9_loading.png' }]
+    banners: []
   },
   getters: {
-    events: (state) => state.eventsRaw.map(event => eventToEventUi(event)),
-    eventBySlug: (state) => (slug: string) => {
+    events: state => state.eventsRaw.map(event => eventToEventUi(event)),
+    eventBySlug: state => (slug: string) => {
       const event = state.eventsRaw.find(event => event.slug === slug)
       return event ? eventToEventUi(event) : undefined
     }
@@ -66,7 +67,7 @@ export const store = createStore<PTStoreState>({
         ? Promise.all([
           bindFirestoreRef(STORE.STATE.currentUser, db.collection(USERS).doc(uid))
         ])
-        : new Promise<void>((resolve) => {
+        : new Promise<void>(resolve => {
           unbindFirestoreRef(STORE.STATE.currentUser)
           resolve()
         })

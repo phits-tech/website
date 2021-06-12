@@ -2,9 +2,9 @@ import fs from 'fs'
 import { keyBy, mapValues } from 'lodash'
 import path from 'path'
 
-import { snakeize } from '@phits-tech/common/utils/string-cases'
+import { snakeize } from '@phits-tech/common/dist/utils/string-cases'
 
-const VUE_FIREBASE_PREFIX = 'VUE_APP_FIREBASE_'
+const VITE_FIREBASE_PREFIX = 'VITE_FIREBASE_'
 
 const main = async (): Promise<void> => {
   const pathToRoot = '../../../'
@@ -13,14 +13,14 @@ const main = async (): Promise<void> => {
 
   // Look for Firebase configs
   const configPattern = /^firebase-config\.(\w+)\.json$/g
-  fs.readdirSync(configPath).forEach((filename) => {
+  fs.readdirSync(configPath).forEach(filename => {
     // Ignore irrelevant files
     const matches = configPattern.exec(filename)
     if (!matches) return
 
     // Extract "mode" (and ignore emu)
     const mode = matches[1].toLowerCase()
-    if (mode === 'emu') return console.log('emu: Ignore (emu is the default configuration from .env)')
+    if (mode === 'emu') return console.info('emu: Ignore (emu is the default configuration from .env)')
 
     // Read firebase-config
     const firebaseConfig = JSON.parse(fs.readFileSync(path.join(configPath, filename), { encoding: 'utf8' })) as Record<string, string>
@@ -33,7 +33,7 @@ const main = async (): Promise<void> => {
     const envPairs = existingEnv
       .replace(/\r\n/g, '\n')
       .split('\n')
-      .filter((line) => line.includes('='))
+      .filter(line => line.includes('='))
       .map(line => line.split('='))
 
     const envObject = mapValues(
@@ -42,13 +42,13 @@ const main = async (): Promise<void> => {
     )
 
     // Merge - based on mode (ports default to '')
-    if (!envObject.VUE_APP_EMU_PORT_AUTH) envObject.VUE_APP_EMU_PORT_AUTH = ''
-    if (!envObject.VUE_APP_EMU_PORT_FIRESTORE) envObject.VUE_APP_EMU_PORT_FIRESTORE = ''
-    if (!envObject.VUE_APP_EMU_PORT_FUNCTIONS) envObject.VUE_APP_EMU_PORT_FUNCTIONS = ''
+    if (!envObject.VITE_EMU_PORT_AUTH) envObject.VITE_EMU_PORT_AUTH = ''
+    if (!envObject.VITE_EMU_PORT_FIRESTORE) envObject.VITE_EMU_PORT_FIRESTORE = ''
+    if (!envObject.VITE_EMU_PORT_FUNCTIONS) envObject.VITE_EMU_PORT_FUNCTIONS = ''
 
     // Merge - firebase-config
     Object.entries(firebaseConfig).forEach(([key, value]) => {
-      envObject[VUE_FIREBASE_PREFIX + snakeize(key).toUpperCase()] = value
+      envObject[VITE_FIREBASE_PREFIX + snakeize(key).toUpperCase()] = value
     })
 
     // Write new .env
@@ -58,14 +58,14 @@ const main = async (): Promise<void> => {
       .join('\n')
 
     if (updatedEnv === existingEnv) {
-      console.log(`${mode}: Already up-to-date`)
+      console.info(`${mode}: Already up-to-date`)
     } else {
       fs.writeFileSync(destinationFile, updatedEnv)
-      console.log(`${mode}: Updated firebase-config`)
+      console.info(`${mode}: Updated firebase-config`)
     }
   })
 }
 
 main()
   .then(() => process.exit())
-  .catch((error) => console.error(error))
+  .catch(error => console.error(error))

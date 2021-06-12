@@ -1,7 +1,13 @@
 # managed by eslint
 *.ts
+*.vue
+
+# managed by stylelint
+*.css
+*.scss
 
 # deps & build
+.yarn
 node_modules
 dist
 lib

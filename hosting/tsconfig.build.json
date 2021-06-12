@@ -1,0 +1,22 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "..",
+    "outDir": "dist",
+    "paths": {
+      "@phits-tech/common/dist/*": ["../common/src/*"],
+      "~/*": ["src/_services/*"],
+      "@/*": ["src/*"]
+    },
+    // Override
+    "composite": false,
+    "importHelpers": true,
+    "incremental": false,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "../common/tsconfig.build.json" }]
+}

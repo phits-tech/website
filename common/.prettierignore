@@ -1,7 +1,16 @@
 # managed by eslint
 *.ts
+*.vue
+
+# managed by stylelint
+*.css
+*.scss
+
+# secrets
+configs
 
 # deps & build
+.yarn
 node_modules
 dist
 lib

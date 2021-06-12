@@ -1,43 +1,46 @@
-import { App as VueApp, createApp } from 'vue'
+import { createApp } from 'vue'
 
-import App from '@/global/App/App.vue'
+import App from '@/App/App.vue'
 import * as filters from '~/filters'
 import { auth } from '~/firebase-initialized'
-import { globals } from '~/globals'
-import { i18n } from '~/i18n'
+import { i18n, td } from '~/i18n'
+import { injects } from '~/injects'
 import { metaManager } from '~/meta'
 import { mixins } from '~/mixins'
-import router from '~/router'
+import { router } from '~/router'
 import { STORE, store, storeKey } from '~/store'
 
+import 'virtual:windi.css'
 import '@/main.css'
 
 // Setup Vue
-const create = async (): Promise<VueApp<Element>> => {
+let appInitialized = false
+const init = async (): Promise<void> => {
+  if (appInitialized) return
+
   const app = createApp(App)
     .use(router)
     .use(store, storeKey)
     .use(metaManager)
     .use(i18n)
 
-  // TODO: I think I'm doing this wrong... https://learnvue.co/2020/03/designing-vue3-plugins-using-provide-and-inject/
-  Object.entries(globals).forEach(([key, value]) => app.provide(key, value))
-
+  Object.entries(injects).forEach(([key, value]) => app.provide(key, value))
   mixins.forEach(mixin => app.mixin(mixin))
   app.config.globalProperties.$filters = filters
+  app.config.globalProperties.$td = td
 
-  await store.dispatch(STORE.ACTIONS.init)
-  await router.isReady()
+  await Promise.all([
+    store.dispatch(STORE.ACTIONS.init),
+    router.isReady()
+  ])
   app.mount('#app')
-  return app
+  appInitialized = true
 }
 
 // Load auth state => start Vue
-let shouldInitialize = true
-auth.onAuthStateChanged(async (user) => {
-  await store.dispatch(STORE.ACTIONS.userChanged, user)
-  if (shouldInitialize) {
-    shouldInitialize = false
-    await create()
-  }
+auth.onAuthStateChanged(async user => {
+  await Promise.all([
+    store.dispatch(STORE.ACTIONS.userChanged, user),
+    init()
+  ])
 })

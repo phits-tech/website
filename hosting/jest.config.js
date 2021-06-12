@@ -1,6 +1,9 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
-  transform: {
-    '^.+\\.vue$': 'vue-jest'
-  }
+  preset: 'ts-jest',
+  // transform: { '^.+\\.vue$': 'vue-jest' },
+  testEnvironment: 'node',
+  modulePathIgnorePatterns: ['/dist/'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  reporters: ['default'],
+  coverageDirectory: '../coverage'
 }

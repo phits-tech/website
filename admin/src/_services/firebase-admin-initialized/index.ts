@@ -29,21 +29,19 @@ if (MODE === 'emu') {
   // Initialize
   const emuProjectId = 'phits-tech-emu'
   admin.initializeApp({ projectId: emuProjectId })
-  console.log(`Using project: ${emuProjectId}\n`)
+  console.info(`Using project: ${emuProjectId}\n`)
 } else {
   // Read service-account
   interface ServiceAccountJson {
     project_id: string
   }
 
-  // URGENT: Use try/catch (see config-functions-set for example)
   const configPath = path.join(__dirname, pathToRoot, `configs/service-account.${MODE}.json`)
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const serviceAccount = require(configPath) as ServiceAccountJson
+  const serviceAccount = JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' })) as ServiceAccountJson
 
   // Initialize
   admin.initializeApp({ credential: admin.credential.cert(serviceAccount as admin.ServiceAccount) })
-  console.log(`Using project: ${serviceAccount.project_id}\n`)
+  console.info(`Using project: ${serviceAccount.project_id}\n`)
 }
 
 export default admin

@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 import firebase from 'firebase-admin'
 
-import { Event } from '@phits-tech/common/dao-firestore'
+import { Event } from '@phits-tech/common/dist/dao-firestore'
 
 const PT_DISCORD = 'https://discord.gg/4CHb53F'
 

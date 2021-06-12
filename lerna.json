@@ -1,6 +1,0 @@
-{
-  "packages": ["admin", "common", "docs", "functions", "hosting"],
-  "version": "0.0.1",
-  "npmClient": "yarn",
-  "useWorkspaces": true
-}

@@ -1,0 +1,12 @@
+# ignore everything
+# ...except css/scss
+*.*
+!*.css
+!*.scss
+
+# deps & build
+.yarn
+node_modules
+dist
+lib
+coverage

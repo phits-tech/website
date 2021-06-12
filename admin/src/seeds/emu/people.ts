@@ -1,6 +1,6 @@
 import firebase from 'firebase-admin'
 
-import { New, User } from '@phits-tech/common/dao-firestore'
+import { New, User } from '@phits-tech/common/dist/dao-firestore'
 
 const chaz: New<User> = {
   slug: 'charles-allen',

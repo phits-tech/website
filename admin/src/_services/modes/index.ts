@@ -1,9 +1,9 @@
 import dedent from 'dedent-js'
 import readline from 'readline'
 
-import { randomElement } from '@phits-tech/common/utils/random'
+import { randomElement } from '@phits-tech/common/dist/utils/random'
 
-const modeArg = process.argv.find((arg) => arg.startsWith('--mode='))
+const modeArg = process.argv.find(arg => arg.startsWith('--mode='))
 export const MODE = modeArg?.split('=')[1].toLowerCase() ?? 'emu'
 
 const phews = ['Phew; that was close!', 'Good choice bro!']
@@ -11,7 +11,7 @@ const phews = ['Phew; that was close!', 'Good choice bro!']
 export const productionWarning = async (filename: string): Promise<void> => {
   const filePathParts = filename.split(/[/\\]/)
   const [file, folder] = [filePathParts.pop(), filePathParts.pop()]
-  console.log(`Begin: ${folder ?? ''}/${file ?? ''}`)
+  console.info(`Begin: ${folder ?? ''}/${file ?? ''}`)
 
   if (MODE !== 'emu') {
     // Warn & require confirmation
@@ -24,12 +24,12 @@ export const productionWarning = async (filename: string): Promise<void> => {
       Are you sure you want to continue? [y|N] `)
 
     const ui = readline.createInterface({ input: process.stdin, output: process.stdout })
-    const result = await new Promise<string>((resolve) => ui.question(warning, (answer) => resolve(answer)))
+    const result = await new Promise<string>(resolve => ui.question(warning, answer => resolve(answer)))
     ui.close()
 
     // Kill if no confirmation
     if (result.toLowerCase() !== 'y') {
-      console.log(`${randomElement(phews)} Execution cancelled`)
+      console.info(`${randomElement(phews)} Execution cancelled`)
       process.exit(0)
     }
   }
