@@ -5,16 +5,16 @@ import { New, Update } from '@phits-tech/common/dist/utils/types/firestore'
 
 import { context } from '../_services/context'
 import admin, { db, FieldValue } from '../_services/firebase-admin-initialized'
-import { Handler } from '../types'
+import { HttpsCallableHandler } from '../types'
 
 import { authorizeUrl, exchangeAuthCodeForToken, getUserIdentity } from './nu-connect'
 
 const dao = new Dao(context)
 
-export const getUrl: Handler<UrlRequestCallable> = (data, _context) =>
+export const getUrl: HttpsCallableHandler<UrlRequestCallable> = (data, _context) =>
   authorizeUrl(data.redirectUri)
 
-export const getToken: Handler<TokenRequestCallable> = async (data, _context) => {
+export const getToken: HttpsCallableHandler<TokenRequestCallable> = async (data, _context) => {
   const response = await exchangeAuthCodeForToken(data.authCode, data.redirectUri)
   if ('error' in response.body) {
     console.error(response.body.error)
