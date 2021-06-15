@@ -15,12 +15,15 @@
   },
   "dependencies": {
     "@phits-tech/common": "0.0.1",
+    "dedent-js": "^1.0.1",
     "express": "^4.17.1",
     "firebase-admin": "^9.9.0",
     "firebase-functions": "^3.14.1",
+    "nodemailer": "^6.6.1",
     "phin": "3.5.1"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.2",
     "firebase-functions-test": "^0.3.0"
   }
 }

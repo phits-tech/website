@@ -1444,10 +1444,13 @@ __metadata:
   resolution: "@phits-tech/functions@workspace:functions"
   dependencies:
     "@phits-tech/common": 0.0.1
+    "@types/nodemailer": ^6.4.2
+    dedent-js: ^1.0.1
     express: ^4.17.1
     firebase-admin: ^9.9.0
     firebase-functions: ^3.14.1
     firebase-functions-test: ^0.3.0
+    nodemailer: ^6.6.1
     phin: 3.5.1
   languageName: unknown
   linkType: soft
@@ -2029,6 +2032,15 @@ __metadata:
   version: 15.12.1
   resolution: "@types/node@npm:15.12.1"
   checksum: 8a111dc99281e07b1a6408437a09eafb081760aa8bd73d481793345b302a565772c45f2be7fdd7386a8a7ce589a999ccfb513dba15a0b3320dba03c94308253f
+  languageName: node
+  linkType: hard
+
+"@types/nodemailer@npm:^6.4.2":
+  version: 6.4.2
+  resolution: "@types/nodemailer@npm:6.4.2"
+  dependencies:
+    "@types/node": "*"
+  checksum: 35858e7ab0a9d88b849632108fab350165be0f3985c0d53c3ebce700ef8d90b8a08f5f361c1513986c58d41531f5b8c19430e8c4c853d4c37cef390e109564f8
   languageName: node
   linkType: hard
 
@@ -8779,6 +8791,13 @@ __metadata:
   version: 1.1.72
   resolution: "node-releases@npm:1.1.72"
   checksum: a9ded860baa3c90fa6fde2e1be597959b238940cda1e5bbeceb5de6a16faa1db81982b629429fd6ebbec98f7dd241378cda5918a57c9baf68cb6a6e002b4fc15
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^6.6.1":
+  version: 6.6.1
+  resolution: "nodemailer@npm:6.6.1"
+  checksum: c889cf7d52cb7931d0b0563aff2c64f95a0f2f8659841a033288e84224933d3df4963ebb334f5aee0a5b7958ea5638f9a92ae367231ff4bb71ac76011b30fd2e
   languageName: node
   linkType: hard
 
