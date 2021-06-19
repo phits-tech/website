@@ -63,12 +63,16 @@ const main = async (): Promise<void> => {
 
   // Run migrations
   for (const migrationName of neededMigrations) {
-    // TODO: Wrap this in a try/catch?
-    console.info(`Migration: ${migrationName}`)
-    const migration = await readMigration(migrationName)
-    await migration.up(db)
-    await migrationsRef.set({ [migrationName]: true }, { merge: true })
-    console.info(`Migration: ${migrationName} ✅`)
+    try {
+      console.info(`Migration: ${migrationName}`)
+      const migration = await readMigration(migrationName)
+      await migration.up(db)
+      await migrationsRef.set({ [migrationName]: true }, { merge: true })
+      console.info(`Migration: ${migrationName} ✅`)
+    } catch (error) {
+      console.error(error)
+      return
+    }
   }
   console.info('Complete')
 }
