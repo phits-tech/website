@@ -25,7 +25,7 @@ const config = mapKeys(
 
 // Initialize
 firebase.initializeApp(config)
-console.info(`Using project: ${config.projectId}`)
+if (import.meta.env.DEV) console.info(`Using project: ${config.projectId}`)
 
 // Cloud Functions region
 const region = VITE_EMU_PORT_FUNCTIONS ? 'us-central1' : VITE_FUNCTIONS_REGION
