@@ -4,6 +4,9 @@
 !*.css
 !*.scss
 
+# temp folders
+*-*-*/*.*
+
 # secrets
 configs
 
