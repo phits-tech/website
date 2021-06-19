@@ -33,7 +33,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: 'Setup: Install new deps'
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --immutable
 
       - name: 'Lint'
