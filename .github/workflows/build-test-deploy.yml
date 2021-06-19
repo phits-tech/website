@@ -133,5 +133,5 @@ jobs:
           FIREBASE_TOKEN: '${{ secrets.FIREBASE_CI_TOKEN }}'
           PROJECT_ID: '${{ secrets[env.SECRET_NAME_FIREBASE_PROJECT_ID] }}'
 
-      - name: 'Deploy: Perform migrations'
-        run: yarn workspace @phits-tech/admin run migrate --mode=${{ env.BUILD_ALIAS }} --yes
+      # - name: 'Deploy: Perform migrations'
+      #   run: yarn workspace @phits-tech/admin run migrate --mode=${{ env.BUILD_ALIAS }} --yes
