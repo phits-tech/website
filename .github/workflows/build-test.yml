@@ -36,6 +36,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --immutable
 
+      - name: 'Lint'
+        run: yarn lint
+
       - name: 'Build'
         run: cd hosting && rm -f .env && cd .. && yarn build
         env:
@@ -49,9 +52,6 @@ jobs:
           VITE_FIREBASE_STORAGE_BUCKET: xyz
           VITE_FUNCTIONS_REGION: xyz
           VITE_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
-
-      - name: 'Lint'
-        run: yarn lint
 
       - name: 'Test: Execute'
         run: yarn test-ci
