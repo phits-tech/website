@@ -32,9 +32,7 @@ if (MODE === 'emu') {
   console.info(`Using project: ${emuProjectId}\n`)
 } else {
   // Read service-account
-  interface ServiceAccountJson {
-    project_id: string
-  }
+  interface ServiceAccountJson { project_id: string } // eslint-disable-line camelcase
 
   const configPath = path.join(__dirname, pathToRoot, `configs/service-account.${MODE}.json`)
   const serviceAccount = JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' })) as ServiceAccountJson

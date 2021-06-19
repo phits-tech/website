@@ -4,7 +4,7 @@ import { get, post } from '../_services/request-helpers/get-post'
 const { clientId, clientSecret, scopes, baseUrl } = config.auth
 
 interface UserIdentity { username: string, email: string, name: string }
-interface Token { access_token: string }
+interface Token { access_token: string } // eslint-disable-line camelcase
 
 export function authorizeUrl(redirectUri: string): string {
   const queryString = `client_id=${clientId}&scope=${scopes}&response_type=code&redirect_uri=${redirectUri}`

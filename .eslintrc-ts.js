@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['.eslintrc-js.js', 'standard-with-typescript'],
+  extends: ['standard-with-typescript', '.eslintrc-js.js'],
   parserOptions: {
     ecmaFeatures: { jsx: true },
     extraFileExtensions: ['.vue'],
@@ -9,6 +9,11 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
   rules: {
+    // Disable rules that don't understand TypeScript
+    'no-redeclare': 'off',
+    'no-undef': 'off',
+    'no-useless-constructor': 'off',
+
     // TypeScript
     // TODO: Consider reviewing ALL typescript-eslint rules
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'no-type-imports' }],
