@@ -12,6 +12,13 @@ interface FunctionsConfig {
   project: {
     region: string
   }
+  smtp: {
+    host: string
+    port: number
+    username: string
+    password: string
+    monitorAddress: string
+  }
 }
 
 const configSnake = functions.config()

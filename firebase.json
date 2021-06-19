@@ -14,11 +14,7 @@
       ".runtimeconfig*",
       "tsconfig*.json"
     ],
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run build",
-      "npm --prefix \"$RESOURCE_DIR\" run lint",
-      "cd functions ; sh predeploy.sh"
-    ],
+    "predeploy": ["yarn build", "yarn lint", "cd functions ; sh predeploy.sh"],
     "postdeploy": ["cd functions ; sh postdeploy.sh"]
   },
   "hosting": {
@@ -46,6 +42,12 @@
     },
     "hosting": {
       "port": 5000
+    },
+    "pubsub": {
+      "port": 8085
+    },
+    "storage": {
+      "port": 9199
     },
     "ui": {
       "enabled": true,

@@ -3,6 +3,6 @@ import { DocumentSnapshot, QueryDocumentSnapshot } from 'firebase-functions/lib/
 
 import { HttpsCallable } from '@phits-tech/common/dist/api-callables'
 
-export type Handler<Callable> = Callable extends HttpsCallable<infer In, infer Out> ? (data: In, context: https.CallableContext) => Out | Promise<Out> : never
+export type HttpsCallableHandler<Callable = unknown> = Callable extends HttpsCallable<infer In, infer Out> ? (data: In, context: https.CallableContext) => Out | Promise<Out> : (data: any, context: https.CallableContext) => any | Promise<any>
 export type DocumentCreatedHandler = (snapshot: QueryDocumentSnapshot, context: EventContext) => PromiseLike<unknown> | unknown
 export type DocumentUpdatedHandler = (change: Change<DocumentSnapshot>, context: EventContext) => PromiseLike<unknown> | unknown

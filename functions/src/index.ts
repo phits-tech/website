@@ -1,6 +1,7 @@
-// import { TBD } from '@phits-tech/common/dist/dao-firestore'
+import { EVENTS_SUGGESTED } from '@phits-tech/common/dist/dao-firestore'
 
-// import functions from './_services/firebase-functions-initialized'
+import functions from './_services/firebase-functions-initialized'
+import { onEventSuggested } from './events'
 // import { getToken, getUrl } from './auth'
 
 // HTTPS Callable
@@ -8,4 +9,4 @@
 // export const authNUConnectToken = functions.https.onCall(getToken)
 
 // Firestore
-// export const tbd = functions.firestore.document(`${tbd}/tbd`).onCreate(tbd)
+export const eventSuggested = functions.firestore.document(`${EVENTS_SUGGESTED}/{eventId}`).onCreate(onEventSuggested)
