@@ -33,7 +33,6 @@ export function valuesWithIds<U>(obj?: { [key: string]: U }): Array<U & { id: st
  * Like `valuesWithIds`, except it operates on a single tuple, e.g. the result of `find`
  */
 export function valueWithId<U>(tuple: [string, U]): U & { id: string }
-export function valueWithId<U>(tuple?: [string, U]): (U & { id: string }) | undefined
 export function valueWithId<U>(tuple?: [string, U]): (U & { id: string }) | undefined {
   return tuple ? { ...tuple[1], id: tuple[0] } : undefined
 }
