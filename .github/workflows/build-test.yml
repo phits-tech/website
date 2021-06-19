@@ -29,12 +29,24 @@ jobs:
         uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: '**/node_modules'
+          path: '**/.yarn/cache'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: 'Setup: Install new deps'
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --immutable
+
+      - name: 'Lint'
+        run: yarn lint
+
+      - name: 'Test: Execute'
+        run: yarn test-ci
+
+      - name: 'Test: Results reporter'
+        uses: tanmen/jest-reporter@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          action-name: 'Tests'
 
       - name: 'Build'
         run: cd hosting && rm -f .env && cd .. && yarn build
@@ -49,15 +61,3 @@ jobs:
           VITE_FIREBASE_STORAGE_BUCKET: xyz
           VITE_FUNCTIONS_REGION: xyz
           VITE_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
-
-      - name: 'Lint'
-        run: yarn lint
-
-      - name: 'Test: Execute'
-        run: yarn test-ci
-
-      - name: 'Test: Results reporter'
-        uses: tanmen/jest-reporter@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          action-name: 'Tests'

@@ -24,6 +24,7 @@ lib
 # Tests & Coverage
 coverage
 firestore-coverage.html
+result.json
 
 # Logs
 logs
