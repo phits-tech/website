@@ -75,7 +75,7 @@ jobs:
         uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: '**/node_modules'
+          path: '**/.yarn/cache'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: 'Setup: Install new deps'
