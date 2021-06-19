@@ -134,4 +134,4 @@ jobs:
           PROJECT_ID: '${{ secrets[env.SECRET_NAME_FIREBASE_PROJECT_ID] }}'
 
       - name: 'Deploy: Perform migrations'
-        run: cd admin && yarn migrate --mode=${{ env.BUILD_ALIAS }} --yes
+        run: yarn workspace @phits-tech/admin run migrate --mode=${{ env.BUILD_ALIAS }} --yes
