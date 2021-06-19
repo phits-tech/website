@@ -113,9 +113,9 @@ jobs:
           VITE_FUNCTIONS_REGION: ${{ secrets[env.SECRET_NAME_FUNCTIONS_REGION] }}
           VITE_BUILD_VERSION: ${{ env.BUILD_VERSION }}
 
-      - name: 'Deploy: Backup Firestore'
-        if: steps.extract_branch.outputs.branch == 'main'
-        run: cd admin && yarn backup "Pre-deploy ${{ env.BUILD_VERSION }}" ${{ env.BUILD_ALIAS }}
+      # - name: 'Deploy: Backup Firestore'
+      #   if: steps.extract_branch.outputs.branch == 'main'
+      #   run: yarn workspace @phits-tech/admin run backup "Pre-deploy ${{ env.BUILD_VERSION }}" ${{ env.BUILD_ALIAS }}
 
       - name: 'Deploy: Wait at turnstile'
         uses: softprops/turnstyle@v1
